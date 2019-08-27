@@ -1,0 +1,84 @@
+package lumicode.agendaja.api.model;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+@Entity
+@Table(name = "tbl_endereco")
+public class Endereco {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long IdEndereco;
+	@NotNull
+	@Size(min = 5, max = 100, message = "O logradouro deve conter mais de 5 caracteres!")
+	private String logradouro;
+	@NotNull
+	@Size(min = 5, max = 100, message = "O Bairrodeve conter mais de 5 caracteres!")
+	private String bairro;
+	@NotNull
+	private String numero;
+	@OneToOne
+	@JoinColumn(name = "id_estabelecimento")
+	private Long idEstabelicimento;
+	@OneToOne
+	@JoinColumn(name = "id_cliente")
+	private Long idCliente;
+
+	
+	public Long getIdEndereco() {
+		return IdEndereco;
+	}
+
+	public void setIdEndereco(Long idEndereco) {
+		IdEndereco = idEndereco;
+	}
+
+	public String getLogradouro() {
+		return logradouro;
+	}
+
+	public void setLogradouro(String logradouro) {
+		this.logradouro = logradouro;
+	}
+
+	public String getBairro() {
+		return bairro;
+	}
+
+	public void setBairro(String bairro) {
+		this.bairro = bairro;
+	}
+
+	public String getNumero() {
+		return numero;
+	}
+
+	public void setNumero(String numero) {
+		this.numero = numero;
+	}
+
+	public Long getIdEstabelicimento() {
+		return idEstabelicimento;
+	}
+
+	public void setIdEstabelicimento(Long idEstabelicimento) {
+		this.idEstabelicimento = idEstabelicimento;
+	}
+
+	public Long getIdCliente() {
+		return idCliente;
+	}
+
+	public void setIdCliente(Long idCliente) {
+		this.idCliente = idCliente;
+	}
+	
+	
+}
