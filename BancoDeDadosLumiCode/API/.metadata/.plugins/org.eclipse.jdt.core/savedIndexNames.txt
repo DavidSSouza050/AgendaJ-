@@ -1,0 +1,2 @@
+INDEX VERSION 1.131+C:\Users\18175740\Desktop\BancoDeDadosLumiCode\API\.metadata\.plugins\org.eclipse.jdt.core
+116535527.index

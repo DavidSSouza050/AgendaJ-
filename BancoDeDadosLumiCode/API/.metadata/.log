@@ -1,0 +1,110 @@
+!SESSION 2019-08-26 16:48:10.631 -----------------------------------------------
+eclipse.buildId=4.10.0.I20181206-0815
+java.version=1.8.0_191
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=pt_BR
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.jface 2 0 2019-08-26 16:49:54.411
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2019-08-26 16:49:54.411
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@3e0a112f,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@abe7d36,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.jface.text 2 0 2019-08-26 16:50:17.129
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.boolean'
+
+!ENTRY org.eclipse.egit.ui 2 0 2019-08-26 16:50:32.667
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'Z:\'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-26 16:54:03.094
+!MESSAGE Entering DelegatingStreamConnectionProvider()
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-26 16:54:03.099
+!MESSAGE DelegatingStreamConnectionProvider classloader = org.eclipse.osgi.internal.loader.EquinoxClassLoader@774da94f[org.springframework.tooling.boot.ls:1.8.0.201906200642(id=1016)]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-26 16:54:03.162
+!MESSAGE SpringBootLanguageServer exists!
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-26 16:54:04.105
+!MESSAGE Instantiating ReusableClasspathListenerHandler
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-26 16:54:28.352
+!MESSAGE Boot LS startup time from start to initialized: 25125ms
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-26 16:54:28.491
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.IZoDSyfUisBatched = true
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-26 16:54:28.496
+!MESSAGE subscribing to classpath changes: sts4.classpath.IZoDSyfU isBatched = true
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-26 16:54:28.501
+!MESSAGE Setting up ClasspathListenerManager
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-26 16:54:28.507
+!MESSAGE subsribers = {sts4.classpath.IZoDSyfU=Send Classpath Notifications(830)}
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-26 16:54:28.513
+!MESSAGE Sending initial event for all projects ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-26 16:54:28.519
+!MESSAGE project agendaja ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-26 16:54:28.525
+!MESSAGE Sending initial event for all projects DONE
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-26 16:54:28.529
+!MESSAGE Preparing classpath changed notification agendaja
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-26 16:54:28.533
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.IZoDSyfU => OK
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-26 16:54:28.538
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-26 16:54:28.546
+!MESSAGE classpath=21 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-26 16:54:28.551
+!MESSAGE buffering callback sts4.classpath.IZoDSyfU agendaja false 21
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-26 16:54:28.556
+!MESSAGE executing callback sts4.classpath.IZoDSyfU 1 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-26 16:54:28.586
+!MESSAGE executing callback sts4.classpath.IZoDSyfU SUCCESS [done]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-26 16:58:57.235
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.IZoDSyfU
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-26 16:58:57.246
+!MESSAGE unsubscribing from classpath changes: sts4.classpath.IZoDSyfU
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-26 16:58:57.251
+!MESSAGE subsribers = null
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-26 16:58:57.257
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.IZoDSyfU => OK
+
+!ENTRY org.eclipse.ui 2 2 2019-08-26 16:58:57.706
+!MESSAGE Invalid property category path: org.springframework.ide.eclipse.beans.ui.properties.ProjectPropertyPage (bundle: org.springframework.ide.eclipse.xml.namespaces, propertyPage: org.springframework.ide.eclipse.beans.ui.namespaces.projectPropertyPage)
