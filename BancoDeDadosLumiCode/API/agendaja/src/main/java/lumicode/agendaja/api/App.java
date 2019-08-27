@@ -1,4 +1,4 @@
-package lumicode.agendaja;
+package lumicode.agendaja.api;
 
 /**
  * Hello world!
