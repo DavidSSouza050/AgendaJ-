@@ -13,7 +13,6 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.br.CPF;
-import org.springframework.format.annotation.DateTimeFormat;
 
 
 @Entity
@@ -49,7 +48,7 @@ public class Cliente {
 	private String senha;
 	@OneToOne
 	@JoinColumn(name = "id_endereco")
-	private Long idEndereco;
+	private Endereco idEndereco;
 	
 	
 	public Long getIdCliente() {

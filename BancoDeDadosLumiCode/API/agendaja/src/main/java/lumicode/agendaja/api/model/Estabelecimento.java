@@ -5,7 +5,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
@@ -42,7 +41,7 @@ public class Estabelecimento {
 	private String senha;
 	@OneToOne
 	@JoinColumn(name = "id_endereco")
-	private Long idEndereco; 
+	private Endereco idEndereco; 
 	
 	
 	
@@ -111,13 +110,14 @@ public class Estabelecimento {
 		this.senha = senha;
 	}
 
-	public Long getIdEndereco() {
+	public Endereco getIdEndereco() {
 		return idEndereco;
 	}
 
-	public void setIdEndereco(Long idEndereco) {
+	public void setIdEndereco(Endereco idEndereco) {
 		this.idEndereco = idEndereco;
 	}
+
 	
 	
 

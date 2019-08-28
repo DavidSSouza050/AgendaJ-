@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -15,9 +16,9 @@ public class Cidade {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idCidade;
 	private String cidade;
-	@OneToOne
+	@ManyToOne
 	@JoinColumn(name = "id_estado")
-	private Long idEstado;
+	private Estado idEstado;
 
 	public Long getIdCidade() {
 		return idCidade;
@@ -35,13 +36,15 @@ public class Cidade {
 		this.cidade = cidade;
 	}
 
-	public Long getIdEstado() {
+	public Estado getIdEstado() {
 		return idEstado;
 	}
 
-	public void setIdEstado(Long idEstado) {
+	public void setIdEstado(Estado idEstado) {
 		this.idEstado = idEstado;
 	}
+
+	
 	
 
 }

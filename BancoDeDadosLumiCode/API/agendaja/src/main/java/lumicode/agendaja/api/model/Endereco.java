@@ -26,10 +26,10 @@ public class Endereco {
 	private String numero;
 	@OneToOne
 	@JoinColumn(name = "id_estabelecimento")
-	private Long idEstabelicimento;
+	private Estabelecimento idEstabelicimento;
 	@OneToOne
 	@JoinColumn(name = "id_cliente")
-	private Long idCliente;
+	private Cliente idCliente;
 
 	
 	public Long getIdEndereco() {
@@ -64,21 +64,23 @@ public class Endereco {
 		this.numero = numero;
 	}
 
-	public Long getIdEstabelicimento() {
+	public Estabelecimento getIdEstabelicimento() {
 		return idEstabelicimento;
 	}
 
-	public void setIdEstabelicimento(Long idEstabelicimento) {
+	public void setIdEstabelicimento(Estabelecimento idEstabelicimento) {
 		this.idEstabelicimento = idEstabelicimento;
 	}
 
-	public Long getIdCliente() {
+	public Cliente getIdCliente() {
 		return idCliente;
 	}
 
-	public void setIdCliente(Long idCliente) {
+	public void setIdCliente(Cliente idCliente) {
 		this.idCliente = idCliente;
 	}
+
+
 	
 	
 }

@@ -45,8 +45,7 @@ public class EstabelecimentoResource {
 			@RequestBody Estabelecimento estabelecimento,
 		HttpServletResponse response){
 		
-		Estabelecimento estabelecimentoSalvo = estabelecimentoRepository
-												.save(estabelecimento);
+		Estabelecimento estabelecimentoSalvo = estabelecimentoRepository.save(estabelecimento);
 		URI uri = ServletUriComponentsBuilder
 				  .fromCurrentRequestUri()
 				  .path("/{id}")
