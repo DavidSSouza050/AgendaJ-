@@ -18,7 +18,7 @@ import org.springframework.lang.NonNull;
 public class Estabelecimento {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY )
-	private Long id_estabelecimento;
+	private Long idEstabelecimento;
 	@NonNull
 	@CNPJ
 	@Size(max = 14, message = "O CNPJ tem que conter 14 caracteres!")
@@ -45,12 +45,14 @@ public class Estabelecimento {
 	private Long idEndereco; 
 	
 	
-	public Long getId_estabelecimento() {
-		return id_estabelecimento;
+	
+
+	public Long getIdEstabelecimento() {
+		return idEstabelecimento;
 	}
 
-	public void setId_estabelecimento(Long id_estabelecimento) {
-		this.id_estabelecimento = id_estabelecimento;
+	public void setIdEstabelecimento(Long idEstabelecimento) {
+		this.idEstabelecimento = idEstabelecimento;
 	}
 
 	public String getCnpj() {
