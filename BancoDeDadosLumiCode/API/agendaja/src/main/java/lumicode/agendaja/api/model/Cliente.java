@@ -122,6 +122,14 @@ public class Cliente {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
+
+	public Endereco getIdEndereco() {
+		return idEndereco;
+	}
+
+	public void setIdEndereco(Endereco idEndereco) {
+		this.idEndereco = idEndereco;
+	}
 	
 	
 	
