@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -22,14 +23,13 @@ public class Endereco {
 	@NotNull
 	@Size(min = 5, max = 100, message = "O Bairrodeve conter mais de 5 caracteres!")
 	private String bairro;
-	@NotNull
 	private String numero;
-	@OneToOne
-	@JoinColumn(name = "id_estabelecimento")
-	private Estabelecimento idEstabelicimento;
-	@OneToOne
-	@JoinColumn(name = "id_cliente")
-	private Cliente idCliente;
+	@ManyToOne
+	@JoinColumn(name = "id_tipo_endereco")
+	private TipoEndereco idTipoEndereco;
+	@ManyToOne
+	@JoinColumn(name = "id_cidade")
+	private Cidade idCidade;
 
 	
 	public Long getIdEndereco() {
@@ -64,22 +64,25 @@ public class Endereco {
 		this.numero = numero;
 	}
 
-	public Estabelecimento getIdEstabelicimento() {
-		return idEstabelicimento;
+	public TipoEndereco getIdTipoEndereco() {
+		return idTipoEndereco;
 	}
 
-	public void setIdEstabelicimento(Estabelecimento idEstabelicimento) {
-		this.idEstabelicimento = idEstabelicimento;
+	public void setIdTipoEndereco(TipoEndereco idTipoEndereco) {
+		this.idTipoEndereco = idTipoEndereco;
 	}
 
-	public Cliente getIdCliente() {
-		return idCliente;
+	public Cidade getIdCidade() {
+		return idCidade;
 	}
 
-	public void setIdCliente(Cliente idCliente) {
-		this.idCliente = idCliente;
+	public void setIdCidade(Cidade idCidade) {
+		this.idCidade = idCidade;
 	}
+	
+	
 
+	
 
 	
 	

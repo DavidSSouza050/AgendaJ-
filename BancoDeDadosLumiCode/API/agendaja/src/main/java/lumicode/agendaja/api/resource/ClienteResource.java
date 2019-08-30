@@ -55,7 +55,7 @@ public class ClienteResource {
 		//colocando no header o localização do cliente que está na uri
 		response.addHeader("Location", uri.toASCIIString());
 		//criando o cliente usuario e colocando no body da requiseção depois de salvo
-		return ResponseEntity.created(uri).body(cliente);
+		return ResponseEntity.created(uri).body(clienteSalvo);
 	}
 	
 	

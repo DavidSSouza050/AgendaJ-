@@ -30,6 +30,7 @@ public class Estabelecimento {
 	private String nomeEstabelecimento;
 	@Size(max = 13, message = "Digite o celular corretamente!")
 	private String celular;
+	private String foto;
 	@NonNull
 	@Size(max = 15, message = "Digite o número telefone corretamente!")
 	private String telefone;
@@ -39,13 +40,8 @@ public class Estabelecimento {
 	@NonNull
 	@Size(min = 8, max = 255, message = "A senha que conter 8 ou mais caracteres!")
 	private String senha;
-	@OneToOne
-	@JoinColumn(name = "id_endereco")
-	private Endereco idEndereco; 
 	
 	
-	
-
 	public Long getIdEstabelecimento() {
 		return idEstabelecimento;
 	}
@@ -110,13 +106,16 @@ public class Estabelecimento {
 		this.senha = senha;
 	}
 
-	public Endereco getIdEndereco() {
-		return idEndereco;
+	public String getFoto() {
+		return foto;
 	}
 
-	public void setIdEndereco(Endereco idEndereco) {
-		this.idEndereco = idEndereco;
+	public void setFoto(String foto) {
+		this.foto = foto;
 	}
+	
+	
+
 
 	
 	

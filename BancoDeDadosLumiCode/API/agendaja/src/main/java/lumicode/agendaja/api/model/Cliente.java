@@ -46,9 +46,7 @@ public class Cliente {
 	@NotNull
 	@Size(min = 8, max = 255, message="a senha deve conter no minimo 8 caracteres")
 	private String senha;
-	@OneToOne
-	@JoinColumn(name = "id_endereco")
-	private Endereco idEndereco;
+	
 	
 	
 	public Long getIdCliente() {
@@ -123,14 +121,6 @@ public class Cliente {
 		this.senha = senha;
 	}
 
-	public Endereco getIdEndereco() {
-		return idEndereco;
-	}
-
-	public void setIdEndereco(Endereco idEndereco) {
-		this.idEndereco = idEndereco;
-	}
-	
 	
 	
 		

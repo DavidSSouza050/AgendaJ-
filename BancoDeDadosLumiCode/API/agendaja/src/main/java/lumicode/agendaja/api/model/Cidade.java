@@ -17,8 +17,8 @@ public class Cidade {
 	private Long idCidade;
 	private String cidade;
 	@ManyToOne
-	@JoinColumn(name = "id_estado")
-	private Estado idEstado;
+	@JoinColumn(name = "id_microrregiao")
+	private Microrregiao idMicrorregiao;
 
 	public Long getIdCidade() {
 		return idCidade;
@@ -36,15 +36,14 @@ public class Cidade {
 		this.cidade = cidade;
 	}
 
-	public Estado getIdEstado() {
-		return idEstado;
+	public Microrregiao getIdMicrorregiao() {
+		return idMicrorregiao;
 	}
 
-	public void setIdEstado(Estado idEstado) {
-		this.idEstado = idEstado;
+	public void setIdMicrorregiao(Microrregiao idMicrorregiao) {
+		this.idMicrorregiao = idMicrorregiao;
 	}
 
-	
 	
 
 }
