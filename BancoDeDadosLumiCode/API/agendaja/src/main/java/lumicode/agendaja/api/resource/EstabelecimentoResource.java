@@ -39,6 +39,21 @@ public class EstabelecimentoResource {
 		return estabelecimentoRepository.findById(id).get();
 	}
 	
+	//Login estabelecimento
+	@GetMapping("/loginEstabelecimento")
+	private String loginEstabelecimento(@RequestBody Estabelecimento estabelecimento) {
+		String resposta = null;
+		
+		if(estabelecimentoRepository.loginEstabelecimento(estabelecimento.getEmail(), estabelecimento.getSenha()) != null) {
+			resposta = "vai la, chapa";
+		}else {
+			resposta = "Erro alguma coisa, chapa";
+		}
+			
+		return resposta;
+	}
+	
+	
 	//cadastrando um estabelecimento 
 	@PostMapping
 	private ResponseEntity<Estabelecimento> salvarEstabelecimento(

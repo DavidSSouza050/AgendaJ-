@@ -1,6 +1,7 @@
 package lumicode.agendaja.api.resource;
 
 import java.net.URI;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
@@ -19,6 +20,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import lumicode.agendaja.api.model.Cliente;
 import lumicode.agendaja.api.repository.ClienteRepository;
+import lumicode.agendaja.api.utils.ConverterDatas;
 
 @RestController
 @RequestMapping("/cliente")
@@ -29,15 +31,39 @@ public class ClienteResource {
 	
 	//pegando todos clientes salvo no banco 
 	@GetMapping
-	private List<Cliente> getCliente(){
+	private List<Cliente> getCliente(){	
 		return clienteRepository.findAll();
 	}
 	
 	//pegando um cliente salvo no banco
 	@GetMapping("/{id}")
 	private Cliente visualizarCliente(@PathVariable Long id){
+		
+		//Cliente cliente = clienteRepository.findById(id).get();
+		//ConverterDatas data = new ConverterDatas();
+		
+		//Date dataNasc = cliente.getDataNacimento();
+		
+		//Date dataNasc = new Date();
+		//cliente.setDataNacimento(dataNasc);
+		//System.out.println(data.dataPt(dataNasc));
+		
 		return clienteRepository.findById(id).get();
 	}
+	
+	//login para cliente
+	@GetMapping("/login")
+	private String login(@RequestBody Cliente cliente) {
+		String resposta;
+		if(clienteRepository.Entrar(cliente.getEmail(), cliente.getSenha()) != null) {
+			resposta = "Entra ai po";
+		}else {
+			resposta = "Ta errado alguma coisa ai";
+		}
+		
+		return resposta;
+	}
+	
 	
 	// Cadastrando um cliente no banco
 	@PostMapping

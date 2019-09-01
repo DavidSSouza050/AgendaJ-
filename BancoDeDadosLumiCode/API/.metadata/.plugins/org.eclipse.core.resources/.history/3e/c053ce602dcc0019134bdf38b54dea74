@@ -1,0 +1,22 @@
+package lumicode.agendaja.api.utils;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class ConverterDatas {
+	
+	// metodo de converção de data para inglesa para portuguesa
+	public String dataPt(Date dataEn) {
+		
+		DateFormat dataPt = new SimpleDateFormat("dd/MM/yyyy");
+		
+		String dataFormatadaPt = dataPt.format(dataEn);
+		
+		return dataFormatadaPt;
+	}
+	
+	
+	
+}
+
