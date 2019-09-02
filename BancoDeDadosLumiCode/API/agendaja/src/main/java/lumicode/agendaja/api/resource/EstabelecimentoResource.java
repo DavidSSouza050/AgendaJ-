@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -56,20 +57,25 @@ public class EstabelecimentoResource {
 	
 	//cadastrando um estabelecimento 
 	@PostMapping
-	private ResponseEntity<Estabelecimento> salvarEstabelecimento(
+	private ResponseEntity<?> salvarEstabelecimento(
 			@RequestBody Estabelecimento estabelecimento,
 		HttpServletResponse response){
 		
-		Estabelecimento estabelecimentoSalvo = estabelecimentoRepository.save(estabelecimento);
-		URI uri = ServletUriComponentsBuilder
-				  .fromCurrentRequestUri()
-				  .path("/{id}")
-				  .buildAndExpand(estabelecimento.getIdEstabelecimento())
-				  .toUri();
+		try {
+			Estabelecimento estabelecimentoSalvo = estabelecimentoRepository.save(estabelecimento);
+			URI uri = ServletUriComponentsBuilder
+					  .fromCurrentRequestUri()
+					  .path("/{id}")
+					  .buildAndExpand(estabelecimento.getIdEstabelecimento())
+					  .toUri();
+			
+			response.addHeader("Location", uri.toASCIIString());
+			
+			return ResponseEntity.created(uri).body(estabelecimentoSalvo);
+		}catch (Exception e) {
+			return  new ResponseEntity<String>("{mensage: 'CNPJ ou Razão social já cadastrado'}",HttpStatus.BAD_REQUEST);
+		}
 		
-		response.addHeader("Location", uri.toASCIIString());
-		
-		return ResponseEntity.created(uri).body(estabelecimento);
 	}
 	
 	

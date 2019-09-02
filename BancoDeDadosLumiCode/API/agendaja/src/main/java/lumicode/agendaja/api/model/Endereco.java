@@ -21,8 +21,11 @@ public class Endereco {
 	@Size(min = 5, max = 100, message = "O logradouro deve conter mais de 5 caracteres!")
 	private String logradouro;
 	@NotNull
-	@Size(min = 5, max = 100, message = "O Bairrodeve conter mais de 5 caracteres!")
+	@Size(min = 5, max = 100, message = "O Bairro deve conter mais de 5 caracteres!")
 	private String bairro;
+	@NotNull
+	@Size(max = 8, message = "Digite o cep corretamente!")
+	private String cep;
 	private String numero;
 	@ManyToOne
 	@JoinColumn(name = "id_tipo_endereco")
@@ -54,6 +57,14 @@ public class Endereco {
 
 	public void setBairro(String bairro) {
 		this.bairro = bairro;
+	}
+	
+	public String getCep() {
+		return cep;
+	}
+
+	public void setCep(String cep) {
+		this.cep = cep;
 	}
 
 	public String getNumero() {

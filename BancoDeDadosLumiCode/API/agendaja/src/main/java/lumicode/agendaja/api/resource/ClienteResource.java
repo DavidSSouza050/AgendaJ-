@@ -1,6 +1,8 @@
 package lumicode.agendaja.api.resource;
 
 import java.net.URI;
+import java.text.DateFormat;
+import java.text.Format;
 import java.util.Date;
 import java.util.List;
 
@@ -8,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -38,16 +41,21 @@ public class ClienteResource {
 	//pegando um cliente salvo no banco
 	@GetMapping("/{id}")
 	private Cliente visualizarCliente(@PathVariable Long id){
+		//declarando um cliente do banco
+		Cliente cliente = clienteRepository.findById(id).get();
+		//declarando a classe de funções de date
+		ConverterDatas convertDatas = new ConverterDatas();
+		// pegando a idade do cliente 
+		String dataNasc = cliente.getDataNascimento();
+		//transformando a data nascimento em date (ela é string)
+		Date nascDate = convertDatas.stringToDatePt(dataNasc);
+		//formatando a data e mandando uma String
+		String dataNascFormatada = convertDatas.dataPt(nascDate);
 		
-		//Cliente cliente = clienteRepository.findById(id).get();
-		//ConverterDatas data = new ConverterDatas();
+//		setantando a idade formatada e trocando o date
+		cliente.setDataNascimento(dataNascFormatada);
 		
-		//Date dataNasc = cliente.getDataNacimento();
-		
-		//Date dataNasc = new Date();
-		//cliente.setDataNacimento(dataNasc);
-		//System.out.println(data.dataPt(dataNasc));
-		
+//		returnando o cliente
 		return clienteRepository.findById(id).get();
 	}
 	
@@ -67,21 +75,40 @@ public class ClienteResource {
 	
 	// Cadastrando um cliente no banco
 	@PostMapping
-	private ResponseEntity<Cliente> salvarCliente(@RequestBody Cliente cliente,
+	private ResponseEntity<?> salvarCliente(@RequestBody Cliente cliente,
 		HttpServletResponse response){
 		
-		Cliente clienteSalvo = clienteRepository.save(cliente);
+		try {
+			//declarando o coverter datas 
+			ConverterDatas converterDatas = new ConverterDatas();
+			//pegando a data em pt do cliente
+			String dataBrString = cliente.getDataNascimento();
+			//Transformando a string em date
+			Date dataBrDate = converterDatas.stringToDateEn(dataBrString);
+			//formatando para En
+			String dataFormatadaEn = converterDatas.dataEn(dataBrDate);
+			//setando no cliente a data en para cadastro
+			cliente.setDataNascimento(dataFormatadaEn);
+			
+			Cliente clienteSalvo = clienteRepository.save(cliente);
+			
+			//criando o cliente depois de salvo para retornar o json  
+			URI uri = ServletUriComponentsBuilder
+					  .fromCurrentRequest()
+					  .path("/{id}")
+					  .buildAndExpand(cliente.getIdCliente())
+					  .toUri();
+			//colocando no header o localização do cliente que está na uri
+			response.addHeader("Location", uri.toASCIIString());
+
+			//criando o cliente usuario e colocando no body da requiseção depois de salvo
+			return ResponseEntity.created(uri).body(clienteSalvo);
+			
+		}catch (Exception e) {
+			return  new ResponseEntity<String>("{mensage: 'Cpf já cadastrado'}",HttpStatus.BAD_REQUEST);
+		}
 		
-		//criando o cliente depois de salvo para retornar o json  
-		URI uri = ServletUriComponentsBuilder
-				  .fromCurrentRequest()
-				  .path("/{id}")
-				  .buildAndExpand(cliente.getIdCliente())
-				  .toUri();
-		//colocando no header o localização do cliente que está na uri
-		response.addHeader("Location", uri.toASCIIString());
-		//criando o cliente usuario e colocando no body da requiseção depois de salvo
-		return ResponseEntity.created(uri).body(clienteSalvo);
+		
 	}
 	
 	
@@ -91,6 +118,17 @@ public class ClienteResource {
 			@PathVariable Long id ){
 		
 		Cliente clienteAtualizado = clienteRepository.findById(id).get();
+		
+		//declarando o coverter datas 
+		ConverterDatas converterDatas = new ConverterDatas();
+		//pegando a data em pt do cliente
+		String dataBrString = cliente.getDataNascimento();
+		//Transformando a string em date
+		Date dataBrDate = converterDatas.stringToDateEn(dataBrString);
+		//formatando para En
+		String dataFormatadaEn = converterDatas.dataEn(dataBrDate);
+		//setando no cliente a data en para cadastro
+		cliente.setDataNascimento(dataFormatadaEn);
 		
 		BeanUtils.copyProperties(cliente, clienteAtualizado, "id");
 	

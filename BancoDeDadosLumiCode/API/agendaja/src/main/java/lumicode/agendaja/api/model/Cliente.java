@@ -40,7 +40,7 @@ public class Cliente {
 	@Size(max = 1, message = "Permitido 1 caracter!")
 	private String sexo;
 	@NotNull
-	private Date dataNacimento;
+	private String dataNascimento;
 	@NotNull
 	@Size(min = 10, max = 50 , message = "O E-mail deve conter no Minimo 10 catacteres!")
 	private String email;
@@ -98,13 +98,13 @@ public class Cliente {
 		this.sexo = sexo;
 	}
 
-
-	public Date getDataNacimento() {
-		return dataNacimento;
+	
+	public String getDataNascimento() {
+		return dataNascimento;
 	}
 
-	public void setDataNacimento(Date dataNacimento) {
-		this.dataNacimento = dataNacimento;
+	public void setDataNascimento(String dataNascimento) {
+		this.dataNascimento = dataNascimento;
 	}
 
 	public String getEmail() {

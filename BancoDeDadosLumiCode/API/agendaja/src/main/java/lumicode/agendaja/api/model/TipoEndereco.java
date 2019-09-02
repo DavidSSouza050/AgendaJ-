@@ -11,15 +11,17 @@ import javax.persistence.Table;
 public class TipoEndereco {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id_tipo_endereco;
+	private Long idTipoEndereco;
 	private String tipo;
 
-	public Long getId_tipo_endereco() {
-		return id_tipo_endereco;
+	
+
+	public Long getIdTipoEndereco() {
+		return idTipoEndereco;
 	}
 
-	public void setId_tipo_endereco(Long id_tipo_endereco) {
-		this.id_tipo_endereco = id_tipo_endereco;
+	public void setIdTipoEndereco(Long idTipoEndereco) {
+		this.idTipoEndereco = idTipoEndereco;
 	}
 
 	public String getTipo() {
