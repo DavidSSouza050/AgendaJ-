@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DadosPessoaisActivity"
+    android:background="@drawable/gradiente"
+    android:padding="20dp">
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="20dp"
+        android:text="Dados Pessoais"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="32dp"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="20dp" />
+
+    <ImageView
+        android:id="@+id/img_foto_usuario"
+        android:layout_width="124dp"
+        android:layout_height="98dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginEnd="129dp"
+        android:layout_marginStart="129dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintBottom_toTopOf="@+id/txt_nome_dados_pessoais"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        app:srcCompat="@drawable/ic_menu_camera" />
+
+    <EditText
+        android:id="@+id/txt_nome_dados_pessoais"
+        android:layout_width="137dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/caixa_de_texto_redonda"
+        android:drawableStart="@drawable/ic_action_nome"
+        android:hint="Nome"
+        android:inputType="text"
+        android:maxLines="1"
+        android:padding="8dp"
+        android:singleLine="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_foto_usuario" />
+
+    <EditText
+        android:id="@+id/txt_sobre_nome_dados_pessoais"
+        android:layout_width="177dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/caixa_de_texto_redonda"
+        android:hint="Sobre Nome"
+        android:inputType="text"
+        android:maxLines="1"
+        android:padding="8dp"
+        android:singleLine="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_foto_usuario" />
+
+    <EditText
+        android:id="@+id/txt_cpf_dados_pessoais"
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/caixa_de_texto_redonda"
+        android:drawableStart="@drawable/ic_action_cpf"
+        android:hint="CPF"
+        android:inputType="text"
+        android:maxLines="1"
+        android:padding="8dp"
+        android:singleLine="true"
+        app:layout_constraintTop_toBottomOf="@+id/txt_data_nascimento_dados_pessoais"
+        tools:layout_editor_absoluteX="20dp" />
+
+    <EditText
+        android:id="@+id/txt_data_nascimento_dados_pessoais"
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/caixa_de_texto_redonda"
+        android:drawableStart="@drawable/ic_action_data_nascimento"
+        android:hint="Data de Nascimento"
+        android:inputType="date"
+        android:maxLines="1"
+        android:padding="8dp"
+        android:singleLine="true"
+        app:layout_constraintTop_toBottomOf="@+id/txt_nome_dados_pessoais"
+        tools:layout_editor_absoluteX="20dp" />
+
+    <EditText
+        android:id="@+id/txt_sexo_dados_pessoais"
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/caixa_de_texto_redonda"
+        android:drawableStart="@drawable/ic_action_sexo"
+        android:hint="Sexo"
+        android:inputType="date"
+        android:maxLines="1"
+        android:padding="8dp"
+        android:singleLine="true"
+        app:layout_constraintTop_toBottomOf="@+id/txt_cpf_dados_pessoais"
+        tools:layout_editor_absoluteX="20dp" />
+
+    <Button
+        android:id="@+id/btn_voltar_contato"
+        style="@style/Animation.AppCompat.Dialog"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:background="@drawable/botao_redondo"
+        android:text="CANCELAR"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btn_finalizar_contato"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btn_finalizar_contato"
+        style="@style/Animation.AppCompat.Dialog"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:background="@drawable/botao_redondo"
+        android:text="PROXIMO"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btn_voltar_contato" />
+
+</android.support.constraint.ConstraintLayout>
