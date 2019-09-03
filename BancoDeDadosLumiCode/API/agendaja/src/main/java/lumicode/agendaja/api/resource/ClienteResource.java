@@ -89,6 +89,8 @@ public class ClienteResource {
 			String dataFormatadaEn = converterDatas.dataEn(dataBrDate);
 			//setando no cliente a data en para cadastro
 			cliente.setDataNascimento(dataFormatadaEn);
+			//setando o criado em 
+			cliente.setCriadoEM(converterDatas.dataAtual());
 			
 			Cliente clienteSalvo = clienteRepository.save(cliente);
 			
@@ -129,6 +131,8 @@ public class ClienteResource {
 		String dataFormatadaEn = converterDatas.dataEn(dataBrDate);
 		//setando no cliente a data en para cadastro
 		cliente.setDataNascimento(dataFormatadaEn);
+		//setando o atualizada em
+		cliente.setAtualizadoEm(converterDatas.dataAtual());
 		
 		BeanUtils.copyProperties(cliente, clienteAtualizado, "id");
 	

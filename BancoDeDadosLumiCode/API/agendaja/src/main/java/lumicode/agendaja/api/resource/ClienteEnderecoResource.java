@@ -19,6 +19,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import lumicode.agendaja.api.model.ClienteEndereco;
 import lumicode.agendaja.api.repository.ClienteEnderecoRepository;
+import lumicode.agendaja.api.utils.ConverterDatas;
 
 
 @RestController
@@ -44,6 +45,9 @@ public class ClienteEnderecoResource {
 	@PostMapping
 	private ResponseEntity<ClienteEndereco> salvarRelacaoClienteEndereco(@RequestBody ClienteEndereco clienteEndereco,
 			HttpServletResponse response){
+		ConverterDatas converterDatas = new ConverterDatas();
+		//setando a data de criação do relacionamento
+		clienteEndereco.setCriadoEM(converterDatas.dataAtual());
 		
 		ClienteEndereco clienteEnderecoSalvo = clienteEnderecoRepository.save(clienteEndereco);
 		
@@ -63,7 +67,10 @@ public class ClienteEnderecoResource {
 	private ResponseEntity<ClienteEndereco> atualizarCliente(@RequestBody ClienteEndereco clienteEndereco,
 				@PathVariable Long id){
 		ClienteEndereco clienteEnderecoAtualizado = clienteEnderecoRepository.findById(id).get();
-		
+		//setando a data de atualização
+		ConverterDatas converterDatas = new ConverterDatas();
+		clienteEndereco.setAtualizadoEm(converterDatas.dataAtual());
+		//******
 		BeanUtils.copyProperties(clienteEndereco, clienteEnderecoAtualizado, "id");
 		
 		clienteEnderecoRepository.save(clienteEndereco);

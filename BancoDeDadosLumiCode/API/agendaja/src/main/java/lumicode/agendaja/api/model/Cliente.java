@@ -47,7 +47,9 @@ public class Cliente {
 	@NotNull
 	@Size(min = 8, max = 255, message="a senha deve conter no minimo 8 caracteres")
 	private String senha;
-	
+	@NotNull
+	private String criadoEM;
+	private String atualizadoEm;
 	
 	
 	public Long getIdCliente() {
@@ -123,6 +125,23 @@ public class Cliente {
 		this.senha = senha;
 	}
 
+	public String getCriadoEM() {
+		return criadoEM;
+	}
+
+	public void setCriadoEM(String criadoEM) {
+		this.criadoEM = criadoEM;
+	}
+
+	public String getAtualizadoEm() {
+		return atualizadoEm;
+	}
+
+	public void setAtualizadoEm(String atualizadoEm) {
+		this.atualizadoEm = atualizadoEm;
+	}
+
+	
 	
 	
 		

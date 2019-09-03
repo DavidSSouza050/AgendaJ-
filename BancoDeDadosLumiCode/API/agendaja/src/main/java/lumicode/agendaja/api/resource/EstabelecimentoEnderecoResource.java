@@ -19,6 +19,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import lumicode.agendaja.api.model.EstabelecimentoEndereco;
 import lumicode.agendaja.api.repository.EstabelecimentoEnderecoRepository;
+import lumicode.agendaja.api.utils.ConverterDatas;
 
 @RestController
 @RequestMapping("/estabelecimentoEndereco")
@@ -44,7 +45,10 @@ public class EstabelecimentoEnderecoResource {
 	private ResponseEntity<EstabelecimentoEndereco> salvarEstabelecimentoEndereco(
 			@RequestBody EstabelecimentoEndereco estabelecimentoEndereco,
 			HttpServletResponse response){
-		
+		//setando data
+		ConverterDatas converterData = new ConverterDatas();
+		estabelecimentoEndereco.setCriadoEM(converterData.dataAtual());
+		//*****
 		EstabelecimentoEndereco estabelecimentoEnderecoSalvo = estabelecimentoEnderecoRepository.save(estabelecimentoEndereco); 
 		
 		URI uri = ServletUriComponentsBuilder
@@ -65,6 +69,9 @@ public class EstabelecimentoEnderecoResource {
 	private ResponseEntity<EstabelecimentoEndereco> atualizarEstabelecimentoEndereco(
 			@RequestBody EstabelecimentoEndereco estabelecimentoEndereco,
 			@PathVariable Long id){
+		
+		ConverterDatas converterDatas = new ConverterDatas();
+		estabelecimentoEndereco.setAtualizadoEm(converterDatas.dataAtual());
 		
 		EstabelecimentoEndereco estabelecimentoEnderecoAtualizado =  
 							estabelecimentoEnderecoRepository.findById(id).get();

@@ -19,6 +19,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import lumicode.agendaja.api.model.Endereco;
 import lumicode.agendaja.api.repository.EnderecoRepository;
+import lumicode.agendaja.api.utils.ConverterDatas;
 
 @RestController
 @RequestMapping("/endereco")
@@ -40,7 +41,10 @@ public class EnderecoResource {
 	private ResponseEntity<Endereco> salvarEndereco(
 			@RequestBody Endereco endereco,
 			HttpServletResponse response){
-		
+		//setando data
+		ConverterDatas converterDatas = new ConverterDatas();
+		endereco.setCriadoEM(converterDatas.dataAtual());
+		//
 		Endereco enderecoSalvo = enderecoRepository.save(endereco);
 		
 		URI uri = ServletUriComponentsBuilder
@@ -51,7 +55,7 @@ public class EnderecoResource {
 		
 		response.addHeader("Location", uri.toASCIIString());
 		
-		return ResponseEntity.created(uri).body(endereco);
+		return ResponseEntity.created(uri).body(enderecoSalvo);
 		
 	}
 	
@@ -60,7 +64,10 @@ public class EnderecoResource {
 			@RequestBody Endereco endereco, @PathVariable Long id){
 		
 		Endereco enderecoAtualizado = enderecoRepository.findById(id).get();
-		
+		//setando data atual
+		ConverterDatas converterDatas = new ConverterDatas();
+		endereco.setAtualizadoEm(converterDatas.dataAtual());
+		//*****
 		BeanUtils.copyProperties(endereco, enderecoAtualizado, "id");
 		
 		enderecoRepository.save(endereco);

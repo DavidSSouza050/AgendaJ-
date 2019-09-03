@@ -7,6 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "tbl_estabelecimento_endereco")
@@ -20,6 +21,10 @@ public class EstabelecimentoEndereco {
 	@ManyToOne
 	@JoinColumn(name = "id_endereco")
 	private Endereco idEndereco;
+	@NotNull
+	private String criadoEM;
+	private String atualizadoEm;
+	
 
 	
 	public Long getIdEstabelecimentoEndereco() {
@@ -46,4 +51,23 @@ public class EstabelecimentoEndereco {
 		this.idEndereco = idEndereco;
 	}
 
+	public String getCriadoEM() {
+		return criadoEM;
+	}
+
+	public void setCriadoEM(String criadoEM) {
+		this.criadoEM = criadoEM;
+	}
+
+	public String getAtualizadoEm() {
+		return atualizadoEm;
+	}
+
+	public void setAtualizadoEm(String atualizadoEm) {
+		this.atualizadoEm = atualizadoEm;
+	}
+	
+	
+	
+	
 }

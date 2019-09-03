@@ -8,7 +8,7 @@
 		<item key="dialogHeight" value="669"/>
 		<item key="dialogWidth" value="829"/>
 		<list key="textEntries">
-			<item value="1"/>
+			<item value="2"/>
 		</list>
 		<list key="orderedElements">
 			<item value="org.eclipse.jdt.ui.edit.text.java.create.getter.setter"/>
@@ -18,6 +18,7 @@
 		</list>
 		<list key="textArray">
 			<item value="gga"/>
+			<item value="gg"/>
 		</list>
 	</section>
 </section>

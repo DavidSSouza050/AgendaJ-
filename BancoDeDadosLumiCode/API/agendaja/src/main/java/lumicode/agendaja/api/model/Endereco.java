@@ -33,6 +33,10 @@ public class Endereco {
 	@ManyToOne
 	@JoinColumn(name = "id_cidade")
 	private Cidade idCidade;
+	@NotNull
+	private String criadoEM;
+	private String atualizadoEm;
+	
 
 	
 	public Long getIdEndereco() {
@@ -90,9 +94,25 @@ public class Endereco {
 	public void setIdCidade(Cidade idCidade) {
 		this.idCidade = idCidade;
 	}
-	
-	
 
+	public String getCriadoEM() {
+		return criadoEM;
+	}
+
+	public void setCriadoEM(String criadoEM) {
+		this.criadoEM = criadoEM;
+	}
+
+	public String getAtualizadoEm() {
+		return atualizadoEm;
+	}
+
+	public void setAtualizadoEm(String atualizadoEm) {
+		this.atualizadoEm = atualizadoEm;
+	}
+	
+	
+	
 	
 
 	

@@ -7,6 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.br.CNPJ;
@@ -40,6 +41,10 @@ public class Estabelecimento {
 	@NonNull
 	@Size(min = 8, max = 255, message = "A senha que conter 8 ou mais caracteres!")
 	private String senha;
+	@NotNull
+	private String criadoEM;
+	private String atualizadoEm;
+	
 	
 	
 	public Long getIdEstabelecimento() {
@@ -113,9 +118,25 @@ public class Estabelecimento {
 	public void setFoto(String foto) {
 		this.foto = foto;
 	}
-	
-	
 
+	public String getCriadoEM() {
+		return criadoEM;
+	}
+
+	public void setCriadoEM(String criadoEM) {
+		this.criadoEM = criadoEM;
+	}
+
+	public String getAtualizadoEm() {
+		return atualizadoEm;
+	}
+
+	public void setAtualizadoEm(String atualizadoEm) {
+		this.atualizadoEm = atualizadoEm;
+	}
+	
+	
+	
 
 	
 	
