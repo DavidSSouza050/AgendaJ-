@@ -12,6 +12,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -75,7 +76,7 @@ public class ClienteResource {
 	
 	// Cadastrando um cliente no banco
 	@PostMapping
-	private ResponseEntity<?> salvarCliente(@RequestBody Cliente cliente,
+	private ResponseEntity<?> salvarCliente(@Validated @RequestBody Cliente cliente,
 		HttpServletResponse response){
 		
 		try {
@@ -90,7 +91,9 @@ public class ClienteResource {
 			//setando no cliente a data en para cadastro
 			cliente.setDataNascimento(dataFormatadaEn);
 			//setando o criado em 
-			cliente.setCriadoEM(converterDatas.dataAtual());
+			cliente.setCriadoEm(converterDatas.dataAtual());
+			//setando o atualizado 
+			cliente.setAtualizadoEm(converterDatas.dataAtual());
 			
 			Cliente clienteSalvo = clienteRepository.save(cliente);
 			
@@ -107,7 +110,7 @@ public class ClienteResource {
 			return ResponseEntity.created(uri).body(clienteSalvo);
 			
 		}catch (Exception e) {
-			return  new ResponseEntity<String>("{mensage: 'Cpf já cadastrado'}",HttpStatus.BAD_REQUEST);
+			return  new ResponseEntity<String>("{mensage: 'Cpf já cadastrado ou está errado'}",HttpStatus.BAD_REQUEST);
 		}
 		
 		
@@ -116,29 +119,39 @@ public class ClienteResource {
 	
 	//atualizando o cliente
 	@PutMapping("/{id}")
-	private ResponseEntity<Cliente> atualizarCliente(@RequestBody Cliente cliente,
+	private ResponseEntity<?> atualizarCliente(@Validated @RequestBody Cliente cliente,
 			@PathVariable Long id ){
 		
-		Cliente clienteAtualizado = clienteRepository.findById(id).get();
+		try {
+			Cliente clienteAtualizado = clienteRepository.findById(id).get();
+			
+			//declarando o coverter datas 
+			ConverterDatas converterDatas = new ConverterDatas();
+			//pegando a data em pt do cliente
+			String dataBrString = cliente.getDataNascimento();
+			//Transformando a string em date
+			Date dataBrDate = converterDatas.stringToDateEn(dataBrString);
+			//formatando para En
+			String dataFormatadaEn = converterDatas.dataEn(dataBrDate);
+			//setando no cliente a data en para cadastro
+			cliente.setDataNascimento(dataFormatadaEn);
+			//setando o atualizada em
+			cliente.setAtualizadoEm(converterDatas.dataAtual());
+			//para não atualizar o criadoEm estou setando de novo apra nao copiar
+			String criadoEm = clienteAtualizado.getCriadoEm();
+			cliente.setCriadoEm(criadoEm);
+			// *************************
+			
+			BeanUtils.copyProperties(cliente, clienteAtualizado, "id");
 		
-		//declarando o coverter datas 
-		ConverterDatas converterDatas = new ConverterDatas();
-		//pegando a data em pt do cliente
-		String dataBrString = cliente.getDataNascimento();
-		//Transformando a string em date
-		Date dataBrDate = converterDatas.stringToDateEn(dataBrString);
-		//formatando para En
-		String dataFormatadaEn = converterDatas.dataEn(dataBrDate);
-		//setando no cliente a data en para cadastro
-		cliente.setDataNascimento(dataFormatadaEn);
-		//setando o atualizada em
-		cliente.setAtualizadoEm(converterDatas.dataAtual());
+			clienteRepository.save(cliente);
+			
+			return ResponseEntity.ok(clienteAtualizado);
+		}catch (Exception e) {
+			return  new ResponseEntity<String>("{mensage: 'Cpf já cadastrado ou está errado'}",HttpStatus.BAD_REQUEST);
+		}
 		
-		BeanUtils.copyProperties(cliente, clienteAtualizado, "id");
-	
-		clienteRepository.save(cliente);
 		
-		return ResponseEntity.ok(clienteAtualizado);
 	}
 	
 	

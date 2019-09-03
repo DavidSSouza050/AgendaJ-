@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -39,11 +40,12 @@ public class EnderecoResource {
 	
 	@PostMapping
 	private ResponseEntity<Endereco> salvarEndereco(
-			@RequestBody Endereco endereco,
+			@Validated @RequestBody Endereco endereco,
 			HttpServletResponse response){
 		//setando data
 		ConverterDatas converterDatas = new ConverterDatas();
-		endereco.setCriadoEM(converterDatas.dataAtual());
+		endereco.setCriadoEm(converterDatas.dataAtual());
+		endereco.setAtualizadoEm(converterDatas.dataAtual());
 		//
 		Endereco enderecoSalvo = enderecoRepository.save(endereco);
 		
@@ -61,7 +63,7 @@ public class EnderecoResource {
 	
 	@PutMapping("/{id}")
 	private ResponseEntity<Endereco> atualizarEndereco(
-			@RequestBody Endereco endereco, @PathVariable Long id){
+			@Validated @RequestBody Endereco endereco, @PathVariable Long id){
 		
 		Endereco enderecoAtualizado = enderecoRepository.findById(id).get();
 		//setando data atual

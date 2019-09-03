@@ -41,8 +41,7 @@ public class Estabelecimento {
 	@NonNull
 	@Size(min = 8, max = 255, message = "A senha que conter 8 ou mais caracteres!")
 	private String senha;
-	@NotNull
-	private String criadoEM;
+	private String criadoEm;
 	private String atualizadoEm;
 	
 	
@@ -119,12 +118,12 @@ public class Estabelecimento {
 		this.foto = foto;
 	}
 
-	public String getCriadoEM() {
-		return criadoEM;
+	public String getCriadoEm() {
+		return criadoEm;
 	}
 
-	public void setCriadoEM(String criadoEM) {
-		this.criadoEM = criadoEM;
+	public void setCriadoEm(String criadoEm) {
+		this.criadoEm = criadoEm;
 	}
 
 	public String getAtualizadoEm() {

@@ -9,6 +9,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.springframework.web.multipart.MultipartFile;
+
 @Entity
 @Table(name = "tbl_cidade")
 public class Cidade {

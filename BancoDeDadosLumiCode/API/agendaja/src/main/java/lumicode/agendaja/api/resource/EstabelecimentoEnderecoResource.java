@@ -47,7 +47,8 @@ public class EstabelecimentoEnderecoResource {
 			HttpServletResponse response){
 		//setando data
 		ConverterDatas converterData = new ConverterDatas();
-		estabelecimentoEndereco.setCriadoEM(converterData.dataAtual());
+		estabelecimentoEndereco.setCriadoEm(converterData.dataAtual());
+		estabelecimentoEndereco.setAtualizadoEm(converterData.dataAtual());
 		//*****
 		EstabelecimentoEndereco estabelecimentoEnderecoSalvo = estabelecimentoEnderecoRepository.save(estabelecimentoEndereco); 
 		

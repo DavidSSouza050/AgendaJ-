@@ -9,6 +9,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -59,13 +60,14 @@ public class EstabelecimentoResource {
 	//cadastrando um estabelecimento 
 	@PostMapping
 	private ResponseEntity<?> salvarEstabelecimento(
-			@RequestBody Estabelecimento estabelecimento,
+			@Validated @RequestBody Estabelecimento estabelecimento,
 		HttpServletResponse response){
 		
 		try {
 			//setando data atual
 			ConverterDatas converterDatas = new ConverterDatas();
-			estabelecimento.setCriadoEM(converterDatas.dataAtual());
+			estabelecimento.setCriadoEm(converterDatas.dataAtual());
+			estabelecimento.setAtualizadoEm(converterDatas.dataAtual());
 			//*********
 			Estabelecimento estabelecimentoSalvo = estabelecimentoRepository.save(estabelecimento);
 			URI uri = ServletUriComponentsBuilder
@@ -78,7 +80,7 @@ public class EstabelecimentoResource {
 			
 			return ResponseEntity.created(uri).body(estabelecimentoSalvo);
 		}catch (Exception e) {
-			return  new ResponseEntity<String>("{mensage: 'CNPJ ou Razão social já cadastrado'}",HttpStatus.BAD_REQUEST);
+			return  new ResponseEntity<String>("{mensage: 'CNPJ ou Razão social já cadastrado e verefique o CNPJ'}",HttpStatus.BAD_REQUEST);
 		}
 		
 	}
@@ -86,19 +88,24 @@ public class EstabelecimentoResource {
 	
 	//Atualizar o estabelecimento
 	@PutMapping("/{id}")
-	private ResponseEntity<Estabelecimento> atualizarEstabelecimento(@RequestBody 
+	private ResponseEntity<?> atualizarEstabelecimento(@Validated @RequestBody 
 			Estabelecimento estabelecimento, @PathVariable Long id){
-		//setando data atual
-		ConverterDatas converterDatas = new ConverterDatas();
-		estabelecimento.setAtualizadoEm(converterDatas.dataAtual());
-		//*********
-		Estabelecimento estabelecimentoAtualizado = estabelecimentoRepository
-					.findById(id).get();
-		BeanUtils.copyProperties(estabelecimento, estabelecimentoAtualizado, "id");
+		try {
+			//setando data atual
+			ConverterDatas converterDatas = new ConverterDatas();
+			estabelecimento.setAtualizadoEm(converterDatas.dataAtual());
+			//*********
+			Estabelecimento estabelecimentoAtualizado = estabelecimentoRepository
+						.findById(id).get();
+			BeanUtils.copyProperties(estabelecimento, estabelecimentoAtualizado, "id");
+			
+			estabelecimentoRepository.save(estabelecimento);
+					
+			return ResponseEntity.ok(estabelecimentoAtualizado);
+		}catch (Exception e) {
+			return  new ResponseEntity<String>("{mensage: 'CNPJ ou Razão social já cadastrado e verefique o CNPJ'}",HttpStatus.BAD_REQUEST);
+		}
 		
-		estabelecimentoRepository.save(estabelecimento);
-				
-		return ResponseEntity.ok(estabelecimentoAtualizado);
 	}
 	
 	

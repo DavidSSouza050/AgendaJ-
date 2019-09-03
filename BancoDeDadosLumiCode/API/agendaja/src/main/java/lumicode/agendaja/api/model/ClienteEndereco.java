@@ -21,8 +21,7 @@ public class ClienteEndereco {
 	@ManyToOne
 	@JoinColumn(name = "id_endereco")
 	private Endereco idEndereco;
-	@NotNull
-	private String criadoEM;
+	private String criadoEm;
 	private String atualizadoEm;
 	
 	
@@ -50,12 +49,12 @@ public class ClienteEndereco {
 		this.idEndereco = idEndereco;
 	}
 
-	public String getCriadoEM() {
-		return criadoEM;
+	public String getCriadoEm() {
+		return criadoEm;
 	}
 
-	public void setCriadoEM(String criadoEM) {
-		this.criadoEM = criadoEM;
+	public void setCriadoEm(String criadoEm) {
+		this.criadoEm = criadoEm;
 	}
 
 	public String getAtualizadoEm() {

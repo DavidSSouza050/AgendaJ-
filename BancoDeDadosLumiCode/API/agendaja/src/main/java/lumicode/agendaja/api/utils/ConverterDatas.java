@@ -70,7 +70,7 @@ public class ConverterDatas {
 	//data de agora
 	
 	public String dataAtual() {
-		DateFormat dateToString = new SimpleDateFormat("yyyy-MM-dd");
+		DateFormat dateToString = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		Date dataDeAgora = new Date();
 		
 		String dataAtual = dateToString.format(dataDeAgora);

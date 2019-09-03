@@ -47,8 +47,9 @@ public class ClienteEnderecoResource {
 			HttpServletResponse response){
 		ConverterDatas converterDatas = new ConverterDatas();
 		//setando a data de criação do relacionamento
-		clienteEndereco.setCriadoEM(converterDatas.dataAtual());
-		
+		clienteEndereco.setCriadoEm(converterDatas.dataAtual());
+		clienteEndereco.setAtualizadoEm(converterDatas.dataAtual());
+		//********************
 		ClienteEndereco clienteEnderecoSalvo = clienteEnderecoRepository.save(clienteEndereco);
 		
 		URI uri = ServletUriComponentsBuilder
