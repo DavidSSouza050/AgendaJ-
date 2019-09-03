@@ -1,0 +1,47 @@
+
+body{
+    min-height: 100%;
+    height: 100%;
+    
+}
+/* Classe Que Centraliza elementos */
+.center{
+    margin-left: auto;
+    margin-right: auto;
+}
+/* ESTILIZAÇÃO PARA PAGINA TIPO DA CONTA */
+#container_all_tipo_cadastro{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    /* width: 100%;
+    height: 940px; */
+    background-image: url(../imagens/background_tipo_cadastro.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+#header_cadastro{
+    width: inherit;
+    height: 70px;
+    background-color: rgb(36, 36, 48);
+    padding-top: 4px;
+    position: fixed; 
+}
+
+#icone_logo{
+    width: 65px;
+    height: 65px;
+}
+
+#logo{
+    width: inherit;
+    height: inherit;
+}
+
+#conteudo_tipo_cadastro{
+    width: inherit;
+    height: 500px;
+    
+}
