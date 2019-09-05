@@ -11,4 +11,7 @@ public interface EstabelecimentoRepository
 	@Query("select e from Estabelecimento e where e.email = ?1 and e.senha = ?2")
 	Estabelecimento loginEstabelecimento(String email, String senha);
 	
+	@Query("select e from Estabelecimento e where e.email = ?1")
+	Estabelecimento VerificarEmail(String email);
+	
 }

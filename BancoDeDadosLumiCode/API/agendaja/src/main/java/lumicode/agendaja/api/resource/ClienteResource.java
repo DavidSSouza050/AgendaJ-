@@ -79,6 +79,10 @@ public class ClienteResource {
 	private ResponseEntity<?> salvarCliente(@Validated @RequestBody Cliente cliente,
 		HttpServletResponse response){
 		
+		if(clienteRepository.VerificarEmail(cliente.getEmail()) != null) {
+			return new ResponseEntity<String>("{mensage: 'E-mail Já cadastrado'}",HttpStatus.BAD_REQUEST);
+		}
+		
 		try {
 			//declarando o coverter datas 
 			ConverterDatas converterDatas = new ConverterDatas();
@@ -122,8 +126,10 @@ public class ClienteResource {
 	private ResponseEntity<?> atualizarCliente(@Validated @RequestBody Cliente cliente,
 			@PathVariable Long id ){
 		
+		
 		try {
 			Cliente clienteAtualizado = clienteRepository.findById(id).get();
+			
 			
 			//declarando o coverter datas 
 			ConverterDatas converterDatas = new ConverterDatas();

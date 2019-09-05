@@ -62,7 +62,9 @@ public class EstabelecimentoResource {
 	private ResponseEntity<?> salvarEstabelecimento(
 			@Validated @RequestBody Estabelecimento estabelecimento,
 		HttpServletResponse response){
-		
+		if(estabelecimentoRepository.VerificarEmail(estabelecimento.getEmail()) != null) {
+			return  new ResponseEntity<String>("{mensage: 'E-mail Já cadastrado'}",HttpStatus.BAD_REQUEST);
+		}
 		try {
 			//setando data atual
 			ConverterDatas converterDatas = new ConverterDatas();
@@ -90,6 +92,8 @@ public class EstabelecimentoResource {
 	@PutMapping("/{id}")
 	private ResponseEntity<?> atualizarEstabelecimento(@Validated @RequestBody 
 			Estabelecimento estabelecimento, @PathVariable Long id){
+	
+		
 		try {
 			
 			Estabelecimento estabelecimentoAtualizado = estabelecimentoRepository
