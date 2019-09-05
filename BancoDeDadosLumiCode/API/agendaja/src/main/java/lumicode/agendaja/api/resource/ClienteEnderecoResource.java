@@ -71,6 +71,8 @@ public class ClienteEnderecoResource {
 		//setando a data de atualização
 		ConverterDatas converterDatas = new ConverterDatas();
 		clienteEndereco.setAtualizadoEm(converterDatas.dataAtual());
+		String criadoEm =  clienteEnderecoAtualizado.getCriadoEm();
+		clienteEndereco.setCriadoEm(criadoEm);
 		//******
 		BeanUtils.copyProperties(clienteEndereco, clienteEnderecoAtualizado, "id");
 		

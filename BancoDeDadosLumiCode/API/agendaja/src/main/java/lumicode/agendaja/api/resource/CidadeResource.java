@@ -23,7 +23,7 @@ public class CidadeResource {
 	private List<Cidade> getCidade(){
 		return cidadeRepository.findAll();
 	}
-	
+
 	//pegando so uma cidade
 	@GetMapping("/{id}")
 	private Cidade visualizarCidade(@PathVariable Long id) {

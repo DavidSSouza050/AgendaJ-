@@ -91,12 +91,17 @@ public class EstabelecimentoResource {
 	private ResponseEntity<?> atualizarEstabelecimento(@Validated @RequestBody 
 			Estabelecimento estabelecimento, @PathVariable Long id){
 		try {
+			
+			Estabelecimento estabelecimentoAtualizado = estabelecimentoRepository
+						.findById(id).get();
+			
 			//setando data atual
 			ConverterDatas converterDatas = new ConverterDatas();
 			estabelecimento.setAtualizadoEm(converterDatas.dataAtual());
+			String criadoEm = estabelecimentoAtualizado.getCriadoEm();
+			estabelecimento.setCriadoEm(criadoEm);
 			//*********
-			Estabelecimento estabelecimentoAtualizado = estabelecimentoRepository
-						.findById(id).get();
+			
 			BeanUtils.copyProperties(estabelecimento, estabelecimentoAtualizado, "id");
 			
 			estabelecimentoRepository.save(estabelecimento);

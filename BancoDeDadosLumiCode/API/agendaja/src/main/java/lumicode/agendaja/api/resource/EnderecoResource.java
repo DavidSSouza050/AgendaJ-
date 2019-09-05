@@ -69,6 +69,8 @@ public class EnderecoResource {
 		//setando data atual
 		ConverterDatas converterDatas = new ConverterDatas();
 		endereco.setAtualizadoEm(converterDatas.dataAtual());
+		String criadoEm = enderecoAtualizado.getCriadoEm();
+		endereco.setCriadoEm(criadoEm);
 		//*****
 		BeanUtils.copyProperties(endereco, enderecoAtualizado, "id");
 		

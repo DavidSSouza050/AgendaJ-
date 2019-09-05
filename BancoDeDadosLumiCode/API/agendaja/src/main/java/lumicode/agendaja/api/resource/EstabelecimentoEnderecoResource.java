@@ -71,12 +71,15 @@ public class EstabelecimentoEnderecoResource {
 			@RequestBody EstabelecimentoEndereco estabelecimentoEndereco,
 			@PathVariable Long id){
 		
-		ConverterDatas converterDatas = new ConverterDatas();
-		estabelecimentoEndereco.setAtualizadoEm(converterDatas.dataAtual());
-		
 		EstabelecimentoEndereco estabelecimentoEnderecoAtualizado =  
 							estabelecimentoEnderecoRepository.findById(id).get();
 		
+		//Setando datas
+		ConverterDatas converterDatas = new ConverterDatas();
+		estabelecimentoEndereco.setAtualizadoEm(converterDatas.dataAtual());
+		String criadoEm = estabelecimentoEnderecoAtualizado.getCriadoEm();
+		estabelecimentoEndereco.setCriadoEm(criadoEm);
+		//**************
 		BeanUtils.copyProperties(estabelecimentoEndereco, estabelecimentoEnderecoAtualizado, "id");
 		
 		estabelecimentoEnderecoRepository.save(estabelecimentoEndereco);
