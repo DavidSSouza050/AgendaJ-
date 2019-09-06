@@ -1,32 +1,34 @@
-
 body{
-    min-height: 100%;
     height: 100%;
-    
+    font-family:  Helvetica, 'Sego UI', Arial, sans-serif;
 }
-/* Classe Que Centraliza elementos */
+
 .center{
     margin-left: auto;
     margin-right: auto;
 }
-/* ESTILIZAÇÃO PARA PAGINA TIPO DA CONTA */
-#container_all_tipo_cadastro{
+
+.vertical_center{
     position: relative;
+    top: 50%;
+    transform: translateY(-50%); 
+}
+
+
+/*Estilização escolha_cadastro.html */
+#container_all_tipo_cadastro{
     width: 100vw;
-    height: 101.5vh;
+    height: 100vh;
     background-image: url(../imagens/background_tipo_cadastro.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    font-family:  Helvetica;
-    /* 'Segoe UI', Tahoma, , Verdana, sans-serif */
 }
 
 #header_cadastro{
     width: inherit;
     height: 70px;
     background-color: rgb(33, 29, 54);
-    padding-top: 4px;
 }
 
 #icone_logo{
@@ -42,7 +44,6 @@ body{
 #conteudo_tipo_cadastro{
     width: 56%;
     height: 650px; 
-    /* background-color: blue; */
 }
 
 .caixa_titulo{
@@ -159,24 +160,23 @@ body{
     text-align: center;
     font-weight: bold;
     color:white;
-
 }
 
+/* Efeitos escolha_cadastro.html */
 #button:hover{
     background-color: rgb(51, 39, 126);
-    box-shadow:  rgba(0,0,0, 0.6) 0px 0px 0px;
+    box-shadow:  rgba(0,0,0, 0.6) 1px 1px 15px;
     transition: 0.5s;
-
 }
 
 .item_card:hover{
-    box-shadow:  rgba(0,0,0, 0.4) 0px 10px 10px;
+    box-shadow:  rgba(0,0,0, 0.4) 1px 1px 15px;
     cursor: pointer;
     transition: 0.2s;
 }
 
 .item_card:hover>.card-body{
-    background-color:rgb(207, 206, 206);
+    background-color:rgb(221, 221, 221);
     transition: 0.2s;   
 }
 
@@ -186,11 +186,89 @@ body{
 }
 
 .item_card:hover>.card-body>#icone_esquerdo_footer>.icone_seta{
-    transform: scale(1.2);
+    transform: scale(1.1);
     transition: 0.5s;
 }
 
 .item_card:hover>.card-body>#icone_direito_footer>.icone_seta{
-    transform: scale(1.2);
+    transform: scale(1.1);
     transition: 0.5s;
 }
+
+/*Estilização login.html */
+
+#container_all_login{
+    width: 100vw;
+    height: 100vh;
+    /* background-image: linear-gradient(#4648b1,#38164e); */
+    /* background-image: url("../imagens/639941-POKH4B-214.jpg"); */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+#container_form_login{
+    width: 450px;
+    height: 700px;
+    background-color:white;
+    box-shadow:  rgba(0, 0, 0, 0.336) 1px 1px 15px;
+    border-radius: 8px;
+    padding-top: 20px;
+}
+
+#container_titulo_form{
+    width: 100%;
+    height: 10%;
+    text-align: center;
+    font-size: 2.8em;    
+}
+
+#container_logotipo{
+    width: 100%;
+    height: 100px;
+    /* background-color: #38164e; */
+    margin-top: 25px;
+    margin-bottom: 50px;
+}
+
+#logotipo{
+    width: 350px;
+    height: 100px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%); 
+}
+
+#form_login{
+    width: 100%;
+    height: 500px;
+    padding-left: 50px;
+    padding-right: 50px;
+    margin-bottom: 50px;
+}
+
+.label{
+    font-size:1.2em; 
+}
+
+.esqueceu_senha{
+    text-align:right;
+    font-size:1.1em; 
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.align_button{
+    padding-top: 50px;
+}
+
+#btn_entrar{
+    background-color: #353266;
+    /* border-radius: 50px; */
+    box-shadow:  rgba(0,0,0, 0.5) 1px 1px 0px;
+    color: white;
+}
+
+
+
+
