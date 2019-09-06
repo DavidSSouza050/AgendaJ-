@@ -9,9 +9,15 @@ public interface EstabelecimentoRepository
 	extends JpaRepository<Estabelecimento, Long>{
 	
 	@Query("select e from Estabelecimento e where e.email = ?1 and e.senha = ?2")
-	Estabelecimento loginEstabelecimento(String email, String senha);
+	public Estabelecimento loginEstabelecimento(String email, String senha);
 	
 	@Query("select e from Estabelecimento e where e.email = ?1")
-	Estabelecimento VerificarEmail(String email);
+	public Estabelecimento verificarEmail(String email);
+	
+	@Query("select e from Estabelecimento e where e.idEstabelecimento = ?1")
+	public Estabelecimento getById(Long idEstabelecimento);
+	
+	@Query("select e from Estabelecimento e where e.foto = ?1 and e.idEstabelecimento = ?2")
+	public Estabelecimento verificarImagem(String img, Long id);
 	
 }

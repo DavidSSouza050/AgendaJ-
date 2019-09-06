@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -23,8 +22,8 @@ public class Disco {
 	//****************************
 	
 	
-	public void salvarFoto(MultipartFile foto) {
-		this.salvar(this.diretorioFotos, foto);
+	public String salvarFoto(MultipartFile foto, String pasta) {
+		return this.salvar(this.diretorioFotos+"/"+pasta, foto);
 	}
 	
 	//metodo de tratamento para salvar a imagem
@@ -35,7 +34,7 @@ public class Disco {
 		Path diretorioPath = Paths.get(this.raiz, diretorio); 
 		//criando o nome do arquivo 
 		ConverterDatas data = new ConverterDatas();
-		local = (data.dataAtual() +"_"+ arquivo.getOriginalFilename());
+		local = (System.currentTimeMillis() +"_"+ arquivo.getOriginalFilename());
 		//
 		//onde o arquivo vai ser salvo mais o nome do arquivo
 		Path arquivoPath = diretorioPath.resolve(local);
@@ -52,6 +51,7 @@ public class Disco {
 		return caminho;
 		
 	}
+	
 	
 	
 	

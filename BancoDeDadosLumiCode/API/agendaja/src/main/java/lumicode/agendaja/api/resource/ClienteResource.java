@@ -64,7 +64,7 @@ public class ClienteResource {
 	@GetMapping("/login")
 	private String login(@RequestBody Cliente cliente) {
 		String resposta;
-		if(clienteRepository.Entrar(cliente.getEmail(), cliente.getSenha()) != null) {
+		if(clienteRepository.entrar(cliente.getEmail(), cliente.getSenha()) != null) {
 			resposta = "Entra ai po";
 		}else {
 			resposta = "Ta errado alguma coisa ai";
@@ -79,7 +79,7 @@ public class ClienteResource {
 	private ResponseEntity<?> salvarCliente(@Validated @RequestBody Cliente cliente,
 		HttpServletResponse response){
 		
-		if(clienteRepository.VerificarEmail(cliente.getEmail()) != null) {
+		if(clienteRepository.verificarEmail(cliente.getEmail()) != null) {
 			return new ResponseEntity<String>("{mensage: 'E-mail Já cadastrado'}",HttpStatus.BAD_REQUEST);
 		}
 		
