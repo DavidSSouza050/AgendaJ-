@@ -51,6 +51,11 @@ public class Cliente {
 	private String criadoEm;
 	private String atualizadoEm;
 	
+	@NotNull
+	@OneToOne
+	@JoinColumn(name = "id_endereco")
+	private Endereco endereco;
+	
 	
 	public Long getIdCliente() {
 		return idCliente;
@@ -149,8 +154,15 @@ public class Cliente {
 		this.atualizadoEm = atualizadoEm;
 	}
 
-	
-	
+	public Endereco getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
+	}
+
+
 	
 		
 

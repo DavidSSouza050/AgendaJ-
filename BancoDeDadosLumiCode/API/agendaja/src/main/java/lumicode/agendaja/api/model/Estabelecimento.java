@@ -43,6 +43,10 @@ public class Estabelecimento {
 	private String senha;
 	private String criadoEm;
 	private String atualizadoEm;
+	@NonNull
+	@OneToOne
+	@JoinColumn(name = "id_endereco")
+	private Endereco endereco;
 	
 	
 	
@@ -133,11 +137,15 @@ public class Estabelecimento {
 	public void setAtualizadoEm(String atualizadoEm) {
 		this.atualizadoEm = atualizadoEm;
 	}
-	
-	
-	
 
-	
-	
+	public Endereco getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
+	}
+
+
 
 }
