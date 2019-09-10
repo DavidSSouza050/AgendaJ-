@@ -4,12 +4,11 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.io.File;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
-
-import lumicode.agendaja.api.utils.ConverterDatas;
 
 @Component
 public class Disco {
@@ -33,7 +32,6 @@ public class Disco {
 		
 		Path diretorioPath = Paths.get(this.raiz, diretorio); 
 		//criando o nome do arquivo 
-		ConverterDatas data = new ConverterDatas();
 		local = (System.currentTimeMillis() +"_"+ arquivo.getOriginalFilename());
 		//
 		//onde o arquivo vai ser salvo mais o nome do arquivo
@@ -52,6 +50,17 @@ public class Disco {
 		
 	}
 	
+	
+	public void deletar(String caminho) {
+		File apaga = new File(caminho);
+		
+		if(apaga.exists() && apaga.isFile()) {
+			
+			apaga.delete();
+				 
+		}
+		
+	}
 	
 	
 	

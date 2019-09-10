@@ -28,10 +28,16 @@ public class FotosResource {
 	@PostMapping("/estabelecimento")
 	public Estabelecimento uploadRestaurante(@RequestParam MultipartFile foto, @RequestParam Long id) {
 		Estabelecimento estabelecimento = new Estabelecimento();
+		//verificando se o cliente ja tem uma imagem se tiver ele excluir primeiro e depois cria a nova
+		estabelecimento = estabelecimentoRepository.getById(id);
+		String caminho = estabelecimento.getFoto();
+		if(caminho != null) {
+			disco.deletar(caminho);
+		}
+		
 		String localFoto = disco.salvarFoto(foto, "estabelecimento");
 		
 		if(localFoto != null) {
-			estabelecimento = estabelecimentoRepository.getById(id);
 			estabelecimento.setFoto(localFoto);
 			estabelecimentoRepository.save(estabelecimento);
 		}
@@ -44,10 +50,17 @@ public class FotosResource {
 	@PostMapping("/cliente")
 	public Cliente uploadCliente(@RequestParam MultipartFile foto, @RequestParam Long id) {
 		Cliente cliente = new Cliente();
+		//verificando se o cliente ja tem uma imagem se tiver ele excluir primeiro e depois cria a nova
+		cliente = clienteRepository.getById(id);
+		String caminho = cliente.getFotoCliente();
+		if(caminho != null) {
+			disco.deletar(caminho);
+		}
+		
 		String localFoto = disco.salvarFoto(foto, "cliente");
 		
+		
 		if(localFoto != null) {
-			cliente = clienteRepository.getById(id);
 			cliente.setFotoCliente(localFoto);
 			clienteRepository.save(cliente);
 		}
