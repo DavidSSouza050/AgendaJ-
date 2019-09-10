@@ -32,19 +32,28 @@ public class EnderecoActivity extends AppCompatActivity implements View.OnClickL
     private Cliente clienteComDados;
     private Endereco enderecoVoltado;
     private Cliente clienteVoltado;
+    private Endereco cepRetornado;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_endereco);
 
-        Intent dadosCliente = getIntent();
-        clienteComDados = (Cliente) dadosCliente.getSerializableExtra("novoCliente");
+        try{
+            //pegando o cliente criado pela primeira vez na DadosPessoasActivity  para EnderecoActivity
+            Intent dadosCliente = getIntent();
+            clienteComDados = (Cliente) dadosCliente.getSerializableExtra("novoCliente");
+            cepRetornado = (Endereco) dadosCliente.getSerializableExtra("retornandoCep");
 
-        Intent intentVoltaEndereco = getIntent();
-        enderecoVoltado = (Endereco) intentVoltaEndereco.getSerializableExtra("EnderecoVoltado");
 
-        clienteVoltado = (Cliente) intentVoltaEndereco .getSerializableExtra("ClienteVoltado");
+            // Pegando endereco e cliente voltados da activity ContatoActivity
+            Intent intentVoltaEndereco = getIntent();
+            enderecoVoltado = (Endereco) intentVoltaEndereco.getSerializableExtra("EnderecoVoltado");
+            clienteVoltado = (Cliente) intentVoltaEndereco .getSerializableExtra("ClienteVoltado");
+        }catch(Exception e){
+            e.getMessage();
+        }
+
 
 
         cep = findViewById(R.id.txt_cep_endereco);
@@ -70,8 +79,10 @@ public class EnderecoActivity extends AppCompatActivity implements View.OnClickL
 
         if(enderecoVoltado!=null){
             cep.setText(enderecoVoltado.getCep());
+        }
 
-            //Toast.makeText(EnderecoActivity.this,enderecoVoltado.getCep(),Toast.LENGTH_LONG).show();
+        if(cepRetornado!=null){
+            cep.setText(cepRetornado.getCep());
         }
 
     }
@@ -147,6 +158,11 @@ public class EnderecoActivity extends AppCompatActivity implements View.OnClickL
                 Intent intentVoltarEndereco = new Intent(EnderecoActivity.this,DadosPessoaisActivity.class);
                 if(clienteComDados !=null){
                     intentVoltarEndereco.putExtra("voltantoDados",clienteComDados);
+                }
+                if(cep.length()==8){
+                    Endereco enderecoParaRetornar = new Endereco();
+                    enderecoParaRetornar.setCep(cep.getText().toString());
+                    intentVoltarEndereco.putExtra("voltandoCep",enderecoParaRetornar);
                 }
                 if(clienteVoltado!=null){
                     intentVoltarEndereco.putExtra("clienteVoltado",clienteVoltado);

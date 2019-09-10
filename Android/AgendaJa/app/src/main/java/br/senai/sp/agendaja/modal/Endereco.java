@@ -10,6 +10,15 @@ public class Endereco implements Serializable {
   private String cidade;
   private String estado;
   private String codIBGE;
+  private Integer idEndereco;
+
+  public Integer getIdEndereco() {
+    return idEndereco;
+  }
+
+  public void setIdEndereco(Integer idEndereco) {
+    this.idEndereco = idEndereco;
+  }
 
   public String getCodIBGE() {
     return codIBGE;
@@ -70,13 +79,14 @@ public class Endereco implements Serializable {
   @Override
   public String toString() {
     return "Endereco{" +
-         "cep=" + cep +
+         "cep='" + cep + '\'' +
          ", logradouro='" + logradouro + '\'' +
          ", numero=" + numero +
          ", bairro='" + bairro + '\'' +
          ", cidade='" + cidade + '\'' +
          ", estado='" + estado + '\'' +
          ", codIBGE='" + codIBGE + '\'' +
+         ", idEndereco=" + idEndereco +
          '}';
   }
 }

@@ -5,6 +5,16 @@ import java.util.Arrays;
 import java.util.Date;
 
 public class Cliente extends Informacao implements Serializable {
+  private Integer idCliente;
+
+  public Integer getIdCliente() {
+    return idCliente;
+  }
+
+  public void setIdCliente(Integer idCliente) {
+    this.idCliente = idCliente;
+  }
+
   private byte[] foto;
   private String nome;
   private String sobrenome;
@@ -63,7 +73,8 @@ public class Cliente extends Informacao implements Serializable {
   @Override
   public String toString() {
     return "Cliente{" +
-         "foto=" + Arrays.toString(foto) +
+         "idCliente=" + idCliente +
+         ", foto=" + Arrays.toString(foto) +
          ", nome='" + nome + '\'' +
          ", sobrenome='" + sobrenome + '\'' +
          ", cpf='" + cpf + '\'' +

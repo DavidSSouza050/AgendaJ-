@@ -67,13 +67,12 @@ public class CarregarLocalizacao extends AsyncTask{
 
 
         if(object.length()>0){
-        Log.d("Entrou","Entrou no if");
         endereco = new Endereco();
         endereco.setEstado(object.getString("uf"));
         endereco.setCidade(object.getString("localidade"));
         endereco.setBairro(object.getString("bairro"));
         endereco.setLogradouro(object.getString("logradouro"));
-
+        endereco.setCodIBGE(object.getString("ibge"));
         }
 
         Log.d("Endereco",endereco.getLogradouro());
@@ -103,6 +102,12 @@ public class CarregarLocalizacao extends AsyncTask{
   }
 
   @Override
+  protected void onProgressUpdate(Object[] values) {
+    super.onProgressUpdate(values);
+    exibirProgress(true);
+  }
+
+  @Override
   protected void onPostExecute(Object o) {
     super.onPostExecute(o);
 
@@ -113,6 +118,6 @@ public class CarregarLocalizacao extends AsyncTask{
       public void run() {
         exibirProgress(false);
       }
-    },1500);
+    },100);
   }
 }

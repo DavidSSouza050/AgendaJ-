@@ -15,6 +15,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:usesCleartextTraffic="true"
         android:supportsRtl="true"
+        android:networkSecurityConfig="@xml/network_config_file"
         android:theme="@style/AppTheme">
         <activity
             android:name=".LoginActivity"

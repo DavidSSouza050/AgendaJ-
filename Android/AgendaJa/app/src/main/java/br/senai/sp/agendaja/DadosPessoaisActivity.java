@@ -9,6 +9,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -28,6 +29,7 @@ import java.io.InputStream;
 
 import br.senai.sp.agendaja.conversaoImagem.ConverterImagem;
 import br.senai.sp.agendaja.modal.Cliente;
+import br.senai.sp.agendaja.modal.Endereco;
 
 public class DadosPessoaisActivity extends AppCompatActivity implements View.OnClickListener,AdapterView.OnItemSelectedListener{
 
@@ -50,21 +52,27 @@ public class DadosPessoaisActivity extends AppCompatActivity implements View.OnC
     public static final int CAMERA_REQUEST = 20;
     private String nomeFoto;
     private String caminhoFoto;
+    private Endereco cepVoltado;
+    private Cliente clienteVoltadoDoContato;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dados_pessoais);
 
+        //Pegando os dados retornados da enderecoActivity
         Intent intentVoltaEndereco = getIntent();
         clienteDaVolta = (Cliente) intentVoltaEndereco.getSerializableExtra("voltantoDados");
+        cepVoltado = (Endereco) intentVoltaEndereco.getSerializableExtra("voltandoCep");
+        clienteVoltadoDoContato = (Cliente) intentVoltaEndereco.getSerializableExtra("clienteVoltado");
+
+
 
         imgFotoUsuario = findViewById(R.id.img_foto_usuario);
         nome = findViewById(R.id.txt_nome_dados_pessais);
         sobreNome = findViewById(R.id.txt_sobre_nome_dados_pessoais);
         dtNascimento = findViewById(R.id.txt_data_nascimento_dados_pessoais);
         cpf = findViewById(R.id.txt_cpf_dados_pessoais);
-        //sexo = findViewById(R.id.txt_sexo_dados_pessoais);
         btnCancelar = findViewById(R.id.btn_cancelar__dados_pessoais);
         btnProximo = findViewById(R.id.btn_proximo_dados_pessoais);
         imgButonCamera = findViewById(R.id.image_button_camera);
@@ -103,10 +111,20 @@ public class DadosPessoaisActivity extends AppCompatActivity implements View.OnC
             sobreNome.setText(clienteDaVolta.getSobrenome());
             cpf.setText(clienteDaVolta.getCpf());
             dtNascimento.setText(clienteDaVolta.getDataNascimento());
-            if(clienteDaVolta.getSexo()=="F"){
-                spinnerSexo.setSelection(adapter.getPosition(1));
-            }else if(clienteDaVolta.getSexo()=="M"){
-                spinnerSexo.setSelection(adapter.getPosition(2));
+            if(clienteDaVolta.getSexo().equals("F")){
+                spinnerSexo.setSelection(1);
+            }else if(clienteDaVolta.getSexo().equals("M")){
+                spinnerSexo.setSelection(2);
+            }
+        }else if(clienteVoltadoDoContato != null){
+          nome.setText(clienteVoltadoDoContato.getNome());
+          sobreNome.setText(clienteVoltadoDoContato.getSobrenome());
+          cpf.setText(clienteVoltadoDoContato.getCpf());
+          dtNascimento.setText(clienteVoltadoDoContato.getDataNascimento());
+            if(clienteVoltadoDoContato.getSexo().equals("F")){
+                spinnerSexo.setSelection(1);
+            }else if(clienteVoltadoDoContato.getSexo().equals("M")){
+                spinnerSexo.setSelection(2);
             }
         }
 
@@ -129,6 +147,9 @@ public class DadosPessoaisActivity extends AppCompatActivity implements View.OnC
 
                     Intent intentProximo = new Intent(DadosPessoaisActivity.this,EnderecoActivity.class);
                     intentProximo.putExtra("novoCliente",cliente);
+                    if(cepVoltado!=null){
+                        intentProximo.putExtra("retornandoCep",cepVoltado);
+                    }
                     startActivity(intentProximo);
                     finish();
                 }else if(validar()==false){
@@ -209,13 +230,15 @@ public class DadosPessoaisActivity extends AppCompatActivity implements View.OnC
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        switch (view.getId()){
-            case R.id.spinner_txt_sexo:
-                if(position==1){
-                    sexo = "F" ;
-                }else if(position==2){
-                    sexo = "M";
-                }
+
+        String pegandoSexo = parent.getItemAtPosition(position).toString();
+
+        if(pegandoSexo.equals("Masculino")){
+            sexo = "M";
+            Log.d("Pegando Sexo",sexo);
+        }else if(pegandoSexo.equals("Feminino")){
+            sexo = "F";
+            Log.d("Pegando Sexo",sexo);
         }
 
     }

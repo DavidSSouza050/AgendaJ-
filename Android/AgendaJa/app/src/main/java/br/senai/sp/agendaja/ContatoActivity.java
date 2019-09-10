@@ -3,13 +3,20 @@ package br.senai.sp.agendaja;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.io.File;
+import java.util.concurrent.ExecutionException;
+
 import br.senai.sp.agendaja.modal.Cliente;
 import br.senai.sp.agendaja.modal.Endereco;
+import br.senai.sp.agendaja.modal.Informacao;
+import br.senai.sp.agendaja.tasks.CadastrarCliente;
+import br.senai.sp.agendaja.tasks.CadastrarEndereco;
 
 public class ContatoActivity extends AppCompatActivity implements View.OnClickListener{
     private EditText celular;
@@ -19,8 +26,10 @@ public class ContatoActivity extends AppCompatActivity implements View.OnClickLi
     private EditText confirmarSenha;
     private Button btnFinalizar;
     private Button btnVoltar;
-    private Endereco endereco;
-    private Cliente clienteComDados;
+    private Endereco enderecoFinal;
+    private Cliente clienteFinal;
+    private Informacao infomacoesCliente;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,8 +38,8 @@ public class ContatoActivity extends AppCompatActivity implements View.OnClickLi
 
         Intent intentDadosCliente = getIntent();
 
-        endereco = (Endereco) intentDadosCliente.getSerializableExtra("Endereco");
-        clienteComDados = (Cliente) intentDadosCliente.getSerializableExtra("clienteComDados");
+        enderecoFinal = (Endereco) intentDadosCliente.getSerializableExtra("Endereco");
+        clienteFinal = (Cliente) intentDadosCliente.getSerializableExtra("clienteComDados");
 
         celular = findViewById(R.id.txt_celular_contato);
         email =  findViewById(R.id.txt_email_contato);
@@ -49,13 +58,56 @@ public class ContatoActivity extends AppCompatActivity implements View.OnClickLi
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.btn_finalizar_contato:
-                Toast.makeText(ContatoActivity.this,"Nada por enquanto",Toast.LENGTH_LONG).show();
+                //comparando senhas e emails para verificar se são iguais aos campos de confirmação
+
+                //if(email.getText().toString() == confirmarEmail.getText().toString()
+                     //&& senha.getText().toString() == confirmarSenha.getText().toString() ){
+
+//                    infomacoesCliente = new Informacao();
+                    clienteFinal.setCelular(celular.getText().toString());
+                    clienteFinal.setEmail(email.getText().toString());
+                    clienteFinal.setSenha(senha.getText().toString());
+
+                    CadastrarEndereco cadastrarEndereco = new CadastrarEndereco(enderecoFinal);
+                    cadastrarEndereco.execute();
+
+                    try {
+                        int respostaCadastroEndereco = (Integer) cadastrarEndereco.get();
+
+                        if(respostaCadastroEndereco != 0){
+
+                            CadastrarCliente cadastrarCliente = new CadastrarCliente(clienteFinal,respostaCadastroEndereco);
+                            cadastrarCliente.execute();
+
+                            int respostaCadastroCliente = (Integer) cadastrarCliente.get();
+
+                            if(respostaCadastroCliente!=0){
+                                Log.d("CadastroCliente","Cadastro Concluido");
+                            }else{
+                                Toast.makeText(ContatoActivity.this,"Falha no cadastro do cliente",Toast.LENGTH_LONG).show();
+                            }
+
+                        }else{
+                            Toast.makeText(ContatoActivity.this,"Falha no cadastro",Toast.LENGTH_LONG).show();
+                        }
+
+
+                    } catch (ExecutionException e) {
+                        e.printStackTrace();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+
+
+                //}else{
+                  //  Toast.makeText(ContatoActivity.this,"Senhas incompativeis",Toast.LENGTH_LONG).show();
+                //}
                 break;
             case R.id.btn_voltar_contato:
                 Intent intentVoltar = new Intent(ContatoActivity.this, EnderecoActivity.class);
-                if(endereco!=null ){
-                    intentVoltar.putExtra("EnderecoVoltado",endereco);
-                    intentVoltar.putExtra("ClienteVoltado",clienteComDados);
+                if(enderecoFinal!=null ){
+                    intentVoltar.putExtra("EnderecoVoltado",enderecoFinal);
+                    intentVoltar.putExtra("ClienteVoltado",clienteFinal);
                 }
                 startActivity(intentVoltar);
         }
