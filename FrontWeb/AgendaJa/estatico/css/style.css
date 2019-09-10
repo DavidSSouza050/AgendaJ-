@@ -314,13 +314,21 @@
     }
 
     /* Estilização cadastro_estabelecimento.html*/
-    #container_all_cadastro_estabelecimento{
-        width: 100vw;
-        height: 100vh;        
+    .background_cadastro_estabelecimento{
+        background-image: url(../imagens/background_cadastro_estabelecimento.jpg);
     }
 
-    
+    #container_all_cadastro_estabelecimento{
+        width: 100vw;
+        height: 100vh;  
+        /* overflow: hidden;       */
+    }
 
+
+    #conteudo_cadastro_estabelecimento{
+        /* width: 1300px;
+        height: 100%; */
+    }
 
 }
 
