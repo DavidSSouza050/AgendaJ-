@@ -1,0 +1,334 @@
+@media (min-width: 1200px){
+    body{
+        height: 100vh;
+        font-family:  Helvetica, 'Sego UI', Arial, sans-serif;
+       
+    }
+
+    .back{
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        background-size: cover;
+        -o-background-size: cover;
+    }
+    
+    .center{
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .vertical_center{
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%); 
+    }
+    
+    
+    /*Estilização escolha_cadastro.html */
+    .background_escolha_cadastro{
+        background-image: url(../imagens/background_tipo_cadastro.jpg);
+    }
+
+    #container_all_tipo_cadastro{
+        width: 100vw;
+        height: 100vh;        
+    }
+    
+    #header_cadastro{
+        width: inherit;
+        height: 70px;
+        background-color: rgb(33, 29, 54);
+    }
+    
+    #icone_logo{
+        width: 65px;
+        height: 65px;
+    }
+    
+    #logo{
+        width: inherit;
+        height: inherit;
+    }
+    
+    #conteudo_tipo_cadastro{
+        width: 70%;
+        height: 650px; 
+    }
+    
+    .caixa_titulo{
+        height: 60px;
+        width: 100%;
+        text-align: center;
+        margin-top: 50px;
+    }
+    
+    #titulo{
+        font-size: 2.3em;
+        font-weight: bold;
+        color: white;
+        text-shadow: rgba(0,0,0,0.5) 0.1em 0.1em 0.2em;
+    }
+    
+    .caixa_cards{
+        width: 100%;
+        height: 100%;
+        /* background-color: #353266; */
+        display: flex;
+        align-items: center;
+        justify-content: center 
+    }
+    
+    .item_card{
+        width: 375px;
+        height: 450px;
+        border-radius: 8px;
+        margin-left: 35px;
+        margin-top: 20px;
+        float: left;
+        box-shadow:  rgba(0,0,0,0.3) 0px 0px 10px;
+        opacity: 0.85;
+    }    
+    #espaço_card{
+        margin-right:50px; 
+    }
+    
+    .header_card{
+        width: 100%;
+        height: 60px;
+    }
+    
+    .icone_header_card{
+        width: 60px;
+        height: inherit;
+        float: left;
+    }
+    
+    .title_header_card{
+        width: 220px;
+        height: inherit;
+        float: left;
+        padding-left: 10px;
+        margin-top: 5px;
+        /* background-color: #353266; */
+    }
+    
+    .line{
+        border: 0.5px solid #8a8a8a;
+    }
+    
+    .texto_card{
+        text-align: center;
+        padding-top: 10px;
+        font-size: 1.5em;
+    }
+    
+    .formatacao_titulo_card{
+        font-size: 1.50em;
+        font-weight: bold;
+    }
+    
+    .icones{
+        width: 50px;
+        height: 50px;
+        margin-top: 5px;
+    }
+    
+    #icone_esquerdo_footer{
+        width: 70px;
+        height: 70px;
+        margin-top: 5%;
+    }
+    
+    #icone_direito_footer{
+        width: 70px;
+        height: 70px;
+        margin-left: 80%;
+        margin-top: 15%;
+    }
+    
+    .icone_seta{
+        width: 50px;
+        height: 50px;
+        margin-top: 5px;
+        margin-left: 5px;
+    }
+    
+    #caixa_botao{
+        width: 170px;
+        height: 60px;
+        z-index: 999;
+        position: absolute;
+        margin-top: 20px;
+        margin-right: 50px;
+
+    }
+    
+    #button{
+        width: 100%;
+        height: 60px;
+        background-color: rgba(255, 0, 0, 0);
+        border: 3px solid rgb(92, 69, 239);
+        border-radius: 50px;
+        box-shadow: rgba(0,0,0, 0.5) 0px 0px 0px;
+        outline: none;
+        font-size: 1.3em;
+        text-align: center;
+        font-weight: bold;
+        color:white;
+    }
+    
+    /* Efeitos escolha_cadastro.html */
+    #button:hover{
+        background-color: rgb(92, 69, 239);
+        box-shadow:  rgba(0,0,0, 0.6) 1px 1px 15px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+    
+    .item_card:hover{
+        box-shadow:  rgba(0,0,0, 0.4) 1px 1px 15px;
+        cursor: pointer;
+        opacity: 1;
+        transition: 0.2s;
+    }
+    
+    
+    .item_card:hover>.card-body>.header_card>.title_header_card>.card-title{
+        color: rgb(36, 60, 138);
+        transition: 0.5s;   
+    }
+    
+    .item_card:hover>.card-body>#icone_esquerdo_footer>.icone_seta{
+        transform: scale(1.1);
+        transition: 0.5s;
+    }
+    
+    .item_card:hover>.card-body>#icone_direito_footer>.icone_seta{
+        transform: scale(1.1);
+        transition: 0.5s;
+    }
+    
+    /*Estilização login.html */
+
+    .background_login{
+        background-image: url(../imagens/background_login.jpg);
+    }
+    
+    #container_all_login{
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    #container_form_login{
+        width: 450px;
+        height: 650px;
+        background-color:white;
+        box-shadow:  rgba(0, 0, 0, 0.336) 1px 1px 15px;
+        border-radius: 8px;
+        padding-top: 20px;
+    }
+    
+    #container_titulo_form{
+        width: 100%;
+        height: 10%;
+        text-align: center;
+        font-size: 2.8em;    
+    }
+
+    #container_titulo_form h3{
+        color: #505055; 
+    }
+    
+    #container_logotipo{
+        width: 100%;
+        height: 100px;
+        /* background-color: #38164e; */
+        margin-top: 25px;
+        margin-bottom: 50px;
+    }
+    
+    #logotipo{
+        width: 350px;
+        height: 100px;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%); 
+    }
+    
+    #form_login{
+        width: 100%;
+        height: 500px;
+        padding-left: 50px;
+        padding-right: 50px;
+        margin-bottom: 50px;
+    }
+    
+    .label{
+        font-size:1.2em;
+        color: #505055;  
+    }
+
+    .caixa_de_texto{
+        box-shadow: rgba(0,0,0, 0.5) 0px 0px 2px;
+    }
+
+    #div_senha span{
+        margin-top: 10px;
+        text-align: right;
+        color: #505055;
+        font-weight: 500; 
+    }
+
+    #div_senha span:hover{
+        color: #904abe;
+        cursor: pointer;
+        transition: 0.2s;
+    }
+        
+    .align_button{
+        padding-top: 20px;
+        text-align: right;
+    }
+    
+    #btn_entrar{
+        background-color: #2b2069;
+        /* border-radius: 50px; */
+        box-shadow: rgba(0,0,0, 0.5) 0px 0px 5px;
+        color: white;
+        margin-bottom:10px;
+    }
+    
+    .align_button span{
+        font-weight: bold;
+    }
+
+
+    .align_button span:hover{
+        color: #904abe;
+        cursor: pointer;
+        transition: 0.2s;
+    }
+
+    /* Estilização cadastro_estabelecimento.html*/
+    .background_cadastro_estabelecimento{
+        background-image: url(../imagens/background_cadastro_estabelecimento.jpg);
+    }
+
+    #container_all_cadastro_estabelecimento{
+        width: 100vw;
+        height: 100vh;  
+        /* overflow: hidden;       */
+    }
+
+
+    #conteudo_cadastro_estabelecimento{
+        /* width: 1300px;
+        height: 100%; */
+    }
+
+}
+
