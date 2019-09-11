@@ -26,7 +26,7 @@ CREATE TABLE `tbl_cidade` (
   `id_cidade` int(11) NOT NULL AUTO_INCREMENT,
   `id_estado` int(11) NOT NULL,
   `cidade` varchar(50) NOT NULL,
-  PRIMARY KEY (`cod_cidade`),
+  PRIMARY KEY (`id_cidade`),
   KEY `id_estado` (`id_estado`),
   CONSTRAINT `tbl_cidade_ibfk_1` FOREIGN KEY (`id_estado`) REFERENCES `tbl_estado` (`id_estado`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5598 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;

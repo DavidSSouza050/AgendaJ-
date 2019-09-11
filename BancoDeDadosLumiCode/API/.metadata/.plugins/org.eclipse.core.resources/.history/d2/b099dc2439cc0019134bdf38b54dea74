@@ -1,0 +1,30 @@
+package lumicode.agendaja.api.utils;
+
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class ConverterDatas {
+	
+	// metodo de converção de data para inglesa para portuguesa
+	public Date dataPt(String dataEn) {
+		
+		
+		
+		Date dataFormatadaPt = null;
+		try {
+			SimpleDateFormat formatoPt = new SimpleDateFormat("dd/MM/yyyy");
+			dataFormatadaPt = formatoPt.parse(dataEn);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return dataFormatadaPt;
+	}
+	
+	
+	
+}
+

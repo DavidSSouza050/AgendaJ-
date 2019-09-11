@@ -5,8 +5,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import org.springframework.web.multipart.MultipartFile;
 
 @Entity
 @Table(name = "tbl_cidade")
@@ -15,9 +18,9 @@ public class Cidade {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idCidade;
 	private String cidade;
-	@OneToOne
-	@JoinColumn(name = "id_estado")
-	private Long idEstado;
+	@ManyToOne
+	@JoinColumn(name = "id_microrregiao")
+	private Microrregiao idMicrorregiao;
 
 	public Long getIdCidade() {
 		return idCidade;
@@ -35,13 +38,14 @@ public class Cidade {
 		this.cidade = cidade;
 	}
 
-	public Long getIdEstado() {
-		return idEstado;
+	public Microrregiao getIdMicrorregiao() {
+		return idMicrorregiao;
 	}
 
-	public void setIdEstado(Long idEstado) {
-		this.idEstado = idEstado;
+	public void setIdMicrorregiao(Microrregiao idMicrorregiao) {
+		this.idMicrorregiao = idMicrorregiao;
 	}
+
 	
 
 }

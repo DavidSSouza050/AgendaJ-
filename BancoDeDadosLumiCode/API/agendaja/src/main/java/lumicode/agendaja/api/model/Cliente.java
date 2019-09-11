@@ -30,26 +30,31 @@ public class Cliente {
 	@Size(min = 3, max = 50, message = "O Sobrenome deve conter no Minimo 3 Caracteres!")
 	private String sobrenome;
 	@NotNull
-	@Size(max = 13, message = "Digite o Numero do Celular corretamente!")
+	@Size(max = 15, message = "Digite o Numero do Celular corretamente!")
 	private String celular;
-	@NotNull
 	@CPF
+	@NotNull
 	@Size(max = 14, message = "Digite CPF corretemente!")
 	private String cpf;
 	@NotNull
 	@Size(max = 1, message = "Permitido 1 caracter!")
 	private String sexo;
 	@NotNull
-	private Date dataNacimento;
+	private String dataNascimento;
 	@NotNull
 	@Size(min = 10, max = 50 , message = "O E-mail deve conter no Minimo 10 catacteres!")
 	private String email;
 	@NotNull
 	@Size(min = 8, max = 255, message="a senha deve conter no minimo 8 caracteres")
 	private String senha;
+	private String fotoCliente;
+	private String criadoEm;
+	private String atualizadoEm;
+	
+	@NotNull
 	@OneToOne
 	@JoinColumn(name = "id_endereco")
-	private Long idEndereco;
+	private Endereco endereco;
 	
 	
 	public Long getIdCliente() {
@@ -100,12 +105,13 @@ public class Cliente {
 		this.sexo = sexo;
 	}
 
-	public Date getDataNacimento() {
-		return dataNacimento;
+	
+	public String getDataNascimento() {
+		return dataNascimento;
 	}
 
-	public void setDataNacimento(Date dataNacimento) {
-		this.dataNacimento = dataNacimento;
+	public void setDataNascimento(String dataNascimento) {
+		this.dataNascimento = dataNascimento;
 	}
 
 	public String getEmail() {
@@ -123,8 +129,40 @@ public class Cliente {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-	
-	
+
+	public String getFotoCliente() {
+		return fotoCliente;
+	}
+
+	public void setFotoCliente(String fotoCliente) {
+		this.fotoCliente = fotoCliente;
+	}
+
+	public String getCriadoEm() {
+		return criadoEm;
+	}
+
+	public void setCriadoEm(String criadoEm) {
+		this.criadoEm = criadoEm;
+	}
+
+	public String getAtualizadoEm() {
+		return atualizadoEm;
+	}
+
+	public void setAtualizadoEm(String atualizadoEm) {
+		this.atualizadoEm = atualizadoEm;
+	}
+
+	public Endereco getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
+	}
+
+
 	
 		
 

@@ -5,9 +5,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.br.CNPJ;
@@ -18,7 +18,7 @@ import org.springframework.lang.NonNull;
 public class Estabelecimento {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY )
-	private Long id_estabelecimento;
+	private Long idEstabelecimento;
 	@NonNull
 	@CNPJ
 	@Size(max = 14, message = "O CNPJ tem que conter 14 caracteres!")
@@ -31,6 +31,7 @@ public class Estabelecimento {
 	private String nomeEstabelecimento;
 	@Size(max = 13, message = "Digite o celular corretamente!")
 	private String celular;
+	private String foto;
 	@NonNull
 	@Size(max = 15, message = "Digite o número telefone corretamente!")
 	private String telefone;
@@ -40,17 +41,21 @@ public class Estabelecimento {
 	@NonNull
 	@Size(min = 8, max = 255, message = "A senha que conter 8 ou mais caracteres!")
 	private String senha;
+	private String criadoEm;
+	private String atualizadoEm;
+	@NonNull
 	@OneToOne
 	@JoinColumn(name = "id_endereco")
-	private Long idEndereco; 
+	private Endereco endereco;
 	
 	
-	public Long getId_estabelecimento() {
-		return id_estabelecimento;
+	
+	public Long getIdEstabelecimento() {
+		return idEstabelecimento;
 	}
 
-	public void setId_estabelecimento(Long id_estabelecimento) {
-		this.id_estabelecimento = id_estabelecimento;
+	public void setIdEstabelecimento(Long idEstabelecimento) {
+		this.idEstabelecimento = idEstabelecimento;
 	}
 
 	public String getCnpj() {
@@ -109,14 +114,38 @@ public class Estabelecimento {
 		this.senha = senha;
 	}
 
-	public Long getIdEndereco() {
-		return idEndereco;
+	public String getFoto() {
+		return foto;
 	}
 
-	public void setIdEndereco(Long idEndereco) {
-		this.idEndereco = idEndereco;
+	public void setFoto(String foto) {
+		this.foto = foto;
 	}
-	
-	
+
+	public String getCriadoEm() {
+		return criadoEm;
+	}
+
+	public void setCriadoEm(String criadoEm) {
+		this.criadoEm = criadoEm;
+	}
+
+	public String getAtualizadoEm() {
+		return atualizadoEm;
+	}
+
+	public void setAtualizadoEm(String atualizadoEm) {
+		this.atualizadoEm = atualizadoEm;
+	}
+
+	public Endereco getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
+	}
+
+
 
 }

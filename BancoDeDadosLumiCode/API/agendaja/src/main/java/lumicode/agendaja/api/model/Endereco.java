@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -20,16 +21,21 @@ public class Endereco {
 	@Size(min = 5, max = 100, message = "O logradouro deve conter mais de 5 caracteres!")
 	private String logradouro;
 	@NotNull
-	@Size(min = 5, max = 100, message = "O Bairrodeve conter mais de 5 caracteres!")
+	@Size(min = 5, max = 100, message = "O Bairro deve conter mais de 5 caracteres!")
 	private String bairro;
 	@NotNull
+	@Size(max = 8, message = "Digite o cep corretamente!")
+	private String cep;
 	private String numero;
-	@OneToOne
-	@JoinColumn(name = "id_estabelecimento")
-	private Long idEstabelicimento;
-	@OneToOne
-	@JoinColumn(name = "id_cliente")
-	private Long idCliente;
+	@ManyToOne
+	@JoinColumn(name = "id_tipo_endereco")
+	private TipoEndereco idTipoEndereco;
+	@ManyToOne
+	@JoinColumn(name = "id_cidade")
+	private Cidade idCidade;
+	private String criadoEm;
+	private String atualizadoEm;
+	
 
 	
 	public Long getIdEndereco() {
@@ -55,6 +61,14 @@ public class Endereco {
 	public void setBairro(String bairro) {
 		this.bairro = bairro;
 	}
+	
+	public String getCep() {
+		return cep;
+	}
+
+	public void setCep(String cep) {
+		this.cep = cep;
+	}
 
 	public String getNumero() {
 		return numero;
@@ -64,21 +78,43 @@ public class Endereco {
 		this.numero = numero;
 	}
 
-	public Long getIdEstabelicimento() {
-		return idEstabelicimento;
+	public TipoEndereco getIdTipoEndereco() {
+		return idTipoEndereco;
 	}
 
-	public void setIdEstabelicimento(Long idEstabelicimento) {
-		this.idEstabelicimento = idEstabelicimento;
+	public void setIdTipoEndereco(TipoEndereco idTipoEndereco) {
+		this.idTipoEndereco = idTipoEndereco;
 	}
 
-	public Long getIdCliente() {
-		return idCliente;
+	public Cidade getIdCidade() {
+		return idCidade;
 	}
 
-	public void setIdCliente(Long idCliente) {
-		this.idCliente = idCliente;
+	public void setIdCidade(Cidade idCidade) {
+		this.idCidade = idCidade;
 	}
+
+
+	public String getCriadoEm() {
+		return criadoEm;
+	}
+
+	public void setCriadoEm(String criadoEm) {
+		this.criadoEm = criadoEm;
+	}
+
+	public String getAtualizadoEm() {
+		return atualizadoEm;
+	}
+
+	public void setAtualizadoEm(String atualizadoEm) {
+		this.atualizadoEm = atualizadoEm;
+	}
+	
+	
+	
+	
+
 	
 	
 }
