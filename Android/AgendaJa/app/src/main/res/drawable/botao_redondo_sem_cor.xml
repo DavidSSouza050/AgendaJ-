@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:andoid="http://schemas.android.com/apk/res/android"
+    andoid:shape="rectangle">
+    <stroke
+        andoid:color="#ffffff"
+        andoid:width="2dp"
+        />
+
+    <corners andoid:radius="50dp"/>
+
+</shape>
