@@ -11,17 +11,149 @@
     </head>
     <body>
         <!-- Essa é a div que segura todos os componentes da tela -->
-        <div id="container_all_tipo_cadastro">
-            <!-- Header  -->
-            <header id='header_cadastro'>
-                <div class="center vertical_center" id="icone_logo">
-                    <img id="logo" src="imagens/logo_mobile_sem_fundo.png" alt="Logotipo AgendaJá"/>
+        <!DOCTYPE html>
+        <html lang="pt-br">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>AgendaJá - Cadastro de Estabelecimento</title>
+                <link rel="icon" href="imagens/favicon.ico" />
+                <link rel="stylesheet" type="text/css" href="css/reset.css"/>
+                <link rel="stylesheet" type="text/css" href="css/style.css"/>
+                <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
+            </head>
+            <body class="body_cadastro back">
+                <!-- Essa é a div que segura todos os componentes da tela -->
+                <div id="container_all_cadastro_estabelecimento" >
+                    <!-- Header  -->
+                    <header id='header_cadastro'>
+                        <div class="center vertical_center" id="icone_logo">
+                            <img id="logo" src="imagens/logo_mobile_sem_fundo.png" alt="Logotipo AgendaJá"/>
+                        </div>
+                    </header>
+                    <div id="espaco">
+                    </div>
+                    <!-- Div que Segura todos os Cards -->
+                    <div id="conteudo_cadastro_estabelecimento" class="center">
+                        <div id="titulo_cadastro_estabelecimento" class="center">
+                            Cadastro de Cliente
+                        </div>
+                        <hr class="hr" >
+                        <form action="">
+                            <div class="card_informacoes_conta">
+                                <div class="informacoes_conta_esquerda"> 
+                                    <span>Dados Pessoas</span>
+                                </div>
+                                <div class="informacoes_conta_direita"> 
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="nome_cliente">Nome</label>
+                                            <!--CAIXA nome_estabelecimento-->
+                                            <input type="text" class="form-control sombra_input" id="nome_cliente" placeholder="Obrigatorio">
+                                        </div>
+                                        <div class="form-group col-md-5">
+                                            <label for="sobre_nome_cliente">Sobre Nome</label>
+                                            <!--CAIXA razao_social_estabelecimento-->
+                                            <input type="text" class="form-control sombra_input" id="razao_social_cliente" placeholder="Obrigatorio">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="data_nascimento_cliente">Data de Nascimento</label>
+                                            <!--CAIXA cnpj_estabelecimento-->
+                                            <input type="date" class="form-control sombra_input" id="data_nascimento_cliente" placeholder="Obrigatorio">
+                                        </div>
+                                        <div class="form-group col-md-5">
+                                            <label for="celular_estabelecimento">Sexo</label>
+                                            <!--CAIXA celular_estabelecimento-->
+                                            <select class="form-control sombra_input" id="celular_estabelecimento" >
+                                                <option>Feminino</option>
+                                                <option>Masculino</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="celular_cliente">Celular</label>
+                                            <!--CAIXA telefone_estabelecimento-->
+                                            <input type="text" class="form-control sombra_input" id="celular_cliente" placeholder="Obrigatorio">
+                                        </div>
+                                        <div class="form-group col-md-5">
+                                            <label for="cpf_cliente">CPF</label>
+                                            <!--CAIXA telefone_estabelecimento-->
+                                            <input type="text" class="form-control sombra_input" id="cpf_cliente" placeholder="Obrigatorio">
+                                        </div>
+                                    </div>
+                                </div>
+                               
+                            </div>
+                            <hr class="hr" >
+                            <div class="card_informacoes_conta">
+                                <div class="informacoes_conta_esquerda"> 
+                                    <span>Endereço</span>
+                                </div>
+                                <div class="informacoes_conta_direita"> 
+                                    <div class="form-row">
+                                        <div class="form-group col-sm-11">
+                                            <label for="cep_cliente">CEP</label>
+                                            <!--CAIXA cep_cliente-->
+                                            <input type="text" class="form-control sombra_input" id="cep_cliente" placeholder="Obrigatorio">
+                                        </div>
+                                        <div class="form-group col-md-11">
+                                            <label for="logradouro_cliente">Logradouro</label>
+                                            <!--CAIXA logradouro_cliente-->
+                                            <input type="text" class="form-control sombra_input" id="logradouro_cliente" readonly>
+                                        </div>
+                                        <div class="form-group col-sm-11">
+                                            <label for="bairro_cliente">Bairro</label>
+                                            <!--CAIXA bairro_cliente--> 
+                                            <input type="text" class="form-control sombra_input" id="bairro_cliente" readonly>
+                                        </div>
+                                        <div class="form-group col-md-9">
+                                            <label for="cidade_cliente">Cidade</label>
+                                            <!--CAIXA cidade_cliente-->
+                                            <input type="text" class="form-control sombra_input" id="cidade_cliente" readonly>
+                                        </div>
+                                        <div class="form-group col-md-2">
+                                            <label for="uf_cliente">UF</label>
+                                            <!--CAIXA uf_cliente-->
+                                            <input type="text" class="form-control sombra_input" id="uf_cliente" readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <hr class="hr" >
+                            <div class="card_informacoes_conta">
+                                <div class="informacoes_conta_esquerda"> 
+                                    <span>Infotmações Finais</span>
+                                </div>
+                                <div class="informacoes_conta_direita"> 
+                                    <div class="form-row">
+                                        <div class="form-group col-sm-11">
+                                            <label for="email_cliente">E-mail</label>
+                                            <!--CAIXA email_estabelecimento-->
+                                            <input type="email" class="form-control sombra_input" id="email_cliente" >
+                                        </div>
+                                        <div class="form-group col-sm-11">
+                                            <label for="senha_cliente">Senha</label>
+                                            <!--CAIXA senha_estabelecimento-->
+                                            <input type="password" class="form-control sombra_input" id="senha_cliente" >
+                                        </div>
+                                        <div class="form-group col-sm-11">
+                                            <label for="confirmar_senha_cliente">Confirmar Senha</label>
+                                            <!--CAIXA _estabelecimento-->
+                                            <input type="password" class="form-control sombra_input" id="confirmar_senha_cliente" >
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr class="hr" >
+                            <div id="caixa_botao_cadastro_estabeleciemento">
+                                <input type="button" class="botao_cancelar_cadastro" value="Cancelar" />
+                                <input type="button" class="botao_cadastro" value="Criar Conta" />
+                            <div>
+                        </form>
+                    </div>
+                    
                 </div>
-            </header>
-            <!-- Div que Segura todos os Cards -->
-            <div id="conteudo_tipo_cadastro" class="center">
-               
-            </div>  
-        </div>
+            </body>
+        </html>
     </body>
 </html>

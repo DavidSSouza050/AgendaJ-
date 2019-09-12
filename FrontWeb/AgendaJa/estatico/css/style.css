@@ -1,32 +1,43 @@
-@media (min-width: 1200px){
-    body{
-        height: 100vh;
-        font-family:  Helvetica, 'Sego UI', Arial, sans-serif;
-       
-    }
+.back{
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
 
-    .back{
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        background-size: cover;
-        -o-background-size: cover;
+.hr{
+    width: 93%;
+    height: 2px;
+    background-color:rgb(197, 196, 196);
+    margin-top: 15px;
+    margin-bottom: 18px;
+}
+
+.center{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.vertical_center{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%); 
+}
+
+body{
+    height: 100vh;
+    font-family:  Helvetica, 'Sego UI', Arial, sans-serif;   
+}
+
+
+@media (min-width: 1000px){
+    
+    .sombra_input{
+        box-shadow: rgba(0, 0, 0, 0.219) 0px 0px 5px;
     }
-    
-    .center{
-        margin-left: auto;
-        margin-right: auto;
-    }
-    
-    .vertical_center{
-        position: relative;
-        top: 50%;
-        transform: translateY(-50%); 
-    }
-    
-    
     /*Estilização escolha_cadastro.html */
     .background_escolha_cadastro{
         background-image: url(../imagens/background_tipo_cadastro.jpg);
@@ -41,6 +52,14 @@
         width: inherit;
         height: 70px;
         background-color: rgb(33, 29, 54);
+        position: fixed;
+        z-index: 999;
+        margin-bottom: 50px;
+    }
+    #espaco{
+        width: inherit;
+        height: 70px;
+        margin-bottom: 50px;
     }
     
     #icone_logo{
@@ -314,7 +333,8 @@
     }
 
     /* Estilização cadastro_estabelecimento.html*/
-    .background_cadastro_estabelecimento{
+    .body_cadastro{
+        overflow-x: hidden;
         background-image: url(../imagens/background_cadastro_estabelecimento.jpg);
     }
 
@@ -326,8 +346,88 @@
 
 
     #conteudo_cadastro_estabelecimento{
-        /* width: 1300px;
-        height: 100%; */
+        width: 1000px;
+        /*div cresendo automaticamente*/
+        min-height: 500px;
+        height: auto;
+        overflow: hidden;
+        /**/
+        background-color: white;
+        margin-bottom: 50px;
+        border-radius: 10px;
+    }
+
+    #titulo_cadastro_estabelecimento{
+        width: 500px;
+        height: 165px;
+        padding-top: 10px;
+        /*font*/
+        font-size: 48px;
+        text-align: center;
+        color: black;   
+        font-weight: bold; 
+    }
+
+    .card_informacoes_conta{
+        width: inherit;
+        /*crecer automatico*/
+        min-height: 200px;
+        height: auto;
+        overflow: hidden;
+        display: flex;
+    }
+
+    .informacoes_conta_esquerda{
+        width: 250px;
+        padding-left: 30px;
+        /*font*/
+        font-size: 30px;
+    }
+    .informacoes_conta_esquerda span{
+        font-weight: bold;
+    }
+
+    .informacoes_conta_direita{
+        width: 749px;
+        padding-left: 50px;
+        /*font*/
+        font-size: 17px;
+    }
+    #caixa_botao_cadastro_estabeleciemento{
+        width: inherit;
+        height: 100px;
+        box-sizing: border-box;
+        padding-left: 640px;
+        padding-top: 15px;
+    }
+    .botao_cadastro{
+        width: 150px;
+        height: 50px;
+        border-radius: 5px;
+        border:none;
+        outline: none;
+        background-color: #304fb4;
+        color: white;
+        font-size: 20px;
+    }
+    .botao_cadastro:hover{
+        transition: 0.5s;
+        background-color: #193388;
+    }
+    .botao_cancelar_cadastro{
+        width: 150px;
+        height: 50px;
+        border-radius: 5px;
+        border:none;
+        outline: none;
+        background-color: #304fb400;
+        color: rgb(131, 131, 131);
+        font-size: 20px;
+    }
+
+    .botao_cancelar_cadastro:hover{
+        transition: 0.1s;
+        color: rgb(197, 0, 0);
     }
 
 }
