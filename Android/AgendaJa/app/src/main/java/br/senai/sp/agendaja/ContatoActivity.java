@@ -17,6 +17,7 @@ import br.senai.sp.agendaja.modal.Endereco;
 import br.senai.sp.agendaja.modal.Informacao;
 import br.senai.sp.agendaja.tasks.CadastrarCliente;
 import br.senai.sp.agendaja.tasks.CadastrarEndereco;
+import br.senai.sp.agendaja.tasks.CadastrarFotoCliente;
 
 public class ContatoActivity extends AppCompatActivity implements View.OnClickListener{
     private EditText celular;
@@ -82,7 +83,18 @@ public class ContatoActivity extends AppCompatActivity implements View.OnClickLi
                             int respostaCadastroCliente = (Integer) cadastrarCliente.get();
 
                             if(respostaCadastroCliente!=0){
-                                Log.d("CadastroCliente","Cadastro Concluido");
+                                CadastrarFotoCliente cadastrarFotoCliente = new CadastrarFotoCliente(respostaCadastroCliente,clienteFinal.getFoto());
+                                cadastrarFotoCliente.execute();
+
+                                Cliente clienteComFoto = (Cliente) cadastrarFotoCliente.get();
+
+                                if(clienteComFoto == null){
+                                    Toast.makeText(ContatoActivity.this,"Cdastro da foto realizado",Toast.LENGTH_LONG).show();
+                                }else{
+                                    Toast.makeText(ContatoActivity.this,"Falha no cadastro da foto",Toast.LENGTH_LONG).show();
+                                }
+
+
                             }else{
                                 Toast.makeText(ContatoActivity.this,"Falha no cadastro do cliente",Toast.LENGTH_LONG).show();
                             }

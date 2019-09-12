@@ -1,5 +1,6 @@
 package br.senai.sp.agendaja.modal;
 
+import java.io.File;
 import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Date;
@@ -15,18 +16,18 @@ public class Cliente extends Informacao implements Serializable {
     this.idCliente = idCliente;
   }
 
-  private byte[] foto;
+  private File foto;
   private String nome;
   private String sobrenome;
   private String cpf;
   private String dataNascimento;
   private String sexo;
 
-  public byte[] getFoto() {
+  public File getFoto() {
     return foto;
   }
 
-  public void setFoto(byte[] foto) {
+  public void setFoto(File foto) {
     this.foto = foto;
   }
 
@@ -74,7 +75,7 @@ public class Cliente extends Informacao implements Serializable {
   public String toString() {
     return "Cliente{" +
          "idCliente=" + idCliente +
-         ", foto=" + Arrays.toString(foto) +
+         ", foto=" + foto +
          ", nome='" + nome + '\'' +
          ", sobrenome='" + sobrenome + '\'' +
          ", cpf='" + cpf + '\'' +

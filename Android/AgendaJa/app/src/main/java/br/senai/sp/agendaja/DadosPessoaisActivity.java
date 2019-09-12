@@ -52,8 +52,10 @@ public class DadosPessoaisActivity extends AppCompatActivity implements View.OnC
     public static final int CAMERA_REQUEST = 20;
     private String nomeFoto;
     private String caminhoFoto;
+    private String imagePath;
     private Endereco cepVoltado;
     private Cliente clienteVoltadoDoContato;
+    private File arquivoFoto;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -142,6 +144,7 @@ public class DadosPessoaisActivity extends AppCompatActivity implements View.OnC
                     cliente.setSobrenome(sobreNome.getText().toString());
                     cliente.setCpf((cpf.getText().toString()));
                     cliente.setSexo(sexo);
+                    cliente.setFoto(arquivoFoto);
                     //cliente.setFoto(imagem.bitmapParaByteArray(imgFotoUsuario));
                     cliente.setDataNascimento(dtNascimento.getText().toString());
 
@@ -171,7 +174,7 @@ public class DadosPessoaisActivity extends AppCompatActivity implements View.OnC
                 Intent intentCamera = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                 caminhoFoto = getExternalFilesDir(null) + "/IMG" + System.currentTimeMillis() + "jpg";
 
-                File arquivoFoto = new File(caminhoFoto);
+                 arquivoFoto = new File(caminhoFoto);
 
                 Uri fotoUri = FileProvider.getUriForFile(
                      DadosPessoaisActivity.this,
@@ -196,6 +199,12 @@ public class DadosPessoaisActivity extends AppCompatActivity implements View.OnC
                     imagemBitmap = BitmapFactory.decodeStream(inputStream);
                     imgFotoUsuario.setImageBitmap(imagemBitmap);
 
+                    //Pegando caminho da foto e colocando criando um File com ela
+
+                    Uri imagemUri = data.getData();
+
+                    arquivoFoto = new File(imagemUri.getPath());
+
                 }else if(requestCode == CAMERA_REQUEST){
 
                     Bitmap bitmap = BitmapFactory.decodeFile(caminhoFoto);
@@ -211,6 +220,11 @@ public class DadosPessoaisActivity extends AppCompatActivity implements View.OnC
         }
 
     }
+
+
+//    public String retornarCaminho(Uri uri){
+//
+//    }
 
     public boolean validar(){
         Boolean validacao = true;

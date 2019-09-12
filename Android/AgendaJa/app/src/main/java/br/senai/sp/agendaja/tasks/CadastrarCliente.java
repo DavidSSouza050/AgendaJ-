@@ -1,6 +1,7 @@
 package br.senai.sp.agendaja.tasks;
 
 import android.os.AsyncTask;
+import android.util.Log;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -20,7 +21,7 @@ public class CadastrarCliente extends AsyncTask {
   private Cliente cliente;
   private int codEndereco;
   private String resposta;
-  Cliente clienteVoltado;
+  private Cliente clienteVoltado;
 
   public CadastrarCliente(Cliente cliente, int codEndereco) {
     this.cliente = cliente;
@@ -54,12 +55,14 @@ public class CadastrarCliente extends AsyncTask {
       connection.setRequestMethod("POST");
 
       connection.setDoInput(true);
-      PrintStream stream = new PrintStream(connection.getOutputStream());
-      stream.print(jsCliente);
+      PrintStream output = new PrintStream(connection.getOutputStream());
+      output.print(jsCliente);
       connection.connect();
 
        Scanner scanner = new Scanner(connection.getInputStream());
        resposta = scanner.nextLine();
+
+     // Log.d("Esse é o scanner", String.valueOf(new Scanner(connection.getInputStream())));
 
        clienteVoltado = new Cliente();
        JSONObject object = new JSONObject(resposta);
