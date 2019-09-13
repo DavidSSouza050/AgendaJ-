@@ -338,14 +338,14 @@ body{
         background-image: url(../imagens/background_cadastro_estabelecimento.jpg);
     }
 
-    #container_all_cadastro_estabelecimento{
+    #container_all_cadastro{
         width: 100vw;
         height: 100vh;  
         /* overflow: hidden;       */
     }
 
 
-    #conteudo_cadastro_estabelecimento{
+    #conteudo_cadastro{
         width: 1000px;
         /*div cresendo automaticamente*/
         min-height: 500px;
@@ -357,7 +357,7 @@ body{
         border-radius: 10px;
     }
 
-    #titulo_cadastro_estabelecimento{
+    #titulo_cadastro{
         width: 500px;
         height: 165px;
         padding-top: 10px;
@@ -380,11 +380,15 @@ body{
     .informacoes_conta_esquerda{
         width: 250px;
         padding-left: 30px;
-        /*font*/
-        font-size: 30px;
     }
     .informacoes_conta_esquerda span{
         font-weight: bold;
+        font-size: 30px;
+    }
+    .informacoes_conta_esquerda small{
+        font-size: 15px;
+        color: rgb(103, 104, 102);
+        line-height: 10%;
     }
 
     .informacoes_conta_direita{
