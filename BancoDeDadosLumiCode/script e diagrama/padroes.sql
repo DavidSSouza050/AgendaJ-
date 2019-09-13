@@ -35,6 +35,5 @@ SELECT cliente.id_cliente, cliente.nome, cidade.cidade, endereco.cep, endereco.i
     ON cidade.id_microrregiao = microrregiao.id_microrregiao INNER JOIN tbl_estado as estado
     on microrregiao.id_estado = estado.id_estado;
 
-
     
 

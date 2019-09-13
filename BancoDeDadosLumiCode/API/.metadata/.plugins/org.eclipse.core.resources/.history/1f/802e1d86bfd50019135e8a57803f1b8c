@@ -43,16 +43,17 @@ public class EstabelecimentoResource {
 	}
 	
 	//Login estabelecimento
-	@GetMapping("/login")
-	private ResponseEntity<?> loginEstabelecimento(@RequestBody Estabelecimento estabelecimento) {
-		Estabelecimento estabelecimentologado = estabelecimentoRepository.loginEstabelecimento(estabelecimento.getEmail(), estabelecimento.getSenha());
+	@GetMapping("/loginEstabelecimento")
+	private String loginEstabelecimento(@RequestBody Estabelecimento estabelecimento) {
+		String resposta = null;
 		
-		if( estabelecimentologado != null) {
-			return ResponseEntity.ok(estabelecimentologado);
+		if(estabelecimentoRepository.loginEstabelecimento(estabelecimento.getEmail(), estabelecimento.getSenha()) != null) {
+			resposta = "vai la, chapa";
 		}else {
-			return  new ResponseEntity<String>("{mensage: 'E-mail ou Senha incorreto'}",HttpStatus.BAD_REQUEST);
+			resposta = "Erro alguma coisa, chapa";
 		}
 			
+		return resposta;
 	}
 	
 	
