@@ -1,6 +1,8 @@
 package lumicode.agendaja.api.resource;
 
 import java.net.URI;
+import java.text.DateFormat;
+import java.text.Format;
 import java.util.Date;
 import java.util.List;
 
@@ -60,16 +62,15 @@ public class ClienteResource {
 	
 	//login para cliente
 	@GetMapping("/login")
-	private ResponseEntity<?> login(@RequestBody Cliente cliente) {
-		
-		Cliente clienteLogado = clienteRepository.entrar(cliente.getEmail(), cliente.getSenha()); 
-		if( clienteLogado != null) {
-			return ResponseEntity.ok(clienteLogado);
+	private String login(@RequestBody Cliente cliente) {
+		String resposta;
+		if(clienteRepository.entrar(cliente.getEmail(), cliente.getSenha()) != null) {
+			resposta = "Entra ai po";
 		}else {
-			return  new ResponseEntity<String>("{mensage: 'E-mail ou Senha incorreta'}",HttpStatus.BAD_REQUEST);
+			resposta = "Ta errado alguma coisa ai";
 		}
 		
-		
+		return resposta;
 	}
 	
 	

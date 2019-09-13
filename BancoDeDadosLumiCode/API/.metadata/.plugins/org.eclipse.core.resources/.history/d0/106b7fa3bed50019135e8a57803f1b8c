@@ -1,6 +1,8 @@
 package lumicode.agendaja.api.resource;
 
 import java.net.URI;
+import java.text.DateFormat;
+import java.text.Format;
 import java.util.Date;
 import java.util.List;
 
