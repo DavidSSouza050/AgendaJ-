@@ -7,7 +7,10 @@
     background-size: cover;
     -o-background-size: cover;
 }
-
+.img{
+    width: inherit;
+    height: inherit;
+}
 .hr{
     width: 93%;
     height: 2px;
@@ -335,7 +338,7 @@ body{
     /* Estilização cadastro_estabelecimento.html*/
     .body_cadastro{
         overflow-x: hidden;
-        background-image: url(../imagens/background_cadastro_estabelecimento.jpg);
+        background-image: linear-gradient(#374197, #61228b);
     }
 
     #container_all_cadastro{
@@ -432,6 +435,111 @@ body{
     .botao_cancelar_cadastro:hover{
         transition: 0.1s;
         color: rgb(197, 0, 0);
+    }
+
+    /*landing_page*/
+
+    .conteiner_menu{
+        width: 100%;
+        height: 90px;
+        position: fixed;
+        background-color: #202174;
+    }
+
+    #ul_menu{
+        width: 1400px;
+        height: inherit;    
+        box-sizing: border-box;
+        list-style: none;
+    }
+
+    #botao_entrar_menu{
+        width: 150px;
+        height: inherit;
+        padding-top: 25px;
+        margin-left: 15px;
+        float: left;
+    }
+
+    #botao_entrar{
+        width: 150px;
+        height: 50px;
+        border: none;
+        outline: none;
+        box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.589);
+        border-radius: 10px;
+        background-color: #4E329D;
+        color: white;
+        font-size: 25px;
+        font-family: robotoBold;
+    }
+    .item_menu{
+        width: 168px;
+        height: inherit;
+        margin-left: 10px;
+        padding-top: 28px;
+        padding-left: 5px;
+        float: left;
+        color: white;
+        font-size: 25px;
+        font-family: robotoBold;
+    }
+    #margin_item{
+        margin-left: 80px !important;
+    }
+    #img_menu{
+        width: 310px;
+        height: 90px;
+        margin-left: 130px;
+        float: left;
+    }
+    #linhar_item{
+        margin-left: 25px;
+    }
+
+    .container_faixa{
+        width: 100%;
+        min-height: 100px;
+        height: auto;
+        overflow: hidden;   
+    }
+    #espaco_landing{
+        width: 100%;
+        height: 90px;
+    }
+    #caixa_header{
+        width: 100%;
+        min-height: 100px;
+        height: auto;
+        overflow: hidden;
+        background-image: url(../imagens/background1.jpg);
+        
+    }
+    #headerlanding_page{
+        width: 1400px;
+        height: 800px;
+    }
+    #titulo_header{
+        width: 1000px;
+        height: inherit;
+        margin-left: auto;
+        padding-top: 150px;
+    }
+    #titulo_header{
+        font-family: robotoBold;
+        text-align: center;
+        font-size: 60px;
+        color: white;
+    }
+
+    #botao_entrar_grande{
+        width: 250px;
+        height: 100px;
+        margin-top: 150px;
+        border: none;
+        border-radius: 10px;
+        color: white;
+        background-color: #5451DB;
     }
 
 }
