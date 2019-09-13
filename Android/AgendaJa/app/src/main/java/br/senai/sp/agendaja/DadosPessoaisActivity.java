@@ -1,6 +1,8 @@
 package br.senai.sp.agendaja;
 
+import android.content.CursorLoader;
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -166,8 +168,9 @@ public class DadosPessoaisActivity extends AppCompatActivity implements View.OnC
                 finish();
                 break;
             case R.id.image_button_galeria:
-                Intent intentGaleria = new Intent(Intent.ACTION_GET_CONTENT);
+                Intent intentGaleria = new Intent();
                 intentGaleria.setType("image/*");
+                intentGaleria.setAction(Intent.ACTION_PICK);
                 startActivityForResult(intentGaleria,GALERY_REQUEST);
                 break;
             case R.id.image_button_camera:
@@ -203,7 +206,7 @@ public class DadosPessoaisActivity extends AppCompatActivity implements View.OnC
 
                     Uri imagemUri = data.getData();
 
-                    arquivoFoto = new File(imagemUri.getPath());
+                    arquivoFoto = new File(getRealPathFromUri(imagemUri));
 
                 }else if(requestCode == CAMERA_REQUEST){
 
@@ -240,6 +243,17 @@ public class DadosPessoaisActivity extends AppCompatActivity implements View.OnC
 //        }
 
         return validacao;
+    }
+
+    private String getRealPathFromUri(Uri uri){
+        String[] projection = {MediaStore.Images.Media.DATA};
+        CursorLoader loader = new CursorLoader(getApplicationContext(), uri, projection, null, null, null);
+        Cursor cursor = loader.loadInBackground();
+        int columnIdx = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+        cursor.moveToFirst();
+        String result = cursor.getString(columnIdx);
+        cursor.close();
+        return result;
     }
 
     @Override

@@ -82,22 +82,21 @@ public class ContatoActivity extends AppCompatActivity implements View.OnClickLi
 
                             int respostaCadastroCliente = (Integer) cadastrarCliente.get();
 
-                            if(respostaCadastroCliente!=0){
-                                CadastrarFotoCliente cadastrarFotoCliente = new CadastrarFotoCliente(respostaCadastroCliente,clienteFinal.getFoto());
-                                cadastrarFotoCliente.execute();
-
-                                Cliente clienteComFoto = (Cliente) cadastrarFotoCliente.get();
-
-                                if(clienteComFoto == null){
-                                    Toast.makeText(ContatoActivity.this,"Cdastro da foto realizado",Toast.LENGTH_LONG).show();
-                                }else{
-                                    Toast.makeText(ContatoActivity.this,"Falha no cadastro da foto",Toast.LENGTH_LONG).show();
-                                }
-
-
-                            }else{
-                                Toast.makeText(ContatoActivity.this,"Falha no cadastro do cliente",Toast.LENGTH_LONG).show();
-                            }
+//                            if(respostaCadastroCliente!=0){
+//                                CadastrarFotoCliente cadastrarFotoCliente = new CadastrarFotoCliente(clienteFinal.getFoto().getPath().toString(),respostaCadastroCliente);
+//                                cadastrarFotoCliente.execute();
+//
+//                                Cliente clienteComFoto = (Cliente) cadastrarFotoCliente.get();
+//
+//                                if(clienteComFoto!=null){
+//                                    Toast.makeText(ContatoActivity.this,clienteComFoto.getNome(),Toast.LENGTH_LONG).show();
+//                                }else{
+//                                    Toast.makeText(ContatoActivity.this,"Fracasso, tente novamente até conseguir",Toast.LENGTH_LONG).show();
+//                                }
+//
+//                            }else{
+//                                Toast.makeText(ContatoActivity.this,"Falha no cadastro do cliente",Toast.LENGTH_LONG).show();
+//                            }
 
                         }else{
                             Toast.makeText(ContatoActivity.this,"Falha no cadastro",Toast.LENGTH_LONG).show();
