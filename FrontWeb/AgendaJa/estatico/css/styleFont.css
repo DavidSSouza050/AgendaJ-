@@ -7,3 +7,8 @@
     font-family: robotoBold;
     src: url(../fonte/roboto/Roboto-Bold.ttf);
 }
+
+@font-face{
+    font-family: robotoMedium;
+    src: url(../fonte/roboto/Roboto-Medium.ttf);
+}

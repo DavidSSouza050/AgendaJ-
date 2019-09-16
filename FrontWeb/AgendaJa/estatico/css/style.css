@@ -447,7 +447,7 @@ body{
     }
 
     #ul_menu{
-        width: 1400px;
+        width: 1200px;
         height: inherit;    
         box-sizing: border-box;
         list-style: none;
@@ -457,7 +457,7 @@ body{
         width: 150px;
         height: inherit;
         padding-top: 25px;
-        margin-left: 15px;
+        margin-left: 10px;
         float: left;
     }
 
@@ -468,15 +468,21 @@ body{
         outline: none;
         box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.589);
         border-radius: 10px;
-        background-color: #4E329D;
+        background-color: #515adb;
         color: white;
         font-size: 25px;
         font-family: robotoBold;
     }
+
+    #botao_entrar:hover{
+        transition: 0.2s;
+        background-color: rgb(45, 67, 192);
+    }
+
     .item_menu{
         width: 168px;
         height: inherit;
-        margin-left: 10px;
+        margin-left: 5px;
         padding-top: 28px;
         padding-left: 5px;
         float: left;
@@ -484,16 +490,18 @@ body{
         font-size: 25px;
         font-family: robotoBold;
     }
-    .item_menu{
+    .item_menu:hover{
+        transition: 0.2s;
         cursor: pointer;
+        border-bottom: solid 5px rgb(199, 104, 236);
     }
     #margin_item{
-        margin-left: 80px !important;
+        margin-left: 20px !important;
     }
     #img_menu{
         width: 310px;
         height: 90px;
-        margin-left: 130px;
+        margin-left: 20px;
         float: left;
     }
     #linhar_item{
@@ -519,8 +527,8 @@ body{
         
     }
     #headerlanding_page{
-        width: 1400px;
-        height: 650px;
+        width: 1200px;
+        height: 700px;
     }
     #titulo_header{
         width: 1000px;
@@ -540,26 +548,36 @@ body{
         height: 100px;
         margin-top: 130px;
         border: none;
+        outline: none;
+
         border-radius: 10px;
         color: white;
-        background-color: #5451DB;
+        background-color: #5171db;
+        box-shadow: 0px 0px 20px black; 
+    }
+    
+    #botao_entrar_grande:hover{
+        transition: 0.2s;
+        transform: scale(1.050);
+        background-color: rgb(45, 67, 192);
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.527); 
     }
 
     #caixa_aplicacao{
         width: 100%;
         height: 500px;
-        background-color: #2b3fb4;
+        background-color: #404f9d;
     }
 
     #aplicacao{
-        width: 1400px;
+        width: 1200px;
         height: inherit;
         box-sizing: border-box;
     }
 
     #imagem_logo_aplicacao{
-        width: 600px;
-        height: 200px;
+        width: 400px;
+        height: 130px;
         margin-top: 160px;
         float: left;
     }
@@ -573,7 +591,7 @@ body{
     #texto_aplicacao h2{
         font-size: 55px;
         color: white;
-        margin-left: 30px;
+        margin-left: 50px;
         margin-top: 30px;
         margin-bottom: 30px;
         font-family: robotoBold;
@@ -583,7 +601,7 @@ body{
         font-size: 30px;
         text-align: justify;
         color: white;
-        margin-left: 20px;
+        margin-left: 50px;
         margin-right: 20px;
         font-family: robotoRegular;
         
@@ -593,22 +611,28 @@ body{
 
     #container_plataforma{
         width: 100%;
-        height: 900px;
+        min-height: 1000px;
+        height: auto;
+        overflow: hidden;
         background-image: url(../imagens/background2.jpg) ;
         
     }
     #caixa_plataforma{
-        width: 1400px;
-        height: inherit;
+        width: 1200px;
+        min-height: 900px;
+        height: auto;
+        overflow: hidden;
         padding-top: 50px;
         padding-left: 10px;
     }
     #plataforma_mobile{
-        width: 500px;
-        height: 800px;
-        background-color: #fdfdfd98;
+        width: 500px;        
+        min-height: 900px;
+        height: auto;
+        overflow: hidden;
+        background-color: #f1f0f0e3 ;
         float: left;
-        margin-left: 120px;
+        margin-left: 60px;
         border-radius: 10px; 
     } 
     .fonte_plataforma h2{
@@ -621,7 +645,7 @@ body{
         font-family: robotoBold;
     }
     .fonte_plataforma p{
-        font-size: 20px;
+        font-size: 25px;
         text-align: justify;
         margin-left: 30px;
         margin-right: 30px;
@@ -631,38 +655,41 @@ body{
     }
     #imagem_plataforma_mobile{
         width: 300px;
-        height: 445px;
+        height: 420px;
         background-color: beige;
         margin-left: 100px;
     }
 
     #plataforma_web{
         width: 500px;
-        height: 800px;
-        background-color: #fdfdfd98;
+        min-height: 900px;
+        height: auto;
+        overflow: hidden;
+        background-color: #f1f0f0e3;
         float: left;
-        margin-left: 120px;
+        margin-left: 60px;
         border-radius: 10px;
     }
     #imagem_plataforma_web{
-        width: 500px;
+        width: 400px;
         height: 400px;
         background-color: thistle;
+        margin-left: 50px;
     }
 
     /*Funcionalidades*/
     #conteiner_funcionalidades{
         width: 100%;
         height: 500px;
-        background-color: #28149c;  
+        background-color: #4E329D;  
     }
 
     #caixa_funcionalidades{
-        width: 1400px;
+        width: 1200px;
         height: inherit;
     }
     .funcionalidades{
-        width: 700px;
+        width: 600px;
         height: inherit;
         float: left;
         overflow: auto;
@@ -673,19 +700,20 @@ body{
         font-size: 50px;
         font-family: robotoBold;
         color: white;
-        margin-top: 30px;
+        margin-top: 20px;
     }
 
     .funcionalidades ul{
         text-align: left;        
         margin-left: 50px;
-        margin-top: 25px;
+        margin-right: 30px;
+        margin-top: 20px;
         list-style: inside;
     }
 
     .funcionalidades li{
         margin-top: 10px;
-        font-size: 30px;
+        font-size: 25px;
         font-family: robotoRegular;
         color: white;
     }
@@ -694,8 +722,128 @@ body{
         width: 600px;
         height: 400px;
         margin-top: 55px;
-        margin-left: 30px;
+        margin-left: 0px;
+    }
+    
+    /*conteiner_quem_somos*/
+    #conteiner_quem_somos{
+        width: 100%;
+        min-height: 500px;
+        height: auto;
+        overflow: hidden;
+        display: flex;
+        background-color: #edeff5;
     }
 
+    #caixa_quem_somos{
+        width: 1200px;
+    }
+
+    #caixa_texto_quem_somos{
+        width: inherit;
+        height: 350px;   
+        
+    }
+    #caixa_texto_quem_somos h1{
+        color: #281c4a;
+        text-align: center;
+        font-size: 50px;
+        margin-top: 30px;
+        font-family: robotoBold;
+    }
+    #caixa_texto_quem_somos p{
+        margin-top: 30px;
+        color: #0E0C73;
+        text-align: justify;
+        font-size: 30px;
+        margin-left: 10px;
+        margin-right: 10px;
+        font-family: robotoMedium;
+    }
+    
+
+    #caixa_missao_visao_valores{
+        width: inherit;
+        height: 400px;
+    }
+
+    .missao_visao_valores{
+        width: 300px;
+        min-height: 200px;
+        height:auto;
+        overflow: hidden;
+        float: left;
+        margin-left: 80px;
+        margin-top: 30px;
+    }
+    .missao_visao_valores_imagem_titulo{
+        width: inherit;
+        height: 90px;
+        border-bottom: solid 8px #281c4a;
+    }
+    
+    .missao_visao_valores_imagem{
+        width: 80px;
+        height: 80px;
+        float: left;
+    }
+    .missao_visao_valores_titulo{
+        width: 200px;
+        height: 80px;
+        float: left;
+        padding-top: 10px;
+    }
+    .missao_visao_valores_titulo h2{
+        color: #281c4a;
+        font-family: robotoBold;
+        text-align: center;
+        font-size: 50px;
+    }
+
+    .missao_visao_valores_texto{
+        width: inherit;
+        min-height: 200px;
+        height: auto;
+        overflow: hidden;
+        padding-top: 15px;
+        /*font*/
+        color: #0E0C73;
+        font-size: 28px;
+        text-align: center;
+        font-family: robotoMedium;
+    }
+    
+    /*Fale conosco*/
+    #conteiner_fale_conosco{
+        width: 100%;
+        min-height: 500px;
+        height: auto;
+        overflow: hidden;
+        background-color: #edeff5;
+    }
+
+    #caixa_fale_conosco{
+        width: 1200px;
+        min-height: 600px;
+        height: auto;
+        overflow: hidden;
+        background-color: #edeff5;
+    }
+    #imagem_fale_conosco{
+        width: inherit;
+        height: 600px;
+        background-image: url(../imagens/background3.jpg);
+        background-repeat: no-repeat;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        background-size: cover;
+        -o-background-size: cover;
+    }
+
+    #fale_conosco_box{
+        width: inherit;
+        height: 400px;
+        background-color: #ECEBF3;
+    }
 
 }
