@@ -39,7 +39,7 @@ export default class EscolhaConta extends Component {
                             cardArrowIcon={setaEsquerda}
                             arrowDirection="icone_esquerdo_footer">
                         </CardEscolha> 
-
+                        {/* Teste */}
                         {/* <!-- Card 2 --> */}
                         <CardEscolha 
                             cardHeaderIcon={user} 
