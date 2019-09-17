@@ -9,18 +9,135 @@
         <link rel="stylesheet" type="text/css" href="css/style.css"/>
         <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
     </head>
-    <body class="background_cadastro_estabelecimento back">
+    <body class="body_cadastro back">
         <!-- Essa é a div que segura todos os componentes da tela -->
-        <div id="container_all_cadastro_estabelecimento" >
+        <div id="container_all_cadastro" >
             <!-- Header  -->
             <header id='header_cadastro'>
                 <div class="center vertical_center" id="icone_logo">
                     <img id="logo" src="imagens/logo_mobile_sem_fundo.png" alt="Logotipo AgendaJá"/>
                 </div>
             </header>
-            <!-- Div que Segura todos os Cards -->
-            <div id="conteudo_cadastro_estabelecimento" class="center">
+            <div id="espaco">
             </div>
+            <!-- Div que Segura todos os Cards -->
+            <div id="conteudo_cadastro" class="center">
+                <div id="titulo_cadastro" class="center">
+                    Cadastro de Estabelecimento
+                </div>
+                <hr class="hr" >
+                <form action="">
+                    <div class="card_informacoes_conta">
+                        <div class="informacoes_conta_esquerda"> 
+                            <span>Informações da Conta</span>
+                            
+                        </div>
+                        <div class="informacoes_conta_direita"> 
+                            <div class="form-row">
+                                <div class="form-group col-sm-11">
+                                    <label for="nome_estabeleciemnto">Nome Do Estabelecimento</label>
+                                    <!--CAIXA nome_estabelecimento-->
+                                    <input type="text" class="form-control sombra_input" id="nome_estabeleciemnto" placeholder="Obrigatorio">
+                                </div>
+                                <div class="form-group col-sm-11">
+                                    <label for="razao_social_estabelecimento">Razão Social</label>
+                                    <!--CAIXA razao_social_estabelecimento-->
+                                    <input type="text" class="form-control sombra_input" id="razao_social_estabelecimento" placeholder="Obrigatorio">
+                                </div>
+                                <div class="form-group col-sm-11">
+                                    <label for="cnpj_estabelecimento">CNPJ</label>
+                                    <!--CAIXA cnpj_estabelecimento-->
+                                    <input type="text" class="form-control sombra_input" id="cnpj_estabelecimento" placeholder="Obrigatorio">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="celular_estabelecimento">Celular</label>
+                                    <!--CAIXA celular_estabelecimento-->
+                                    <input type="text" class="form-control sombra_input" id="celular_estabelecimento" placeholder="Opicinal">
+                                </div>
+                                <div class="form-group col-md-5">
+                                    <label for="telefone_estabelecimento">Telefone</label>
+                                    <!--CAIXA telefone_estabelecimento-->
+                                    <input type="text" class="form-control sombra_input" id="telefone_estabelecimento" placeholder="Obrigatorio">
+                                </div>
+                            </div>
+                        </div>
+                       
+                    </div>
+                    <hr class="hr" >
+                    <div class="card_informacoes_conta">
+                        <div class="informacoes_conta_esquerda"> 
+                            <span>Endereço</span>
+                        </div>
+                        <div class="informacoes_conta_direita"> 
+                            <div class="form-row">
+                                <div class="form-group col-sm-11">
+                                    <label for="cep_estabeleciemnto">CEP</label>
+                                    <!--CAIXA cep_estabelecimento-->
+                                    <input type="text" class="form-control sombra_input" id="cep_estabeleciemnto" placeholder="Obrigatorio">
+                                </div>
+                                <div class="form-group col-md-8">
+                                    <label for="logradouro_estabeleciemnto">Logradouro</label>
+                                    <!--CAIXA logradouro_estabelecimento-->
+                                    <input type="text" class="form-control sombra_input" id="logradouro_estabeleciemnto" readonly>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label for="numero_estabeleciemnto">Numero</label>
+                                    <!--CAIXA numero_estabelecimento-->
+                                    <input type="text" class="form-control sombra_input" id="numero_estabeleciemnto" placeholder="Obrigatorio">
+                                </div>
+                                <div class="form-group col-sm-11">
+                                    <label for="bairro_estabeleciemnto">Bairro</label>
+                                    <!--CAIXA bairro_estabelecimento--> 
+                                    <input type="text" class="form-control sombra_input" id="bairro_estabeleciemnto" readonly>
+                                </div>
+                                <div class="form-group col-md-9">
+                                    <label for="cidade_estabeleciemnto">Cidade</label>
+                                    <!--CAIXA cidade_estabelecimento-->
+                                    <input type="text" class="form-control sombra_input" id="cidade_estabeleciemnto" readonly>
+                                </div>
+                                <div class="form-group col-md-2">
+                                    <label for="uf_estabeleciemnto">UF</label>
+                                    <!--CAIXA uf_estabelecimento-->
+                                    <input type="text" class="form-control sombra_input" id="uf_estabeleciemnto" readonly>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <hr class="hr" >
+                    <div class="card_informacoes_conta">
+                        <div class="informacoes_conta_esquerda"> 
+                            <span>Infotmações Finais</span>
+                            <p><small>A senha deve conter mais de 8 Caracteres</small></p>
+                        </div>
+                        <div class="informacoes_conta_direita"> 
+                            <div class="form-row">
+                                <div class="form-group col-sm-11">
+                                    <label for="email_estabeleciemnto">E-mail</label>
+                                    <!--CAIXA email_estabelecimento-->
+                                    <input type="email" class="form-control sombra_input" id="email_estabeleciemnto" >
+                                </div>
+                                <div class="form-group col-sm-11">
+                                    <label for="senha_estabeleciemnto">Senha</label>
+                                    <!--CAIXA senha_estabelecimento-->
+                                    <input type="password" class="form-control sombra_input" id="senha_estabeleciemnto" >
+                                </div>
+                                <div class="form-group col-sm-11">
+                                    <label for="confirmar_senha_estabeleciemnto">Confirmar Senha</label>
+                                    <!--CAIXA _estabelecimento-->
+                                    <input type="password" class="form-control sombra_input" id="confirmar_senha_estabeleciemnto" >
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="hr" >
+                    <div id="caixa_botao_cadastro_estabeleciemento">
+                        <input type="button" class="botao_cancelar_cadastro" value="Cancelar" />
+                        <input type="button" class="botao_cadastro" value="Criar Conta" />
+                    <div>
+                </form>
+            </div>
+            
         </div>
     </body>
 </html>
