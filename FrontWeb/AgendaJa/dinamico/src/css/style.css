@@ -1,7 +1,6 @@
 .back{
     background-repeat: no-repeat;
     background-attachment: fixed;
-    
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
@@ -30,7 +29,7 @@
     transform: translateY(-50%); 
 }
 
-body{
+.font{
     height: 100vh;
     font-family:  Helvetica, 'Sego UI', Arial, sans-serif;   
 }
@@ -105,13 +104,15 @@ body{
     
     .item_card{
         width: 375px;
-        height: 450px;
         border-radius: 8px;
         margin-left: 35px;
         margin-top: 20px;
         float: left;
         box-shadow:  rgba(0,0,0,0.3) 0px 0px 10px;
         opacity: 0.85;
+        min-height:100px;
+        height: auto;
+        overflow: hidden;
     }    
     #espaço_card{
         margin-right:50px; 
