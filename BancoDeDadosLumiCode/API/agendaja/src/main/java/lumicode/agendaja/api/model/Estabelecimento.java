@@ -21,7 +21,7 @@ public class Estabelecimento {
 	private Long idEstabelecimento;
 	@NonNull
 	@CNPJ
-	@Size(max = 14, message = "O CNPJ tem que conter 14 caracteres!")
+	@Size(max = 20, message = "O CNPJ tem que conter 20 caracteres!")
 	private String cnpj;
 	@NonNull
 	@Size(min = 5, max = 150, message = "A Razão social tem que conter no minimo 5 caracteres!")

@@ -12,6 +12,7 @@ import lumicode.agendaja.api.model.Estabelecimento;
 import lumicode.agendaja.api.repository.ClienteRepository;
 import lumicode.agendaja.api.repository.EstabelecimentoRepository;
 import lumicode.agendaja.api.storage.Disco;
+import lumicode.agendaja.api.utils.ConverterDatas;
 
 @RestController
 @RequestMapping("/foto")
@@ -39,6 +40,12 @@ public class FotosResource {
 		
 		if(localFoto != null) {
 			estabelecimento.setFoto(localFoto);
+			//setando datas de atualização e criado
+			ConverterDatas converterDatas = new ConverterDatas();
+			estabelecimento.setAtualizadoEm(converterDatas.dataAtual());
+			String criadoEm = estabelecimento.getCriadoEm();
+			estabelecimento.setCriadoEm(criadoEm);
+			//
 			estabelecimentoRepository.save(estabelecimento);
 		}
 		
@@ -62,6 +69,13 @@ public class FotosResource {
 		
 		if(localFoto != null) {
 			cliente.setFotoCliente(localFoto);
+			//setando o atualizada em
+			ConverterDatas converterDatas = new ConverterDatas();
+			cliente.setAtualizadoEm(converterDatas.dataAtual());
+			//para não atualizar o criadoEm estou setando de novo para nao copiar
+			String criadoEm = cliente.getCriadoEm();
+			cliente.setCriadoEm(criadoEm);
+			//setando o cliente com uma imagem
 			clienteRepository.save(cliente);
 		}
 		
