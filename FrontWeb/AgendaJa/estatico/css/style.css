@@ -442,6 +442,7 @@ body{
     .conteiner_menu{
         width: 100%;
         height: 90px;
+        z-index: 999;
         position: fixed;
         background-color: #202174;
     }
@@ -529,6 +530,7 @@ body{
     #headerlanding_page{
         width: 1200px;
         height: 700px;
+        z-index: 999;
     }
     #titulo_header{
         width: 1000px;
@@ -846,4 +848,119 @@ body{
         background-color: #ECEBF3;
     }
 
+    #fale_conosco_box p{
+       font-size: 35px; 
+       margin-right: 700px;
+       margin-left: 100px;
+       margin-top: 60px;
+       float: left;
+       text-align: justify;
+       color: rgb(5, 15, 50);
+       font-family: robotoBold;
+    }
+
+    #fale_conosco{
+        width: 500px;
+        height: 760px;
+        float: left;
+        overflow: hidden;
+        margin-left: 620px;
+        margin-top: -715px;
+        background-color: rgb(206, 207, 216);
+        border-radius: 10px;
+        box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.287);
+    }
+
+    #titulo_fale_conosco{
+        width: inherit;
+        height: 80px;
+        background-color: rgb(82, 55, 156);
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.603);
+        padding-top: 20px;
+        padding-left: 30px;
+        /*font*/
+        font-family: robotoBold;
+        font-size: 30px;
+        color: white;
+    }
+    
+    #form_fale_conosco{
+        width: inherit;
+        min-height: 200px;
+        height: auto;
+        overflow: hidden;
+        padding-left: 30px;
+        padding-top: 25px;
+        z-index: 1;
+        /*font*/
+        font-size: 20px;
+        font-family: robotoRegular;
+    }
+
+    .textArea_fale_conosco{
+        height: 200px !important;
+    }
+    #caixa_botao_fale_conosco{
+        width: inherit;
+        height: 105px;
+        padding-left:  100px;
+        padding-top: 10px;
+    }
+
+    #botao_fale_conosco{
+        width: 300px;
+        height: 80px;
+        outline: none;
+        border: none;
+        border-radius: 5px;
+        background-color: rgb(92, 69, 236);
+        font-family: robotoBold;
+        font-size: 30px;
+        color:white;
+        box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.397);
+    }
+
+    /*footer*/
+    #footer_landing_page{
+        width: 100%;
+        height: 100px;
+        background-color: rgb(15, 13, 28);
+    }
+
+    #pre_footer{
+        width: 100%;
+        min-height: 200px;
+        height: auto;
+        overflow: hidden;
+        background-color: rgb(33, 29, 54);
+    }
+    #imagem_logo_footer{
+        width: 350px;
+        height: 100px;
+        margin-top: 20px;
+        margin-left: 30px;
+    }
+
+    .footer{
+        width: 1200px;
+        min-height: 100px;
+        height: auto;
+        overflow: hidden;
+        padding-left: 380px;
+    }
+    .footer p{
+        font-family: robotoMedium;
+        color: white;
+        font-size: 20px;
+        margin-left: 130px;
+        margin-top: 15px;
+    }
+    .rede_social{
+        width: 60px;
+        height: 60px;
+        background-color: antiquewhite;
+        margin-top: 20px;
+        margin-left: 50px;
+        float: left;
+    }
 }
