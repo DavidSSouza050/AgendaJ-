@@ -18,15 +18,12 @@
                     <button type="button" id="botao_entrar" data-toggle="modal" data-target="#exampleModalCenter">                    
                         Entrar
                     </button>
-           
-            
-                  
                 </li>
                 <li id="margin_item" class="item_menu">
                     Crie sua conta
                 </li>
                 <li id="img_menu" >
-                    <img src="imagens/versaoFinalLogoAgendaJa.png" class="img" alt="AjendaJá">
+                    <img src="imagens/logo_mobile_sem_fundo.png" class="img" alt="AjendaJá">
                 </li>
                 <li class="item_menu">
                    <span id="linhar_item">Aplicação</span>
@@ -47,7 +44,6 @@
             <div id="headerlanding_page" class="center">
                 <div id="titulo_header">
                     <p><span>Tenha os serviços de Beleza em suas mãos</span></p>
-                    <input type="button" id="botao_entrar_grande" value="Entrar">
                 </div>
             </div>
         </header>
@@ -56,7 +52,7 @@
         <div id="caixa_aplicacao">
             <div id="aplicacao" class="center">
                 
-                <div id="imagem_logo_aplicacao">
+                <div id="imagem_logo_aplicacao" class="vertical_center" >
                     <img src="imagens/versaoFinalLogoAgendaJa.png" class="img" alt="AgendaJá">
                 </div>
 
@@ -64,7 +60,10 @@
                     <h2>Aplicação</h2>
 
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus at pretium ex. Sed iaculis felis elit, ac dapibus velit lacinia eu. Donec mollis nisi purus, id vulputate nisl suscipit sit amet.id vulputate nisl suscipit sit amet. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+                       O sistema AgendaJá é uma aplicação voltada para o mercado de estética, e visa ligar os clientes aos salões e barbearias, agilizando o processo de agendamento dos serviços oferecidos por estes estabelecimentos. 
+                    </p>
+                    <p>
+                        Além de acelerar o agendamento a aplicação funciona como uma forma de divulgação das atividades realizadas pelos estabelecimentos.
                     </p>
                 </div>
             </div>
@@ -78,10 +77,10 @@
                         Plataforma Mobile
                     </h2>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus at pretium ex. Sed iaculis felis elit, ac dapibus velit lacinia eu. Donec mollis nisi purus, id vulputate nisl suscipit sit amet.id vulputate nisl suscipit sit amet. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. 
+                        O aplicativo AgendaJá funciona no sistema Android e é direcionado as pessoas de desejam garantir seu horário no salão/barbearia que desejar e ainda realizar o agendamento com rapidez e praticidade.
                     </p>
                     <div id="imagem_plataforma_mobile">
-
+                        <img src="imagens/telaMobile.png" class="img" alt="Mobile">
                     </div>
                 </div>
                 
@@ -90,10 +89,10 @@
                         Plataforma Web
                     </h2>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus at pretium ex. Sed iaculis felis elit, ac dapibus velit lacinia eu. Donec mollis nisi purus, id vulputate nisl suscipit sit amet.id vulputate nisl suscipit sit amet. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+                        
                     </p>
                     <div id="imagem_plataforma_web">
-
+                        <img src="imagens/telaWeb.png" class="img" alt="Estabelecimento">
                     </div>
                 </div>
 
@@ -252,13 +251,13 @@
         <footer id="footer_landing_page">
             <div class="footer center">
                 <div class="rede_social">
-
+                    <img src="icones/facebook.png" class="img" alt="Visite nosso facebook"> 
                 </div>
                 <div class="rede_social">
-
+                    <img src="icones/instagram.png" class="img" alt="visite nosso instagram">
                 </div>
                 <div class="rede_social">
-
+                    <img src="icones/linkedin.png" class="img" alt="Visite nosso linkedin">
                 </div>
             </div>
         </footer>
@@ -266,25 +265,36 @@
 
         <!-- Modal -->
         
-        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+        <div class="modal fade " id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="largura_modal modal-dialog modal-dialog-centered " role="document">
+                <div class="modal-content ">
+                    <div class="modal-header ">
+                    <h5 class="modal-title" id="exampleModalCenterTitle">Entrar Como</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="card_modal_escolha">
+                            <div class="imagem_modal_escolha">
+                                <img src="icones/barber-shop.png" class="img" alt="Estabelecimento">
+                            </div>
+
+                            <h4>Estabelecimento</h4>
                         </div>
-                        <div class="modal-body">
-                        ...
-                        </div>
-                        <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <div class="card_modal_escolha">
+                            <div class="imagem_modal_escolha">
+                                <img src="icones/hair-cut.png" class="img" alt="Cliente">
+                            </div>
+                            <h4>Cliente</h4>
                         </div>
                     </div>
+                    
                 </div>
             </div>
+        </div>
+
+
 
 
             <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
