@@ -16,18 +16,18 @@ public class Cliente extends Informacao implements Serializable {
     this.idCliente = idCliente;
   }
 
-  private File foto;
+  private String foto;
   private String nome;
   private String sobrenome;
   private String cpf;
   private String dataNascimento;
   private String sexo;
 
-  public File getFoto() {
+  public String getFoto() {
     return foto;
   }
 
-  public void setFoto(File foto) {
+  public void setFoto(String foto) {
     this.foto = foto;
   }
 

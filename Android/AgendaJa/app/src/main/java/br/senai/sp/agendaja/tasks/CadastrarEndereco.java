@@ -39,14 +39,20 @@ public class CadastrarEndereco extends AsyncTask{
       jsEndereco.endObject();
 
 
+      //definindo url
       URL url = new URL("HTTP://10.107.144.13:8080/endereco");
 
+      //Abrindo conexao
       HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 
+
+      //Definindo o tipo da requisicao
       connection.setRequestProperty("Content-type", "application/json");
       connection.setRequestProperty("Accept", "application/json");
       connection.setRequestMethod("POST");
 
+
+      //Colocando os parametros no corpo da requisição
       connection.setDoInput(true);
       PrintStream output = new PrintStream(connection.getOutputStream());
       output.print(jsEndereco);

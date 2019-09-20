@@ -3,21 +3,19 @@ package br.senai.sp.agendaja;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import java.io.File;
 import java.util.concurrent.ExecutionException;
 
+import br.senai.sp.agendaja.Services.CadastroFoto;
 import br.senai.sp.agendaja.modal.Cliente;
 import br.senai.sp.agendaja.modal.Endereco;
 import br.senai.sp.agendaja.modal.Informacao;
 import br.senai.sp.agendaja.tasks.CadastrarCliente;
 import br.senai.sp.agendaja.tasks.CadastrarEndereco;
-import br.senai.sp.agendaja.tasks.CadastrarFotoCliente;
 
 public class ContatoActivity extends AppCompatActivity implements View.OnClickListener{
     private EditText celular;
@@ -81,22 +79,20 @@ public class ContatoActivity extends AppCompatActivity implements View.OnClickLi
                             cadastrarCliente.execute();
 
                             int respostaCadastroCliente = (Integer) cadastrarCliente.get();
+                            if(respostaCadastroCliente!=0){
 
-//                            if(respostaCadastroCliente!=0){
-//                                CadastrarFotoCliente cadastrarFotoCliente = new CadastrarFotoCliente(clienteFinal.getFoto().getPath().toString(),respostaCadastroCliente);
-//                                cadastrarFotoCliente.execute();
-//
-//                                Cliente clienteComFoto = (Cliente) cadastrarFotoCliente.get();
-//
-//                                if(clienteComFoto!=null){
-//                                    Toast.makeText(ContatoActivity.this,clienteComFoto.getNome(),Toast.LENGTH_LONG).show();
-//                                }else{
-//                                    Toast.makeText(ContatoActivity.this,"Fracasso, tente novamente até conseguir",Toast.LENGTH_LONG).show();
-//                                }
-//
-//                            }else{
-//                                Toast.makeText(ContatoActivity.this,"Falha no cadastro do cliente",Toast.LENGTH_LONG).show();
-//                            }
+                              //Toast.makeText(ContatoActivity.this,clienteFinal.getFoto(),Toast.LENGTH_LONG).show();
+                                CadastroFoto cadastroFoto = new CadastroFoto();
+                                boolean verificacao = cadastroFoto.CadastrarFoto(clienteFinal.getFoto(),respostaCadastroCliente);
+
+                                if(verificacao){
+                                    Intent intent  = new Intent(ContatoActivity.this,MainActivity.class);
+                                    startActivity(intent);
+                                }else if(verificacao==false){
+                                    Toast.makeText(ContatoActivity.this,"Falha no cadastr da foto",Toast.LENGTH_LONG).show();
+                                }
+
+                            }
 
                         }else{
                             Toast.makeText(ContatoActivity.this,"Falha no cadastro",Toast.LENGTH_LONG).show();
@@ -110,9 +106,6 @@ public class ContatoActivity extends AppCompatActivity implements View.OnClickLi
                     }
 
 
-                //}else{
-                  //  Toast.makeText(ContatoActivity.this,"Senhas incompativeis",Toast.LENGTH_LONG).show();
-                //}
                 break;
             case R.id.btn_voltar_contato:
                 Intent intentVoltar = new Intent(ContatoActivity.this, EnderecoActivity.class);

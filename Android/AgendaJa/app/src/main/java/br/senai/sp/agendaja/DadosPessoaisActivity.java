@@ -146,7 +146,7 @@ public class DadosPessoaisActivity extends AppCompatActivity implements View.OnC
                     cliente.setSobrenome(sobreNome.getText().toString());
                     cliente.setCpf((cpf.getText().toString()));
                     cliente.setSexo(sexo);
-                    cliente.setFoto(arquivoFoto);
+                    cliente.setFoto(imagePath);
                     //cliente.setFoto(imagem.bitmapParaByteArray(imgFotoUsuario));
                     cliente.setDataNascimento(dtNascimento.getText().toString());
 
@@ -206,7 +206,7 @@ public class DadosPessoaisActivity extends AppCompatActivity implements View.OnC
 
                     Uri imagemUri = data.getData();
 
-                    arquivoFoto = new File(getRealPathFromUri(imagemUri));
+                    imagePath = getRealPathFromUri(imagemUri);
 
                 }else if(requestCode == CAMERA_REQUEST){
 
