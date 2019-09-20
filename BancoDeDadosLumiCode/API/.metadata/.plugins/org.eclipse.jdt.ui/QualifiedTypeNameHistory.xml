@@ -8,7 +8,6 @@
 <fullyQualifiedTypeName name="lumicode.agendaja.api.repository.EstabelecimentoRepository"/>
 <fullyQualifiedTypeName name="lumicode.agendaja.api.model.Estabelecimento"/>
 <fullyQualifiedTypeName name="lumicode.agendaja.api.repository.EnderecoRepository"/>
-<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PostMapping"/>
 <fullyQualifiedTypeName name="javax.servlet.http.HttpServletResponse"/>
 <fullyQualifiedTypeName name="java.net.URI"/>
 <fullyQualifiedTypeName name="org.springframework.web.servlet.support.ServletUriComponentsBuilder"/>
@@ -33,8 +32,9 @@
 <fullyQualifiedTypeName name="com.google.protobuf.TextFormat.ParseException"/>
 <fullyQualifiedTypeName name="org.springframework.format.annotation.DateTimeFormat"/>
 <fullyQualifiedTypeName name="org.springframework.data.jpa.repository.Query"/>
-<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestBody"/>
 <fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
 <fullyQualifiedTypeName name="lumicode.agendaja.api.utils.ConverterDatas"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PostMapping"/>
 </qualifiedTypeNameHistroy>

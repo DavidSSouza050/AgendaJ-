@@ -43,7 +43,7 @@ public class EstabelecimentoResource {
 	}
 	
 	//Login estabelecimento
-	@GetMapping("/login")
+	@PostMapping("/login")
 	private ResponseEntity<?> loginEstabelecimento(@RequestBody Estabelecimento estabelecimento) {
 		Estabelecimento estabelecimentologado = estabelecimentoRepository.loginEstabelecimento(estabelecimento.getEmail(), estabelecimento.getSenha());
 		

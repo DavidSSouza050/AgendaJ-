@@ -59,7 +59,7 @@ public class ClienteResource {
 	}
 	
 	//login para cliente
-	@GetMapping("/login")
+	@PostMapping("/login")
 	private ResponseEntity<?> login(@RequestBody Cliente cliente) {
 		
 		Cliente clienteLogado = clienteRepository.entrar(cliente.getEmail(), cliente.getSenha()); 
