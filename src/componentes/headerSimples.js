@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import "../css/style.css";
-import "../css/bootstrap.css";
 import logo from "../imagens/logo_mobile_sem_fundo.png";
 
 export default class HeaderSimples extends Component {

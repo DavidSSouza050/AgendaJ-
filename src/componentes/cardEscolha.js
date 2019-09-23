@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import "../css/style.css";
-import "../css/bootstrap.css";
+import "../../node_modules/bootstrap/dist/css/bootstrap.css";
 
 export default class CardEscolha extends Component {
     render() {

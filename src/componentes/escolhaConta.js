@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import "../css/bootstrap.css";
 import "../css/style.css";
 import barbershop from "../icones/barbershop.png";
 import setaEsquerda from "../icones/seta_esquerda.png";
@@ -35,7 +34,7 @@ class EscolhaConta extends Component {
                         <CardEscolha 
                             cardHeaderIcon={barbershop} 
                             cardHeaderTitle="Criar Conta como Estabelecimento" 
-                            cardText="Ao criar uma conta como estabelecimento você poderá realizar a Gestão da sua Agenda de Cliente e divulgar o seu négocio assim podendo realizar os Agendamentos para os serviços Online."
+                            cardText="Ao criar uma conta como estabelecimento você poderá realizar a gestão da sua Agenda de Clientes e divulgar o seu négocio e assim  Agendamentos Online."
                             cardArrowIcon={setaEsquerda}
                             arrowDirection="icone_esquerdo_footer">
                         </CardEscolha> 
