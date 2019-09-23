@@ -14,6 +14,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import br.senai.sp.agendaja.modal.Cliente;
 
@@ -52,11 +53,7 @@ public class MainActivity extends AppCompatActivity
         Intent intentCliente = getIntent();
         clienteLogado = (Cliente) intentCliente.getSerializableExtra("clienteLogado");
 
-        txtNomeESobrenome = findViewById(R.id.nomeClienteMain);
-        txtEmailCliente = findViewById(R.id.txtEmailClienteMain);
 
-        txtNomeESobrenome.setText(clienteLogado.getNome() + " " + clienteLogado.getSobrenome());
-        txtEmailCliente.setText(clienteLogado.getEmail());
 
 
 
@@ -75,6 +72,17 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
+
+        txtNomeESobrenome = findViewById(R.id.nomeClienteMain);
+        txtEmailCliente = findViewById(R.id.txtEmailClienteMain);
+
+        if(clienteLogado!=null){
+            txtNomeESobrenome.setText(clienteLogado.getNome() + " " + clienteLogado.getSobrenome());
+            txtEmailCliente.setText(clienteLogado.getEmail());
+        }else{
+            Toast.makeText(MainActivity.this,"Falha ao pegar cliente",Toast.LENGTH_LONG).show();
+        }
+
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }

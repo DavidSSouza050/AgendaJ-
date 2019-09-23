@@ -89,13 +89,17 @@ public class DadosPessoaisActivity extends AppCompatActivity implements View.OnC
 
         //início das mascaras dos campos
 
-        SimpleMaskFormatter formatCpf = new SimpleMaskFormatter("NNNNNNNNNNN");
+        //Formatando CPF
+        SimpleMaskFormatter formatCpf = new SimpleMaskFormatter("NNN.NNN.NNN-NN");
         MaskTextWatcher maskCpf = new MaskTextWatcher(cpf,formatCpf);
         cpf.addTextChangedListener(maskCpf);
 
+        //Formatando data de nascimento
         SimpleMaskFormatter formtDataNascimento = new SimpleMaskFormatter("NN/NN/NNNN");
         MaskTextWatcher maskDataNascimento = new MaskTextWatcher(dtNascimento,formtDataNascimento);
         dtNascimento.addTextChangedListener(maskDataNascimento);
+
+        //
 
 
         imgButtonGaleria.setOnClickListener(this);
@@ -140,14 +144,12 @@ public class DadosPessoaisActivity extends AppCompatActivity implements View.OnC
             case R.id.btn_proximo_dados_pessoais:
                 validar();
                 if(validar()){
-                    ConverterImagem imagem = new ConverterImagem();
                     Cliente cliente  = new Cliente();
                     cliente.setNome(nome.getText().toString());
                     cliente.setSobrenome(sobreNome.getText().toString());
                     cliente.setCpf((cpf.getText().toString()));
                     cliente.setSexo(sexo);
                     cliente.setFoto(imagePath);
-                    //cliente.setFoto(imagem.bitmapParaByteArray(imgFotoUsuario));
                     cliente.setDataNascimento(dtNascimento.getText().toString());
 
                     Intent intentProximo = new Intent(DadosPessoaisActivity.this,EnderecoActivity.class);
@@ -232,15 +234,15 @@ public class DadosPessoaisActivity extends AppCompatActivity implements View.OnC
     public boolean validar(){
         Boolean validacao = true;
 
-//        if(nome.length()==0){
-//            validacao = false;
-//        }else if(sobreNome.length()==0){
-//            validacao = false;
-//        }else if(dtNascimento.length()==0){
-//            validacao = false;
-//        }else if(cpf.length()==0){
-//            validacao = false;
-//        }
+        if(nome.length()==0){
+            validacao = false;
+        }else if(sobreNome.length()==0){
+            validacao = false;
+        }else if(dtNascimento.length()==0){
+            validacao = false;
+        }else if(cpf.length()==0){
+            validacao = false;
+        }
 
         return validacao;
     }

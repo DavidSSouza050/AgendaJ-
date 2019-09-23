@@ -3,10 +3,14 @@ package br.senai.sp.agendaja;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.github.rtoshiro.util.format.SimpleMaskFormatter;
+import com.github.rtoshiro.util.format.text.MaskTextWatcher;
 
 import java.util.concurrent.ExecutionException;
 
@@ -16,6 +20,9 @@ import br.senai.sp.agendaja.modal.Endereco;
 import br.senai.sp.agendaja.modal.Informacao;
 import br.senai.sp.agendaja.tasks.CadastrarCliente;
 import br.senai.sp.agendaja.tasks.CadastrarEndereco;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class ContatoActivity extends AppCompatActivity implements View.OnClickListener{
     private EditText celular;
@@ -51,6 +58,13 @@ public class ContatoActivity extends AppCompatActivity implements View.OnClickLi
         btnFinalizar.setOnClickListener(this);
         btnVoltar.setOnClickListener(this);
 
+
+        //Adicionando mascaras nos campos
+
+        SimpleMaskFormatter maskCelular = new SimpleMaskFormatter("(NN)NNNNN-NNNN");
+        MaskTextWatcher textCelular = new MaskTextWatcher(celular,maskCelular);
+        celular.addTextChangedListener(textCelular);
+
     }
 
     @Override
@@ -83,14 +97,24 @@ public class ContatoActivity extends AppCompatActivity implements View.OnClickLi
 
                               //Toast.makeText(ContatoActivity.this,clienteFinal.getFoto(),Toast.LENGTH_LONG).show();
                                 CadastroFoto cadastroFoto = new CadastroFoto();
-                                boolean verificacao = cadastroFoto.CadastrarFoto(clienteFinal.getFoto(),respostaCadastroCliente);
+                                Call<Cliente> verificacao = cadastroFoto.CadastrarFoto(clienteFinal.getFoto(),respostaCadastroCliente);
 
-                                if(verificacao){
-                                    Intent intent  = new Intent(ContatoActivity.this,MainActivity.class);
-                                    startActivity(intent);
-                                }else if(verificacao==false){
-                                    Toast.makeText(ContatoActivity.this,"Falha no cadastr da foto",Toast.LENGTH_LONG).show();
-                                }
+                                verificacao.enqueue(new Callback<Cliente>() {
+                                    @Override
+                                    public void onResponse(Call<Cliente> call, Response<Cliente> response) {
+                                        if(response.isSuccessful()){
+                                           Intent intent = new Intent(ContatoActivity.this,MainActivity.class);
+                                           startActivity(intent);
+                                        }
+
+                                    }
+
+                                    @Override
+                                    public void onFailure(Call<Cliente> call, Throwable t) {
+                                        Toast.makeText(ContatoActivity.this,"Erro ao cadastrar foto",Toast.LENGTH_LONG).show();
+                                        Log.d("ERRO CADASTRO FOTO",t.getMessage());
+                                    }
+                                });
 
                             }
 

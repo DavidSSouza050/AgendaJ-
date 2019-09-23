@@ -16,36 +16,25 @@ import retrofit2.Response;
 
 public class CadastroFoto {
   private FileService fileService;
-  private Boolean resposta;
+  private  final Boolean[] resposta = new Boolean[1];
 
+  public Call<Cliente> CadastrarFoto(String imagePath, int id){
 
-  public Boolean CadastrarFoto(String imagePath, int id){
+    fileService = RetrofitConfig.getFileService();
 
     Log.d("caminho da imagem",imagePath);
 
     File file = new File(imagePath);
-    RequestBody requestBody = RequestBody.create(MediaType.parse("multipart/form-data"),file);
-    MultipartBody.Part body = MultipartBody.Part.createFormData("foto",file.getName(),requestBody);
-    RequestBody idCliente = RequestBody.create(MediaType.parse("id"),String.valueOf(id));
 
-    fileService = RetrofitConfig.getFileService();
+    RequestBody requestBody = RequestBody.create(MediaType.parse("multipart/form-data"),file);
+    RequestBody idCliente = RequestBody.create(MediaType.parse("text/plain"),String.valueOf(id));
+    MultipartBody.Part body = MultipartBody.Part.createFormData("foto",file.getName(),requestBody);
+
+
 
     Call<Cliente> call = fileService.upload(body,idCliente);
 
-    call.enqueue(new Callback<Cliente>() {
-      @Override
-      public void onResponse(Call<Cliente> call, Response<Cliente> response) {
-        if(response.isSuccessful()){
-          resposta = true;
-        }
-      }
-
-      @Override
-      public void onFailure(Call<Cliente> call, Throwable t) {
-          resposta = false;
-      }
-    });
-  return resposta;
+  return call;
   }
 
 }
