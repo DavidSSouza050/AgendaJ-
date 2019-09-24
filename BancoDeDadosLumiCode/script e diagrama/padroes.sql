@@ -6,8 +6,7 @@ select * from tbl_cidade;
 select * from tbl_microregiao;
 select * from tbl_cidade WHERE cidade = 'JANDIRA';
 select * from tbl_estado;
-select * from tbl_tipo_endereco;
-
+select * from tbl_assunto;
 
 
 -- tipo 
@@ -25,8 +24,11 @@ INSERT INTO tbl_endereco (id_endereco, logradouro, bairro, cep, id_tipo_endereco
 
 INSERT INTO tbl_estabelecimento (id_estabelecimento, cnpj, razao_social, nome_estabelecimento, telefone, email, senha, criado_em, atualizado_em, id_endereco) values (1,'58.373.487/0001-38', 'agendaTeste', 'TesteAgenda s2', '11 46197048', 'teste@oul.com', '123456789',  NOW(), NOW(), 2);
 
+-- cadastro de Assunto padrão 
 
-
+INSERT INTO tbl_assunto values (1,'Comentário');
+INSERT INTO tbl_assunto values (2,'Sugetão');
+INSERT INTO tbl_assunto values (3,'Duvida');
 
 SELECT cliente.id_cliente, cliente.nome, cidade.cidade, endereco.cep, endereco.id_tipo_endereco, microrregiao.microrregiao, estado.estado, estado.uf
 	FROM tbl_cliente as cliente inner join tbl_endereco as endereco
