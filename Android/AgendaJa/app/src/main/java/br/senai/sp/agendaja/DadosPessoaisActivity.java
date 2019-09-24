@@ -35,7 +35,7 @@ import br.senai.sp.agendaja.modal.Endereco;
 
 public class DadosPessoaisActivity extends AppCompatActivity implements View.OnClickListener,AdapterView.OnItemSelectedListener{
 
-    private ImageView imgFotoUsuario;
+    private de.hdodenhof.circleimageview.CircleImageView imgFotoUsuario;
     private EditText nome;
     private EditText sobreNome;
     private EditText dtNascimento;

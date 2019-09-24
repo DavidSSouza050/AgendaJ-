@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradiente"
+    android:orientation="horizontal"
+    android:padding="8dp">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/circleImageView2"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="424dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/botao_redondo"
+        android:elevation="24dp"
+        android:src="@drawable/ic_action_editar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/img_foto_usuario_perfilFragment"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/img_foto_usuario_perfilFragment"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/botao_redondo"
+        android:src="@drawable/ic_action_foto_usuario"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/relativeLayout"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="240dp"
+        android:layout_height="130dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/img_foto_usuario_perfilFragment"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.00999999">
+
+        <TextView
+            android:id="@+id/txt_nome_perfilFragment"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="25dp"
+            android:text="Nome" />
+
+        <TextView
+            android:id="@+id/txt_sobrenome_perfilFragment"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignTop="@+id/txt_nome_perfilFragment"
+            android:layout_marginEnd="24dp"
+            android:text="sobrenome" />
+
+        <TextView
+            android:id="@+id/txt_telefone_perfilFragment"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignStart="@+id/txt_nome_perfilFragment"
+            android:layout_marginBottom="13dp"
+            android:text="telefone" />
+
+
+    </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>

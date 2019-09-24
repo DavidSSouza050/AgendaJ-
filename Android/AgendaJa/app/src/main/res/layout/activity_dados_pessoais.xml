@@ -20,9 +20,9 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="20dp" />
 
-    <ImageView
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/img_foto_usuario"
-        android:layout_width="111dp"
+        android:layout_width="110dp"
         android:layout_height="110dp"
         android:layout_marginBottom="20dp"
         android:layout_marginEnd="129dp"
@@ -33,7 +33,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_dados_pessoais"
-        app:srcCompat="@drawable/ic_menu_camera" />
+        app:civ_border_width="2dp"
+        app:civ_border_color="@android:color/white"
+        android:src="@drawable/ic_menu_camera" />
 
 
     <EditText

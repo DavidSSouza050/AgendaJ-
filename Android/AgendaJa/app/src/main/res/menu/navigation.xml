@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_explorar"
+        android:icon="@drawable/ic_action_explorar"
+        android:title="Explorar"
+        />
+
+    <item
+        android:id="@+id/navigation_reservas"
+        android:icon="@drawable/ic_action_reservas"
+        android:title="Reservas" />
+
+    <item
+        android:id="@+id/navigation_perfil"
+        android:icon="@drawable/ic_action_perfil"
+        android:title="Perfil" />
+
+</menu>

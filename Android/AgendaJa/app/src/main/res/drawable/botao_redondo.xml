@@ -5,9 +5,9 @@
         andoid:tint="@android:color/white">
         <stroke
             andoid:color="#3739ab"
-            andoid:width="1dp"/>
+            />
 
-        <corners andoid:radius="50dp"/>
+        <corners andoid:radius="110dp"/>
 
     </shape>
 
