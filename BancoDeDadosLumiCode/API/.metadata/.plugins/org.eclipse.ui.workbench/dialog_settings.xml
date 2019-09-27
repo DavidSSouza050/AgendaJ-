@@ -8,17 +8,12 @@
 		<item value="950" key="dialogHeight"/>
 		<item value="1161" key="dialogWidth"/>
 		<list key="textEntries">
-			<item value="2"/>
 		</list>
 		<list key="orderedElements">
-			<item value="org.eclipse.jdt.ui.edit.text.java.create.getter.setter"/>
 		</list>
 		<list key="orderedProviders">
-			<item value="org.eclipse.ui.commands"/>
 		</list>
 		<list key="textArray">
-			<item value="gga"/>
-			<item value="gg"/>
 		</list>
 	</section>
 </section>

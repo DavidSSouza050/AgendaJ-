@@ -27,6 +27,7 @@ public class FaleConosco {
 	@ManyToOne
 	@JoinColumn(name = "id_assunto")
 	private Assunto assunto;
+	private String criadoEm;
 
 	public Long getIdFaleConosco() {
 		return idFaleConosco;
@@ -68,4 +69,14 @@ public class FaleConosco {
 		this.assunto = assunto;
 	}
 
+	public String getCriadoEm() {
+		return criadoEm;
+	}
+
+	public void setCriadoEm(String criadoEm) {
+		this.criadoEm = criadoEm;
+	}
+	
+	
+	
 }
