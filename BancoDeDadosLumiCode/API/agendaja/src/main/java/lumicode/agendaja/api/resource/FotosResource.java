@@ -15,7 +15,7 @@ import lumicode.agendaja.api.storage.Disco;
 import lumicode.agendaja.api.utils.ConverterDatas;
 
 @RestController
-@RequestMapping("/foto")
+@RequestMapping("/fotos")
 public class FotosResource {
 	//Atribuindo variaveis 
 	@Autowired

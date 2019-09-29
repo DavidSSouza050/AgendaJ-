@@ -9,6 +9,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,21 +24,24 @@ import lumicode.agendaja.api.repository.EnderecoRepository;
 import lumicode.agendaja.api.utils.ConverterDatas;
 
 @RestController
-@RequestMapping("/endereco")
+@RequestMapping("/enderecos")
 public class EnderecoResource {
 	@Autowired
 	private EnderecoRepository enderecoRepository;
 	
+	@CrossOrigin("http://localhost:3000")
 	@GetMapping
 	private List<Endereco> getEndereco(){
 		return enderecoRepository.findAll();
 	}
 	
+	@CrossOrigin("http://localhost:3000")
 	@GetMapping("/{id}")
 	private Endereco visualizarEndereco(@PathVariable Long id) {
 		return enderecoRepository.findById(id).get();
 	}
 	
+	@CrossOrigin("http://localhost:3000")
 	@PostMapping
 	private ResponseEntity<Endereco> salvarEndereco(
 			@Validated @RequestBody Endereco endereco,
@@ -61,6 +65,7 @@ public class EnderecoResource {
 		
 	}
 	
+	@CrossOrigin("http://localhost:3000")
 	@PutMapping("/{id}")
 	private ResponseEntity<Endereco> atualizarEndereco(
 			@Validated @RequestBody Endereco endereco, @PathVariable Long id){

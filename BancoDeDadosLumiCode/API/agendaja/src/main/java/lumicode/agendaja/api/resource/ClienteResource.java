@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,21 +24,24 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import lumicode.agendaja.api.model.Cliente;
 import lumicode.agendaja.api.repository.ClienteRepository;
 import lumicode.agendaja.api.utils.ConverterDatas;
+import net.bytebuddy.asm.Advice.Origin;
 
 @RestController
-@RequestMapping("/cliente")
+@RequestMapping("/clientes")
 public class ClienteResource {
 
 	@Autowired
 	private ClienteRepository clienteRepository;
 	
 	//pegando todos clientes salvo no banco 
+	@CrossOrigin("http://localhost:3000")
 	@GetMapping
 	private List<Cliente> getCliente(){	
 		return clienteRepository.findAll();
 	}
 	
 	//pegando um cliente salvo no banco
+	@CrossOrigin("http://localhost:3000")
 	@GetMapping("/{id}")
 	private Cliente visualizarCliente(@PathVariable Long id){
 		//declarando um cliente do banco
@@ -60,6 +64,7 @@ public class ClienteResource {
 	
 	//login para cliente
 	@PostMapping("/login")
+	@CrossOrigin("http://localhost:3000")
 	private ResponseEntity<?> login(@RequestBody Cliente cliente) {
 		
 		Cliente clienteLogado = clienteRepository.entrar(cliente.getEmail(), cliente.getSenha()); 
@@ -74,6 +79,7 @@ public class ClienteResource {
 	
 	
 	// Cadastrando um cliente no banco
+	@CrossOrigin("http://localhost:3000")
 	@PostMapping
 	private ResponseEntity<?> salvarCliente(@Validated @RequestBody Cliente cliente,
 		HttpServletResponse response){
@@ -121,6 +127,7 @@ public class ClienteResource {
 	
 	
 	//atualizando o cliente
+	@CrossOrigin("http://localhost:3000")
 	@PutMapping("/{id}")
 	private ResponseEntity<?> atualizarCliente(@Validated @RequestBody Cliente cliente,
 			@PathVariable Long id ){

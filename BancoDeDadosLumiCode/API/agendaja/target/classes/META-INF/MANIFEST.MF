@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
-Built-By: aluno
-Build-Jdk: 1.8.0_191
-Created-By: Maven Integration for Eclipse
+Built-By: David
+Build-Jdk: 12.0.1
 Main-Class: sua.classe.Main
+Created-By: Maven Integration for Eclipse
 

@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,23 +21,25 @@ import lumicode.agendaja.api.repository.FaleConoscoRepository;
 import lumicode.agendaja.api.utils.ConverterDatas;
 
 @RestController
-@RequestMapping("/faleConosco")
+@RequestMapping("/faleComNos")
 public class FaleConoscoResource {
 	@Autowired
 	private FaleConoscoRepository faleConoscoRepository;
 
-	
+	@CrossOrigin("http://localhost:3000")
 	@GetMapping
 	private List<FaleConosco> getfaleconosco(){
 		return faleConoscoRepository.findAll();
 	}
 	
+	@CrossOrigin("http://localhost:3000")
 	@GetMapping("/{id}")
 	private FaleConosco visualizarFaleConosco(@PathVariable Long id){
 			return faleConoscoRepository.findById(id).get();
 	}
 	
 	//Cadastrando o comentario dos usuarios
+	@CrossOrigin("http://localhost:3000")
 	@PostMapping
 	private ResponseEntity<String> salvarComentario(@RequestBody FaleConosco faleConosco, HttpServletResponse response){
 		ConverterDatas converterDatas = new ConverterDatas();

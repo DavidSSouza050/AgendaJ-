@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -24,25 +25,28 @@ import lumicode.agendaja.api.repository.EstabelecimentoRepository;
 import lumicode.agendaja.api.utils.ConverterDatas;
 
 @RestController
-@RequestMapping("/estabelecimento")
+@RequestMapping("/estabelecimentos")
 public class EstabelecimentoResource {
 	
 	@Autowired
 	private EstabelecimentoRepository estabelecimentoRepository;
 	
 	//pegando todos os estabelecimentos
+	@CrossOrigin("http://localhost:3000")
 	@GetMapping
 	private List<Estabelecimento> getEstabelecimento(){
 		return estabelecimentoRepository.findAll();
 	}
 	
 	//pegando apenas um estabelecimento
+	@CrossOrigin("http://localhost:3000")
 	@GetMapping("/{id}")
 	private Estabelecimento visualizarEstabelecimento(@PathVariable Long id) {
 		return estabelecimentoRepository.findById(id).get();
 	}
 	
 	//Login estabelecimento
+	@CrossOrigin("http://localhost:3000")
 	@PostMapping("/login")
 	private ResponseEntity<?> loginEstabelecimento(@RequestBody Estabelecimento estabelecimento) {
 		Estabelecimento estabelecimentologado = estabelecimentoRepository.loginEstabelecimento(estabelecimento.getEmail(), estabelecimento.getSenha());
@@ -56,7 +60,8 @@ public class EstabelecimentoResource {
 	}
 	
 	
-	//cadastrando um estabelecimento 
+	//cadastrando um estabelecimento
+	@CrossOrigin("http://localhost:3000")
 	@PostMapping
 	private ResponseEntity<?> salvarEstabelecimento(
 			@Validated @RequestBody Estabelecimento estabelecimento,
@@ -88,6 +93,7 @@ public class EstabelecimentoResource {
 	
 	
 	//Atualizar o estabelecimento
+	@CrossOrigin("http://localhost:3000")
 	@PutMapping("/{id}")
 	private ResponseEntity<?> atualizarEstabelecimento(@Validated @RequestBody 
 			Estabelecimento estabelecimento, @PathVariable Long id){
