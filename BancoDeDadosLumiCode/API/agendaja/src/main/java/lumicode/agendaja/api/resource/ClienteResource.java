@@ -24,10 +24,9 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import lumicode.agendaja.api.model.Cliente;
 import lumicode.agendaja.api.repository.ClienteRepository;
 import lumicode.agendaja.api.utils.ConverterDatas;
-import net.bytebuddy.asm.Advice.Origin;
 
 @RestController
-@RequestMapping("/clientes")
+@RequestMapping("/cliente")
 public class ClienteResource {
 
 	@Autowired

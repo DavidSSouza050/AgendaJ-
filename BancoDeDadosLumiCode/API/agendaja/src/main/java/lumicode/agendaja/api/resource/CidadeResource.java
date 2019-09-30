@@ -13,7 +13,7 @@ import lumicode.agendaja.api.model.Cidade;
 import lumicode.agendaja.api.repository.CidadeRepository;
 
 @RestController
-@RequestMapping("/cidades")
+@RequestMapping("/cidade")
 public class CidadeResource {
 
 	@Autowired

@@ -14,7 +14,7 @@ import lumicode.agendaja.api.model.TipoEndereco;
 import lumicode.agendaja.api.repository.TipoEnderecoRepository;
 
 @RestController
-@RequestMapping("/tipoEnderecos")
+@RequestMapping("/tipoEndereco")
 public class TipoEnderecoResource {
 	@Autowired
 	private TipoEnderecoRepository tipoEnderecoRepository;

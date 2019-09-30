@@ -1,0 +1,5 @@
+package lumicode.agendaja.api.jwtme.security;
+
+public class WebSecurityConfig {
+
+}

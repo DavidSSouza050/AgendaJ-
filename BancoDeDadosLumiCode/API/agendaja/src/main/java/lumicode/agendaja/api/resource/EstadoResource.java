@@ -13,7 +13,7 @@ import lumicode.agendaja.api.model.Estado;
 import lumicode.agendaja.api.repository.EstadoRepository;
 
 @RestController
-@RequestMapping("/estados")
+@RequestMapping("/estado")
 public class EstadoResource {
 
 	@Autowired

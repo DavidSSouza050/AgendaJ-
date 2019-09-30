@@ -1,6 +1,7 @@
 package lumicode.agendaja.api.resource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -15,7 +16,7 @@ import lumicode.agendaja.api.storage.Disco;
 import lumicode.agendaja.api.utils.ConverterDatas;
 
 @RestController
-@RequestMapping("/fotos")
+@RequestMapping("/foto")
 public class FotosResource {
 	//Atribuindo variaveis 
 	@Autowired
@@ -26,6 +27,7 @@ public class FotosResource {
 	private ClienteRepository clienteRepository;
 	
 	//gravando imagem do estabelecimento
+	@CrossOrigin("http://localhost:3000")
 	@PostMapping("/estabelecimento")
 	public Estabelecimento uploadRestaurante(@RequestParam MultipartFile foto, @RequestParam Long id) {
 		Estabelecimento estabelecimento = new Estabelecimento();
@@ -53,7 +55,7 @@ public class FotosResource {
 	}
 	
 	//gravando a imagem do cliente 
-	
+	@CrossOrigin("http://localhost:3000")
 	@PostMapping("/cliente")
 	public Cliente uploadCliente(@RequestParam MultipartFile foto, @RequestParam Long id) {
 		Cliente cliente = new Cliente();

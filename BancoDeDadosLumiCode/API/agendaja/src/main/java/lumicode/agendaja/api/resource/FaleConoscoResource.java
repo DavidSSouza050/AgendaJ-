@@ -21,7 +21,7 @@ import lumicode.agendaja.api.repository.FaleConoscoRepository;
 import lumicode.agendaja.api.utils.ConverterDatas;
 
 @RestController
-@RequestMapping("/faleComNos")
+@RequestMapping("/faleConosco")
 public class FaleConoscoResource {
 	@Autowired
 	private FaleConoscoRepository faleConoscoRepository;

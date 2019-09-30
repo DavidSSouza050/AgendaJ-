@@ -25,7 +25,7 @@ import lumicode.agendaja.api.repository.EstabelecimentoRepository;
 import lumicode.agendaja.api.utils.ConverterDatas;
 
 @RestController
-@RequestMapping("/estabelecimentos")
+@RequestMapping("/estabelecimento")
 public class EstabelecimentoResource {
 	
 	@Autowired

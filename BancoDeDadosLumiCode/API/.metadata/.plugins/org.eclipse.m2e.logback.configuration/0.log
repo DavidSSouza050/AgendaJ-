@@ -3923,3 +3923,331 @@ org.eclipse.core.runtime.CoreException: Could not resolve artifact org.springfra
 2019-09-28 23:19:08,621 [Worker-5: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\resources
 2019-09-28 23:19:08,623 [Worker-5: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2019-09-28 23:19:08,624 [Worker-5: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\test\resources
+2019-09-30 13:32:40,521 [Worker-2: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2019-09-30 13:32:59,801 [Worker-0: Building workspace] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: lumicode:agendaja:0.0.1-SNAPSHOT @ C:\Users\18175740\Desktop\Servidor\BancoDeDadosLumiCode\API\agendaja\pom.xml.
+2019-09-30 13:33:02,847 [Worker-0: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-09-30 13:33:02,847 [Worker-0: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\18175740\Desktop\Servidor\BancoDeDadosLumiCode\API\agendaja\src\main\resources
+2019-09-30 13:33:04,388 [Worker-0: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-09-30 13:33:04,388 [Worker-0: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\18175740\Desktop\Servidor\BancoDeDadosLumiCode\API\agendaja\src\test\resources
+2019-09-30 13:33:04,389 [Worker-14: Updating Maven Dependencies] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: lumicode:agendaja:0.0.1-SNAPSHOT @ C:\Users\18175740\Desktop\Servidor\BancoDeDadosLumiCode\API\agendaja\pom.xml.
+2019-09-30 13:33:08,638 [Worker-6: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-09-30 13:33:08,639 [Worker-6: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\18175740\Desktop\Servidor\BancoDeDadosLumiCode\API\agendaja\src\main\resources
+2019-09-30 13:33:08,640 [Worker-6: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-09-30 13:33:08,640 [Worker-6: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\18175740\Desktop\Servidor\BancoDeDadosLumiCode\API\agendaja\src\test\resources
+2019-09-30 13:33:42,853 [Worker-8: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-09-30 13:33:42,853 [Worker-8: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\18175740\Desktop\Servidor\BancoDeDadosLumiCode\API\agendaja\src\main\resources
+2019-09-30 13:33:42,854 [Worker-8: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-09-30 13:33:42,855 [Worker-8: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\18175740\Desktop\Servidor\BancoDeDadosLumiCode\API\agendaja\src\test\resources
+2019-09-30 13:33:49,903 [Worker-16: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-09-30 13:33:49,918 [Worker-16: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\18175740\Desktop\Servidor\BancoDeDadosLumiCode\API\agendaja\src\main\resources
+2019-09-30 13:33:49,919 [Worker-16: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-09-30 13:33:49,919 [Worker-16: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\18175740\Desktop\Servidor\BancoDeDadosLumiCode\API\agendaja\src\test\resources
+2019-09-30 13:34:37,258 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-09-30 13:34:37,316 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\18175740\Desktop\Servidor\BancoDeDadosLumiCode\API\agendaja\src\main\resources
+2019-09-30 13:34:37,326 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-09-30 13:34:37,334 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\18175740\Desktop\Servidor\BancoDeDadosLumiCode\API\agendaja\src\test\resources
+2019-09-30 13:34:56,002 [Worker-14: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-09-30 13:34:56,027 [Worker-14: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\18175740\Desktop\Servidor\BancoDeDadosLumiCode\API\agendaja\src\main\resources
+2019-09-30 13:34:56,034 [Worker-14: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-09-30 13:34:56,040 [Worker-14: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\18175740\Desktop\Servidor\BancoDeDadosLumiCode\API\agendaja\src\test\resources
+2019-09-30 13:50:36,986 [main] INFO  o.e.m2e.actions.ExecutePomAction - Creating new launch configuration
+2019-09-30 13:50:50,989 [Worker-22: Launching agendaja (5)] INFO  o.e.m.i.launch.MavenLaunchDelegate - C:\Users\18175740\Desktop\Servidor\BancoDeDadosLumiCode\API\agendaja
+2019-09-30 13:50:50,997 [Worker-22: Launching agendaja (5)] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -B package
+2019-09-30 13:51:38,188 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-09-30 13:51:38,189 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\18175740\Desktop\Servidor\BancoDeDadosLumiCode\API\agendaja\src\main\resources
+2019-09-30 13:51:38,202 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-09-30 13:51:38,215 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\18175740\Desktop\Servidor\BancoDeDadosLumiCode\API\agendaja\src\test\resources
+2019-09-30 13:51:47,345 [main] INFO  o.e.m2e.actions.ExecutePomAction - Creating new launch configuration
+2019-09-30 13:51:53,131 [Worker-22: Launching agendaja (6)] INFO  o.e.m.i.launch.MavenLaunchDelegate - C:\Users\18175740\Desktop\Servidor\BancoDeDadosLumiCode\API\agendaja
+2019-09-30 13:51:53,138 [Worker-22: Launching agendaja (6)] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -B package
+2019-09-30 13:52:11,845 [Worker-7: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-09-30 13:52:11,856 [Worker-7: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\18175740\Desktop\Servidor\BancoDeDadosLumiCode\API\agendaja\src\main\resources
+2019-09-30 13:52:11,868 [Worker-7: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-09-30 13:52:11,874 [Worker-7: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\18175740\Desktop\Servidor\BancoDeDadosLumiCode\API\agendaja\src\test\resources
+2019-09-30 13:52:15,297 [Worker-22: Launching agendaja (6)] INFO  o.e.m.i.launch.MavenLaunchDelegate - C:\Users\18175740\Desktop\Servidor\BancoDeDadosLumiCode\API\agendaja
+2019-09-30 13:52:15,297 [Worker-22: Launching agendaja (6)] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -B package
+2019-09-30 13:53:01,104 [Worker-23: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-09-30 13:53:01,121 [Worker-23: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\18175740\Desktop\Servidor\BancoDeDadosLumiCode\API\agendaja\src\main\resources
+2019-09-30 13:53:01,149 [Worker-23: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-09-30 13:53:01,168 [Worker-23: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\18175740\Desktop\Servidor\BancoDeDadosLumiCode\API\agendaja\src\test\resources
+2019-09-30 13:53:26,692 [Worker-26: Launching agendaja (6)] INFO  o.e.m.i.launch.MavenLaunchDelegate - C:\Users\18175740\Desktop\Servidor\BancoDeDadosLumiCode\API\agendaja
+2019-09-30 13:53:26,698 [Worker-26: Launching agendaja (6)] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -B package
+2019-09-30 13:57:06,289 [Worker-26: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-09-30 13:57:06,311 [Worker-26: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\18175740\Desktop\Servidor\BancoDeDadosLumiCode\API\agendaja\src\main\resources
+2019-09-30 13:57:06,318 [Worker-26: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-09-30 13:57:06,324 [Worker-26: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\18175740\Desktop\Servidor\BancoDeDadosLumiCode\API\agendaja\src\test\resources
+2019-09-30 14:01:33,354 [Worker-29: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-09-30 14:01:33,354 [Worker-29: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\18175740\Desktop\Servidor\BancoDeDadosLumiCode\API\agendaja\src\main\resources
+2019-09-30 14:01:33,355 [Worker-29: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-09-30 14:01:33,367 [Worker-29: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\18175740\Desktop\Servidor\BancoDeDadosLumiCode\API\agendaja\src\test\resources
+2019-09-30 14:05:10,929 [Worker-29: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-jar-plugin/1.2.5.RELEASE/maven-jar-plugin-1.2.5.RELEASE.pom
+2019-09-30 14:05:10,955 [Worker-29: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for org.apache.maven.plugins:maven-jar-plugin:jar:1.2.5.RELEASE is missing, no dependency information available
+2019-09-30 14:05:11,141 [Worker-29: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-jar-plugin/1.2.5.RELEASE/maven-jar-plugin-1.2.5.RELEASE.jar
+2019-09-30 14:05:11,154 [Worker-29: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for org.apache.maven.plugins:maven-jar-plugin:jar:1.2.5.RELEASE is missing, no dependency information available
+2019-09-30 14:05:11,162 [Worker-29: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for org.apache.maven.plugins:maven-jar-plugin:jar:1.2.5.RELEASE is missing, no dependency information available
+2019-09-30 14:05:11,179 [Worker-29: Building workspace] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: lumicode:agendaja:0.0.1-SNAPSHOT @ C:\Users\18175740\Desktop\Servidor\BancoDeDadosLumiCode\API\agendaja\pom.xml.
+2019-09-30 14:05:15,061 [main] INFO  o.e.m2e.actions.ExecutePomAction - Creating new launch configuration
+2019-09-30 14:05:19,188 [Worker-32: Launching agendaja (7)] INFO  o.e.m.i.launch.MavenLaunchDelegate - C:\Users\18175740\Desktop\Servidor\BancoDeDadosLumiCode\API\agendaja
+2019-09-30 14:05:19,194 [Worker-32: Launching agendaja (7)] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -B package
+2019-09-30 14:05:33,067 [Worker-24: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for org.apache.maven.plugins:maven-jar-plugin:jar:1.2.5.RELEASE is missing, no dependency information available
+2019-09-30 14:05:33,082 [Worker-24: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for org.apache.maven.plugins:maven-jar-plugin:jar:1.2.5.RELEASE is missing, no dependency information available
+2019-09-30 14:05:33,099 [Worker-24: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for org.apache.maven.plugins:maven-jar-plugin:jar:1.2.5.RELEASE is missing, no dependency information available
+2019-09-30 14:05:33,123 [Worker-24: Building workspace] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: lumicode:agendaja:0.0.1-SNAPSHOT @ C:\Users\18175740\Desktop\Servidor\BancoDeDadosLumiCode\API\agendaja\pom.xml.
+2019-09-30 14:06:22,904 [Worker-32: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-maven-plugin/1.2.5.RELEASE/spring-boot-maven-plugin-1.2.5.RELEASE.pom
+2019-09-30 14:06:23,061 [Worker-32: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-maven-plugin/1.2.5.RELEASE/spring-boot-maven-plugin-1.2.5.RELEASE.pom
+2019-09-30 14:06:23,213 [Worker-32: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-tools/1.2.5.RELEASE/spring-boot-tools-1.2.5.RELEASE.pom
+2019-09-30 14:06:23,382 [Worker-32: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-tools/1.2.5.RELEASE/spring-boot-tools-1.2.5.RELEASE.pom
+2019-09-30 14:06:23,574 [Worker-32: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-parent/1.2.5.RELEASE/spring-boot-parent-1.2.5.RELEASE.pom
+2019-09-30 14:06:23,854 [Worker-32: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-parent/1.2.5.RELEASE/spring-boot-parent-1.2.5.RELEASE.pom
+2019-09-30 14:06:24,016 [Worker-32: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-dependencies/1.2.5.RELEASE/spring-boot-dependencies-1.2.5.RELEASE.pom
+2019-09-30 14:06:24,307 [Worker-32: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-dependencies/1.2.5.RELEASE/spring-boot-dependencies-1.2.5.RELEASE.pom
+2019-09-30 14:06:24,475 [Worker-32: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/springframework/spring-framework-bom/4.1.7.RELEASE/spring-framework-bom-4.1.7.RELEASE.pom
+2019-09-30 14:06:24,698 [Worker-32: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/springframework/spring-framework-bom/4.1.7.RELEASE/spring-framework-bom-4.1.7.RELEASE.pom
+2019-09-30 14:06:24,848 [Worker-32: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/springframework/data/spring-data-releasetrain/Evans-SR3/spring-data-releasetrain-Evans-SR3.pom
+2019-09-30 14:06:24,997 [Worker-32: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/springframework/data/spring-data-releasetrain/Evans-SR3/spring-data-releasetrain-Evans-SR3.pom
+2019-09-30 14:06:25,146 [Worker-32: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/springframework/data/build/spring-data-build/1.5.3.RELEASE/spring-data-build-1.5.3.RELEASE.pom
+2019-09-30 14:06:25,309 [Worker-32: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/springframework/data/build/spring-data-build/1.5.3.RELEASE/spring-data-build-1.5.3.RELEASE.pom
+2019-09-30 14:06:25,460 [Worker-32: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/springframework/integration/spring-integration-bom/4.1.5.RELEASE/spring-integration-bom-4.1.5.RELEASE.pom
+2019-09-30 14:06:25,623 [Worker-32: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/springframework/integration/spring-integration-bom/4.1.5.RELEASE/spring-integration-bom-4.1.5.RELEASE.pom
+2019-09-30 14:06:25,792 [Worker-32: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/springframework/security/spring-security-bom/3.2.7.RELEASE/spring-security-bom-3.2.7.RELEASE.pom
+2019-09-30 14:06:25,964 [Worker-32: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/springframework/security/spring-security-bom/3.2.7.RELEASE/spring-security-bom-3.2.7.RELEASE.pom
+2019-09-30 14:06:26,130 [Worker-32: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-maven-plugin/1.2.5.RELEASE/spring-boot-maven-plugin-1.2.5.RELEASE.jar
+2019-09-30 14:06:26,452 [Worker-32: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-maven-plugin/1.2.5.RELEASE/spring-boot-maven-plugin-1.2.5.RELEASE.jar
+2019-09-30 14:06:28,390 [main] INFO  o.e.m2e.actions.ExecutePomAction - Creating new launch configuration
+2019-09-30 14:06:28,974 [Worker-32: Building workspace] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: lumicode:agendaja:0.0.1-SNAPSHOT @ C:\Users\18175740\Desktop\Servidor\BancoDeDadosLumiCode\API\agendaja\pom.xml.
+2019-09-30 14:06:29,783 [Worker-32: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-09-30 14:06:29,789 [Worker-32: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\18175740\Desktop\Servidor\BancoDeDadosLumiCode\API\agendaja\src\main\resources
+2019-09-30 14:06:29,797 [Worker-32: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-09-30 14:06:29,797 [Worker-32: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\18175740\Desktop\Servidor\BancoDeDadosLumiCode\API\agendaja\src\test\resources
+2019-09-30 14:06:32,371 [Worker-31: Launching agendaja (8)] INFO  o.e.m.i.launch.MavenLaunchDelegate - C:\Users\18175740\Desktop\Servidor\BancoDeDadosLumiCode\API\agendaja
+2019-09-30 14:06:32,371 [Worker-31: Launching agendaja (8)] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -B package
+2019-09-30 16:45:47,719 [Worker-77: Building workspace] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: lumicode:agendaja:0.0.1-SNAPSHOT @ C:\Users\18175740\Desktop\Servidor\BancoDeDadosLumiCode\API\agendaja\pom.xml.
+2019-09-30 16:45:48,277 [Worker-74: reload maven project] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/io/jsonwebtoken/jjwt/0.7.0/jjwt-0.7.0.pom
+2019-09-30 16:45:48,591 [Worker-74: reload maven project] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/io/jsonwebtoken/jjwt/0.7.0/jjwt-0.7.0.pom
+2019-09-30 16:45:48,740 [Worker-77: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/io/jsonwebtoken/jjwt/0.7.0/jjwt-0.7.0.pom
+2019-09-30 16:45:48,750 [Worker-74: reload maven project] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/fasterxml/jackson/core/jackson-databind/2.8.2/jackson-databind-2.8.2.pom
+2019-09-30 16:45:48,932 [Worker-74: reload maven project] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/fasterxml/jackson/core/jackson-databind/2.8.2/jackson-databind-2.8.2.pom
+2019-09-30 16:45:49,026 [Worker-77: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/io/jsonwebtoken/jjwt/0.7.0/jjwt-0.7.0.pom
+2019-09-30 16:45:49,099 [Worker-74: reload maven project] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/fasterxml/jackson/jackson-parent/2.8/jackson-parent-2.8.pom
+2019-09-30 16:45:49,172 [Worker-77: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/fasterxml/jackson/jackson-parent/2.8/jackson-parent-2.8.pom
+2019-09-30 16:45:49,274 [Worker-74: reload maven project] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/fasterxml/jackson/jackson-parent/2.8/jackson-parent-2.8.pom
+2019-09-30 16:45:49,334 [Worker-77: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/fasterxml/jackson/jackson-parent/2.8/jackson-parent-2.8.pom
+2019-09-30 16:45:49,456 [Worker-74: reload maven project] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/fasterxml/oss-parent/27/oss-parent-27.pom
+2019-09-30 16:45:49,477 [Worker-77: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/fasterxml/oss-parent/27/oss-parent-27.pom
+2019-09-30 16:45:49,637 [Worker-77: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/fasterxml/oss-parent/27/oss-parent-27.pom
+2019-09-30 16:45:49,647 [Worker-74: reload maven project] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/fasterxml/oss-parent/27/oss-parent-27.pom
+2019-09-30 16:45:49,787 [Worker-77: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/fasterxml/jackson/core/jackson-annotations/2.8.0/jackson-annotations-2.8.0.pom
+2019-09-30 16:45:49,797 [Worker-74: reload maven project] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/fasterxml/jackson/core/jackson-annotations/2.8.0/jackson-annotations-2.8.0.pom
+2019-09-30 16:45:49,952 [Worker-77: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/fasterxml/jackson/core/jackson-annotations/2.8.0/jackson-annotations-2.8.0.pom
+2019-09-30 16:45:49,963 [Worker-74: reload maven project] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/fasterxml/jackson/core/jackson-annotations/2.8.0/jackson-annotations-2.8.0.pom
+2019-09-30 16:45:50,004 [Worker-74: reload maven project] WARN  o.e.a.i.i.DefaultUpdateCheckManager - Failed to write tracking file C:\Users\18175740\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.8.0\jackson-annotations-2.8.0.pom.lastUpdated
+java.io.FileNotFoundException: C:\Users\18175740\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.8.0\jackson-annotations-2.8.0.pom.lastUpdated (Acesso negado)
+	at java.io.RandomAccessFile.open0(Native Method) ~[na:1.8.0_191]
+	at java.io.RandomAccessFile.open(Unknown Source) ~[na:1.8.0_191]
+	at java.io.RandomAccessFile.<init>(Unknown Source) ~[na:1.8.0_191]
+	at org.eclipse.aether.internal.impl.TrackingFileManager.update(TrackingFileManager.java:105) ~[maven-resolver-impl-1.1.1.jar:1.1.1]
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.write(DefaultUpdateCheckManager.java:615) [maven-resolver-impl-1.1.1.jar:1.1.1]
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.touchArtifact(DefaultUpdateCheckManager.java:551) [maven-resolver-impl-1.1.1.jar:1.1.1]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.evaluateDownloads(DefaultArtifactResolver.java:623) [maven-resolver-impl-1.1.1.jar:1.1.1]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.performDownloads(DefaultArtifactResolver.java:513) [maven-resolver-impl-1.1.1.jar:1.1.1]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:399) [maven-resolver-impl-1.1.1.jar:1.1.1]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifacts(DefaultArtifactResolver.java:224) [maven-resolver-impl-1.1.1.jar:1.1.1]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifact(DefaultArtifactResolver.java:201) [maven-resolver-impl-1.1.1.jar:1.1.1]
+	at org.apache.maven.repository.internal.DefaultArtifactDescriptorReader.loadPom(DefaultArtifactDescriptorReader.java:261) [maven-resolver-provider-3.5.3.jar:3.5.3]
+	at org.apache.maven.repository.internal.DefaultArtifactDescriptorReader.readArtifactDescriptor(DefaultArtifactDescriptorReader.java:192) [maven-resolver-provider-3.5.3.jar:3.5.3]
+	at org.eclipse.aether.internal.impl.DefaultDependencyCollector.resolveCachedArtifactDescriptor(DefaultDependencyCollector.java:539) [maven-resolver-impl-1.1.1.jar:1.1.1]
+	at org.eclipse.aether.internal.impl.DefaultDependencyCollector.getArtifactDescriptorResult(DefaultDependencyCollector.java:522) [maven-resolver-impl-1.1.1.jar:1.1.1]
+	at org.eclipse.aether.internal.impl.DefaultDependencyCollector.processDependency(DefaultDependencyCollector.java:411) [maven-resolver-impl-1.1.1.jar:1.1.1]
+	at org.eclipse.aether.internal.impl.DefaultDependencyCollector.processDependency(DefaultDependencyCollector.java:365) [maven-resolver-impl-1.1.1.jar:1.1.1]
+	at org.eclipse.aether.internal.impl.DefaultDependencyCollector.process(DefaultDependencyCollector.java:353) [maven-resolver-impl-1.1.1.jar:1.1.1]
+	at org.eclipse.aether.internal.impl.DefaultDependencyCollector.doRecurse(DefaultDependencyCollector.java:507) [maven-resolver-impl-1.1.1.jar:1.1.1]
+	at org.eclipse.aether.internal.impl.DefaultDependencyCollector.processDependency(DefaultDependencyCollector.java:460) [maven-resolver-impl-1.1.1.jar:1.1.1]
+	at org.eclipse.aether.internal.impl.DefaultDependencyCollector.processDependency(DefaultDependencyCollector.java:365) [maven-resolver-impl-1.1.1.jar:1.1.1]
+	at org.eclipse.aether.internal.impl.DefaultDependencyCollector.process(DefaultDependencyCollector.java:353) [maven-resolver-impl-1.1.1.jar:1.1.1]
+	at org.eclipse.aether.internal.impl.DefaultDependencyCollector.doRecurse(DefaultDependencyCollector.java:507) [maven-resolver-impl-1.1.1.jar:1.1.1]
+	at org.eclipse.aether.internal.impl.DefaultDependencyCollector.processDependency(DefaultDependencyCollector.java:460) [maven-resolver-impl-1.1.1.jar:1.1.1]
+	at org.eclipse.aether.internal.impl.DefaultDependencyCollector.processDependency(DefaultDependencyCollector.java:365) [maven-resolver-impl-1.1.1.jar:1.1.1]
+	at org.eclipse.aether.internal.impl.DefaultDependencyCollector.process(DefaultDependencyCollector.java:353) [maven-resolver-impl-1.1.1.jar:1.1.1]
+	at org.eclipse.aether.internal.impl.DefaultDependencyCollector.collectDependencies(DefaultDependencyCollector.java:256) [maven-resolver-impl-1.1.1.jar:1.1.1]
+	at org.eclipse.aether.internal.impl.DefaultRepositorySystem.collectDependencies(DefaultRepositorySystem.java:282) [maven-resolver-impl-1.1.1.jar:1.1.1]
+	at org.apache.maven.project.DefaultProjectDependenciesResolver.resolve(DefaultProjectDependenciesResolver.java:169) [maven-core-3.5.3.jar:3.5.3]
+	at org.apache.maven.project.DefaultProjectBuilder.resolveDependencies(DefaultProjectBuilder.java:212) [maven-core-3.5.3.jar:3.5.3]
+	at org.apache.maven.project.DefaultProjectBuilder.build(DefaultProjectBuilder.java:185) [maven-core-3.5.3.jar:3.5.3]
+	at org.apache.maven.project.DefaultProjectBuilder.build(DefaultProjectBuilder.java:116) [maven-core-3.5.3.jar:3.5.3]
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.readMavenProject(MavenImpl.java:628) [org.eclipse.m2e.core_1.10.0.20181127-2120.jar:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.lambda$3(ProjectRegistryManager.java:808) [org.eclipse.m2e.core_1.10.0.20181127-2120.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:177) ~[org.eclipse.m2e.core_1.10.0.20181127-2120.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:151) ~[org.eclipse.m2e.core_1.10.0.20181127-2120.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:99) ~[org.eclipse.m2e.core_1.10.0.20181127-2120.jar:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.execute(ProjectRegistryManager.java:958) [org.eclipse.m2e.core_1.10.0.20181127-2120.jar:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.readProjectWithDependencies(ProjectRegistryManager.java:805) [org.eclipse.m2e.core_1.10.0.20181127-2120.jar:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.readProjectWithDependencies(ProjectRegistryManager.java:788) [org.eclipse.m2e.core_1.10.0.20181127-2120.jar:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager$2.call(ProjectRegistryManager.java:1001) ~[org.eclipse.m2e.core_1.10.0.20181127-2120.jar:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager$2.call(ProjectRegistryManager.java:1) ~[org.eclipse.m2e.core_1.10.0.20181127-2120.jar:na]
+	at com.google.common.cache.LocalCache$LocalManualCache$1.load(LocalCache.java:5065) ~[com.google.guava_21.0.0.v20170206-1425.jar:na]
+	at com.google.common.cache.LocalCache$LoadingValueReference.loadFuture(LocalCache.java:3716) ~[com.google.guava_21.0.0.v20170206-1425.jar:na]
+	at com.google.common.cache.LocalCache$Segment.loadSync(LocalCache.java:2424) ~[com.google.guava_21.0.0.v20170206-1425.jar:na]
+	at com.google.common.cache.LocalCache$Segment.lockedGetOrLoad(LocalCache.java:2298) ~[com.google.guava_21.0.0.v20170206-1425.jar:na]
+	at com.google.common.cache.LocalCache$Segment.get(LocalCache.java:2211) ~[com.google.guava_21.0.0.v20170206-1425.jar:na]
+	at com.google.common.cache.LocalCache.get(LocalCache.java:4154) ~[com.google.guava_21.0.0.v20170206-1425.jar:na]
+	at com.google.common.cache.LocalCache$LocalManualCache.get(LocalCache.java:5060) ~[com.google.guava_21.0.0.v20170206-1425.jar:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.getMavenProject(ProjectRegistryManager.java:999) [org.eclipse.m2e.core_1.10.0.20181127-2120.jar:na]
+	at org.eclipse.m2e.core.internal.project.registry.MavenProjectFacade.getMavenProject(MavenProjectFacade.java:242) ~[org.eclipse.m2e.core_1.10.0.20181127-2120.jar:na]
+	at org.eclipse.m2e.core.ui.internal.actions.SelectionUtil.getMavenProject(SelectionUtil.java:261) ~[org.eclipse.m2e.core.ui_1.10.0.20181127-2120.jar:na]
+	at org.eclipse.m2e.editor.pom.MavenPomEditor.readMavenProject(MavenPomEditor.java:740) ~[na:na]
+	at org.eclipse.m2e.editor.pom.MavenPomEditor$5.run(MavenPomEditor.java:1074) ~[na:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63) ~[org.eclipse.core.jobs_3.10.200.v20180912-1356.jar:na]
+2019-09-30 16:45:50,111 [Worker-77: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/fasterxml/jackson/core/jackson-core/2.8.2/jackson-core-2.8.2.pom
+2019-09-30 16:45:50,155 [Worker-74: reload maven project] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/fasterxml/jackson/core/jackson-core/2.8.2/jackson-core-2.8.2.pom
+2019-09-30 16:45:50,268 [Worker-77: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/fasterxml/jackson/core/jackson-core/2.8.2/jackson-core-2.8.2.pom
+2019-09-30 16:45:50,367 [Worker-74: reload maven project] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/fasterxml/jackson/core/jackson-core/2.8.2/jackson-core-2.8.2.pom
+2019-09-30 16:45:50,551 [Worker-77: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/io/jsonwebtoken/jjwt/0.7.0/jjwt-0.7.0.jar
+2019-09-30 16:45:50,555 [Worker-74: reload maven project] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/io/jsonwebtoken/jjwt/0.7.0/jjwt-0.7.0.jar
+2019-09-30 16:45:50,998 [Worker-77: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/io/jsonwebtoken/jjwt/0.7.0/jjwt-0.7.0.jar
+2019-09-30 16:45:51,129 [Worker-77: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/fasterxml/jackson/core/jackson-databind/2.8.2/jackson-databind-2.8.2.jar
+2019-09-30 16:45:51,210 [Worker-74: reload maven project] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/io/jsonwebtoken/jjwt/0.7.0/jjwt-0.7.0.jar
+2019-09-30 16:45:51,359 [Worker-74: reload maven project] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/fasterxml/jackson/core/jackson-databind/2.8.2/jackson-databind-2.8.2.jar
+2019-09-30 16:45:52,209 [Worker-77: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/fasterxml/jackson/core/jackson-databind/2.8.2/jackson-databind-2.8.2.jar
+2019-09-30 16:45:52,344 [Worker-77: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/fasterxml/jackson/core/jackson-annotations/2.8.0/jackson-annotations-2.8.0.jar
+2019-09-30 16:45:52,373 [Worker-74: reload maven project] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/fasterxml/jackson/core/jackson-databind/2.8.2/jackson-databind-2.8.2.jar
+2019-09-30 16:45:52,515 [Worker-74: reload maven project] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/fasterxml/jackson/core/jackson-annotations/2.8.0/jackson-annotations-2.8.0.jar
+2019-09-30 16:45:52,525 [Worker-77: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/fasterxml/jackson/core/jackson-annotations/2.8.0/jackson-annotations-2.8.0.jar
+2019-09-30 16:45:52,656 [Worker-77: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/fasterxml/jackson/core/jackson-core/2.8.2/jackson-core-2.8.2.jar
+2019-09-30 16:45:52,753 [Worker-74: reload maven project] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/fasterxml/jackson/core/jackson-annotations/2.8.0/jackson-annotations-2.8.0.jar
+2019-09-30 16:45:52,888 [Worker-74: reload maven project] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/fasterxml/jackson/core/jackson-core/2.8.2/jackson-core-2.8.2.jar
+2019-09-30 16:45:53,244 [Worker-77: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/fasterxml/jackson/core/jackson-core/2.8.2/jackson-core-2.8.2.jar
+2019-09-30 16:45:53,872 [Worker-74: reload maven project] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/fasterxml/jackson/core/jackson-core/2.8.2/jackson-core-2.8.2.jar
+2019-09-30 16:45:56,413 [Worker-75: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/io/jsonwebtoken/jjwt/0.7.0/jjwt-0.7.0-sources.jar
+2019-09-30 16:45:56,982 [Worker-75: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/io/jsonwebtoken/jjwt/0.7.0/jjwt-0.7.0-sources.jar
+2019-09-30 16:45:57,162 [Worker-75: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for io.jsonwebtoken:jjwt:0.7.0
+2019-09-30 16:45:57,301 [Worker-75: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/fasterxml/jackson/core/jackson-databind/2.8.2/jackson-databind-2.8.2-sources.jar
+2019-09-30 16:45:58,366 [Worker-75: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/fasterxml/jackson/core/jackson-databind/2.8.2/jackson-databind-2.8.2-sources.jar
+2019-09-30 16:45:58,501 [Worker-75: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for com.fasterxml.jackson.core:jackson-databind:2.8.2
+2019-09-30 16:45:58,638 [Worker-75: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/fasterxml/jackson/core/jackson-annotations/2.8.0/jackson-annotations-2.8.0-sources.jar
+2019-09-30 16:45:58,797 [Worker-75: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/fasterxml/jackson/core/jackson-annotations/2.8.0/jackson-annotations-2.8.0-sources.jar
+2019-09-30 16:45:59,019 [Worker-75: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for com.fasterxml.jackson.core:jackson-annotations:2.8.0
+2019-09-30 16:45:59,170 [Worker-75: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/fasterxml/jackson/core/jackson-core/2.8.2/jackson-core-2.8.2-sources.jar
+2019-09-30 16:45:59,360 [Worker-75: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/fasterxml/jackson/core/jackson-core/2.8.2/jackson-core-2.8.2-sources.jar
+2019-09-30 16:45:59,748 [Worker-75: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for com.fasterxml.jackson.core:jackson-core:2.8.2
+2019-09-30 16:48:59,296 [Worker-81: Building workspace] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: lumicode:agendaja:0.0.1-SNAPSHOT @ C:\Users\18175740\Desktop\Servidor\BancoDeDadosLumiCode\API\agendaja\pom.xml.
+2019-09-30 16:49:01,749 [Worker-81: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-starter-security/2.1.3.RELEASE/spring-boot-starter-security-2.1.3.RELEASE.pom
+2019-09-30 16:49:01,913 [Worker-81: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-starter-security/2.1.3.RELEASE/spring-boot-starter-security-2.1.3.RELEASE.pom
+2019-09-30 16:49:02,082 [Worker-81: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/springframework/security/spring-security-config/5.1.4.RELEASE/spring-security-config-5.1.4.RELEASE.pom
+2019-09-30 16:49:02,362 [Worker-81: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/springframework/security/spring-security-config/5.1.4.RELEASE/spring-security-config-5.1.4.RELEASE.pom
+2019-09-30 16:49:02,528 [Worker-81: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/springframework/security/spring-security-core/5.1.4.RELEASE/spring-security-core-5.1.4.RELEASE.pom
+2019-09-30 16:49:02,686 [Worker-81: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/springframework/security/spring-security-core/5.1.4.RELEASE/spring-security-core-5.1.4.RELEASE.pom
+2019-09-30 16:49:02,836 [Worker-81: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/springframework/security/spring-security-web/5.1.4.RELEASE/spring-security-web-5.1.4.RELEASE.pom
+2019-09-30 16:49:02,999 [Worker-81: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/springframework/security/spring-security-web/5.1.4.RELEASE/spring-security-web-5.1.4.RELEASE.pom
+2019-09-30 16:49:03,341 [Worker-81: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-starter-security/2.1.3.RELEASE/spring-boot-starter-security-2.1.3.RELEASE.jar
+2019-09-30 16:49:03,494 [Worker-81: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-starter-security/2.1.3.RELEASE/spring-boot-starter-security-2.1.3.RELEASE.jar
+2019-09-30 16:49:03,633 [Worker-81: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/springframework/security/spring-security-config/5.1.4.RELEASE/spring-security-config-5.1.4.RELEASE.jar
+2019-09-30 16:49:04,599 [Worker-81: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/springframework/security/spring-security-config/5.1.4.RELEASE/spring-security-config-5.1.4.RELEASE.jar
+2019-09-30 16:49:04,738 [Worker-81: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/springframework/security/spring-security-core/5.1.4.RELEASE/spring-security-core-5.1.4.RELEASE.jar
+2019-09-30 16:49:04,909 [Worker-81: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/springframework/security/spring-security-core/5.1.4.RELEASE/spring-security-core-5.1.4.RELEASE.jar
+2019-09-30 16:49:05,045 [Worker-81: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/springframework/security/spring-security-web/5.1.4.RELEASE/spring-security-web-5.1.4.RELEASE.jar
+2019-09-30 16:49:05,228 [Worker-81: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/springframework/security/spring-security-web/5.1.4.RELEASE/spring-security-web-5.1.4.RELEASE.jar
+2019-09-30 16:49:06,557 [Worker-81: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-09-30 16:49:06,563 [Worker-81: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\18175740\Desktop\Servidor\BancoDeDadosLumiCode\API\agendaja\src\main\resources
+2019-09-30 16:49:06,571 [Worker-81: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-09-30 16:49:06,576 [Worker-81: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\18175740\Desktop\Servidor\BancoDeDadosLumiCode\API\agendaja\src\test\resources
+2019-09-30 16:49:08,289 [Worker-82: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-starter-security/2.1.3.RELEASE/spring-boot-starter-security-2.1.3.RELEASE-sources.jar
+2019-09-30 16:49:08,326 [Worker-82: Download sources and javadoc] ERROR o.e.m.j.internal.DownloadSourcesJob - Could not download sources for org.springframework.boot:spring-boot-starter-security:2.1.3.RELEASE
+org.eclipse.core.runtime.CoreException: Could not resolve artifact org.springframework.boot:spring-boot-starter-security:jar:sources:2.1.3.RELEASE
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.lambda$4(MavenImpl.java:763) [org.eclipse.m2e.core_1.10.0.20181127-2120.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:177) [org.eclipse.m2e.core_1.10.0.20181127-2120.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:112) [org.eclipse.m2e.core_1.10.0.20181127-2120.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:99) [org.eclipse.m2e.core_1.10.0.20181127-2120.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.resolve(MavenImpl.java:731) [org.eclipse.m2e.core_1.10.0.20181127-2120.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.resolve(MavenImpl.java:708) [org.eclipse.m2e.core_1.10.0.20181127-2120.jar:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.download(DownloadSourcesJob.java:279) [org.eclipse.m2e.jdt_1.10.0.20181127-2120.jar:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadAttachments(DownloadSourcesJob.java:254) [org.eclipse.m2e.jdt_1.10.0.20181127-2120.jar:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadMaven(DownloadSourcesJob.java:221) [org.eclipse.m2e.jdt_1.10.0.20181127-2120.jar:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.run(DownloadSourcesJob.java:161) [org.eclipse.m2e.jdt_1.10.0.20181127-2120.jar:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob$1.call(DownloadSourcesJob.java:137) [org.eclipse.m2e.jdt_1.10.0.20181127-2120.jar:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob$1.call(DownloadSourcesJob.java:1) [org.eclipse.m2e.jdt_1.10.0.20181127-2120.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:177) [org.eclipse.m2e.core_1.10.0.20181127-2120.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:151) [org.eclipse.m2e.core_1.10.0.20181127-2120.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:99) [org.eclipse.m2e.core_1.10.0.20181127-2120.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.execute(MavenImpl.java:1336) [org.eclipse.m2e.core_1.10.0.20181127-2120.jar:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.run(DownloadSourcesJob.java:135) [org.eclipse.m2e.jdt_1.10.0.20181127-2120.jar:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63) [org.eclipse.core.jobs_3.10.200.v20180912-1356.jar:na]
+2019-09-30 16:49:08,430 [Worker-78: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-09-30 16:49:08,438 [Worker-78: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\18175740\Desktop\Servidor\BancoDeDadosLumiCode\API\agendaja\src\main\resources
+2019-09-30 16:49:08,439 [Worker-78: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-09-30 16:49:08,447 [Worker-78: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\18175740\Desktop\Servidor\BancoDeDadosLumiCode\API\agendaja\src\test\resources
+2019-09-30 16:49:08,477 [Worker-82: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/springframework/security/spring-security-config/5.1.4.RELEASE/spring-security-config-5.1.4.RELEASE-sources.jar
+2019-09-30 16:49:09,719 [Worker-82: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/springframework/security/spring-security-config/5.1.4.RELEASE/spring-security-config-5.1.4.RELEASE-sources.jar
+2019-09-30 16:49:10,010 [Worker-82: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.springframework.security:spring-security-config:5.1.4.RELEASE
+2019-09-30 16:49:10,194 [Worker-82: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/springframework/security/spring-security-core/5.1.4.RELEASE/spring-security-core-5.1.4.RELEASE-sources.jar
+2019-09-30 16:49:10,500 [Worker-82: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/springframework/security/spring-security-core/5.1.4.RELEASE/spring-security-core-5.1.4.RELEASE-sources.jar
+2019-09-30 16:49:10,747 [Worker-82: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.springframework.security:spring-security-core:5.1.4.RELEASE
+2019-09-30 16:49:10,902 [Worker-82: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/springframework/security/spring-security-web/5.1.4.RELEASE/spring-security-web-5.1.4.RELEASE-sources.jar
+2019-09-30 16:49:11,095 [Worker-82: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/springframework/security/spring-security-web/5.1.4.RELEASE/spring-security-web-5.1.4.RELEASE-sources.jar
+2019-09-30 16:49:11,301 [Worker-82: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.springframework.security:spring-security-web:5.1.4.RELEASE
+2019-09-30 16:49:12,264 [Worker-77: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-09-30 16:49:12,397 [Worker-77: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\18175740\Desktop\Servidor\BancoDeDadosLumiCode\API\agendaja\src\main\resources
+2019-09-30 16:49:12,570 [Worker-77: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-09-30 16:49:12,738 [Worker-77: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\18175740\Desktop\Servidor\BancoDeDadosLumiCode\API\agendaja\src\test\resources
+2019-09-30 16:49:13,457 [Worker-80: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-starter-security/2.1.3.RELEASE/spring-boot-starter-security-2.1.3.RELEASE-javadoc.jar
+2019-09-30 16:49:13,699 [Worker-80: Download sources and javadoc] ERROR o.e.m.j.internal.DownloadSourcesJob - Could not download javadoc for org.springframework.boot:spring-boot-starter-security:2.1.3.RELEASE
+org.eclipse.core.runtime.CoreException: Could not resolve artifact org.springframework.boot:spring-boot-starter-security:jar:javadoc:2.1.3.RELEASE
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.lambda$4(MavenImpl.java:763) [org.eclipse.m2e.core_1.10.0.20181127-2120.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:177) [org.eclipse.m2e.core_1.10.0.20181127-2120.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:112) [org.eclipse.m2e.core_1.10.0.20181127-2120.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:99) [org.eclipse.m2e.core_1.10.0.20181127-2120.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.resolve(MavenImpl.java:731) [org.eclipse.m2e.core_1.10.0.20181127-2120.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.resolve(MavenImpl.java:708) [org.eclipse.m2e.core_1.10.0.20181127-2120.jar:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.download(DownloadSourcesJob.java:279) [org.eclipse.m2e.jdt_1.10.0.20181127-2120.jar:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadAttachments(DownloadSourcesJob.java:265) [org.eclipse.m2e.jdt_1.10.0.20181127-2120.jar:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadMaven(DownloadSourcesJob.java:221) [org.eclipse.m2e.jdt_1.10.0.20181127-2120.jar:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.run(DownloadSourcesJob.java:161) [org.eclipse.m2e.jdt_1.10.0.20181127-2120.jar:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob$1.call(DownloadSourcesJob.java:137) [org.eclipse.m2e.jdt_1.10.0.20181127-2120.jar:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob$1.call(DownloadSourcesJob.java:1) [org.eclipse.m2e.jdt_1.10.0.20181127-2120.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:177) [org.eclipse.m2e.core_1.10.0.20181127-2120.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:151) [org.eclipse.m2e.core_1.10.0.20181127-2120.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:99) [org.eclipse.m2e.core_1.10.0.20181127-2120.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.execute(MavenImpl.java:1336) [org.eclipse.m2e.core_1.10.0.20181127-2120.jar:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.run(DownloadSourcesJob.java:135) [org.eclipse.m2e.jdt_1.10.0.20181127-2120.jar:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63) [org.eclipse.core.jobs_3.10.200.v20180912-1356.jar:na]
+2019-09-30 16:52:06,189 [Worker-83: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-09-30 16:52:06,198 [Worker-83: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\18175740\Desktop\Servidor\BancoDeDadosLumiCode\API\agendaja\src\main\resources
+2019-09-30 16:52:06,207 [Worker-83: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-09-30 16:52:06,208 [Worker-83: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\18175740\Desktop\Servidor\BancoDeDadosLumiCode\API\agendaja\src\test\resources
+2019-09-30 16:53:18,387 [Worker-80: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-09-30 16:53:18,387 [Worker-80: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\18175740\Desktop\Servidor\BancoDeDadosLumiCode\API\agendaja\src\main\resources
+2019-09-30 16:53:18,389 [Worker-80: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-09-30 16:53:18,389 [Worker-80: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\18175740\Desktop\Servidor\BancoDeDadosLumiCode\API\agendaja\src\test\resources
+2019-09-30 16:53:50,719 [Worker-80: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-09-30 16:53:50,726 [Worker-80: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\18175740\Desktop\Servidor\BancoDeDadosLumiCode\API\agendaja\src\main\resources
+2019-09-30 16:53:50,734 [Worker-80: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-09-30 16:53:50,734 [Worker-80: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\18175740\Desktop\Servidor\BancoDeDadosLumiCode\API\agendaja\src\test\resources
+2019-09-30 16:54:27,643 [Worker-83: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-09-30 16:54:27,643 [Worker-83: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\18175740\Desktop\Servidor\BancoDeDadosLumiCode\API\agendaja\src\main\resources
+2019-09-30 16:54:27,644 [Worker-83: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-09-30 16:54:27,644 [Worker-83: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\18175740\Desktop\Servidor\BancoDeDadosLumiCode\API\agendaja\src\test\resources
+2019-09-30 16:55:12,097 [Worker-78: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-09-30 16:55:12,104 [Worker-78: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\18175740\Desktop\Servidor\BancoDeDadosLumiCode\API\agendaja\src\main\resources
+2019-09-30 16:55:12,112 [Worker-78: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-09-30 16:55:12,112 [Worker-78: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\18175740\Desktop\Servidor\BancoDeDadosLumiCode\API\agendaja\src\test\resources
+2019-09-30 16:59:07,450 [Worker-85: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-09-30 16:59:07,450 [Worker-85: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\18175740\Desktop\Servidor\BancoDeDadosLumiCode\API\agendaja\src\main\resources
+2019-09-30 16:59:07,451 [Worker-85: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-09-30 16:59:07,451 [Worker-85: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\18175740\Desktop\Servidor\BancoDeDadosLumiCode\API\agendaja\src\test\resources
+2019-09-30 17:00:12,754 [Worker-78: Building workspace] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: lumicode:agendaja:0.0.1-SNAPSHOT @ C:\Users\18175740\Desktop\Servidor\BancoDeDadosLumiCode\API\agendaja\pom.xml.
+2019-09-30 17:00:15,182 [Worker-78: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-09-30 17:00:15,188 [Worker-78: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\18175740\Desktop\Servidor\BancoDeDadosLumiCode\API\agendaja\src\main\resources
+2019-09-30 17:00:15,195 [Worker-78: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-09-30 17:00:15,201 [Worker-78: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\18175740\Desktop\Servidor\BancoDeDadosLumiCode\API\agendaja\src\test\resources
+2019-09-30 17:00:17,452 [Worker-86: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-09-30 17:00:17,452 [Worker-86: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\18175740\Desktop\Servidor\BancoDeDadosLumiCode\API\agendaja\src\main\resources
+2019-09-30 17:00:17,453 [Worker-86: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-09-30 17:00:17,459 [Worker-86: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\18175740\Desktop\Servidor\BancoDeDadosLumiCode\API\agendaja\src\test\resources
+2019-09-30 17:00:24,193 [Worker-81: Building workspace] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: lumicode:agendaja:0.0.1-SNAPSHOT @ C:\Users\18175740\Desktop\Servidor\BancoDeDadosLumiCode\API\agendaja\pom.xml.
+2019-09-30 17:00:24,747 [Worker-81: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-09-30 17:00:24,753 [Worker-81: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\18175740\Desktop\Servidor\BancoDeDadosLumiCode\API\agendaja\src\main\resources
+2019-09-30 17:00:24,762 [Worker-81: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-09-30 17:00:24,762 [Worker-81: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\18175740\Desktop\Servidor\BancoDeDadosLumiCode\API\agendaja\src\test\resources
+2019-09-30 17:00:26,723 [Worker-85: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-09-30 17:00:26,723 [Worker-85: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\18175740\Desktop\Servidor\BancoDeDadosLumiCode\API\agendaja\src\main\resources
+2019-09-30 17:00:26,729 [Worker-85: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-09-30 17:00:26,734 [Worker-85: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\18175740\Desktop\Servidor\BancoDeDadosLumiCode\API\agendaja\src\test\resources
