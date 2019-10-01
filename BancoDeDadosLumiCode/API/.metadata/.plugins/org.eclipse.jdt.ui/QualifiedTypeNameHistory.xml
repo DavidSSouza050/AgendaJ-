@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="lumicode.agendaja.api.repository.EstadosRepository"/>
-<fullyQualifiedTypeName name="lumicode.agendaja.api.repository.ClienteRepository"/>
-<fullyQualifiedTypeName name="lumicode.agendaja.api.model.Cliente"/>
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PatchMapping"/>
-<fullyQualifiedTypeName name="lumicode.agendaja.api.repository.EstabelecimentoRepository"/>
-<fullyQualifiedTypeName name="lumicode.agendaja.api.model.Estabelecimento"/>
 <fullyQualifiedTypeName name="lumicode.agendaja.api.repository.EnderecoRepository"/>
 <fullyQualifiedTypeName name="javax.servlet.http.HttpServletResponse"/>
 <fullyQualifiedTypeName name="java.net.URI"/>
@@ -49,4 +45,12 @@
 <fullyQualifiedTypeName name="org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter"/>
 <fullyQualifiedTypeName name="org.springframework.context.annotation.Configuration"/>
 <fullyQualifiedTypeName name="org.springframework.security.config.annotation.web.configuration.EnableWebSecurity"/>
+<fullyQualifiedTypeName name="org.springframework.security.config.annotation.web.builders.HttpSecurity"/>
+<fullyQualifiedTypeName name="org.springframework.http.HttpMethod"/>
+<fullyQualifiedTypeName name="org.springframework.security.authentication.UsernamePasswordAuthenticationToken"/>
+<fullyQualifiedTypeName name="java.lang.Override"/>
+<fullyQualifiedTypeName name="lumicode.agendaja.api.repository.ClienteRepository"/>
+<fullyQualifiedTypeName name="lumicode.agendaja.api.repository.EstabelecimentoRepository"/>
+<fullyQualifiedTypeName name="lumicode.agendaja.api.model.Estabelecimento"/>
+<fullyQualifiedTypeName name="lumicode.agendaja.api.model.Cliente"/>
 </qualifiedTypeNameHistroy>

@@ -128,7 +128,7 @@ public class ClienteResource {
 	//atualizando o cliente
 	@CrossOrigin("http://localhost:3000")
 	@PutMapping("/{id}")
-	private ResponseEntity<?> atualizarCliente(@Validated @RequestBody Cliente cliente,
+	private ResponseEntity<?> atualizarCliente(@RequestBody Cliente cliente,
 			@PathVariable Long id ){
 		
 		

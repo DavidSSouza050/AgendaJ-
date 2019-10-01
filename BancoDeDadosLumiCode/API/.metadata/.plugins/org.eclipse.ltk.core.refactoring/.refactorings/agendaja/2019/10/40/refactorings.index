@@ -1,0 +1,5 @@
+1569958414130	Rename type 'JWTAuthenticationFilter'
+1569958529887	Rename type 'AccountCredentials'
+1569958939877	Rename type 'JWTLoginFilter'
+1569959290910	Rename type 'TokenAuthenticationService'
+1569959368804	Rename field 'consumidorRepository'
