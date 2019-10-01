@@ -14,10 +14,19 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import br.senai.sp.agendaja.modal.Cliente;
+
 public class PerfilFragment extends Fragment implements View.OnClickListener{
 
     private RelativeLayout dadosPessoais;
+    private Cliente clienteLogado;
 
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+
+    }
 
     @Nullable
     @Override
@@ -31,6 +40,8 @@ public class PerfilFragment extends Fragment implements View.OnClickListener{
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+        clienteLogado = (Cliente) getActivity().getIntent().getSerializableExtra("clienteLogado");
+
         dadosPessoais = getActivity().findViewById(R.id.caixa_dados_pessoais_perfil);
 
         dadosPessoais.setOnClickListener(this);
@@ -41,7 +52,12 @@ public class PerfilFragment extends Fragment implements View.OnClickListener{
         switch (v.getId()){
             case R.id.caixa_dados_pessoais_perfil:
                 Intent intent = new Intent(getContext(),EditarDadosPessoaisActivity.class);
+                if(clienteLogado!=null){
+                    intent.putExtra("clienteLogado",clienteLogado);
+                }
                 startActivity(intent);
         }
     }
+
+
 }

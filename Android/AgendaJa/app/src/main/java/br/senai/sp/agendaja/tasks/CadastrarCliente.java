@@ -14,6 +14,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Scanner;
 
+import br.senai.sp.agendaja.MainActivity;
 import br.senai.sp.agendaja.modal.Cliente;
 import br.senai.sp.agendaja.modal.Informacao;
 
@@ -47,7 +48,7 @@ public class CadastrarCliente extends AsyncTask {
       jsCliente.key("endereco").object().key("idEndereco").value(codEndereco).endObject();
       jsCliente.endObject();
 
-      URL url = new URL("http://10.107.144.13:8080/cliente");
+      URL url = new URL("http://"+ MainActivity.IP_SERVER+"/cliente");
       HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 
       connection.setRequestProperty("Content-type","application/json");

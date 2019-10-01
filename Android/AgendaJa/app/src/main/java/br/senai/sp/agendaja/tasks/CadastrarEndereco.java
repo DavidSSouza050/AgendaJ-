@@ -13,6 +13,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Scanner;
 
+import br.senai.sp.agendaja.MainActivity;
 import br.senai.sp.agendaja.modal.Endereco;
 
 public class CadastrarEndereco extends AsyncTask{
@@ -40,7 +41,7 @@ public class CadastrarEndereco extends AsyncTask{
 
 
       //definindo url
-      URL url = new URL("HTTP://10.107.144.13:8080/endereco");
+      URL url = new URL("HTTP://"+ MainActivity.IP_SERVER+"/endereco");
 
       //Abrindo conexao
       HttpURLConnection connection = (HttpURLConnection) url.openConnection();

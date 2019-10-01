@@ -15,6 +15,7 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity{
 
     private TextView dadosPessoais;
+    public static String  IP_SERVER  = "54.167.124.56:8080";
 
     @SuppressLint("WrongViewCast")
     @Override

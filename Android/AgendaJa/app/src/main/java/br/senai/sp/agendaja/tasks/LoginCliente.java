@@ -16,6 +16,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Scanner;
 
+import br.senai.sp.agendaja.MainActivity;
 import br.senai.sp.agendaja.modal.Cliente;
 
 public class LoginCliente extends AsyncTask {
@@ -42,7 +43,7 @@ public class LoginCliente extends AsyncTask {
       jsLogin.key("senha").value(senha);
       jsLogin.endObject();
 
-      URL url = new URL("http://10.107.144.13:8080/cliente/login");
+      URL url = new URL("http://"+ MainActivity.IP_SERVER +"/cliente/login");
       HttpURLConnection connection =(HttpURLConnection) url.openConnection();
 
       connection.setRequestProperty("Content-type","application/json");
@@ -67,8 +68,11 @@ public class LoginCliente extends AsyncTask {
       clienteLogin.setCpf(object.getString("cpf"));
       clienteLogin.setDataNascimento(object.getString("dataNascimento"));
       clienteLogin.setEmail(object.getString("email"));
+      clienteLogin.setSexo(object.getString("sexo"));
       clienteLogin.setCelular(object.getString("celular"));
       clienteLogin.setCep(object.getString("cep"));
+      clienteLogin.setSenha(object.getString("senha"));
+      clienteLogin.setIdEndereco(Integer.valueOf(object.getJSONObject("endereco").getString("idEndereco")));
       }else{
         clienteLogin = null;
       }
