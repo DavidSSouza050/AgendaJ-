@@ -14,8 +14,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import godinner.app.repository.ConsumidorRepository;
 import io.jsonwebtoken.ExpiredJwtException;
+import lumicode.agendaja.api.repository.ClienteRepository;
 
 @Component
 public class JWTRequestFilter extends OncePerRequestFilter {
@@ -25,7 +25,7 @@ public class JWTRequestFilter extends OncePerRequestFilter {
 	private JwtTokenUtill jwtTokenUtil;
 	
 	@Autowired
-	private ConsumidorRepository consumidorRepository;
+	private ClienteRepository clienteRepository;
 
 	@Override
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain)

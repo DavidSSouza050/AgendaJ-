@@ -26,8 +26,8 @@ public class JwtUserDetailsService implements UserDetailsService {
 	@Override
 	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
 
-		Cliente c = clienteRepository.getConsumidorByEmail(email);
-		Estabelecimento r = estabelecimentoRepository.getRestauranteByEmail(email);
+		Cliente c = clienteRepository.verificarEmail(email);
+		Estabelecimento r = estabelecimentoRepository.verificarEmail(email);
 		
 		if (c != null) {
 			User u = new User(c.getEmail(), c.getIdCliente().toString(), new ArrayList<>());

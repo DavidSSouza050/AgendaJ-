@@ -14,6 +14,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import lumicode.agendaja.api.jwtme.security.JwtTokenUtill;
+import lumicode.agendaja.api.model.Cliente;
+import lumicode.agendaja.api.model.Estabelecimento;
+import lumicode.agendaja.api.model.JWTRequest;
+import lumicode.agendaja.api.model.JWTResponse;
+import lumicode.agendaja.api.repository.ClienteRepository;
+import lumicode.agendaja.api.repository.EstabelecimentoRepository;
+
 
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
@@ -21,21 +29,22 @@ import org.springframework.web.bind.annotation.RestController;
 public class JwtAuthenticationResource {
 	@Autowired
 	private AuthenticationManager authenticationManager;
+	
 	@Autowired
 	private JwtTokenUtill jwtTokenUtil;
 
 	@Autowired
-	ConsumidorRepository consumidorRepository;
+	ClienteRepository clienteRepository;
 		
 	@Autowired
-	RestauranteRepository restauranteRepository;
+	EstabelecimentoRepository estabelecimentoRepository;
 	
-	@PostMapping("/login/consumidor")
+	@PostMapping("/login/cliente")
 	public ResponseEntity<?> createAuthenticationTokenConsumidor(@RequestBody JWTRequest authenticationRequest) throws Exception {
-		final Consumidor consumidor = consumidorRepository.getConsumidorByEmailAndPass(authenticationRequest.getEmail(), authenticationRequest.getPassword());
+		final Cliente cliente = clienteRepository.entrar(authenticationRequest.getEmail(), authenticationRequest.getPassword());
 
-		if (consumidor != null) {
-			final String token = jwtTokenUtil.generateTokenConsumidor(consumidor);
+		if (cliente != null) {
+			final String token = jwtTokenUtil.generateTokenConsumidor(cliente);
 			return ResponseEntity.ok(new JWTResponse(token));
 		}
 
@@ -43,12 +52,12 @@ public class JwtAuthenticationResource {
 
 	}
 	
-	@PostMapping("/login/restaurante")
+	@PostMapping("/login/estabelecimento")
 	public ResponseEntity<?> createAuthenticationTokenRestaurante(@RequestBody JWTRequest authenticationRequest) throws Exception {
-		final Restaurante restaurante = restauranteRepository.getRestauranteByEmailAndPass(authenticationRequest.getEmail(), authenticationRequest.getPassword());
+		final Estabelecimento estabelecimento = estabelecimentoRepository.loginEstabelecimento(authenticationRequest.getEmail(), authenticationRequest.getPassword());
 		
-		if (restaurante != null) {
-			final String token = jwtTokenUtil.generateTokenRestaurante(restaurante);
+		if (estabelecimento != null) {
+			final String token = jwtTokenUtil.generateTokenRestaurante(estabelecimento);
 			return ResponseEntity.ok(new JWTResponse(token));
 		}
 

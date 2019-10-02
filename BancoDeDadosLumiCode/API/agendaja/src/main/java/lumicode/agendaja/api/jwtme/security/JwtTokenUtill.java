@@ -68,7 +68,7 @@ public class JwtTokenUtill implements Serializable {
 
 
 	//gerando o tokem com o id e nome do usuario 
-	private String doGenerateToken(Map<String, Object> claims, String subject, int id) {
+	private String doGenerateToken(Map<String, Object> claims, String subject, Long id) {
 		
 		System.out.println(subject + "generate token");
 		return Jwts.builder().setClaims(claims).setSubject(subject).setIssuedAt(new Date(System.currentTimeMillis()))
