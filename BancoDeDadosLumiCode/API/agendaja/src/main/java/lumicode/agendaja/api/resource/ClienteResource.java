@@ -70,9 +70,8 @@ public class ClienteResource {
 		if( clienteLogado != null) {
 			return ResponseEntity.ok(clienteLogado);
 		}else {
-			return  new ResponseEntity<String>("{mensage: 'E-mail ou Senha incorreta'}",HttpStatus.BAD_REQUEST);
+			return  new ResponseEntity<String>("{\"mensage\": \"E-mail ou Senha incorreta\"}",HttpStatus.BAD_REQUEST);
 		}
-		
 		
 	}
 	
@@ -84,7 +83,7 @@ public class ClienteResource {
 		HttpServletResponse response){
 		
 		if(clienteRepository.verificarEmail(cliente.getEmail()) != null) {
-			return new ResponseEntity<String>("{mensage: 'E-mail Já cadastrado'}",HttpStatus.BAD_REQUEST);
+			return new ResponseEntity<String>("{\"mensage\": \"E-mail Já cadastrado\"}",HttpStatus.BAD_REQUEST);
 		}
 		
 		try {
@@ -118,7 +117,7 @@ public class ClienteResource {
 			return ResponseEntity.created(uri).body(clienteSalvo);
 			
 		}catch (Exception e) {
-			return  new ResponseEntity<String>("{mensage: 'Cpf já cadastrado ou está errado'}",HttpStatus.BAD_REQUEST);
+			return  new ResponseEntity<String>("{\"mensage\": \"Cpf já cadastrado ou está errado\"}",HttpStatus.BAD_REQUEST);
 		}
 		
 		
@@ -158,8 +157,9 @@ public class ClienteResource {
 			clienteRepository.save(cliente);
 			
 			return ResponseEntity.ok(clienteAtualizado);
+			
 		}catch (Exception e) {
-			return  new ResponseEntity<String>("{mensage: 'Cpf já cadastrado ou está errado'}",HttpStatus.BAD_REQUEST);
+			return  new ResponseEntity<String>("{\"mensage\": \"A data de nascimento pode estar errada. Formato aceito: dia/mes/anos\"}",HttpStatus.BAD_REQUEST);
 		}
 		
 		

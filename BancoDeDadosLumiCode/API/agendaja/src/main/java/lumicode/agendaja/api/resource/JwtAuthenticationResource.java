@@ -48,7 +48,7 @@ public class JwtAuthenticationResource {
 			return ResponseEntity.ok(new JWTResponse(token));
 		}
 
-		return ResponseEntity.ok("{\"error\": \"Usuario não cadastrado\"}");
+		return ResponseEntity.ok("{\"error\": \"E-mail ou senha Incorreto\"}");
 
 	}
 	
@@ -61,7 +61,7 @@ public class JwtAuthenticationResource {
 			return ResponseEntity.ok(new JWTResponse(token));
 		}
 
-		return ResponseEntity.ok("{\"error\": \"Usuario não cadastrado\"}");
+		return ResponseEntity.ok("{\"error\": \"E-mail ou senha Incorreto\"}");
 
 	}
 	

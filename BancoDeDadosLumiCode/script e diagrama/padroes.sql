@@ -30,6 +30,11 @@ INSERT INTO tbl_assunto values (1,'Comentário');
 INSERT INTO tbl_assunto values (2,'Sugetão');
 INSERT INTO tbl_assunto values (3,'Duvida');
 
+-- cadastro de comentario padrap
+select * from tbl_fale_conosco;
+Insert into tbl_fale_conosco values (0, 'david', 'david@gmail.com', 'muito bom isso ai', 1);
+
+
 SELECT cliente.id_cliente, cliente.nome, cidade.cidade, endereco.cep, endereco.id_tipo_endereco, microrregiao.microrregiao, estado.estado, estado.uf
 	FROM tbl_cliente as cliente inner join tbl_endereco as endereco
     ON cliente.id_endereco = endereco.id_endereco INNER JOIN tbl_cidade as cidade

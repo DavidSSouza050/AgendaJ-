@@ -48,15 +48,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity httpSecurity) throws Exception {
 		httpSecurity.csrf().disable()
 				.authorizeRequests().antMatchers(HttpMethod.OPTIONS,"/**").permitAll()
-				.antMatchers("/endereco/cep/**", 
-						"/restaurante/valida/**", 
-						"/restaurante", 
-						"/foto/**",
+				.antMatchers("/endereco", 
+						"/estabelecimento",
+						"/cliente",
+						"/assunto/**",
 						"/cidade/**",
+						"/microrregiao/**",
 						"/estado/**",
-						"/login/**",
-						"/categoria",
-						"/consumidor").permitAll().
+						"/faleConosco/**",
+						"/login/**").permitAll().
 				// Todas as requisições serão autenticadas
 				anyRequest().authenticated().and().
 				// make sure we use stateless session; session won't be used to

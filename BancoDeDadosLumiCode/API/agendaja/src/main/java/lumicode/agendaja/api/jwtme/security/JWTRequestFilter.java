@@ -11,26 +11,22 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import io.jsonwebtoken.ExpiredJwtException;
-import lumicode.agendaja.api.repository.ClienteRepository;
 
 @Component
 public class JWTRequestFilter extends OncePerRequestFilter {
+	
 	@Autowired
 	private JwtUserDetailsService jwtUserDetailsService;
 	@Autowired
 	private JwtTokenUtill jwtTokenUtil;
-	
-	@Autowired
-	private ClienteRepository clienteRepository;
 
 	@Override
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
 			throws ServletException, IOException {
-		final String requestTokenHeader = request.getHeader("token") == null ? request.getParameter("token") : request.getHeader("token");
+		final String requestTokenHeader = request.getHeader("token");
 		String username = null;
 		String jwtToken = null;
 		

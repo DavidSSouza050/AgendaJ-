@@ -28,7 +28,7 @@ public class Estabelecimento {
 	@NonNull
 	@Size(min = 5, max = 100, message = "O nome do estabelecimeto deve conter no minimo 5 caracteres!")
 	private String nomeEstabelecimento;
-	@Size(max = 13, message = "Digite o celular corretamente!")
+	@Size(max = 15, message = "Digite o celular corretamente!")
 	private String celular;
 	private String foto;
 	@NonNull
