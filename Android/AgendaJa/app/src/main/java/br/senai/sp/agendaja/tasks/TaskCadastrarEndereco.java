@@ -16,12 +16,12 @@ import java.util.Scanner;
 import br.senai.sp.agendaja.MainActivity;
 import br.senai.sp.agendaja.modal.Endereco;
 
-public class CadastrarEndereco extends AsyncTask{
+public class TaskCadastrarEndereco extends AsyncTask{
   private Endereco endereco;
   private Endereco enderecoSalvo;
   private String resposta;
 
-  public CadastrarEndereco(Endereco endereco) {
+  public TaskCadastrarEndereco(Endereco endereco) {
     this.endereco = endereco;
   }
 

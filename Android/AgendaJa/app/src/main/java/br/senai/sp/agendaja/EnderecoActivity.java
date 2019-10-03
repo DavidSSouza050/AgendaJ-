@@ -16,7 +16,7 @@ import java.util.concurrent.ExecutionException;
 
 import br.senai.sp.agendaja.modal.Cliente;
 import br.senai.sp.agendaja.modal.Endereco;
-import br.senai.sp.agendaja.tasks.CarregarLocalizacao;
+import br.senai.sp.agendaja.tasks.TaskCarregarLocalizacao;
 
 public class EnderecoActivity extends AppCompatActivity implements View.OnClickListener, TextWatcher{
 
@@ -103,7 +103,7 @@ public class EnderecoActivity extends AppCompatActivity implements View.OnClickL
         int tam = cep.length();
 
         if(tam==8){
-            CarregarLocalizacao localizacao = new CarregarLocalizacao(cep.getText().toString(),EnderecoActivity.this,pbCarregando);
+            TaskCarregarLocalizacao localizacao = new TaskCarregarLocalizacao(cep.getText().toString(),EnderecoActivity.this,pbCarregando);
             localizacao.execute();
 
             try {

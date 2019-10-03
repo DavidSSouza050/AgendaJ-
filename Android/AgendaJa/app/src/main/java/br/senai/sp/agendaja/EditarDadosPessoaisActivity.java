@@ -16,7 +16,7 @@ import android.widget.Toast;
 import java.util.concurrent.ExecutionException;
 
 import br.senai.sp.agendaja.modal.Cliente;
-import br.senai.sp.agendaja.tasks.EditarDadosPessoaisCliente;
+import br.senai.sp.agendaja.tasks.TaskEditarDadosPessoais;
 
 public class EditarDadosPessoaisActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener, View.OnClickListener{
 
@@ -40,6 +40,8 @@ public class EditarDadosPessoaisActivity extends AppCompatActivity implements Ad
     Intent intentCliente = getIntent();
     clienteLogado = (Cliente) intentCliente.getSerializableExtra("clienteLogado");
 
+//    sexo = clienteLogado.getSexo();
+
     //instanciando os campos
     editarNome = findViewById(R.id.text_nome_contato_perfil);
     editarSobrenome = findViewById(R.id.text_sobrenome_dados_pessoais);
@@ -53,6 +55,8 @@ public class EditarDadosPessoaisActivity extends AppCompatActivity implements Ad
     adapterSpinner.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
     editarSexo.setAdapter(adapterSpinner);
 
+    //setando o listenner no spinner
+    editarSexo.setOnItemSelectedListener(this);
 
     //setando onClickListenner no botao de salvar
     btnSalvarDados.setOnClickListener(this);
@@ -74,8 +78,13 @@ public class EditarDadosPessoaisActivity extends AppCompatActivity implements Ad
      editarCpf.setText(clienteLogado.getCpf());
      if(clienteLogado.getSexo().equals("F")){
        editarSexo.setSelection(1);
+
      }else if(clienteLogado.getSexo().equals("M")){
        editarSexo.setSelection(2);
+
+     }else if(clienteLogado.getSexo().equals("0")){
+       editarSexo.setSelection(3);
+
      }
     }
 
@@ -97,15 +106,13 @@ public class EditarDadosPessoaisActivity extends AppCompatActivity implements Ad
   public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
     String sexoSelecionado = parent.getItemAtPosition(position).toString();
 
-    if(sexoSelecionado.equals("Masculino")){
-
-      sexo = "M";
-
-    }else if(sexoSelecionado.equals("Feminino")){
-
-      sexo = "F";
-
-    }
+        if(sexoSelecionado.equals("Feminino")){
+          sexo = "F";
+        }else if(sexoSelecionado.equals("Masculino")){
+          sexo = "M";
+        }else if(sexoSelecionado.equals("Outros")){
+          sexo = "O";
+        }
 
   }
 
@@ -131,14 +138,17 @@ public class EditarDadosPessoaisActivity extends AppCompatActivity implements Ad
         clienteParaEditar.setIdEndereco(clienteLogado.getIdEndereco());
         clienteParaEditar.setCelular(clienteLogado.getCelular());
 
-        EditarDadosPessoaisCliente editarDadosPessoaisCliente = new EditarDadosPessoaisCliente(clienteParaEditar);
-        editarDadosPessoaisCliente.execute();
+//        Toast.makeText(EditarDadosPessoaisActivity.this,"o sexo é" + clienteParaEditar.getSexo(),Toast.LENGTH_LONG).show();
+
+        TaskEditarDadosPessoais taskEditarDadosPessoais = new TaskEditarDadosPessoais(clienteParaEditar);
+        taskEditarDadosPessoais.execute();
 
         try {
-          Cliente clienteEditadoComSucesso = (Cliente) editarDadosPessoaisCliente.get();
+          Cliente clienteEditadoComSucesso = (Cliente) taskEditarDadosPessoais.get();
 
           if(clienteEditadoComSucesso.getIdCliente()!=null){
             Intent intentMain = new Intent(EditarDadosPessoaisActivity.this,MainActivity.class);
+            intentMain.putExtra("clienteEditado",clienteEditadoComSucesso);
             startActivity(intentMain);
           }else{
             Toast.makeText(EditarDadosPessoaisActivity.this,"Erro ao editar",Toast.LENGTH_LONG).show();

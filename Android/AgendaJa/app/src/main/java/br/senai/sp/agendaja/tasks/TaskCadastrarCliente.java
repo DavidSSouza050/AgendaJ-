@@ -18,13 +18,13 @@ import br.senai.sp.agendaja.MainActivity;
 import br.senai.sp.agendaja.modal.Cliente;
 import br.senai.sp.agendaja.modal.Informacao;
 
-public class CadastrarCliente extends AsyncTask {
+public class TaskCadastrarCliente extends AsyncTask {
   private Cliente cliente;
   private int codEndereco;
   private String resposta;
   private Cliente clienteVoltado;
 
-  public CadastrarCliente(Cliente cliente, int codEndereco) {
+  public TaskCadastrarCliente(Cliente cliente, int codEndereco) {
     this.cliente = cliente;
     this.codEndereco = codEndereco;
   }
@@ -63,13 +63,21 @@ public class CadastrarCliente extends AsyncTask {
        Scanner scanner = new Scanner(connection.getInputStream());
        resposta = scanner.nextLine();
 
-     // Log.d("Esse é o scanner", String.valueOf(new Scanner(connection.getInputStream())));
+      Log.d("Esse é o scanner", String.valueOf(new Scanner(connection.getInputStream())));
 
        clienteVoltado = new Cliente();
        JSONObject object = new JSONObject(resposta);
 
       clienteVoltado.setNome(object.getString("nome"));
       clienteVoltado.setIdCliente(object.getInt("idCliente"));
+      clienteVoltado.setSobrenome(object.getString("sobrenome"));
+      clienteVoltado.setSenha(object.getString("senha"));
+      clienteVoltado.setEmail(object.getString("email"));
+      clienteVoltado.setCelular(object.getString("celular"));
+      clienteVoltado.setCpf(object.getString("cpf"));
+      clienteVoltado.setSexo(object.getString("sexo"));
+      clienteVoltado.setIdEndereco(Integer.valueOf(object.getJSONObject("endereco").getString("idEndereco")));
+      clienteVoltado.setDataNascimento(object.getString("dataNascimento"));
 
     } catch (JSONException e) {
       e.printStackTrace();
@@ -80,8 +88,8 @@ public class CadastrarCliente extends AsyncTask {
     }
 
 
-    if(clienteVoltado!=null){
-      return clienteVoltado.getIdCliente();
+    if(clienteVoltado.getIdCliente()!=null){
+      return clienteVoltado;
     }else{
       return 0;
     }

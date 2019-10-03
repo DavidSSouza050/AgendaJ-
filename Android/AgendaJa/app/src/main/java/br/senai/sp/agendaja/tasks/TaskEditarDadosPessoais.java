@@ -1,6 +1,7 @@
 package br.senai.sp.agendaja.tasks;
 
 import android.os.AsyncTask;
+import android.util.Log;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -16,17 +17,25 @@ import java.util.Scanner;
 import br.senai.sp.agendaja.MainActivity;
 import br.senai.sp.agendaja.modal.Cliente;
 
-public class EditarDadosPessoaisCliente extends AsyncTask {
+public class TaskEditarDadosPessoais extends AsyncTask {
   private Cliente clienteEditarDados;
   private String resposta;
   private Cliente clienteEditado;
 
-  public EditarDadosPessoaisCliente(Cliente clienteEditarDados) {
+  public TaskEditarDadosPessoais(Cliente clienteEditarDados) {
     this.clienteEditarDados = clienteEditarDados;
   }
 
   @Override
   protected Object doInBackground(Object[] objects) {
+
+    String dataNascimentoEUA = clienteEditarDados.getDataNascimento();
+    Log.d("DtnascimentoEUA ",clienteEditarDados.getDataNascimento());
+    String dataNascimentoBR = dataNascimentoEUA.substring(8,10) + "/" + dataNascimentoEUA.substring(5,7) + "/" + dataNascimentoEUA.substring(0,4);
+    Log.d("Dtnascimento convertida",dataNascimentoBR);
+
+    Log.d("Sexo cliente",clienteEditarDados.getSexo());
+
     try {
       JSONStringer jsCliente = new JSONStringer();
       jsCliente.object();
@@ -36,7 +45,7 @@ public class EditarDadosPessoaisCliente extends AsyncTask {
       jsCliente.key("celular").value(clienteEditarDados.getCelular());
       jsCliente.key("cpf").value(clienteEditarDados.getCpf());
       jsCliente.key("sexo").value(clienteEditarDados.getSexo());
-      jsCliente.key("dataNascimento").value(clienteEditarDados.getDataNascimento());
+      jsCliente.key("dataNascimento").value(dataNascimentoBR);
       jsCliente.key("email").value(clienteEditarDados.getEmail());
       jsCliente.key("senha").value(clienteEditarDados.getSenha());
       jsCliente.key("endereco").object().key("idEndereco").value(clienteEditarDados.getIdEndereco()).endObject();
@@ -45,6 +54,8 @@ public class EditarDadosPessoaisCliente extends AsyncTask {
 
       URL url = new URL("http://"+ MainActivity.IP_SERVER+"/cliente/"+clienteEditarDados.getIdCliente());
       HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+
+      Log.d("idCliente", String.valueOf(clienteEditarDados.getIdCliente()));
 
       connection.setRequestProperty("Content-type","application/json");
       connection.setRequestProperty("Accept","application/json");
@@ -68,6 +79,7 @@ public class EditarDadosPessoaisCliente extends AsyncTask {
       clienteEditado.setDataNascimento(object.getString("dataNascimento"));
       clienteEditado.setSexo(object.getString("sexo"));
       clienteEditado.setCpf(object.getString("cpf"));
+      clienteEditado.setCelular(object.getString("celular"));
 
 
 

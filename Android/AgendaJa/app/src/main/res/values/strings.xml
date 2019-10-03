@@ -25,5 +25,6 @@
         <item>Selecione o sexo</item>
         <item>Feminino</item>
         <item>Masculino</item>
+        <item>Outros</item>
     </string-array>
 </resources>

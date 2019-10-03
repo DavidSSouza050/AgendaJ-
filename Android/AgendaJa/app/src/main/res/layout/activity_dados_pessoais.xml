@@ -60,7 +60,7 @@
         android:layout_height="46dp"
         android:layout_marginTop="25dp"
         android:background="@drawable/caixa_de_texto_redonda"
-        android:hint="Sobre Nome"
+        android:hint="Sobrenome"
         android:inputType="textCapCharacters"
         android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
         android:maxLines="1"

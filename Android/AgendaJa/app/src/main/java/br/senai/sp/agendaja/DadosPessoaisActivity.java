@@ -133,6 +133,8 @@ public class DadosPessoaisActivity extends AppCompatActivity implements View.OnC
                 spinnerSexo.setSelection(1);
             }else if(clienteVoltadoDoContato.getSexo().equals("M")){
                 spinnerSexo.setSelection(2);
+            }else if(clienteVoltadoDoContato.getSexo().equals("O")){
+                spinnerSexo.setSelection(3);
             }
         }
 
@@ -269,6 +271,8 @@ public class DadosPessoaisActivity extends AppCompatActivity implements View.OnC
         }else if(pegandoSexo.equals("Feminino")){
             sexo = "F";
             Log.d("Pegando Sexo",sexo);
+        }else if(pegandoSexo.equals("Outros")){
+            sexo = "O";
         }
 
     }

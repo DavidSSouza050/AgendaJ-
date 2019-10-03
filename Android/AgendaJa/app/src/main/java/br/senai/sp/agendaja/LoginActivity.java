@@ -16,7 +16,7 @@ import android.widget.Toast;
 import java.util.concurrent.ExecutionException;
 
 import br.senai.sp.agendaja.modal.Cliente;
-import br.senai.sp.agendaja.tasks.LoginCliente;
+import br.senai.sp.agendaja.tasks.TaskLoginCliente;
 
 
 
@@ -61,11 +61,11 @@ public class LoginActivity extends AppCompatActivity implements  View.OnClickLis
                 finish();
                 break;
             case R.id.btn_entrar_login:
-                LoginCliente loginCliente = new LoginCliente(mEmailView.getText().toString(),mPasswordView.getText().toString());
-                loginCliente.execute();
+                TaskLoginCliente taskLoginCliente = new TaskLoginCliente(mEmailView.getText().toString(),mPasswordView.getText().toString());
+                taskLoginCliente.execute();
 
                 try {
-                    Cliente clienteLogado = (Cliente) loginCliente.get();
+                    Cliente clienteLogado = (Cliente) taskLoginCliente.get();
 
                     if(clienteLogado!=null){
                         Intent intentMain = new Intent(LoginActivity.this,MainActivity.class);

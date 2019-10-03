@@ -18,8 +18,8 @@ import br.senai.sp.agendaja.Services.CadastroFoto;
 import br.senai.sp.agendaja.modal.Cliente;
 import br.senai.sp.agendaja.modal.Endereco;
 import br.senai.sp.agendaja.modal.Informacao;
-import br.senai.sp.agendaja.tasks.CadastrarCliente;
-import br.senai.sp.agendaja.tasks.CadastrarEndereco;
+import br.senai.sp.agendaja.tasks.TaskCadastrarCliente;
+import br.senai.sp.agendaja.tasks.TaskCadastrarEndereco;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -81,41 +81,50 @@ public class ContatoActivity extends AppCompatActivity implements View.OnClickLi
                     clienteFinal.setEmail(email.getText().toString());
                     clienteFinal.setSenha(senha.getText().toString());
 
-                    CadastrarEndereco cadastrarEndereco = new CadastrarEndereco(enderecoFinal);
-                    cadastrarEndereco.execute();
+
+                    //Cadastrando endereco
+                    TaskCadastrarEndereco taskCadastrarEndereco = new TaskCadastrarEndereco(enderecoFinal);
+                    taskCadastrarEndereco.execute();
 
                     try {
-                        int respostaCadastroEndereco = (Integer) cadastrarEndereco.get();
+                        int respostaCadastroEndereco = (Integer) taskCadastrarEndereco.get();
 
                         if(respostaCadastroEndereco != 0){
+                            //cadastrando cliente
+                            TaskCadastrarCliente taskCadastrarCliente = new TaskCadastrarCliente(clienteFinal,respostaCadastroEndereco);
+                            taskCadastrarCliente.execute();
 
-                            CadastrarCliente cadastrarCliente = new CadastrarCliente(clienteFinal,respostaCadastroEndereco);
-                            cadastrarCliente.execute();
-
-                            int respostaCadastroCliente = (Integer) cadastrarCliente.get();
-                            if(respostaCadastroCliente!=0){
+                            Cliente respostaCadastroCliente = (Cliente) taskCadastrarCliente.get();
+                            if(respostaCadastroCliente.getIdCliente()!=null){
 
                               //Toast.makeText(ContatoActivity.this,clienteFinal.getFoto(),Toast.LENGTH_LONG).show();
-                                CadastroFoto cadastroFoto = new CadastroFoto();
-                                Call<Cliente> verificacao = cadastroFoto.CadastrarFoto(clienteFinal.getFoto(),respostaCadastroCliente);
 
-                                verificacao.enqueue(new Callback<Cliente>() {
-                                    @Override
-                                    public void onResponse(Call<Cliente> call, Response<Cliente> response) {
-                                        if(response.isSuccessful()){
-                                           Intent intent = new Intent(ContatoActivity.this,MainActivity.class);
-                                           startActivity(intent);
-                                        }
 
-                                    }
+                                //EM FASE DE MELHORAS.
+                                //cadastrando a foto do cliente
+//                                CadastroFoto cadastroFoto = new CadastroFoto();
+//                                Call<Cliente> verificacao = cadastroFoto.CadastrarFoto(clienteFinal.getFoto(),respostaCadastroCliente);
+//
+//                                verificacao.enqueue(new Callback<Cliente>() {
+//                                    @Override
+//                                    public void onResponse(Call<Cliente> call, Response<Cliente> response) {
+//                                        if(response.isSuccessful()){
+//                                           Intent intent = new Intent(ContatoActivity.this,MainActivity.class);
+//                                           startActivity(intent);
+//                                        }
+//
+//                                    }
+//
+//                                    @Override
+//                                    public void onFailure(Call<Cliente> call, Throwable t) {
+//                                        Toast.makeText(ContatoActivity.this,"Erro ao cadastrar foto",Toast.LENGTH_LONG).show();
+//                                        Log.d("ERRO CADASTRO FOTO",t.getMessage());
+//                                    }
+//                                });
 
-                                    @Override
-                                    public void onFailure(Call<Cliente> call, Throwable t) {
-                                        Toast.makeText(ContatoActivity.this,"Erro ao cadastrar foto",Toast.LENGTH_LONG).show();
-                                        Log.d("ERRO CADASTRO FOTO",t.getMessage());
-                                    }
-                                });
-
+                                Intent intent = new Intent(this,MainActivity.class);
+                                intent.putExtra("clienteLogado",respostaCadastroCliente);
+                                startActivity(intent);
                             }
 
                         }else{

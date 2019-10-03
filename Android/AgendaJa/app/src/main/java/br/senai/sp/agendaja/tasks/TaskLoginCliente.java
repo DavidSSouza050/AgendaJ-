@@ -1,6 +1,7 @@
 package br.senai.sp.agendaja.tasks;
 
 import android.os.AsyncTask;
+import android.util.Log;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -19,14 +20,14 @@ import java.util.Scanner;
 import br.senai.sp.agendaja.MainActivity;
 import br.senai.sp.agendaja.modal.Cliente;
 
-public class LoginCliente extends AsyncTask {
+public class TaskLoginCliente extends AsyncTask {
 
   private String email;
   private String senha;
   private String dados;
   private Cliente clienteLogin;
 
-  public LoginCliente(String email, String senha) {
+  public TaskLoginCliente(String email, String senha) {
     this.email = email;
     this.senha = senha;
   }
@@ -61,18 +62,18 @@ public class LoginCliente extends AsyncTask {
       JSONObject object = new JSONObject(dados);
 
       if(dados!=null){
-      clienteLogin = new Cliente();
-      clienteLogin.setIdCliente(object.getInt("idCliente"));
-      clienteLogin.setNome(object.getString("nome"));
-      clienteLogin.setSobrenome(object.getString("sobrenome"));
-      clienteLogin.setCpf(object.getString("cpf"));
-      clienteLogin.setDataNascimento(object.getString("dataNascimento"));
-      clienteLogin.setEmail(object.getString("email"));
-      clienteLogin.setSexo(object.getString("sexo"));
-      clienteLogin.setCelular(object.getString("celular"));
-      clienteLogin.setCep(object.getString("cep"));
-      clienteLogin.setSenha(object.getString("senha"));
-      clienteLogin.setIdEndereco(Integer.valueOf(object.getJSONObject("endereco").getString("idEndereco")));
+        clienteLogin = new Cliente();
+        clienteLogin.setIdCliente(object.getInt("idCliente"));
+        clienteLogin.setNome(object.getString("nome"));
+        clienteLogin.setSobrenome(object.getString("sobrenome"));
+        clienteLogin.setCpf(object.getString("cpf"));
+        clienteLogin.setDataNascimento(object.getString("dataNascimento"));
+        clienteLogin.setEmail(object.getString("email"));
+        clienteLogin.setSexo(object.getString("sexo"));
+        clienteLogin.setCelular(object.getString("celular"));
+        clienteLogin.setIdEndereco(Integer.valueOf(object.getJSONObject("endereco").getString("idEndereco")));
+        clienteLogin.setSenha(object.getString("senha"));
+       //clienteLogin.setFoto(object.getString("fotoCliente"));
       }else{
         clienteLogin = null;
       }

@@ -22,14 +22,14 @@ import javax.net.ssl.HttpsURLConnection;
 import br.senai.sp.agendaja.modal.Endereco;
 
 
-public class CarregarLocalizacao extends AsyncTask{
+public class TaskCarregarLocalizacao extends AsyncTask{
   private String editText;
   private Context context;
   private String dados="";
   private Endereco endereco;
   private ProgressBar progressBar ;
 
-  public CarregarLocalizacao(String editText, Context context, ProgressBar progressBar) {
+  public TaskCarregarLocalizacao(String editText, Context context, ProgressBar progressBar) {
     this.editText = editText;
     this.context = context;
     this.progressBar = progressBar;
