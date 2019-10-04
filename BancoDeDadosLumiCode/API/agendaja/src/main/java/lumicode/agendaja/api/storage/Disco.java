@@ -30,12 +30,14 @@ public class Disco {
 		String local = null;
 		String caminho = null;
 		
-		Path diretorioPath = Paths.get(this.raiz, diretorio); 
+		Path diretorioPath = Paths.get(this.raiz, diretorio);
+		Path diretorioBanco = Paths.get(diretorio);
 		//criando o nome do arquivo 
 		local = (System.currentTimeMillis() +"_"+ arquivo.getOriginalFilename());
 		//
 		//onde o arquivo vai ser salvo mais o nome do arquivo
 		Path arquivoPath = diretorioPath.resolve(local);
+		Path arquivoBanco = diretorioBanco.resolve(local);
 		try {
 			Files.createDirectories(diretorioPath);
 			arquivo.transferTo(arquivoPath.toFile());
@@ -46,7 +48,7 @@ public class Disco {
 		}
 
 		
-		return caminho;
+		return arquivoBanco.toString();
 		
 	}
 	
