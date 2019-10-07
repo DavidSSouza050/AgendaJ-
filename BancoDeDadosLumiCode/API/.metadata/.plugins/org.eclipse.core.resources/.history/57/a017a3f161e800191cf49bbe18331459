@@ -1,0 +1,5 @@
+package lumicode.agendaja.api.config;
+
+public class SwaggerConfig {
+
+}

@@ -55,6 +55,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 						"/cidade/**",
 						"/microrregiao/**",
 						"/estado/**",
+						"/tipoEndereco/**",
 						"/faleConosco/**",
 						"/login/**").permitAll().
 				// Todas as requisições serão autenticadas

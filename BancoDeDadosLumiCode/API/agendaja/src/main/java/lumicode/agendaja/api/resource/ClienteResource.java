@@ -26,21 +26,20 @@ import lumicode.agendaja.api.repository.ClienteRepository;
 import lumicode.agendaja.api.utils.ConverterDatas;
 
 @RestController
-@RequestMapping("/cliente")
+@RequestMapping(value="/cliente")
+@CrossOrigin(origins="http://localhost:3000")
 public class ClienteResource {
 
 	@Autowired
 	private ClienteRepository clienteRepository;
 	
 	//pegando todos clientes salvo no banco 
-	@CrossOrigin("http://localhost:3000")
 	@GetMapping
 	private List<Cliente> getCliente(){	
 		return clienteRepository.findAll();
 	}
 	
 	//pegando um cliente salvo no banco
-	@CrossOrigin("http://localhost:3000")
 	@GetMapping("/{id}")
 	private Cliente visualizarCliente(@PathVariable Long id){
 		//declarando um cliente do banco
@@ -63,11 +62,21 @@ public class ClienteResource {
 	
 	//login para cliente
 	@PostMapping("/login")
-	@CrossOrigin("http://localhost:3000")
 	private ResponseEntity<?> login(@RequestBody Cliente cliente) {
 		
 		Cliente clienteLogado = clienteRepository.entrar(cliente.getEmail(), cliente.getSenha()); 
 		if( clienteLogado != null) {
+			//declarando a classe de funções de date
+			ConverterDatas convertDatas = new ConverterDatas();
+			// pegando a idade do cliente 
+			String dataNasc = clienteLogado.getDataNascimento();
+			//transformando a data nascimento em date (ela é string)
+			Date nascDate = convertDatas.stringToDatePt(dataNasc);
+			//formatando a data e mandando uma String
+			String dataNascFormatada = convertDatas.dataPt(nascDate);
+			
+//			setantando a idade formatada e trocando o date
+			clienteLogado.setDataNascimento(dataNascFormatada);
 			return ResponseEntity.ok(clienteLogado);
 		}else {
 			return  new ResponseEntity<String>("{\"mensage\": \"E-mail ou Senha incorreta\"}",HttpStatus.BAD_REQUEST);
@@ -77,7 +86,6 @@ public class ClienteResource {
 	
 	
 	// Cadastrando um cliente no banco
-	@CrossOrigin("http://localhost:3000")
 	@PostMapping
 	private ResponseEntity<?> salvarCliente(@Validated @RequestBody Cliente cliente,
 		HttpServletResponse response){
@@ -125,7 +133,6 @@ public class ClienteResource {
 	
 	
 	//atualizando o cliente
-	@CrossOrigin("http://localhost:3000")
 	@PutMapping("/{id}")
 	private ResponseEntity<?> atualizarCliente(@RequestBody Cliente cliente,
 			@PathVariable Long id ){
