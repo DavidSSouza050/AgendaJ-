@@ -57,6 +57,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 						"/estado/**",
 						"/tipoEndereco/**",
 						"/faleConosco/**",
+						"/foto/**",
 						"/login/**").permitAll().
 				// Todas as requisições serão autenticadas
 				anyRequest().authenticated().and().
