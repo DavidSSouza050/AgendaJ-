@@ -6480,3 +6480,12 @@ java.io.FileNotFoundException: C:\Users\18175740\.m2\repository\net\bytebuddy\by
 2019-10-07 16:18:45,075 [Worker-53: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\18175740\Desktop\Servidor\BancoDeDadosLumiCode\API\agendaja\src\test\resources
 2019-10-07 16:19:12,500 [Worker-50: Launching agendaja (9)] INFO  o.e.m.i.launch.MavenLaunchDelegate - C:\Users\18175740\Desktop\Servidor\BancoDeDadosLumiCode\API\agendaja
 2019-10-07 16:19:12,506 [Worker-50: Launching agendaja (9)] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -B package
+2019-10-08 13:40:26,696 [Worker-5: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2019-10-08 13:40:47,492 [Worker-1: Launching agendaja (9)] INFO  o.e.m.i.launch.MavenLaunchDelegate - C:\Users\18175740\Desktop\Servidor\BancoDeDadosLumiCode\API\agendaja
+2019-10-08 13:40:47,494 [Worker-1: Launching agendaja (9)] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -B package
+2019-10-08 13:43:57,903 [Worker-15: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-08 13:43:57,903 [Worker-15: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\18175740\Desktop\Servidor\BancoDeDadosLumiCode\API\agendaja\src\main\resources
+2019-10-08 13:43:57,905 [Worker-15: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-08 13:43:57,906 [Worker-15: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\18175740\Desktop\Servidor\BancoDeDadosLumiCode\API\agendaja\src\test\resources
+2019-10-08 13:44:04,145 [Worker-19: Launching agendaja (9)] INFO  o.e.m.i.launch.MavenLaunchDelegate - C:\Users\18175740\Desktop\Servidor\BancoDeDadosLumiCode\API\agendaja
+2019-10-08 13:44:04,146 [Worker-19: Launching agendaja (9)] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -B package
