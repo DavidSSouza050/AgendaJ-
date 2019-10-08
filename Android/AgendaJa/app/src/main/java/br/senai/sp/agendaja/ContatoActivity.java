@@ -102,25 +102,25 @@ public class ContatoActivity extends AppCompatActivity implements View.OnClickLi
 
                                 //EM FASE DE MELHORAS.
                                 //cadastrando a foto do cliente
-//                                CadastroFoto cadastroFoto = new CadastroFoto();
-//                                Call<Cliente> verificacao = cadastroFoto.CadastrarFoto(clienteFinal.getFoto(),respostaCadastroCliente);
-//
-//                                verificacao.enqueue(new Callback<Cliente>() {
-//                                    @Override
-//                                    public void onResponse(Call<Cliente> call, Response<Cliente> response) {
-//                                        if(response.isSuccessful()){
-//                                           Intent intent = new Intent(ContatoActivity.this,MainActivity.class);
-//                                           startActivity(intent);
-//                                        }
-//
-//                                    }
-//
-//                                    @Override
-//                                    public void onFailure(Call<Cliente> call, Throwable t) {
-//                                        Toast.makeText(ContatoActivity.this,"Erro ao cadastrar foto",Toast.LENGTH_LONG).show();
-//                                        Log.d("ERRO CADASTRO FOTO",t.getMessage());
-//                                    }
-//                                });
+                                CadastroFoto cadastroFoto = new CadastroFoto();
+                                Call<Cliente> verificacao = cadastroFoto.CadastrarFoto(clienteFinal.getFoto(),respostaCadastroCliente.getIdCliente());
+
+                                verificacao.enqueue(new Callback<Cliente>() {
+                                    @Override
+                                    public void onResponse(Call<Cliente> call, Response<Cliente> response) {
+                                        if(response.isSuccessful()){
+                                           Intent intent = new Intent(ContatoActivity.this,MainActivity.class);
+                                           startActivity(intent);
+                                        }
+
+                                    }
+
+                                    @Override
+                                    public void onFailure(Call<Cliente> call, Throwable t) {
+                                        Toast.makeText(ContatoActivity.this,"Erro ao cadastrar foto",Toast.LENGTH_LONG).show();
+                                        Log.d("ERRO CADASTRO FOTO",t.getMessage());
+                                    }
+                                });
 
                                 Intent intent = new Intent(this,MainActivity.class);
                                 intent.putExtra("clienteLogado",respostaCadastroCliente);

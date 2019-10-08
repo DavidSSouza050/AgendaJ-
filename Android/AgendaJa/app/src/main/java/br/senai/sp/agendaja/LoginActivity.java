@@ -17,8 +17,7 @@ import java.util.concurrent.ExecutionException;
 
 import br.senai.sp.agendaja.modal.Cliente;
 import br.senai.sp.agendaja.tasks.TaskLoginCliente;
-
-
+import br.senai.sp.agendaja.tasks.TaskLoginClienteToken;
 
 
 //LoaderCallbacks<Cursor>,
@@ -65,20 +64,23 @@ public class LoginActivity extends AppCompatActivity implements  View.OnClickLis
                 taskLoginCliente.execute();
 
                 try {
-                    Cliente clienteLogado = (Cliente) taskLoginCliente.get();
+                    String token = (String) taskLoginCliente.get();
+                    if(token!=null) {
 
-                    if(clienteLogado!=null){
-                        Intent intentMain = new Intent(LoginActivity.this,MainActivity.class);
-                        intentMain.putExtra("clienteLogado",clienteLogado);
-                        startActivity(intentMain);
-                        finish();
-                        break;
-                    }else{
-                        Toast.makeText(LoginActivity.this,"E-mail ou senha incorretos, verifique os dados",Toast.LENGTH_LONG).show();
-                        break;
+                        TaskLoginClienteToken loginClienteToken = new TaskLoginClienteToken(mEmailView.getText().toString(),mPasswordView.getText().toString(),token);
+                        loginClienteToken.execute();
+
+                        Cliente clienteLogado = (Cliente) loginClienteToken.get();
+
+                        if(clienteLogado.getIdCliente()!=null){
+                            Intent intentMain = new Intent(LoginActivity.this,MainActivity.class);
+                            intentMain.putExtra("clienteLogado",clienteLogado);
+                            startActivity(intentMain);
+                        }else{
+                            Toast.makeText(LoginActivity.this,"Email ou senhas incorretos",Toast.LENGTH_LONG).show();
+                        }
+
                     }
-
-
 
                 } catch (ExecutionException e) {
                     e.printStackTrace();
