@@ -14,7 +14,7 @@ select * from tbl_servico;
 select * from tbl_salario;
 select * from tbl_tipo_salario;
 -- horario
-select * from tbl_horario;
+select * from tbl_horario_funcionario;
 select * from tbl_dia_semana;
 -- 
 
@@ -25,7 +25,7 @@ select * from tbl_agendamento;
 select * from tbl_endereco;
 select * from tbl_tipo_endereco;
 select * from tbl_cidade;
-select * from tbl_microregiao;
+select * from tbl_microrregiao;
 select * from tbl_estado;
 -- fim dereco
 
@@ -60,7 +60,7 @@ INSERT INTO tbl_assunto values (3,'Duvida');
 
 -- cadastro de comentario padrão
 select * from tbl_fale_conosco;
-Insert into tbl_fale_conosco values (0, 'david', 'david@gmail.com', 'muito bom isso ai', 1);
+Insert into tbl_fale_conosco values (0, 'david', 'david@gmail.com', 'muito bom isso ai', now(), 1);
 
 -- INSERT DE FUNCIONARIO
 select * from tbl_dia_semana;
@@ -72,29 +72,35 @@ INSERT INTO tbl_dia_semana values(5, 'QUINTA-FEIRA');
 INSERT INTO tbl_dia_semana values(6, 'SEXTA-FEIRA');
 INSERT INTO tbl_dia_semana values(7, 'SÁBADO');
 
-insert into tbl_tipo_salario values (1, 'Mensalista');
+select * from tbl_tipo_salario;
 
-INSERT INTO tbl_salario values (1, 500.00, 1);
+insert into tbl_tipo_salario values (1, 'Comissão');
+insert into tbl_tipo_salario values (2, 'Valor Fixo');
+insert into tbl_tipo_salario values (3, 'Comissão + Valor Fixo');
+
+SELECT * FROM TBL_SALARIO;
+INSERT INTO tbl_salario values (1, 500.00, NULL, 1, NOW(), NOW() );
 desc tbl_funcionario;
 select * from tbl_funcionario;
 INSERT INTO tbl_funcionario values (1, 'Ivanildo', null, 'ivan_fera', '789456123', 1);
 
 desc tbl_horario;
 select * from tbl_horario;
-INSERT INTO tbl_horario values(1, '8:30:00' , '17:00:00', '12:00:00', '13:00:00', 7, 1, now(), now());
-INSERT INTO tbl_horario values(2, '8:30:00' , '17:00:00', '12:00:00', '13:00:00', 3, 1, now(), now());
-INSERT INTO tbl_horario values(3, '8:30:00' , '17:00:00', '12:00:00', '13:00:00', 4, 1, now(), now());
-INSERT INTO tbl_horario values(4, '8:30:00' , '17:00:00', '12:00:00', '13:00:00', 5, 1, now(), now());
-INSERT INTO tbl_horario values(5, '8:30:00' , '17:00:00', '12:00:00', '13:00:00', 6, 1, now(), now());
+INSERT INTO tbl_horario_funcionario values(1, '8:30:00' , '17:00:00', '12:00:00', '13:00:00', 7, 1, now(), now());
+INSERT INTO tbl_horario_funcionario values(2, '8:30:00' , '17:00:00', '12:00:00', '13:00:00', 3, 1, now(), now());
+INSERT INTO tbl_horario_funcionario values(3, '8:30:00' , '17:00:00', '12:00:00', '13:00:00', 4, 1, now(), now());
+INSERT INTO tbl_horario_funcionario values(4, '8:30:00' , '17:00:00', '12:00:00', '13:00:00', 5, 1, now(), now());
+INSERT INTO tbl_horario_funcionario values(5, '8:30:00' , '17:00:00', '12:00:00', '13:00:00', 6, 1, now(), now());
 
 -- serviços
 desc tbl_categoria_servico;
-INSERT INTO tbl_categoria_servico values (1, 'Corte');
+INSERT INTO tbl_categoria_servico values (1, 'Corte Masculino');
+INSERT INTO tbl_categoria_servico values (2, 'Corte Feminino');
 
 desc tbl_servico;
 SELECT * FROM TBL_SERVICO;
-INSERT INTO tbl_servico values(1, 'BABY BANGS', 1, 1);
-INSERT INTO tbl_servico values(2, 'SOCIAL', 1, 1);
+INSERT INTO tbl_servico values(1, 35.00 ,'BABY BANGS', 1, 1, now(), now());
+INSERT INTO tbl_servico values(2, 20.00, 'SOCIAL', 1, 1, now(), now());
 
 desc tbl_funcionario_servico;
 select * from tbl_funcionario_servico;
@@ -103,14 +109,35 @@ insert into tbl_funcionario_servico values (0, 1, 2);
 
 desc tbl_categoria_servico;
 
-SELECT f.nome, s.servico, cs.categoria_servico, sa.salario, tipoSa.tipo_salario, h.hora_entrada, concat(ds.dia_semana )
+SELECT f.nome, s.servico, cs.categoria_servico, sa.salario, tipoSa.tipo_salario, h.hora_entrada, ds.dia_semana
 	FROM tbl_funcionario as f INNER JOIN tbl_funcionario_servico as fs
     ON f.id_funcionario = fs.id_funcionario INNER JOIN tbl_servico AS s
     ON s.id_servico = fs.id_servico INNER JOIN tbl_categoria_servico as cs
     ON cs.id_categoria_servico = s.id_categoria_servico INNER JOIN tbl_salario as sa
     ON sa.id_salario = f.id_salario INNER JOIN tbl_tipo_salario as tipoSa
-    ON sa.id_tipo_salario = tipoSa.id_tipo_salario INNER JOIN tbl_horario as h
+    ON sa.id_tipo_salario = tipoSa.id_tipo_salario INNER JOIN tbl_horario_funcionario as h
     ON f.id_funcionario = h.id_funcionario INNER JOIN tbl_dia_semana as ds
-    ON h.id_dia_semana = ds.id_dia_semana; ;
+    ON h.id_dia_semana = ds.id_dia_semana; 
     
+SELECT f.nome ,h.hora_entrada, h.hora_saida, h.hora_pausa, h.duracao_pausa, h.id_dia_semana
+	FROM tbl_horario_funcionario as h INNER JOIN tbl_funcionario as f
+    ON h.id_funcionario = f.id_funcionario ;
     
+SELECT * from tbl_funcionario_estabelecimento;
+
+INSERT INTO tbl_funcionario_estabelecimento values (1, 1, 1);
+
+SELECT e.nome_estabelecimento , s.servico, f.nome, s.preco, ds.dia_semana
+	FROM tbl_funcionario as f JOIN tbl_funcionario_servico as fs
+    ON f.id_funcionario = fs.id_funcionario JOIN tbl_servico as s
+    ON fs.id_servico = s.id_servico JOIN tbl_horario_funcionario as hf
+    ON f.id_funcionario = hf.id_funcionario JOIN tbl_dia_semana as ds
+    ON hf.id_dia_semana = ds.id_dia_semana JOIN tbl_funcionario_estabelecimento as fe
+    ON fe.id_funcionario = f.id_funcionario JOIN tbl_estabelecimento as e
+    ON fe.id_estabelecimento = e.id_estabelecimento; 
+    
+
+select * from  tbl_agendamento;
+ desc tbl_agendamento;
+
+INSERT INTO tbl_agendamento values (1, 1, 1, 1, 1, 0, now(), now(), now());
