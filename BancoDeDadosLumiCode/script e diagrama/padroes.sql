@@ -141,3 +141,22 @@ select * from  tbl_agendamento;
  desc tbl_agendamento;
 
 INSERT INTO tbl_agendamento values (1, 1, 1, 1, 1, 0, now(), now(), now());
+select * from tbl_agendamento;
+select * from tbl_cliente;
+select * from tbl_categoria_servico;
+select * from tbl_servico;
+select * from tbl_funcionario;
+select * from tbl_estabelecimento;
+
+SELECT c.nome, e.nome_estabelecimento, ag.finalizado, f.nome, s.servico, s.preco,cs.categoria_servico
+	FROM tbl_cliente as c JOIN tbl_agendamento as ag 
+    ON c.id_cliente = ag.id_cliente JOIN tbl_estabelecimento as e
+    ON e.id_estabelecimento = ag.id_estabelecimento JOIN tbl_funcionario as f
+    ON f.id_funcionario = ag.id_funcionario JOIN tbl_servico as s
+    ON s.id_servico = ag.id_servico JOIN tbl_categoria_servico as cs
+    ON s.id_categoria_servico = cs.id_categoria_servico;
+
+
+
+
+
