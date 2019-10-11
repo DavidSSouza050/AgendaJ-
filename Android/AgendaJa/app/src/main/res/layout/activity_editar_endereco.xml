@@ -5,13 +5,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal"
-    android:id="@+id/relativeLayout"
+    tools:context=".EditarEnderecoActivity"
     android:padding="8dp"
     android:background="@color/colorBrancoAcinzentadoo">
 
+
     <RelativeLayout
-        android:id="@+id/dados_pessoais"
+        android:id="@+id/editar_endereco"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginTop="20dp"
@@ -22,13 +22,13 @@
         android:elevation="99dp">
 
         <TextView
-            android:id="@+id/text_dados_pessoais"
+            android:id="@+id/text_editar_endereco"
             android:layout_width="236dp"
             android:layout_height="36dp"
             android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
             android:layout_marginStart="12dp"
-            android:text="DADOS PESSOAIS"
+            android:text="ENDEREÇO"
             android:textSize="28dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -46,12 +46,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dados_pessoais">
+        app:layout_constraintTop_toBottomOf="@+id/editar_endereco">
 
     </LinearLayout>
 
     <RelativeLayout
-        android:id="@+id/caixa_nome_dados_pessoais"
+        android:id="@+id/caixa_cep_editar_endereco"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="3dp"
@@ -60,16 +60,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/linearLayout_3"
         android:elevation="99dp"
-        android:padding="12dp">
+        android:padding="12dp"
+        >
 
         <EditText
-            android:id="@+id/text_contato_perfil"
+            android:id="@+id/text_cep_editar_endereco"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
             android:background="@drawable/caixa_de_texto_redonda"
-            android:hint="Nome"
+            android:hint="CEP"
             android:textSize="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -87,12 +88,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/caixa_nome_dados_pessoais">
+        app:layout_constraintTop_toBottomOf="@+id/caixa_cep_editar_endereco">
 
     </LinearLayout>
 
     <RelativeLayout
-        android:id="@+id/caixa_sobrenome_dados_pessoais"
+        android:id="@+id/caixa_cidade_editar_endereco"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="3dp"
@@ -104,13 +105,13 @@
         android:padding="12dp">
 
         <EditText
-            android:id="@+id/text_sobre_a_empresa_perfil"
+            android:id="@+id/text_cidade_editar_endereco"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
             android:background="@drawable/caixa_de_texto_redonda"
-            android:hint="Sobrenome"
+            android:hint="Cidade"
             android:textSize="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -128,12 +129,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/caixa_sobrenome_dados_pessoais">
+        app:layout_constraintTop_toBottomOf="@+id/caixa_cidade_editar_endereco">
 
     </LinearLayout>
 
     <RelativeLayout
-        android:id="@+id/caixa_data_nascimento_dados_pessoais"
+        android:id="@+id/caixa_logradouro_editar_endereco"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="3dp"
@@ -145,13 +146,13 @@
         android:padding="12dp">
 
         <EditText
-            android:id="@+id/text_data_nascimento"
+            android:id="@+id/text_logradouro_editar_endereco"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
             android:background="@drawable/caixa_de_texto_redonda"
-            android:hint="Data de Nascimento"
+            android:hint="Logradouro"
             android:textSize="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -169,12 +170,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/caixa_data_nascimento_dados_pessoais">
+        app:layout_constraintTop_toBottomOf="@+id/caixa_logradouro_editar_endereco">
 
     </LinearLayout>
 
     <RelativeLayout
-        android:id="@+id/caixa_cpf_dados_pessoais"
+        android:id="@+id/caixa_bairro_editar_endereco"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="3dp"
@@ -186,13 +187,13 @@
         android:padding="12dp">
 
         <EditText
-            android:id="@+id/text_cpf_dados_pessoais"
+            android:id="@+id/text_bairro_editar_endereco"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
             android:background="@drawable/caixa_de_texto_redonda"
-            android:hint="CPF"
+            android:hint="Bairro"
             android:textSize="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -210,12 +211,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/caixa_cpf_dados_pessoais">
+        app:layout_constraintTop_toBottomOf="@+id/caixa_bairro_editar_endereco">
 
     </LinearLayout>
 
     <RelativeLayout
-        android:id="@+id/caixa_sexo_dados_pessoais"
+        android:id="@+id/caixa_uf_editar_endereco"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="3dp"
@@ -227,13 +228,13 @@
         android:padding="12dp">
 
         <EditText
-            android:id="@+id/text_sexo_dados_pessoais"
+            android:id="@+id/text_uf_editar_endereco"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
             android:background="@drawable/caixa_de_texto_redonda"
-            android:hint="Sexo"
+            android:hint="UF"
             android:textSize="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -251,12 +252,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/caixa_sexo_dados_pessoais">
+        app:layout_constraintTop_toBottomOf="@+id/caixa_uf_editar_endereco">
 
     </LinearLayout>
 
     <Button
-        android:id="@+id/btn_salvar_dados_pessoais"
+        android:id="@+id/btn_salvar_editar_endereco"
         style="@style/Animation.AppCompat.Dialog"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
@@ -270,5 +271,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
 
 </android.support.constraint.ConstraintLayout>

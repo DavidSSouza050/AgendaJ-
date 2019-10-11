@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="12dp"
+    android:layout_margin="12dp"
+    android:padding="8dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="408dp">
+
+        <TextView
+            android:id="@+id/txt_nome_estabelecimento_adapter"
+            android:layout_width="match_parent"
+            android:layout_height="43dp"
+            android:background="@android:color/white"
+            android:text="Nome do Estabelecimento"
+            android:textSize="24dp"
+            android:textAlignment="center"
+            android:padding="4dp"/>
+
+        <ImageView
+            android:id="@+id/img_estabelecimento_adapter"
+            android:layout_width="match_parent"
+            android:layout_height="230dp"
+            android:layout_below="@+id/txt_nome_estabelecimento_adapter"
+            android:background="@drawable/retro_hear" />
+
+        <TextView
+            android:id="@+id/txt_nome_endereco_adapter"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:background="@android:color/white"
+            android:text="Rua Elton Silva, 905 - Centro, 06600-025 - Jandira - SP"
+            android:textSize="24dp"
+            android:padding="4dp"
+            android:layout_below="@+id/img_estabelecimento_adapter"/>
+
+        <RatingBar
+            android:id="@+id/rtb_adapter"
+            android:layout_width="250dp"
+            android:layout_height="48dp"
+            android:layout_below="@+id/txt_nome_endereco_adapter"
+            android:layout_margin="8dp"
+            android:numStars="5"
+            android:max="10"/>
+
+        <ImageButton
+            android:layout_width="39dp"
+            android:layout_height="41dp"
+            android:layout_alignBottom="@+id/rtb_adapter"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="28dp"
+            android:background="@drawable/heart" />
+
+    </RelativeLayout>
+
+
+</android.support.v7.widget.CardView>

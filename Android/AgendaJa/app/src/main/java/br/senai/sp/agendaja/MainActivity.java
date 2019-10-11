@@ -7,6 +7,7 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.RelativeLayout;
@@ -17,12 +18,18 @@ public class MainActivity extends AppCompatActivity{
     private TextView dadosPessoais;
     public static String  IP_SERVER  = "3.95.195.11:8080";
     public static String IP_FOTO = "http://3.95.195.11/";
+    public static String TOKEN;
 
     @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Intent getToken = getIntent();
+
+        TOKEN = getToken.getStringExtra("token");
+        Log.d("Esse é o token",TOKEN);
 
 
        // dadosPessoais = findViewById(R.id.text_dados_pessoais);

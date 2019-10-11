@@ -3,18 +3,18 @@
 
     <item
         android:id="@+id/navigation_explorar"
-        android:icon="@drawable/ic_action_explorar"
+        android:icon="@drawable/ic_action_explorar_branco"
         android:title="Explorar"
         />
 
     <item
         android:id="@+id/navigation_reservas"
-        android:icon="@drawable/ic_action_reservas"
+        android:icon="@drawable/ic_action_reservas_branco"
         android:title="Reservas" />
 
     <item
         android:id="@+id/navigation_perfil"
-        android:icon="@drawable/ic_action_perfil"
+        android:icon="@drawable/ic_action_perfil_branco"
         android:title="Perfil" />
 
 </menu>

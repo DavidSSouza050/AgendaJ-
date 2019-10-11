@@ -6,4 +6,8 @@
     <color name="colorRoxo">#41036a</color>
     <color name="colorAzul">#3739ab</color>
     <color name="colorRoxoMeioAzul">#301170</color>
+    <color name="colorCinza">#dbdbdb</color>
+    <color name="colorRed">#780000</color>
+    <color name="colorTrasparente">#42000000</color>
+    <color name="colorBrancoAcinzentadoo">#f0f0f0</color>
 </resources>

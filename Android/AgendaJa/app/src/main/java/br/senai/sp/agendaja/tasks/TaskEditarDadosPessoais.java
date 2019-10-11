@@ -21,20 +21,22 @@ public class TaskEditarDadosPessoais extends AsyncTask {
   private Cliente clienteEditarDados;
   private String resposta;
   private Cliente clienteEditado;
+  private String token;
 
-  public TaskEditarDadosPessoais(Cliente clienteEditarDados) {
+  public TaskEditarDadosPessoais(Cliente clienteEditarDados, String token) {
     this.clienteEditarDados = clienteEditarDados;
+    this.token = token;
   }
 
   @Override
   protected Object doInBackground(Object[] objects) {
 
-    String dataNascimentoEUA = clienteEditarDados.getDataNascimento();
-    Log.d("DtnascimentoEUA ",clienteEditarDados.getDataNascimento());
-    String dataNascimentoBR = dataNascimentoEUA.substring(8,10) + "/" + dataNascimentoEUA.substring(5,7) + "/" + dataNascimentoEUA.substring(0,4);
-    Log.d("Dtnascimento convertida",dataNascimentoBR);
-
-    Log.d("Sexo cliente",clienteEditarDados.getSexo());
+//    String dataNascimentoEUA = clienteEditarDados.getDataNascimento();
+//    Log.d("DtnascimentoEUA ",clienteEditarDados.getDataNascimento());
+//    String dataNascimentoBR = dataNascimentoEUA.substring(7,8) + "/" + dataNascimentoEUA.substring(4,6) + "/" + dataNascimentoEUA.substring(0,3);
+//    Log.d("Dtnascimento convertida",dataNascimentoBR);
+//
+//    Log.d("Sexo cliente",clienteEditarDados.getSexo());
 
     try {
       JSONStringer jsCliente = new JSONStringer();
@@ -45,7 +47,7 @@ public class TaskEditarDadosPessoais extends AsyncTask {
       jsCliente.key("celular").value(clienteEditarDados.getCelular());
       jsCliente.key("cpf").value(clienteEditarDados.getCpf());
       jsCliente.key("sexo").value(clienteEditarDados.getSexo());
-      jsCliente.key("dataNascimento").value(dataNascimentoBR);
+      jsCliente.key("dataNascimento").value(clienteEditarDados.getDataNascimento());
       jsCliente.key("email").value(clienteEditarDados.getEmail());
       jsCliente.key("senha").value(clienteEditarDados.getSenha());
       jsCliente.key("endereco").object().key("idEndereco").value(clienteEditarDados.getIdEndereco()).endObject();
@@ -59,6 +61,7 @@ public class TaskEditarDadosPessoais extends AsyncTask {
 
       connection.setRequestProperty("Content-type","application/json");
       connection.setRequestProperty("Accept","application/json");
+      connection.setRequestProperty("token",token);
       connection.setRequestMethod("PUT");
 
 
@@ -80,6 +83,9 @@ public class TaskEditarDadosPessoais extends AsyncTask {
       clienteEditado.setSexo(object.getString("sexo"));
       clienteEditado.setCpf(object.getString("cpf"));
       clienteEditado.setCelular(object.getString("celular"));
+      clienteEditado.setEmail(object.getString("email"));
+      clienteEditado.setSexo(object.getString("senha"));
+      clienteEditado.setIdEndereco(Integer.valueOf(object.getJSONObject("endereco").getString("idEndereco")));
 
 
 

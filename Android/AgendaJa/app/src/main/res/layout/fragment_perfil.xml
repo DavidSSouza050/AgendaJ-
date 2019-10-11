@@ -7,7 +7,8 @@
     android:layout_height="match_parent"
     android:orientation="horizontal"
     android:id="@+id/relativeLayout"
-    android:padding="8dp">
+    android:padding="8dp"
+    android:background="@color/colorBrancoAcinzentadoo">
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/circleImageView2"
@@ -26,9 +27,9 @@
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/img_foto_usuario_perfilFragment"
-        android:layout_width="79dp"
-        android:layout_height="67dp"
-        android:layout_marginTop="24dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/botao_redondo"
         android:src="@drawable/ic_action_foto_usuario"
         app:civ_border_width="2dp"
@@ -37,18 +38,18 @@
 
     <TextView
         android:id="@+id/text_nome_completo_perfil"
-        android:layout_width="273dp"
+        android:layout_width="250dp"
         android:layout_height="36dp"
         android:layout_marginTop="24dp"
-        android:textSize="32dp"
         android:text="Nome Completo"
+        android:textSize="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/text_telefone_perfil"
-        android:layout_width="273dp"
-        android:layout_height="22dp"
+        android:layout_width="249dp"
+        android:layout_height="20dp"
         android:layout_marginTop="8dp"
         android:text="Telefone"
         android:textSize="16dp"
@@ -60,7 +61,7 @@
         android:layout_width="match_parent"
         android:layout_height="3dp"
         android:layout_marginTop="36dp"
-        android:background="@android:color/black"
+        android:background="@color/colorRoxoMeioAzul"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -106,9 +107,9 @@
     <LinearLayout
         android:id="@+id/linearLayout_2"
         android:layout_width="match_parent"
-        android:layout_height="3dp"
+        android:layout_height="1dp"
         android:layout_marginTop="1dp"
-        android:background="@android:color/black"
+        android:background="@color/colorRoxoMeioAzul"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -154,9 +155,9 @@
     <LinearLayout
         android:id="@+id/linearLayout_3"
         android:layout_width="match_parent"
-        android:layout_height="3dp"
+        android:layout_height="1dp"
         android:layout_marginTop="1dp"
-        android:background="@android:color/black"
+        android:background="@color/colorRoxoMeioAzul"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -202,9 +203,9 @@
     <LinearLayout
         android:id="@+id/linearLayout_4"
         android:layout_width="match_parent"
-        android:layout_height="3dp"
+        android:layout_height="1dp"
         android:layout_marginTop="1dp"
-        android:background="@android:color/black"
+        android:background="@color/colorRoxoMeioAzul"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -250,9 +251,9 @@
     <LinearLayout
         android:id="@+id/linearLayout_5"
         android:layout_width="match_parent"
-        android:layout_height="3dp"
+        android:layout_height="1dp"
         android:layout_marginTop="1dp"
-        android:background="@android:color/black"
+        android:background="@color/colorRoxoMeioAzul"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -298,9 +299,9 @@
     <LinearLayout
         android:id="@+id/linearLayout_6"
         android:layout_width="match_parent"
-        android:layout_height="3dp"
+        android:layout_height="1dp"
         android:layout_marginTop="1dp"
-        android:background="@android:color/black"
+        android:background="@color/colorRoxoMeioAzul"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

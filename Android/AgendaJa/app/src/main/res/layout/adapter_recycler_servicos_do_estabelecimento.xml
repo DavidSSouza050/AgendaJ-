@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="73dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <TextView
+            android:id="@+id/text_servico_do_estabelecimento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="13dp"
+            android:text="Serviço X"
+            android:textSize="24dp" />
+
+        <TextView
+            android:id="@+id/text_preco_do_servico"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginEnd="117dp"
+            android:text="R$ 20,00"
+            android:textSize="24dp"
+            android:paddingTop="8dp"/>
+
+        <TextView
+            android:id="@+id/text_tempo_do_servico"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/text_preco_do_servico"
+            android:layout_below="@+id/text_preco_do_servico"
+            android:text="30 min"
+            android:textSize="14dp" />
+
+        <Button
+            android:id="@+id/button_reservar_do_estabelecimento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="22dp"
+            android:background="@drawable/botao_quadrado_colorido"
+            android:text="Reservar"
+            android:textColor="@android:color/white" />
+    </RelativeLayout>
+</android.support.constraint.ConstraintLayout>

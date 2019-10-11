@@ -24,6 +24,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.squareup.picasso.Picasso;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -84,24 +86,20 @@ public class PerfilFragment extends Fragment implements View.OnClickListener {
       nomeCompletoCliente.setText(clienteLogado.getNome() + " " + clienteLogado.getSobrenome());
       telefoneCliente.setText(clienteLogado.getCelular());
 
-    }
 
     try {
-      URL url = new URL(MainActivity.IP_FOTO + clienteLogado.getFoto());
-//      Uri uri = Uri.parse(MainActivity.IP_FOTO + clienteLogado.getFoto());
 
-      CarregarImagem carregarImagem = new CarregarImagem();
+        URL url = new URL(MainActivity.IP_FOTO + clienteLogado.getFoto());
 
-      carregarImagem.execute(url);
-
-//      InputStream inputStream = getActivity().getContentResolver().openInputStream(uri);
-//
-//      Bitmap imagemPerfil = BitmapFactory.decodeStream(inputStream);
-//      imagemCliente.setImageBitmap(imagemPerfil);
-//      Log.d(" ip da foto", String.valueOf(uri));
+        Picasso.get()
+             .load(String.valueOf(url))
+             .resize(100,100)
+             .into(imagemCliente);
 
     } catch (MalformedURLException e) {
       e.printStackTrace();
+    }
+
     }
 
     //setando listenner nos relativelaytouts
@@ -114,6 +112,7 @@ public class PerfilFragment extends Fragment implements View.OnClickListener {
     super.onResume();
 
     if (clienteEditadoComSucesso != null && clienteEditadoComSucesso.getIdCliente() != null) {
+      clienteLogado =null;
       nomeCompletoCliente.setText(clienteEditadoComSucesso.getNome() + " " + clienteEditadoComSucesso.getSobrenome());
       telefoneCliente.setText(clienteEditadoComSucesso.getCelular());
     }
@@ -127,6 +126,8 @@ public class PerfilFragment extends Fragment implements View.OnClickListener {
         Intent intent = new Intent(getContext(), EditarDadosPessoaisActivity.class);
         if (clienteLogado != null) {
           intent.putExtra("clienteLogado", clienteLogado);
+        }else if(clienteEditadoComSucesso!=null){
+          intent.putExtra("clienteSegundaEdicao",clienteEditadoComSucesso);
         }
         startActivity(intent);
         break;
@@ -139,33 +140,33 @@ public class PerfilFragment extends Fragment implements View.OnClickListener {
     }
   }
 
-  private class CarregarImagem extends AsyncTask<URL,Void,Drawable>{
-
-    @Override
-    protected Drawable doInBackground(URL... urls) {
-      //pega a url passada pelo execute
-      URL url = urls[0];
-      InputStream content = null;
-
-      try {
-        //pega o conteudo da resposta http
-        content = (InputStream) url.getContent();
-        //trasnforma o inputStream em Drawable
-        Drawable drw = Drawable.createFromStream(content,"src");
-        return drw;
-      } catch (IOException e) {
-        e.printStackTrace();
-      }
-      return null;
-    }
-    @Override
-    protected void onPostExecute(Drawable drawable) {
-      super.onPostExecute(drawable);
-      //recebe o drawable e coloca no imageView
-      imagemCliente.setImageDrawable(drawable);
-      //esconde a progress bar
-//      viewHolder.progress.setVisibility(View.INVISIBLE);
-    }
-  }
+//  private class CarregarImagem extends AsyncTask<URL,Void,Drawable>{
+//
+//    @Override
+//    protected Drawable doInBackground(URL... urls) {
+//      //pega a url passada pelo execute
+//      URL url = urls[0];
+//      InputStream content = null;
+//
+//      try {
+//        //pega o conteudo da resposta http
+//        content = (InputStream) url.getContent();
+//        //trasnforma o inputStream em Drawable
+//        Drawable drw = Drawable.createFromStream(content,"src");
+//        return drw;
+//      } catch (IOException e) {
+//        e.printStackTrace();
+//      }
+//      return null;
+//    }
+//    @Override
+//    protected void onPostExecute(Drawable drawable) {
+//      super.onPostExecute(drawable);
+//      //recebe o drawable e coloca no imageView
+//      imagemCliente.setImageDrawable(drawable);
+//      //esconde a progress bar
+////      viewHolder.progress.setVisibility(View.INVISIBLE);
+//    }
+//  }
 
 }

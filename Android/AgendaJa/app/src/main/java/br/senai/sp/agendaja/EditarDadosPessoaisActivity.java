@@ -13,6 +13,9 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.github.rtoshiro.util.format.SimpleMaskFormatter;
+import com.github.rtoshiro.util.format.text.MaskTextWatcher;
+
 import java.util.concurrent.ExecutionException;
 
 import br.senai.sp.agendaja.modal.Cliente;
@@ -21,6 +24,8 @@ import br.senai.sp.agendaja.tasks.TaskEditarDadosPessoais;
 public class EditarDadosPessoaisActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener, View.OnClickListener{
 
   private Cliente clienteLogado;
+  private Cliente clienteSegundaEdicao;
+  private Cliente clienteParaEditar;
   private EditText editarNome;
   private EditText editarSobrenome;
   private EditText editarDataNascimento;
@@ -39,6 +44,9 @@ public class EditarDadosPessoaisActivity extends AppCompatActivity implements Ad
     //Pegando Cliente enviado da fragment
     Intent intentCliente = getIntent();
     clienteLogado = (Cliente) intentCliente.getSerializableExtra("clienteLogado");
+
+    //Pegando Cliente para segunda edicao
+    clienteSegundaEdicao = (Cliente) intentCliente.getSerializableExtra("clienteSegundaEdicao");
 
 //    sexo = clienteLogado.getSexo();
 
@@ -61,6 +69,15 @@ public class EditarDadosPessoaisActivity extends AppCompatActivity implements Ad
     //setando onClickListenner no botao de salvar
     btnSalvarDados.setOnClickListener(this);
 
+    //Formatando os campos da data de nascimento e cpf
+    SimpleMaskFormatter simpleMaskData = new SimpleMaskFormatter("NN/NN/NNNN");
+    MaskTextWatcher watcherDataNasciemnto = new MaskTextWatcher(editarDataNascimento,simpleMaskData);
+    editarDataNascimento.addTextChangedListener(watcherDataNasciemnto);
+
+    SimpleMaskFormatter simpleMaskCpf = new SimpleMaskFormatter("NNN.NNN.NNN-NN");
+    MaskTextWatcher watcherCpf = new MaskTextWatcher(editarCpf,simpleMaskCpf);
+    editarCpf.addTextChangedListener(watcherCpf);
+
 
     getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -71,21 +88,45 @@ public class EditarDadosPessoaisActivity extends AppCompatActivity implements Ad
   protected void onResume() {
     super.onResume();
 
-    if(clienteLogado.getNome() != null){
-     editarNome.setText(clienteLogado.getNome());
-     editarSobrenome.setText(clienteLogado.getSobrenome());
-     editarDataNascimento.setText(clienteLogado.getDataNascimento());
-     editarCpf.setText(clienteLogado.getCpf());
-     if(clienteLogado.getSexo().equals("F")){
-       editarSexo.setSelection(1);
+    if(clienteLogado!=null){
 
-     }else if(clienteLogado.getSexo().equals("M")){
-       editarSexo.setSelection(2);
+      if(clienteLogado.getNome() != null){
 
-     }else if(clienteLogado.getSexo().equals("0")){
-       editarSexo.setSelection(3);
+        editarNome.setText(clienteLogado.getNome());
+        editarSobrenome.setText(clienteLogado.getSobrenome());
+        editarDataNascimento.setText(clienteLogado.getDataNascimento());
+        editarCpf.setText(clienteLogado.getCpf());
+        if(clienteLogado.getSexo().equals("F")){
+          editarSexo.setSelection(1);
 
-     }
+        }else if(clienteLogado.getSexo().equals("M")){
+          editarSexo.setSelection(2);
+
+        }else if(clienteLogado.getSexo().equals("0")){
+          editarSexo.setSelection(3);
+        }
+      }
+
+    }else if(clienteSegundaEdicao!=null){
+
+      if(clienteSegundaEdicao.getIdCliente()!=null){
+
+        editarNome.setText(clienteSegundaEdicao.getNome());
+        editarSobrenome.setText(clienteSegundaEdicao.getSobrenome());
+        editarDataNascimento.setText(clienteSegundaEdicao.getDataNascimento());
+        editarCpf.setText(clienteSegundaEdicao.getCpf());
+
+        if(clienteSegundaEdicao.getSexo().equals("F")){
+          editarSexo.setSelection(1);
+
+        }else if(clienteSegundaEdicao.getSexo().equals("M")){
+          editarSexo.setSelection(2);
+
+        }else if(clienteSegundaEdicao.getSexo().equals("0")){
+          editarSexo.setSelection(3);
+
+        }
+      }
     }
 
   }
@@ -126,21 +167,48 @@ public class EditarDadosPessoaisActivity extends AppCompatActivity implements Ad
 
     switch (v.getId()){
       case R.id.btn_salvar_dados_pessoais:
-        Cliente clienteParaEditar = new Cliente();
-        clienteParaEditar.setIdCliente(clienteLogado.getIdCliente());
-        clienteParaEditar.setNome(editarNome.getText().toString());
-        clienteParaEditar.setSobrenome(editarSobrenome.getText().toString());
-        clienteParaEditar.setDataNascimento(editarDataNascimento.getText().toString());
-        clienteParaEditar.setCpf(editarCpf.getText().toString());
-        clienteParaEditar.setSexo(sexo);
-        clienteParaEditar.setSenha(clienteLogado.getSenha());
-        clienteParaEditar.setEmail(clienteLogado.getEmail());
-        clienteParaEditar.setIdEndereco(clienteLogado.getIdEndereco());
-        clienteParaEditar.setCelular(clienteLogado.getCelular());
+
+        if(clienteLogado!=null){
+
+            if(clienteLogado.getIdCliente()!=null){
+
+              clienteParaEditar = new Cliente();
+              clienteParaEditar.setIdCliente(clienteLogado.getIdCliente());
+              clienteParaEditar.setNome(editarNome.getText().toString());
+              clienteParaEditar.setSobrenome(editarSobrenome.getText().toString());
+              clienteParaEditar.setDataNascimento(editarDataNascimento.getText().toString());
+              clienteParaEditar.setCpf(editarCpf.getText().toString());
+              clienteParaEditar.setSexo(sexo);
+              clienteParaEditar.setSenha(clienteLogado.getSenha());
+              clienteParaEditar.setEmail(clienteLogado.getEmail());
+              clienteParaEditar.setIdEndereco(clienteLogado.getIdEndereco());
+              clienteParaEditar.setCelular(clienteLogado.getCelular());
+            }
+        }else if(clienteSegundaEdicao!=null){
+
+            if(clienteSegundaEdicao.getIdCliente()!=null){
+              clienteParaEditar = new Cliente();
+              clienteParaEditar.setIdCliente(clienteSegundaEdicao.getIdCliente());
+              clienteParaEditar.setNome(editarNome.getText().toString());
+              clienteParaEditar.setSobrenome(editarSobrenome.getText().toString());
+              clienteParaEditar.setDataNascimento(editarDataNascimento.getText().toString());
+              clienteParaEditar.setCpf(editarCpf.getText().toString());
+              clienteParaEditar.setSexo(sexo);
+              clienteParaEditar.setSenha(clienteSegundaEdicao.getSenha());
+              clienteParaEditar.setEmail(clienteSegundaEdicao.getEmail());
+              clienteParaEditar.setIdEndereco(clienteSegundaEdicao.getIdEndereco());
+              clienteParaEditar.setCelular(clienteSegundaEdicao.getCelular());
+
+
+
+            }
+        }
+
+
 
 //        Toast.makeText(EditarDadosPessoaisActivity.this,"o sexo é" + clienteParaEditar.getSexo(),Toast.LENGTH_LONG).show();
 
-        TaskEditarDadosPessoais taskEditarDadosPessoais = new TaskEditarDadosPessoais(clienteParaEditar);
+        TaskEditarDadosPessoais taskEditarDadosPessoais = new TaskEditarDadosPessoais(clienteParaEditar,MainActivity.TOKEN);
         taskEditarDadosPessoais.execute();
 
         try {
@@ -149,6 +217,7 @@ public class EditarDadosPessoaisActivity extends AppCompatActivity implements Ad
           if(clienteEditadoComSucesso.getIdCliente()!=null){
             Intent intentMain = new Intent(EditarDadosPessoaisActivity.this,MainActivity.class);
             intentMain.putExtra("clienteEditado",clienteEditadoComSucesso);
+            intentMain.putExtra("token",MainActivity.TOKEN);
             startActivity(intentMain);
           }else{
             Toast.makeText(EditarDadosPessoaisActivity.this,"Erro ao editar",Toast.LENGTH_LONG).show();
