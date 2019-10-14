@@ -1,0 +1,23 @@
+package lumicode.agendaja.api.model;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.Size;
+@Entity
+@Table(name = "tbl_funcionario")
+public class Funcionario {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long idFuncionario;
+	@Size(min = 3, max = 50, message = "Minimo de caracteres é 3")
+	private String Nome;
+	private String foto;
+	private String email;
+	private String senha;
+	
+	
+	
+}

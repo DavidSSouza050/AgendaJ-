@@ -15,7 +15,7 @@ import javax.validation.constraints.Size;
 public class Endereco {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long IdEndereco;
+	private Long idEndereco;
 	@NotNull
 	@Size(min = 5, max = 100, message = "O logradouro deve conter mais de 5 caracteres!")
 	private String logradouro;
@@ -36,13 +36,12 @@ public class Endereco {
 	private String atualizadoEm;
 	
 
-	
 	public Long getIdEndereco() {
-		return IdEndereco;
+		return idEndereco;
 	}
 
 	public void setIdEndereco(Long idEndereco) {
-		IdEndereco = idEndereco;
+		this.idEndereco = idEndereco;
 	}
 
 	public String getLogradouro() {

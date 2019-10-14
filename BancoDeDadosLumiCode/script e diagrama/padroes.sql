@@ -82,9 +82,8 @@ SELECT * FROM TBL_SALARIO;
 INSERT INTO tbl_salario values (1, 500.00, NULL, 1, NOW(), NOW() );
 desc tbl_funcionario;
 select * from tbl_funcionario;
-INSERT INTO tbl_funcionario values (1, 'Ivanildo', null, 'ivan_fera', '789456123', 1);
+INSERT INTO tbl_funcionario values (1, 'Ivanildo', null, 'ivan_fera', '789456123', 1, now(), now());
 
-desc tbl_horario;
 select * from tbl_horario;
 INSERT INTO tbl_horario_funcionario values(1, '8:30:00' , '17:00:00', '12:00:00', '13:00:00', 7, 1, now(), now());
 INSERT INTO tbl_horario_funcionario values(2, '8:30:00' , '17:00:00', '12:00:00', '13:00:00', 3, 1, now(), now());
@@ -99,8 +98,8 @@ INSERT INTO tbl_categoria_servico values (2, 'Corte Feminino');
 
 desc tbl_servico;
 SELECT * FROM TBL_SERVICO;
-INSERT INTO tbl_servico values(1, 35.00 ,'BABY BANGS', 1, 1, now(), now());
-INSERT INTO tbl_servico values(2, 20.00, 'SOCIAL', 1, 1, now(), now());
+INSERT INTO tbl_servico values(1, 'BABY BANGS', 35.00 , 30,  1, 2, now(), now());
+INSERT INTO tbl_servico values(2, 'SOCIAL', 20.00, 20, 1, 1, now(), now());
 
 desc tbl_funcionario_servico;
 select * from tbl_funcionario_servico;
@@ -140,7 +139,8 @@ SELECT e.nome_estabelecimento , s.servico, f.nome, s.preco, ds.dia_semana
 select * from  tbl_agendamento;
  desc tbl_agendamento;
 
-INSERT INTO tbl_agendamento values (1, 1, 1, 1, 1, 0, now(), now(), now());
+INSERT INTO tbl_agendamento values (1, 1, 1, 1, 1,  '2019-10-15 14:00:00',0, now(), now());
+UPDATE tbl_agendamento set id_servico = 2, atualizado_em = now() WHERE id_agendamento = 1;
 select * from tbl_agendamento;
 select * from tbl_cliente;
 select * from tbl_categoria_servico;
@@ -156,7 +156,12 @@ SELECT c.nome, e.nome_estabelecimento, ag.finalizado, f.nome, s.servico, s.preco
     ON s.id_servico = ag.id_servico JOIN tbl_categoria_servico as cs
     ON s.id_categoria_servico = cs.id_categoria_servico;
 
+desc tbl_horario_estabelecimento;
+select * FROM tbl_horario_estabelecimento;
+INSERT INTO tbl_horario_estabelecimento VALUES(1, '8:30:00', '20:00:00', 1, 3, now(), now());
+INSERT INTO tbl_horario_estabelecimento VALUES(2, '8:30:00', '20:00:00', 1, 4, now(), now());
+INSERT INTO tbl_horario_estabelecimento VALUES(3, '8:30:00', '20:00:00', 1, 5, now(), now());
+INSERT INTO tbl_horario_estabelecimento VALUES(4, '8:30:00', '20:00:00', 1, 6, now(), now());
+INSERT INTO tbl_horario_estabelecimento VALUES(5, '9:00:00', '17:00:00', 1, 7, now(), now());
 
-
-
-
+delete FROM tbl_horario_estabelecimento where id_horario_estabelecimento > 0;

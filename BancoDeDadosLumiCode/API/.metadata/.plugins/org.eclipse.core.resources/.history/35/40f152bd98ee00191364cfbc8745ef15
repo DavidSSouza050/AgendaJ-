@@ -1,0 +1,10 @@
+package lumicode.agendaja.api.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import lumicode.agendaja.api.resource.FuncionarioEstabelecimento;
+
+public interface FuncionarioEstabelecimentoRepository 
+	extends JpaRepository<FuncionarioEstabelecimento, Long>{
+
+}

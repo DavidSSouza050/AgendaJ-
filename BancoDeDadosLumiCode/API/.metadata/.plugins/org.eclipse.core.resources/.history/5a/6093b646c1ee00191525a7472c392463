@@ -1,0 +1,5 @@
+package lumicode.agendaja.api.resource;
+
+public class FuncionarioResource {
+
+}

@@ -40,7 +40,7 @@ public class JwtAuthenticationResource {
 	EstabelecimentoRepository estabelecimentoRepository;
 	
 	@PostMapping("/login/cliente")
-	public ResponseEntity<?> createAuthenticationTokenConsumidor(@RequestBody JWTRequest authenticationRequest) throws Exception {
+	public ResponseEntity<?> createAuthenticationTokenCliente(@RequestBody JWTRequest authenticationRequest) throws Exception {
 		final Cliente cliente = clienteRepository.entrar(authenticationRequest.getEmail(), authenticationRequest.getPassword());
 
 		if (cliente != null) {
@@ -53,7 +53,7 @@ public class JwtAuthenticationResource {
 	}
 	
 	@PostMapping("/login/estabelecimento")
-	public ResponseEntity<?> createAuthenticationTokenRestaurante(@RequestBody JWTRequest authenticationRequest) throws Exception {
+	public ResponseEntity<?> createAuthenticationTokenEstabelecimento(@RequestBody JWTRequest authenticationRequest) throws Exception {
 		final Estabelecimento estabelecimento = estabelecimentoRepository.loginEstabelecimento(authenticationRequest.getEmail(), authenticationRequest.getPassword());
 		
 		if (estabelecimento != null) {
