@@ -24,6 +24,7 @@ public class Funcionario {
 	private Salario salario;
 	private String criadoEm;
 	private String atualizadoEm;
+	private int status;
 	
 	public Long getIdFuncionario() {
 		return idFuncionario;
@@ -71,6 +72,14 @@ public class Funcionario {
 
 	public void setSalario(Salario salario) {
 		this.salario = salario;
+	}
+
+	public int getStatus() {
+		return status;
+	}
+
+	public void setStatus(int status) {
+		this.status = status;
 	}
 
 	public String getCriadoEm() {

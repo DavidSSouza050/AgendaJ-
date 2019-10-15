@@ -164,4 +164,14 @@ INSERT INTO tbl_horario_estabelecimento VALUES(3, '8:30:00', '20:00:00', 1, 5, n
 INSERT INTO tbl_horario_estabelecimento VALUES(4, '8:30:00', '20:00:00', 1, 6, now(), now());
 INSERT INTO tbl_horario_estabelecimento VALUES(5, '9:00:00', '17:00:00', 1, 7, now(), now());
 
-delete FROM tbl_horario_estabelecimento where id_horario_estabelecimento > 0;
+
+
+
+
+select * from tbl_tipo_salario;
+select * from tbl_salario;
+desc tbl_endereco;
+insert into tbl_salario values (2, 0, 50, 1, now(),now());
+
+select * from tbl_funcionario;
+INSERT INTO tbl_funcionario values (2, 'David', null, 'david@gmail.com', '123456789', 2, 1, now(), now());

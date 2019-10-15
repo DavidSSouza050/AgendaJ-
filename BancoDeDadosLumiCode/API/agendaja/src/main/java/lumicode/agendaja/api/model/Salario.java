@@ -8,6 +8,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+
 @Entity
 @Table(name = "tbl_salario")
 public class Salario {
@@ -15,7 +16,7 @@ public class Salario {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idSalario;
 	private float salario;
-	private int percentual;
+	private Integer percentual;
 	@ManyToOne
 	@JoinColumn(name = "id_tipo_salario")
 	private TipoSalario tipoSalario;
@@ -38,11 +39,13 @@ public class Salario {
 		this.salario = salario;
 	}
 
-	public int getPercentual() {
+	
+
+	public Integer getPercentual() {
 		return percentual;
 	}
 
-	public void setPercentual(int percentual) {
+	public void setPercentual(Integer percentual) {
 		this.percentual = percentual;
 	}
 
