@@ -82,7 +82,7 @@ SELECT * FROM TBL_SALARIO;
 INSERT INTO tbl_salario values (1, 500.00, NULL, 1, NOW(), NOW() );
 desc tbl_funcionario;
 select * from tbl_funcionario;
-INSERT INTO tbl_funcionario values (1, 'Ivanildo', null, 'ivan_fera', '789456123', 1, now(), now());
+INSERT INTO tbl_funcionario values (1, 'Ivanildo', null, 'ivan_fera', '789456123', 1, now(), now()777777777777777777777777777777777777777777777777777777777777777777777);
 
 select * from tbl_horario;
 INSERT INTO tbl_horario_funcionario values(1, '8:30:00' , '17:00:00', '12:00:00', '13:00:00', 7, 1, now(), now());
@@ -165,13 +165,26 @@ INSERT INTO tbl_horario_estabelecimento VALUES(4, '8:30:00', '20:00:00', 1, 6, n
 INSERT INTO tbl_horario_estabelecimento VALUES(5, '9:00:00', '17:00:00', 1, 7, now(), now());
 
 
+insert into tbl_cliente_servico values (1,1,1);
+insert into tbl_cliente_servico values (2,1,2);
 
-
-
-select * from tbl_tipo_salario;
+select * from tbl_cliente_servico;
 select * from tbl_salario;
+select * from tbl_agendamento;
 desc tbl_endereco;
 insert into tbl_salario values (2, 0, 50, 1, now(),now());
 
 select * from tbl_funcionario;
 INSERT INTO tbl_funcionario values (2, 'David', null, 'david@gmail.com', '123456789', 2, 1, now(), now());
+
+
+
+
+SELECT s.servico, cas.categoria_servico, c.nome, f.nome, e.nome_estabelecimento
+	From tbl_agendamento as a INNER JOIN tbl_cliente as c
+    ON a.id_cliente = c.id_cliente INNER JOIN tbl_cliente_servico as cs
+    ON cs.id_cliente = c.id_cliente INNER JOIN tbl_servico as s
+    ON cs.id_servico = s.id_servico INNER JOIN tbl_categoria_servico as cas
+    ON s.id_categoria_servico = cas.id_categoria_servico INNER JOIN tbl_funcionario as f
+    ON a.id_funcionario = f.id_funcionario INNER JOIN tbl_estabelecimento as e
+    ON a.id_estabelecimento = e.id_estabelecimento;

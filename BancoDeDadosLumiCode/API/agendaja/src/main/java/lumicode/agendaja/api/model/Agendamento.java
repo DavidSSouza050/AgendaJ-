@@ -1,5 +1,6 @@
 package lumicode.agendaja.api.model;
 
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,9 +16,6 @@ public class Agendamento {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idAgendamento;
 	@ManyToOne
-	@JoinColumn(name = "id_servico")
-	private Servico servico;
-	@ManyToOne
 	@JoinColumn(name = "id_cliente")
 	private Cliente cliente;
 	@ManyToOne
@@ -30,6 +28,8 @@ public class Agendamento {
 	private int finalizado;
 	private String criadoEm;
 	private String atualizadoEm;
+	
+	
 
 	public Long getIdAgendamento() {
 		return idAgendamento;
@@ -39,13 +39,6 @@ public class Agendamento {
 		this.idAgendamento = idAgendamento;
 	}
 
-	public Servico getServico() {
-		return servico;
-	}
-
-	public void setServico(Servico servico) {
-		this.servico = servico;
-	}
 
 	public Cliente getCliente() {
 		return cliente;
@@ -102,6 +95,8 @@ public class Agendamento {
 	public void setAtualizadoEm(String atualizadoEm) {
 		this.atualizadoEm = atualizadoEm;
 	}
+	
+	
 	
 	
 }

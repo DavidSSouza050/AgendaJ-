@@ -1,0 +1,84 @@
+package lumicode.agendaja.api.resource;
+
+import java.net.URI;
+import java.util.List;
+
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+
+import lumicode.agendaja.api.model.ClienteServico;
+import lumicode.agendaja.api.repository.ClienteServicoRepository;
+
+@RestController
+@RequestMapping("/clienteServico")
+@CrossOrigin(origins = "*")
+public class ClienteServicoResource {
+	@Autowired
+	private ClienteServicoRepository clienteServicoRepository;
+	
+	@GetMapping
+	private List<ClienteServico> getClienteServico(){
+		return clienteServicoRepository.findAll();
+	}
+	
+	
+	@GetMapping("/{id}")
+	private ClienteServico visualizarClienteServico(@PathVariable Long id) {
+		return clienteServicoRepository.findById(id).get();
+	}; 
+	
+	
+	// Cadastrando uma relação com Cliente e servico
+	@PostMapping
+	private ResponseEntity<?> salvarClienteServico(
+			@Validated @RequestBody ClienteServico clienteServico,
+		HttpServletResponse response){
+		
+		ClienteServico clienteServicoSalvo = clienteServicoRepository.save(clienteServico);
+			
+		//criando o cliente depois de salvo para retornar o json  
+		URI uri = ServletUriComponentsBuilder
+				  .fromCurrentRequest()
+				  .path("/{id}")
+				  .buildAndExpand(clienteServico.getIdClienteServico())
+				  .toUri();
+		//colocando no header o localização do cliente que está na uri
+		response.addHeader("Location", uri.toASCIIString());
+
+		//o cliente cadastrado ira ser retornado no body da resposta
+		return ResponseEntity.created(uri).body(clienteServicoSalvo);
+	
+	}
+	
+	
+
+	//atualizando o cliente
+	@PutMapping("/{id}")
+	private ResponseEntity<?> atualizarClienteServico(@RequestBody ClienteServico clienteServico,
+			@PathVariable Long id ){
+		
+		ClienteServico clienteServicoAtualizado = clienteServicoRepository.findById(id).get();
+		
+		BeanUtils.copyProperties(clienteServico, clienteServicoAtualizado, "id");
+	
+		clienteServicoRepository.save(clienteServico);
+		
+		return ResponseEntity.ok(clienteServicoAtualizado);
+	
+	}
+
+	
+}

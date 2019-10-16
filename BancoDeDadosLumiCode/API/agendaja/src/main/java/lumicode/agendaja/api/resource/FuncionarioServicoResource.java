@@ -67,7 +67,7 @@ public class FuncionarioServicoResource {
 
 	//atualizando o cliente
 	@PutMapping("/{id}")
-	private ResponseEntity<?> atualizarCliente(@RequestBody FuncionarioServico funcionarioServico,
+	private ResponseEntity<?> atualizarFuncionarioServico(@RequestBody FuncionarioServico funcionarioServico,
 			@PathVariable Long id ){
 		
 		FuncionarioServico clienteAtualizado = funcionarioServicoRepository.findById(id).get();
