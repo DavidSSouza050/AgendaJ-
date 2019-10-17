@@ -9,6 +9,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import lumicode.agendaja.api.model.dto.ClienteDTO;
+import lumicode.agendaja.api.model.dto.EstabelecimentoDTO;
+import lumicode.agendaja.api.model.dto.FuncionarioDTO;
+
 @Entity
 @Table(name = "tbl_agendamento")
 public class Agendamento {
@@ -17,13 +21,13 @@ public class Agendamento {
 	private Long idAgendamento;
 	@ManyToOne
 	@JoinColumn(name = "id_cliente")
-	private Cliente cliente;
+	private ClienteDTO cliente;
 	@ManyToOne
 	@JoinColumn(name = "id_funcionario")
-	private Funcionario funcionario;
+	private FuncionarioDTO funcionario;
 	@ManyToOne
 	@JoinColumn(name = "id_estabelecimento")
-	private Estabelecimento estabelecimento;
+	private EstabelecimentoDTO estabelecimento;
 	private String dataHorarioAgendado;
 	private int finalizado;
 	private String criadoEm;
@@ -40,27 +44,29 @@ public class Agendamento {
 	}
 
 
-	public Cliente getCliente() {
+	
+
+	public ClienteDTO getCliente() {
 		return cliente;
 	}
 
-	public void setCliente(Cliente cliente) {
+	public void setCliente(ClienteDTO cliente) {
 		this.cliente = cliente;
 	}
 
-	public Funcionario getFuncionario() {
+	public FuncionarioDTO getFuncionario() {
 		return funcionario;
 	}
 
-	public void setFuncionario(Funcionario funcionario) {
+	public void setFuncionario(FuncionarioDTO funcionario) {
 		this.funcionario = funcionario;
 	}
 
-	public Estabelecimento getEstabelecimento() {
+	public EstabelecimentoDTO getEstabelecimento() {
 		return estabelecimento;
 	}
 
-	public void setEstabelecimento(Estabelecimento estabelecimento) {
+	public void setEstabelecimento(EstabelecimentoDTO estabelecimento) {
 		this.estabelecimento = estabelecimento;
 	}
 

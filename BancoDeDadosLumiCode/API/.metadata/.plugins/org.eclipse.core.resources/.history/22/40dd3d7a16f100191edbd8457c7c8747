@@ -1,0 +1,24 @@
+package lumicode.agendaja.api.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+import lumicode.agendaja.api.model.Agendamento;
+import lumicode.agendaja.api.model.Servico;
+
+public interface AgendamentoRepository
+	extends JpaRepository<Agendamento, Long>{
+	
+	@Query("\r\n" + 
+			"SELECT s.servico, s.preco , cs.categoria_servico\r\n" + 
+			"	from tbl_agendamento as a INNER JOIN tbl_estabelecimento as e\r\n" + 
+			"    ON a.id_estabelecimento = e.id_estabelecimento INNER JOIN tbl_cliente as c\r\n" + 
+			"    ON a.id_cliente = c.id_cliente INNER JOIN tbl_funcionario as f\r\n" + 
+			"    ON a.id_funcionario = f.id_funcionario INNER JOIN tbl_agendamento_servico as ags\r\n" + 
+			"    ON a.id_agendamento = ags.id_agendamento INNER JOIN tbl_servico as s\r\n" + 
+			"    ON ags.id_servico = s.id_servico INNER JOIN tbl_categoria_servico as cs\r\n" + 
+			"    ON s.id_categoria_servico = cs.id_categoria_servico WHERE a.id_agendamento = ?1")
+	public Servico pegarServico(Long idAgendamento);
+	
+	
+}

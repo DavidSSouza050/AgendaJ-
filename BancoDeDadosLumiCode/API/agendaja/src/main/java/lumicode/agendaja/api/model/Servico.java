@@ -8,6 +8,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
+
+import lumicode.agendaja.api.model.dto.EstabelecimentoDTO;
 @Entity
 @Table(name = "tbl_servico")
 public class Servico {
@@ -21,7 +23,7 @@ public class Servico {
 	private int duracaoServico;
 	@ManyToOne
 	@JoinColumn(name = "id_estabelecimento")
-	private Estabelecimento estabelecimento;
+	private EstabelecimentoDTO estabelecimento;
 	@ManyToOne
 	@JoinColumn(name = "id_categoria_servico")
 	private CategoriaServico categoriaServico;
@@ -59,12 +61,12 @@ public class Servico {
 	public void setDuracaoServico(int duracaoServico) {
 		this.duracaoServico = duracaoServico;
 	}
-
-	public Estabelecimento getEstabelecimento() {
+	
+	public EstabelecimentoDTO getEstabelecimento() {
 		return estabelecimento;
 	}
 
-	public void setEstabelecimento(Estabelecimento estabelecimento) {
+	public void setEstabelecimento(EstabelecimentoDTO estabelecimento) {
 		this.estabelecimento = estabelecimento;
 	}
 

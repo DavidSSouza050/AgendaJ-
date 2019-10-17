@@ -20,4 +20,13 @@ public interface EstabelecimentoRepository
 	@Query("select e from Estabelecimento e where e.foto = ?1 and e.idEstabelecimento = ?2")
 	public Estabelecimento verificarImagem(String img, Long id);
 	
+	@Query("select e from Estabelecimento e where e.cnpj = ?1")
+	public Estabelecimento verificarCNJP(String cnpj);
+	
+	@Query("select e from Estabelecimento e where e.razaoSocial = ?1")
+	public Estabelecimento verificarRazaoSocial(String razaoSocial);
+	
+	@Query("select e from Estabelecimento e where e.nomeEstabelecimento = ?1")
+	public Estabelecimento verificarNomeEstebelecimento(String nomeEstabelecimento);
+	
 }

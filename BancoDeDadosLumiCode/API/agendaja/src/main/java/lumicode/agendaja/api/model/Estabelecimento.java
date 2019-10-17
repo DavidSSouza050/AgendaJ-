@@ -19,7 +19,7 @@ public class Estabelecimento {
 	@GeneratedValue(strategy = GenerationType.IDENTITY )
 	private Long idEstabelecimento;
 	@NonNull
-	@CNPJ
+	@CNPJ 
 	@Size(max = 20, message = "O CNPJ tem que conter 20 caracteres!")
 	private String cnpj;
 	@NonNull

@@ -20,7 +20,7 @@ public class Endereco {
 	@Size(min = 5, max = 100, message = "O logradouro deve conter mais de 5 caracteres!")
 	private String logradouro;
 	@NotNull
-	@Size(min = 5, max = 100, message = "O Bairro deve conter mais de 5 caracteres!")
+	@Size(min = 2 , max = 100, message = "O Bairro deve conter mais de 2 caracteres!")
 	private String bairro;
 	@NotNull
 	@Size(max = 8, message = "Digite o cep corretamente!")

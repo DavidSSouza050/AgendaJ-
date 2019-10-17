@@ -54,7 +54,7 @@ public class EstabelecimentoResource {
 		if( estabelecimentologado != null) {
 			return ResponseEntity.ok(estabelecimentologado);
 		}else {
-			return  new ResponseEntity<String>("{mensage: 'E-mail ou Senha incorreto'}",HttpStatus.BAD_REQUEST);
+			return  new ResponseEntity<String>("{\"mensage\": \"E-mail ou Senha incorreto\"}",HttpStatus.BAD_REQUEST);
 		}
 			
 	}
@@ -66,9 +66,23 @@ public class EstabelecimentoResource {
 	private ResponseEntity<?> salvarEstabelecimento(
 			@Validated @RequestBody Estabelecimento estabelecimento,
 		HttpServletResponse response){
-		if(estabelecimentoRepository.verificarEmail(estabelecimento.getEmail()) != null) {
-			return  new ResponseEntity<String>("{mensage: 'E-mail Já cadastrado'}",HttpStatus.BAD_REQUEST);
+		
+		if(estabelecimentoRepository.verificarEmail(estabelecimento.getEmail()) != null  ) {
+			return  new ResponseEntity<String>("{\"mensage\": \"E-mail Já cadastrado\"}",HttpStatus.BAD_REQUEST);
 		}
+		
+		if(estabelecimentoRepository.verificarCNJP(estabelecimento.getCnpj()) != null){
+			return  new ResponseEntity<String>("{\"mensage\": \"Cnpj Já cadastrado\"}",HttpStatus.BAD_REQUEST);
+		}
+		
+		if(estabelecimentoRepository.verificarRazaoSocial(estabelecimento.getRazaoSocial()) != null) {
+			return  new ResponseEntity<String>("{\"mensage\": \"Razão Social Já cadastrado\"}",HttpStatus.BAD_REQUEST);
+		}
+		
+		if(estabelecimentoRepository.verificarNomeEstebelecimento(estabelecimento.getNomeEstabelecimento()) != null) {
+			return  new ResponseEntity<String>("{\"mensage\": \"Nome Do Estabelecimeto Já Existente\"}",HttpStatus.BAD_REQUEST);
+		}
+		
 		try {
 			//setando data atual
 			ConverterDatas converterDatas = new ConverterDatas();
@@ -86,7 +100,7 @@ public class EstabelecimentoResource {
 			
 			return ResponseEntity.created(uri).body(estabelecimentoSalvo);
 		}catch (Exception e) {
-			return  new ResponseEntity<String>("{mensage: 'CNPJ ou Razão social já cadastrado e verefique o CNPJ'}",HttpStatus.BAD_REQUEST);
+			return  new ResponseEntity<String>("{\"mensage\": \"Não foi possivel cadastrar\"}",HttpStatus.BAD_REQUEST);
 		}
 		
 	}
