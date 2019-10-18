@@ -5,7 +5,7 @@
   <groupId>lumicode</groupId>
   <artifactId>agendaja</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <packaging>jar</packaging>
+  <packaging>jar</packaging> 
 
   <name>agendaja</name>
   <url>http://maven.apache.org</url>

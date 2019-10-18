@@ -94,7 +94,10 @@ public class AgendamentoResource {
 	}
 	
 	
-	
+	@GetMapping("/agendamento/{id}")
+	private Agendamento visualizar(@PathVariable Long id) {
+		return agendamentoRepository.pegarServico(id);
+	}
 	
 	
 	

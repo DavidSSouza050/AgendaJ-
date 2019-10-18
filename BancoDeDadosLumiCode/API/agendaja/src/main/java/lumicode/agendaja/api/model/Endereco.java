@@ -23,7 +23,7 @@ public class Endereco {
 	@Size(min = 2 , max = 100, message = "O Bairro deve conter mais de 2 caracteres!")
 	private String bairro;
 	@NotNull
-	@Size(max = 8, message = "Digite o cep corretamente!")
+	@Size(max = 9, message = "Digite o cep corretamente!")
 	private String cep;
 	private String numero;
 	@ManyToOne
