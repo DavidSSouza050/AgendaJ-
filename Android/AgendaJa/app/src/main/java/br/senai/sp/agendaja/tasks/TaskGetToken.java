@@ -20,14 +20,14 @@ import java.util.Scanner;
 import br.senai.sp.agendaja.MainActivity;
 import br.senai.sp.agendaja.modal.Cliente;
 
-public class TaskLoginCliente extends AsyncTask {
+public class TaskGetToken extends AsyncTask {
 
   private String email;
   private String senha;
   private String dados;
   private String token;
 
-  public TaskLoginCliente(String email, String senha) {
+  public TaskGetToken(String email, String senha) {
     this.email = email;
     this.senha = senha;
   }

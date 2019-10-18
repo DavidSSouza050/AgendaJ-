@@ -31,13 +31,6 @@ public class TaskEditarDadosPessoais extends AsyncTask {
   @Override
   protected Object doInBackground(Object[] objects) {
 
-//    String dataNascimentoEUA = clienteEditarDados.getDataNascimento();
-//    Log.d("DtnascimentoEUA ",clienteEditarDados.getDataNascimento());
-//    String dataNascimentoBR = dataNascimentoEUA.substring(7,8) + "/" + dataNascimentoEUA.substring(4,6) + "/" + dataNascimentoEUA.substring(0,3);
-//    Log.d("Dtnascimento convertida",dataNascimentoBR);
-//
-//    Log.d("Sexo cliente",clienteEditarDados.getSexo());
-
     try {
       JSONStringer jsCliente = new JSONStringer();
       jsCliente.object();
@@ -51,6 +44,7 @@ public class TaskEditarDadosPessoais extends AsyncTask {
       jsCliente.key("email").value(clienteEditarDados.getEmail());
       jsCliente.key("senha").value(clienteEditarDados.getSenha());
       jsCliente.key("endereco").object().key("idEndereco").value(clienteEditarDados.getIdEndereco()).endObject();
+      jsCliente.key("fotoCliente").value(clienteEditarDados.getFoto());
       jsCliente.endObject();
 
 
@@ -85,6 +79,7 @@ public class TaskEditarDadosPessoais extends AsyncTask {
       clienteEditado.setCelular(object.getString("celular"));
       clienteEditado.setEmail(object.getString("email"));
       clienteEditado.setSexo(object.getString("senha"));
+      clienteEditado.setFoto(object.getString("fotoCliente"));
       clienteEditado.setIdEndereco(Integer.valueOf(object.getJSONObject("endereco").getString("idEndereco")));
 
 

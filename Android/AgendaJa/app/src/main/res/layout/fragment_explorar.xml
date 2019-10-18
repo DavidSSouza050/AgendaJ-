@@ -18,7 +18,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:background="@color/colorRoxoMeioAzul"
-       >
+        >
 
         <EditText
             android:id="@+id/txt_procura_explorar"

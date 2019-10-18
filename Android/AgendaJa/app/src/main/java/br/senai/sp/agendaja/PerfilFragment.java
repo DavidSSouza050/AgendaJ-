@@ -34,9 +34,18 @@ import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URL;
 import java.security.Provider;
+import java.util.concurrent.ExecutionException;
 
+import br.senai.sp.agendaja.Paths.RealPathPhoto;
+import br.senai.sp.agendaja.Services.CadastroFoto;
 import br.senai.sp.agendaja.modal.Cliente;
+import br.senai.sp.agendaja.tasks.TaskLoginClienteToken;
 import de.hdodenhof.circleimageview.CircleImageView;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+import static android.app.Activity.RESULT_OK;
 
 public class PerfilFragment extends Fragment implements View.OnClickListener {
 
@@ -47,6 +56,9 @@ public class PerfilFragment extends Fragment implements View.OnClickListener {
   private TextView telefoneCliente;
   private Cliente clienteEditadoComSucesso;
   private RelativeLayout relativeSair;
+  private int GALERY_REQUEST = 10;
+  private String caminhoFoto;
+  private Call<Cliente> atualizarFoto;
 
   @Override
   public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -67,9 +79,11 @@ public class PerfilFragment extends Fragment implements View.OnClickListener {
   public void onActivityCreated(@Nullable Bundle savedInstanceState) {
     super.onActivityCreated(savedInstanceState);
 
+    Intent clientes = getActivity().getIntent();
+
 
     //instanciando os cliente do login e da edição
-    clienteLogado = (Cliente) getActivity().getIntent().getSerializableExtra("clienteLogado");
+    clienteLogado = (Cliente) clientes.getSerializableExtra("clienteLogado");
     clienteEditadoComSucesso = (Cliente) getActivity().getIntent().getSerializableExtra("clienteEditado");
 
 
@@ -80,7 +94,7 @@ public class PerfilFragment extends Fragment implements View.OnClickListener {
     telefoneCliente = getActivity().findViewById(R.id.text_telefone_perfil);
     relativeSair = getActivity().findViewById(R.id.caixa_sair_perfil);
 
-
+    // verificando se o cliente veio nulo
     if (clienteLogado != null && clienteLogado.getIdCliente() != null) {
       //colocando os dados do cliente nos campos
       nomeCompletoCliente.setText(clienteLogado.getNome() + " " + clienteLogado.getSobrenome());
@@ -105,6 +119,7 @@ public class PerfilFragment extends Fragment implements View.OnClickListener {
     //setando listenner nos relativelaytouts
     dadosPessoais.setOnClickListener(this);
     relativeSair.setOnClickListener(this);
+    imagemCliente.setOnClickListener(this);
   }
 
   @Override
@@ -115,7 +130,41 @@ public class PerfilFragment extends Fragment implements View.OnClickListener {
       clienteLogado =null;
       nomeCompletoCliente.setText(clienteEditadoComSucesso.getNome() + " " + clienteEditadoComSucesso.getSobrenome());
       telefoneCliente.setText(clienteEditadoComSucesso.getCelular());
+
+      URL url = null;
+      try {
+        url = new URL(MainActivity.IP_FOTO + clienteEditadoComSucesso.getFoto());
+
+        Picasso.get()
+             .load(String.valueOf(url))
+             .resize(100,100)
+             .into(imagemCliente);
+
+      } catch (MalformedURLException e) {
+        e.printStackTrace();
+      }
+
+    }else if (clienteLogado != null && clienteLogado.getIdCliente() != null) {
+      //colocando os dados do cliente nos campos
+      nomeCompletoCliente.setText(clienteLogado.getNome() + " " + clienteLogado.getSobrenome());
+      telefoneCliente.setText(clienteLogado.getCelular());
+
+
+      try {
+
+        URL url = new URL(MainActivity.IP_FOTO + clienteLogado.getFoto());
+
+        Picasso.get()
+             .load(String.valueOf(url))
+             .resize(100,100)
+             .into(imagemCliente);
+
+      } catch (MalformedURLException e) {
+        e.printStackTrace();
+      }
+
     }
+
 
   }
 
@@ -123,50 +172,104 @@ public class PerfilFragment extends Fragment implements View.OnClickListener {
   public void onClick(View v) {
     switch (v.getId()) {
       case R.id.caixa_dados_pessoais_perfil:
+
         Intent intent = new Intent(getContext(), EditarDadosPessoaisActivity.class);
         if (clienteLogado != null) {
-          intent.putExtra("clienteLogado", clienteLogado);
-        }else if(clienteEditadoComSucesso!=null){
+          intent.putExtra("clientePrimeiraEdicao", clienteLogado);
+        }
+        else if(clienteEditadoComSucesso!=null){
           intent.putExtra("clienteSegundaEdicao",clienteEditadoComSucesso);
         }
         startActivity(intent);
         break;
+
       case R.id.caixa_sair_perfil:
+
         Intent intentLogout = new Intent(getContext(), TipoLoginActivity.class);
         startActivity(intentLogout);
         getActivity().finish();
         break;
 
+      case R.id.img_foto_usuario_perfilFragment:
+
+        Intent intentGalery = new Intent();
+        intentGalery.setType("image/*");
+        intentGalery.setAction(Intent.ACTION_PICK);
+        startActivityForResult(intentGalery,GALERY_REQUEST);
+
+//        Toast.makeText(getContext(), MainActivity.IP_FOTO + clienteLogado.getFoto(), Toast.LENGTH_SHORT).show();
+
     }
   }
 
-//  private class CarregarImagem extends AsyncTask<URL,Void,Drawable>{
-//
-//    @Override
-//    protected Drawable doInBackground(URL... urls) {
-//      //pega a url passada pelo execute
-//      URL url = urls[0];
-//      InputStream content = null;
-//
-//      try {
-//        //pega o conteudo da resposta http
-//        content = (InputStream) url.getContent();
-//        //trasnforma o inputStream em Drawable
-//        Drawable drw = Drawable.createFromStream(content,"src");
-//        return drw;
-//      } catch (IOException e) {
-//        e.printStackTrace();
-//      }
-//      return null;
-//    }
-//    @Override
-//    protected void onPostExecute(Drawable drawable) {
-//      super.onPostExecute(drawable);
-//      //recebe o drawable e coloca no imageView
-//      imagemCliente.setImageDrawable(drawable);
-//      //esconde a progress bar
-////      viewHolder.progress.setVisibility(View.INVISIBLE);
-//    }
-//  }
+  @Override
+  public void onActivityResult(int requestCode, int resultCode, Intent data) {
+    super.onActivityResult(requestCode, resultCode, data);
 
+    if(resultCode==RESULT_OK){
+
+      if(requestCode==GALERY_REQUEST){
+        try {
+          InputStream inputStream = getActivity().getContentResolver().openInputStream(data.getData());
+
+          final Bitmap imagemBitmap = BitmapFactory.decodeStream(inputStream);
+
+          Uri imagemUri = data.getData();
+
+          RealPathPhoto realPathPhoto = new RealPathPhoto();
+
+          caminhoFoto = realPathPhoto.getRealPathFromUri(imagemUri,getContext());
+
+          //ATUALIZANDO A FOTO DO CLIENTE
+
+          CadastroFoto cadastroFoto = new CadastroFoto();
+
+          if(clienteLogado!=null && clienteLogado.getIdCliente()!=null){
+            atualizarFoto = cadastroFoto.CadastrarFoto(caminhoFoto,clienteLogado.getIdCliente());
+          }else if(clienteEditadoComSucesso!=null && clienteEditadoComSucesso.getIdCliente()!=null){
+            atualizarFoto = cadastroFoto.CadastrarFoto(caminhoFoto,clienteEditadoComSucesso.getIdCliente());
+          }
+
+
+          atualizarFoto.enqueue(new Callback<Cliente>() {
+            @Override
+            public void onResponse(Call<Cliente> call, Response<Cliente> response) {
+              if(response.isSuccessful()){
+                TaskLoginClienteToken loginClienteToken = new TaskLoginClienteToken(clienteLogado.getEmail(),clienteLogado.getSenha(),MainActivity.TOKEN);
+                loginClienteToken.execute();
+                clienteLogado = null;
+
+                try {
+                  if(loginClienteToken.get()!=null) {
+                    clienteLogado = (Cliente) loginClienteToken.get();
+                    imagemCliente.setImageBitmap(imagemBitmap);
+                    Log.d("Essa é a foto atu", clienteLogado.getFoto());
+                  }
+                } catch (ExecutionException e) {
+                  e.printStackTrace();
+                } catch (InterruptedException e) {
+                  e.printStackTrace();
+                }
+              }
+            }
+
+            @Override
+            public void onFailure(Call<Cliente> call, Throwable t) {
+                Toast.makeText(getContext(),"Erro ao atualizar foto",Toast.LENGTH_LONG).show();
+            }
+          });
+
+//          imagemCliente.setImageBitmap(imagemBitmap);
+
+
+        } catch (FileNotFoundException e) {
+          e.printStackTrace();
+        }
+      }
+
+
+
+    }
+
+  }
 }

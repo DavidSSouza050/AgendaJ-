@@ -1,12 +1,15 @@
 package br.senai.sp.agendaja;
 
+import android.content.Context;
 import android.content.Intent;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.github.rtoshiro.util.format.SimpleMaskFormatter;
@@ -20,6 +23,8 @@ import br.senai.sp.agendaja.modal.Endereco;
 import br.senai.sp.agendaja.modal.Informacao;
 import br.senai.sp.agendaja.tasks.TaskCadastrarCliente;
 import br.senai.sp.agendaja.tasks.TaskCadastrarEndereco;
+import br.senai.sp.agendaja.tasks.TaskGetToken;
+import br.senai.sp.agendaja.tasks.TaskLoginClienteToken;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -35,6 +40,8 @@ public class ContatoActivity extends AppCompatActivity implements View.OnClickLi
     private Endereco enderecoFinal;
     private Cliente clienteFinal;
     private Informacao infomacoesCliente;
+    private String token;
+    private ProgressBar progressCarregando;
 
 
     @Override
@@ -54,6 +61,7 @@ public class ContatoActivity extends AppCompatActivity implements View.OnClickLi
         confirmarSenha = findViewById(R.id.txt_confirmar_senha_contato);
         btnFinalizar = findViewById(R.id.btn_finalizar_contato);
         btnVoltar = findViewById(R.id.btn_voltar_contato);
+        progressCarregando = findViewById(R.id.pb_carregando_contato);
 
         btnFinalizar.setOnClickListener(this);
         btnVoltar.setOnClickListener(this);
@@ -94,37 +102,69 @@ public class ContatoActivity extends AppCompatActivity implements View.OnClickLi
                             TaskCadastrarCliente taskCadastrarCliente = new TaskCadastrarCliente(clienteFinal,respostaCadastroEndereco);
                             taskCadastrarCliente.execute();
 
-                            Cliente respostaCadastroCliente = (Cliente) taskCadastrarCliente.get();
+                            final Cliente respostaCadastroCliente = (Cliente) taskCadastrarCliente.get();
                             if(respostaCadastroCliente.getIdCliente()!=null){
 
-                              //Toast.makeText(ContatoActivity.this,clienteFinal.getFoto(),Toast.LENGTH_LONG).show();
+                                TaskGetToken getToken = new TaskGetToken(respostaCadastroCliente.getEmail(),respostaCadastroCliente.getSenha());
+                                getToken.execute();
 
+                                if(getToken.get()!=null){
+                                    token = (String) getToken.get();
+                                }else{
+                                    token = null;
+                                }
 
                                 //EM FASE DE MELHORAS.
                                 //cadastrando a foto do cliente
                                 CadastroFoto cadastroFoto = new CadastroFoto();
-                                Call<Cliente> verificacao = cadastroFoto.CadastrarFoto(clienteFinal.getFoto(),respostaCadastroCliente.getIdCliente());
+                                final Call<Cliente> verificacao = cadastroFoto.CadastrarFoto(clienteFinal.getFoto(),respostaCadastroCliente.getIdCliente());
 
-                                verificacao.enqueue(new Callback<Cliente>() {
+                                exibirProgress(true);
+
+                                Handler handler = new Handler();
+
+                                handler.postDelayed(new Runnable() {
                                     @Override
-                                    public void onResponse(Call<Cliente> call, Response<Cliente> response) {
-                                        if(response.isSuccessful()){
-                                           Intent intent = new Intent(ContatoActivity.this,MainActivity.class);
-                                           startActivity(intent);
-                                        }
+                                    public void run() {
+                                        verificacao.enqueue(new Callback<Cliente>() {
+                                            @Override
+                                            public void onResponse(Call<Cliente> call, Response<Cliente> response) {
+                                                if(response.isSuccessful()){
+
+                                                    TaskLoginClienteToken loginClienteToken = new TaskLoginClienteToken(respostaCadastroCliente.getEmail(),respostaCadastroCliente.getSenha(),token);
+                                                    loginClienteToken.execute();
+
+                                                    try {
+
+                                                        Cliente clienteLogado = (Cliente) loginClienteToken.get();
+                                                        Intent intent = new Intent(ContatoActivity.this,MainActivity.class);
+                                                        intent.putExtra("clienteLogado",clienteLogado);
+                                                        intent.putExtra("token",token);
+                                                        startActivity(intent);
+                                                        finish();
+                                                        exibirProgress(false);
+
+                                                    } catch (ExecutionException e) {
+                                                        e.printStackTrace();
+                                                    } catch (InterruptedException e) {
+                                                        e.printStackTrace();
+                                                    }
+
+                                                }
+
+                                            }
+
+                                            @Override
+                                            public void onFailure(Call<Cliente> call, Throwable t) {
+                                                Toast.makeText(ContatoActivity.this,"Erro ao cadastrar foto",Toast.LENGTH_LONG).show();
+                                                Log.d("ERRO CADASTRO FOTO",t.getMessage());
+                                            }
+                                        });
 
                                     }
+                                },3000);
 
-                                    @Override
-                                    public void onFailure(Call<Cliente> call, Throwable t) {
-                                        Toast.makeText(ContatoActivity.this,"Erro ao cadastrar foto",Toast.LENGTH_LONG).show();
-                                        Log.d("ERRO CADASTRO FOTO",t.getMessage());
-                                    }
-                                });
 
-                                Intent intent = new Intent(this,MainActivity.class);
-                                intent.putExtra("clienteLogado",respostaCadastroCliente);
-                                startActivity(intent);
                             }
 
                         }else{
@@ -148,6 +188,10 @@ public class ContatoActivity extends AppCompatActivity implements View.OnClickLi
                 }
                 startActivity(intentVoltar);
         }
+    }
+
+    public void exibirProgress(Boolean resposta){
+        progressCarregando.setVisibility(resposta ? View.VISIBLE : View.GONE);
     }
 
     @Override

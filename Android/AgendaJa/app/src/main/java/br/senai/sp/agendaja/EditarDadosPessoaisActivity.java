@@ -43,7 +43,7 @@ public class EditarDadosPessoaisActivity extends AppCompatActivity implements Ad
 
     //Pegando Cliente enviado da fragment
     Intent intentCliente = getIntent();
-    clienteLogado = (Cliente) intentCliente.getSerializableExtra("clienteLogado");
+    clienteLogado = (Cliente) intentCliente.getSerializableExtra("clientePrimeiraEdicao");
 
     //Pegando Cliente para segunda edicao
     clienteSegundaEdicao = (Cliente) intentCliente.getSerializableExtra("clienteSegundaEdicao");
@@ -51,8 +51,8 @@ public class EditarDadosPessoaisActivity extends AppCompatActivity implements Ad
 //    sexo = clienteLogado.getSexo();
 
     //instanciando os campos
-    editarNome = findViewById(R.id.text_nome_contato_perfil);
-    editarSobrenome = findViewById(R.id.text_sobrenome_dados_pessoais);
+    editarNome = findViewById(R.id.text_contato_perfil);
+    editarSobrenome = findViewById(R.id.text_sobre_a_empresa_perfil);
     editarDataNascimento = findViewById(R.id.text_data_nascimento);
     editarCpf = findViewById(R.id.text_cpf_dados_pessoais);
     btnSalvarDados = findViewById(R.id.btn_salvar_dados_pessoais);
@@ -107,7 +107,9 @@ public class EditarDadosPessoaisActivity extends AppCompatActivity implements Ad
         }
       }
 
-    }else if(clienteSegundaEdicao!=null){
+    }
+
+    else if(clienteSegundaEdicao!=null){
 
       if(clienteSegundaEdicao.getIdCliente()!=null){
 
@@ -183,8 +185,11 @@ public class EditarDadosPessoaisActivity extends AppCompatActivity implements Ad
               clienteParaEditar.setEmail(clienteLogado.getEmail());
               clienteParaEditar.setIdEndereco(clienteLogado.getIdEndereco());
               clienteParaEditar.setCelular(clienteLogado.getCelular());
+              clienteParaEditar.setFoto(clienteLogado.getFoto());
             }
-        }else if(clienteSegundaEdicao!=null){
+        }
+
+        else if(clienteSegundaEdicao!=null){
 
             if(clienteSegundaEdicao.getIdCliente()!=null){
               clienteParaEditar = new Cliente();
@@ -198,8 +203,6 @@ public class EditarDadosPessoaisActivity extends AppCompatActivity implements Ad
               clienteParaEditar.setEmail(clienteSegundaEdicao.getEmail());
               clienteParaEditar.setIdEndereco(clienteSegundaEdicao.getIdEndereco());
               clienteParaEditar.setCelular(clienteSegundaEdicao.getCelular());
-
-
 
             }
         }
@@ -217,8 +220,10 @@ public class EditarDadosPessoaisActivity extends AppCompatActivity implements Ad
           if(clienteEditadoComSucesso.getIdCliente()!=null){
             Intent intentMain = new Intent(EditarDadosPessoaisActivity.this,MainActivity.class);
             intentMain.putExtra("clienteEditado",clienteEditadoComSucesso);
+           // intentMain.putExtra("clienteLogado",clienteEditadoComSucesso);
             intentMain.putExtra("token",MainActivity.TOKEN);
             startActivity(intentMain);
+            finish();
           }else{
             Toast.makeText(EditarDadosPessoaisActivity.this,"Erro ao editar",Toast.LENGTH_LONG).show();
           }

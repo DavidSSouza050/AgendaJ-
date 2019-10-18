@@ -13,12 +13,15 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import br.senai.sp.agendaja.modal.Cliente;
+
 public class MainActivity extends AppCompatActivity{
 
     private TextView dadosPessoais;
-    public static String  IP_SERVER  = "3.95.195.11:8080";
-    public static String IP_FOTO = "http://3.95.195.11/";
+    public static String  IP_SERVER  = "52.55.177.56:8080";
+    public static String IP_FOTO = "http://52.55.177.56/";
     public static String TOKEN;
+    public static Cliente clienteLogado;
 
     @SuppressLint("WrongViewCast")
     @Override
@@ -26,13 +29,23 @@ public class MainActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Intent getToken = getIntent();
+        Intent getTokenECliente = getIntent();
 
-        TOKEN = getToken.getStringExtra("token");
-        Log.d("Esse é o token",TOKEN);
+        if(getTokenECliente.getStringExtra("token")!=null) {
+
+            TOKEN = getTokenECliente.getStringExtra("token");
+            Log.d("Esse é o token", TOKEN);
+
+        }
 
 
-       // dadosPessoais = findViewById(R.id.text_dados_pessoais);
+        clienteLogado = (Cliente) getTokenECliente.getSerializableExtra("clienteLogado");
+
+        if(clienteLogado!=null && clienteLogado.getIdCliente()!=null) {
+
+            Log.d("Esse é o nome", clienteLogado.getNome());
+
+        }
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(navigationItemSelectedListener);
@@ -68,12 +81,4 @@ public class MainActivity extends AppCompatActivity{
                 }
             };
 
-//    @Override
-//    public void onClick(View v) {
-//        switch (v.getId()){
-//            case R.id.text_dados_pessoais:
-//                Intent intent = new Intent(MainActivity.this,EditarDadosPessoaisActivity.class);
-//                startActivity(intent);
-//        }
-//    }
 }

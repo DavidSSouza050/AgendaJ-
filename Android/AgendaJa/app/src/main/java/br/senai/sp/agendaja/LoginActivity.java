@@ -16,7 +16,7 @@ import android.widget.Toast;
 import java.util.concurrent.ExecutionException;
 
 import br.senai.sp.agendaja.modal.Cliente;
-import br.senai.sp.agendaja.tasks.TaskLoginCliente;
+import br.senai.sp.agendaja.tasks.TaskGetToken;
 import br.senai.sp.agendaja.tasks.TaskLoginClienteToken;
 
 
@@ -60,13 +60,17 @@ public class LoginActivity extends AppCompatActivity implements  View.OnClickLis
                 finish();
                 break;
             case R.id.btn_entrar_login:
-                TaskLoginCliente taskLoginCliente = new TaskLoginCliente(mEmailView.getText().toString(),mPasswordView.getText().toString());
-                taskLoginCliente.execute();
+
+                //BUSCANDO O TOKEN
+                TaskGetToken taskGetToken = new TaskGetToken(mEmailView.getText().toString(),mPasswordView.getText().toString());
+                taskGetToken.execute();
 
                 try {
-                    String token = (String) taskLoginCliente.get();
+                    //VERIFICANDO SE RETORNA NULO
+                    String token = (String) taskGetToken.get();
                     if(token!=null) {
 
+                        //LOGANDO COM TOKEN
                         TaskLoginClienteToken loginClienteToken = new TaskLoginClienteToken(mEmailView.getText().toString(),mPasswordView.getText().toString(),token);
                         loginClienteToken.execute();
 
@@ -75,6 +79,7 @@ public class LoginActivity extends AppCompatActivity implements  View.OnClickLis
                         if(clienteLogado.getIdCliente()!=null){
                             Intent intentMain = new Intent(LoginActivity.this,MainActivity.class);
                             intentMain.putExtra("clienteLogado",clienteLogado);
+                            intentMain.putExtra("token",token);
                             startActivity(intentMain);
                         }else{
                             Toast.makeText(LoginActivity.this,"Email ou senhas incorretos",Toast.LENGTH_LONG).show();

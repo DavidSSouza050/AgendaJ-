@@ -29,6 +29,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 
+import br.senai.sp.agendaja.Paths.RealPathPhoto;
 import br.senai.sp.agendaja.conversaoImagem.ConverterImagem;
 import br.senai.sp.agendaja.modal.Cliente;
 import br.senai.sp.agendaja.modal.Endereco;
@@ -210,7 +211,9 @@ public class DadosPessoaisActivity extends AppCompatActivity implements View.OnC
 
                     Uri imagemUri = data.getData();
 
-                    imagePath = getRealPathFromUri(imagemUri);
+                    RealPathPhoto realPathPhoto = new RealPathPhoto();
+
+                    imagePath = realPathPhoto.getRealPathFromUri(imagemUri,DadosPessoaisActivity.this);
 
                 }else if(requestCode == CAMERA_REQUEST){
 
@@ -228,11 +231,6 @@ public class DadosPessoaisActivity extends AppCompatActivity implements View.OnC
 
     }
 
-
-//    public String retornarCaminho(Uri uri){
-//
-//    }
-
     public boolean validar(){
         Boolean validacao = true;
 
@@ -249,16 +247,6 @@ public class DadosPessoaisActivity extends AppCompatActivity implements View.OnC
         return validacao;
     }
 
-    private String getRealPathFromUri(Uri uri){
-        String[] projection = {MediaStore.Images.Media.DATA};
-        CursorLoader loader = new CursorLoader(getApplicationContext(), uri, projection, null, null, null);
-        Cursor cursor = loader.loadInBackground();
-        int columnIdx = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
-        cursor.moveToFirst();
-        String result = cursor.getString(columnIdx);
-        cursor.close();
-        return result;
-    }
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
