@@ -1,0 +1,13 @@
+package lumicode.agendaja.api.repository;
+
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import lumicode.agendaja.api.model.Endereco;
+import lumicode.agendaja.api.model.EnderecoEstabelecimento;
+
+
+public class EnderecoEstabelecimentoRepository 
+	extends JpaRepository<EnderecoEstabelecimento, Long>{
+
+}

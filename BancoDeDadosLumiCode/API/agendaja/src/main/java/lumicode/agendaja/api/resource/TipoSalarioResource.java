@@ -13,7 +13,7 @@ import lumicode.agendaja.api.model.TipoSalario;
 import lumicode.agendaja.api.repository.TipoSalarioRepository;
 
 @RestController
-@RequestMapping("/tipoSalario")
+@RequestMapping("/tiposSalarios")
 @CrossOrigin(origins = "*")
 public class TipoSalarioResource {
 	@Autowired

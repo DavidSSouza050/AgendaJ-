@@ -24,7 +24,7 @@ import lumicode.agendaja.api.repository.ServicoRepository;
 import lumicode.agendaja.api.utils.ConverterDatas;
 
 @RestController
-@RequestMapping("/servico")
+@RequestMapping("/servicos")
 @CrossOrigin(origins = "http://localhost:3000")
 public class ServicoResource {
 	@Autowired

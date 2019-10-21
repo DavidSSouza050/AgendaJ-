@@ -24,7 +24,7 @@ import lumicode.agendaja.api.repository.HorarioFuncionarioRepository;
 import lumicode.agendaja.api.utils.ConverterDatas;
 
 @RestController
-@RequestMapping("/horarioFuncionario")
+@RequestMapping("/horariosFuncionarios")
 @CrossOrigin(origins = "*")
 public class HorarioFuncionarioResource {
 	@Autowired

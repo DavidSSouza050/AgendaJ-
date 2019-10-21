@@ -9154,3 +9154,218 @@ org.eclipse.core.runtime.CoreException: Could not resolve artifact org.springfra
 2019-10-18 15:49:21,959 [Worker-70: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\18175740\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\resources
 2019-10-18 15:49:21,966 [Worker-70: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2019-10-18 15:49:21,972 [Worker-70: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\18175740\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\test\resources
+2019-10-19 17:26:19,402 [Worker-0: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2019-10-19 17:27:21,098 [Worker-9: Building workspace] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: lumicode:agendaja:0.0.1-SNAPSHOT @ C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\pom.xml.
+2019-10-19 17:27:21,098 [Worker-10: Updating Maven Dependencies] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: lumicode:agendaja:0.0.1-SNAPSHOT @ C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\pom.xml.
+2019-10-19 17:27:58,660 [Worker-9: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 17:27:58,661 [Worker-9: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\resources
+2019-10-19 17:27:58,668 [Worker-9: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 17:27:58,669 [Worker-9: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\test\resources
+2019-10-19 17:28:12,941 [Worker-12: Updating Maven Dependencies] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: lumicode:agendaja:0.0.1-SNAPSHOT @ C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\pom.xml.
+2019-10-19 17:28:20,187 [Worker-4: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 17:28:20,188 [Worker-4: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\resources
+2019-10-19 17:28:20,191 [Worker-4: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 17:28:20,192 [Worker-4: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\test\resources
+2019-10-19 17:28:25,162 [Worker-2: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 17:28:25,163 [Worker-2: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\resources
+2019-10-19 17:28:25,167 [Worker-2: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 17:28:25,168 [Worker-2: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\test\resources
+2019-10-19 17:29:15,397 [Worker-5: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 17:29:15,398 [Worker-5: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\resources
+2019-10-19 17:29:15,400 [Worker-5: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 17:29:15,400 [Worker-5: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\test\resources
+2019-10-19 17:30:38,766 [Worker-4: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 17:30:38,928 [Worker-4: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\resources
+2019-10-19 17:30:39,032 [Worker-4: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 17:30:39,169 [Worker-4: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\test\resources
+2019-10-19 17:31:02,537 [Worker-9: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 17:31:02,641 [Worker-9: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\resources
+2019-10-19 17:31:02,671 [Worker-9: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 17:31:02,777 [Worker-9: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\test\resources
+2019-10-19 17:31:34,763 [Worker-11: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 17:31:34,764 [Worker-11: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\resources
+2019-10-19 17:31:34,799 [Worker-11: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 17:31:34,872 [Worker-11: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\test\resources
+2019-10-19 17:38:10,213 [Worker-8: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 17:38:10,214 [Worker-8: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\resources
+2019-10-19 17:38:10,219 [Worker-8: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 17:38:10,219 [Worker-8: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\test\resources
+2019-10-19 17:38:58,850 [Worker-2: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 17:38:58,937 [Worker-2: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\resources
+2019-10-19 17:38:58,979 [Worker-2: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 17:38:58,979 [Worker-2: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\test\resources
+2019-10-19 17:41:37,266 [Worker-2: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 17:41:37,266 [Worker-2: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\resources
+2019-10-19 17:41:37,270 [Worker-2: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 17:41:37,270 [Worker-2: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\test\resources
+2019-10-19 17:42:11,173 [Worker-15: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 17:42:11,302 [Worker-15: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\resources
+2019-10-19 17:42:11,398 [Worker-15: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 17:42:11,450 [Worker-15: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\test\resources
+2019-10-19 17:42:38,308 [Worker-11: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 17:42:38,308 [Worker-11: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\resources
+2019-10-19 17:42:38,310 [Worker-11: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 17:42:38,310 [Worker-11: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\test\resources
+2019-10-19 17:45:15,323 [Worker-8: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 17:45:15,374 [Worker-8: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\resources
+2019-10-19 17:45:15,387 [Worker-8: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 17:45:15,388 [Worker-8: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\test\resources
+2019-10-19 17:45:46,638 [Worker-14: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 17:45:46,638 [Worker-14: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\resources
+2019-10-19 17:45:46,641 [Worker-14: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 17:45:46,642 [Worker-14: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\test\resources
+2019-10-19 17:47:10,205 [Worker-5: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 17:47:10,360 [Worker-5: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\resources
+2019-10-19 17:47:10,438 [Worker-5: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 17:47:10,457 [Worker-5: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\test\resources
+2019-10-19 17:49:57,564 [Worker-13: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 17:49:57,565 [Worker-13: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\resources
+2019-10-19 17:49:57,568 [Worker-13: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 17:49:57,568 [Worker-13: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\test\resources
+2019-10-19 17:50:42,643 [Worker-11: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 17:50:42,692 [Worker-11: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\resources
+2019-10-19 17:50:42,712 [Worker-11: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 17:50:42,712 [Worker-11: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\test\resources
+2019-10-19 17:51:37,153 [Worker-14: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 17:51:37,154 [Worker-14: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\resources
+2019-10-19 17:51:37,157 [Worker-14: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 17:51:37,157 [Worker-14: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\test\resources
+2019-10-19 17:52:00,567 [Worker-5: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 17:52:00,595 [Worker-5: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\resources
+2019-10-19 17:52:00,609 [Worker-5: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 17:52:00,609 [Worker-5: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\test\resources
+2019-10-19 17:52:40,729 [Worker-5: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 17:52:40,729 [Worker-5: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\resources
+2019-10-19 17:52:40,731 [Worker-5: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 17:52:40,731 [Worker-5: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\test\resources
+2019-10-19 17:53:05,122 [Worker-14: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 17:53:05,506 [Worker-14: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\resources
+2019-10-19 17:53:05,698 [Worker-14: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 17:53:05,851 [Worker-14: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\test\resources
+2019-10-19 17:53:44,004 [Worker-11: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 17:53:44,127 [Worker-11: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\resources
+2019-10-19 17:53:44,175 [Worker-11: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 17:53:44,324 [Worker-11: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\test\resources
+2019-10-19 17:54:01,390 [Worker-11: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 17:54:01,390 [Worker-11: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\resources
+2019-10-19 17:54:01,497 [Worker-11: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 17:54:01,515 [Worker-11: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\test\resources
+2019-10-19 17:59:45,181 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 17:59:45,182 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\resources
+2019-10-19 17:59:45,299 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 17:59:45,313 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\test\resources
+2019-10-19 18:16:19,912 [Worker-16: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 18:16:19,913 [Worker-16: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\resources
+2019-10-19 18:16:20,010 [Worker-16: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 18:16:20,064 [Worker-16: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\test\resources
+2019-10-19 18:16:36,698 [Worker-13: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 18:16:36,699 [Worker-13: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\resources
+2019-10-19 18:16:36,700 [Worker-13: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 18:16:36,701 [Worker-13: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\test\resources
+2019-10-19 18:17:26,534 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 18:17:26,588 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\resources
+2019-10-19 18:17:26,701 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 18:17:26,701 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\test\resources
+2019-10-19 18:25:21,621 [Worker-17: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 18:25:21,622 [Worker-17: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\resources
+2019-10-19 18:25:21,684 [Worker-17: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 18:25:21,739 [Worker-17: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\test\resources
+2019-10-19 18:25:28,212 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 18:25:28,213 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\resources
+2019-10-19 18:25:28,253 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 18:25:28,253 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\test\resources
+2019-10-19 18:28:03,090 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 18:28:03,265 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\resources
+2019-10-19 18:28:03,279 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 18:28:03,291 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\test\resources
+2019-10-19 19:06:07,575 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 19:06:07,589 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\resources
+2019-10-19 19:06:07,591 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 19:06:07,592 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\test\resources
+2019-10-19 19:06:15,244 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 19:06:15,325 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\resources
+2019-10-19 19:06:15,370 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 19:06:15,370 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\test\resources
+2019-10-19 19:07:21,396 [Worker-28: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 19:07:21,398 [Worker-28: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\resources
+2019-10-19 19:07:21,400 [Worker-28: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 19:07:21,401 [Worker-28: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\test\resources
+2019-10-19 19:18:09,380 [Worker-31: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 19:18:09,508 [Worker-31: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\resources
+2019-10-19 19:18:09,520 [Worker-31: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 19:18:09,532 [Worker-31: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\test\resources
+2019-10-19 19:18:12,994 [Worker-32: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 19:18:12,994 [Worker-32: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\resources
+2019-10-19 19:18:12,995 [Worker-32: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 19:18:12,996 [Worker-32: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\test\resources
+2019-10-19 20:02:41,909 [Worker-50: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 20:02:41,943 [Worker-50: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\resources
+2019-10-19 20:02:42,059 [Worker-50: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 20:02:42,059 [Worker-50: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\test\resources
+2019-10-19 20:07:50,725 [Worker-47: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 20:07:50,726 [Worker-47: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\resources
+2019-10-19 20:07:50,773 [Worker-47: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 20:07:50,786 [Worker-47: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\test\resources
+2019-10-19 20:10:46,536 [Worker-51: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 20:10:46,537 [Worker-51: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\resources
+2019-10-19 20:10:46,539 [Worker-51: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 20:10:46,539 [Worker-51: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\test\resources
+2019-10-19 20:11:48,377 [Worker-51: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 20:11:48,558 [Worker-51: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\resources
+2019-10-19 20:11:48,670 [Worker-51: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 20:11:48,688 [Worker-51: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\test\resources
+2019-10-19 20:18:57,621 [Worker-56: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 20:18:57,621 [Worker-56: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\resources
+2019-10-19 20:18:57,775 [Worker-56: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 20:18:57,793 [Worker-56: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\test\resources
+2019-10-19 20:23:18,589 [Worker-58: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 20:23:18,589 [Worker-58: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\resources
+2019-10-19 20:23:18,648 [Worker-58: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 20:23:18,659 [Worker-58: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\test\resources
+2019-10-19 20:23:54,116 [Worker-59: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 20:23:54,117 [Worker-59: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\resources
+2019-10-19 20:23:54,119 [Worker-59: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 20:23:54,119 [Worker-59: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\test\resources
+2019-10-19 20:32:17,329 [Worker-55: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 20:32:17,586 [Worker-55: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\resources
+2019-10-19 20:32:17,704 [Worker-55: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 20:32:17,713 [Worker-55: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\test\resources
+2019-10-19 20:48:03,894 [Worker-69: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 20:48:04,323 [Worker-69: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\resources
+2019-10-19 20:48:05,187 [Worker-69: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 20:48:05,226 [Worker-69: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\test\resources
+2019-10-19 20:53:11,218 [Worker-71: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 20:53:11,219 [Worker-71: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\resources
+2019-10-19 20:53:11,360 [Worker-71: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 20:53:11,394 [Worker-71: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\test\resources
+2019-10-19 20:54:28,782 [Worker-66: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 20:54:28,783 [Worker-66: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\resources
+2019-10-19 20:54:28,985 [Worker-66: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 20:54:29,037 [Worker-66: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\test\resources
+2019-10-19 20:55:35,451 [Worker-71: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 20:55:35,452 [Worker-71: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\resources
+2019-10-19 20:55:35,517 [Worker-71: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 20:55:35,526 [Worker-71: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\test\resources
+2019-10-19 20:58:06,579 [Worker-72: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 20:58:06,580 [Worker-72: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\resources
+2019-10-19 20:58:06,581 [Worker-72: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 20:58:06,582 [Worker-72: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\test\resources
+2019-10-19 21:01:34,070 [Worker-75: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 21:01:34,731 [Worker-75: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\resources
+2019-10-19 21:01:34,795 [Worker-75: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 21:01:34,809 [Worker-75: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\test\resources
+2019-10-19 21:07:44,059 [Worker-1: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2019-10-19 21:09:21,785 [main] INFO  o.e.m2e.actions.ExecutePomAction - Creating new launch configuration
+2019-10-19 21:09:42,452 [Worker-14: Launching agendaja (22)] INFO  o.e.m.i.launch.MavenLaunchDelegate - C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja
+2019-10-19 21:09:42,454 [Worker-14: Launching agendaja (22)] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -B package
+2019-10-19 21:11:40,579 [Worker-11: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 21:11:40,580 [Worker-11: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\resources
+2019-10-19 21:11:40,585 [Worker-11: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 21:11:40,586 [Worker-11: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\test\resources
+2019-10-19 21:12:09,664 [main] INFO  o.e.m2e.actions.ExecutePomAction - Creating new launch configuration
+2019-10-19 21:12:17,581 [Worker-13: Rebuilding] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 21:12:17,581 [Worker-13: Rebuilding] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\resources
+2019-10-19 21:12:17,587 [Worker-13: Rebuilding] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-19 21:12:17,589 [Worker-13: Rebuilding] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\test\resources
+2019-10-19 21:12:24,482 [Worker-2: Launching agendaja (22)] INFO  o.e.m.i.launch.MavenLaunchDelegate - C:\Users\David\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja
+2019-10-19 21:12:24,482 [Worker-2: Launching agendaja (22)] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -B package

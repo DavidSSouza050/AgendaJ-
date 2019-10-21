@@ -24,7 +24,7 @@ import lumicode.agendaja.api.repository.EnderecoRepository;
 import lumicode.agendaja.api.utils.ConverterDatas;
 
 @RestController
-@RequestMapping("/endereco")
+@RequestMapping("/enderecos")
 public class EnderecoResource {
 	@Autowired
 	private EnderecoRepository enderecoRepository;
@@ -79,7 +79,7 @@ public class EnderecoResource {
 		//*****
 		BeanUtils.copyProperties(endereco, enderecoAtualizado, "id");
 		
-		enderecoRepository.save(endereco);
+		enderecoRepository.save(enderecoAtualizado);
 		
 		return ResponseEntity.ok(enderecoAtualizado);
 		

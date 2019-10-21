@@ -24,7 +24,7 @@ import lumicode.agendaja.api.repository.AgendamentoRepository;
 import lumicode.agendaja.api.utils.ConverterDatas;
 
 @RestController
-@RequestMapping("/agendamento")
+@RequestMapping("/agendamentos")
 @CrossOrigin(origins = "*")
 public class AgendamentoResource {
 	@Autowired

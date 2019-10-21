@@ -24,7 +24,6 @@ DROP TABLE IF EXISTS `tbl_agendamento`;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `tbl_agendamento` (
   `id_agendamento` int(11) NOT NULL AUTO_INCREMENT,
-  `id_servico` int(11) NOT NULL,
   `id_cliente` int(11) NOT NULL,
   `id_funcionario` int(11) NOT NULL,
   `id_estabelecimento` int(11) NOT NULL,
@@ -33,14 +32,12 @@ CREATE TABLE `tbl_agendamento` (
   `criado_em` datetime DEFAULT NULL,
   `atualizado_em` datetime DEFAULT NULL,
   PRIMARY KEY (`id_agendamento`),
-  KEY `fk_agendamento_servico_idx` (`id_servico`),
   KEY `fk_agendamento_cliente_idx` (`id_cliente`),
   KEY `fk_agendamento_funcionario_idx` (`id_funcionario`),
   KEY `fk_agendamento_estabelecimento_idx` (`id_estabelecimento`),
   CONSTRAINT `fk_agendamento_cliente` FOREIGN KEY (`id_cliente`) REFERENCES `tbl_cliente` (`id_cliente`),
   CONSTRAINT `fk_agendamento_estabelecimento` FOREIGN KEY (`id_estabelecimento`) REFERENCES `tbl_estabelecimento` (`id_estabelecimento`),
-  CONSTRAINT `fk_agendamento_funcionario` FOREIGN KEY (`id_funcionario`) REFERENCES `tbl_funcionario` (`id_funcionario`),
-  CONSTRAINT `fk_agendamento_servico` FOREIGN KEY (`id_servico`) REFERENCES `tbl_servico` (`id_servico`)
+  CONSTRAINT `fk_agendamento_funcionario` FOREIGN KEY (`id_funcionario`) REFERENCES `tbl_funcionario` (`id_funcionario`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -50,8 +47,37 @@ CREATE TABLE `tbl_agendamento` (
 
 LOCK TABLES `tbl_agendamento` WRITE;
 /*!40000 ALTER TABLE `tbl_agendamento` DISABLE KEYS */;
-INSERT INTO `tbl_agendamento` VALUES (1,2,1,1,1,'2019-10-15 14:00:00',0,'2019-10-13 17:57:42','2019-10-13 17:59:30');
+INSERT INTO `tbl_agendamento` VALUES (1,1,1,1,'2019-10-15 14:00:00',0,'2019-10-19 16:53:42','2019-10-19 16:53:42');
 /*!40000 ALTER TABLE `tbl_agendamento` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tbl_agendamento_servico`
+--
+
+DROP TABLE IF EXISTS `tbl_agendamento_servico`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `tbl_agendamento_servico` (
+  `id_agendamento_servico` int(11) NOT NULL AUTO_INCREMENT,
+  `id_servico` int(11) NOT NULL,
+  `id_agendamento` int(11) NOT NULL,
+  PRIMARY KEY (`id_agendamento_servico`),
+  KEY `fk_agendamento_servico_servico_idx` (`id_servico`),
+  KEY `fk_agendamento_servico_agendamento_idx` (`id_agendamento`),
+  CONSTRAINT `fk_agendamento_servico_agendamento` FOREIGN KEY (`id_agendamento`) REFERENCES `tbl_agendamento` (`id_agendamento`),
+  CONSTRAINT `fk_agendamento_servico_servico` FOREIGN KEY (`id_servico`) REFERENCES `tbl_servico` (`id_servico`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tbl_agendamento_servico`
+--
+
+LOCK TABLES `tbl_agendamento_servico` WRITE;
+/*!40000 ALTER TABLE `tbl_agendamento_servico` DISABLE KEYS */;
+INSERT INTO `tbl_agendamento_servico` VALUES (1,1,1),(2,2,1);
+/*!40000 ALTER TABLE `tbl_agendamento_servico` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -149,11 +175,8 @@ CREATE TABLE `tbl_cliente` (
   `foto_cliente` varchar(255) DEFAULT NULL,
   `criado_em` datetime DEFAULT NULL,
   `atualizado_em` datetime DEFAULT NULL,
-  `id_endereco` int(11) NOT NULL,
   PRIMARY KEY (`id_cliente`),
-  UNIQUE KEY `cpf_UNIQUE` (`cpf`),
-  KEY `FK_cliente_endereco_idx` (`id_endereco`),
-  CONSTRAINT `FK_cliente_endereco` FOREIGN KEY (`id_endereco`) REFERENCES `tbl_endereco` (`id_endereco`)
+  UNIQUE KEY `cpf_UNIQUE` (`cpf`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -163,7 +186,7 @@ CREATE TABLE `tbl_cliente` (
 
 LOCK TABLES `tbl_cliente` WRITE;
 /*!40000 ALTER TABLE `tbl_cliente` DISABLE KEYS */;
-INSERT INTO `tbl_cliente` VALUES (1,'David','Silva','(11) 97709-9609','435.423.668-03','M','2002-12-06','david@gmail.com','123456789',NULL,'2019-10-12 20:43:33','2019-10-12 20:43:33',1);
+INSERT INTO `tbl_cliente` VALUES (1,'David','Silva','(11) 97709-9609','435.423.668-03','M','2002-12-06','david@gmail.com','123456789',NULL,'2019-10-19 16:50:40','2019-10-19 16:50:40');
 /*!40000 ALTER TABLE `tbl_cliente` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -222,8 +245,66 @@ CREATE TABLE `tbl_endereco` (
 
 LOCK TABLES `tbl_endereco` WRITE;
 /*!40000 ALTER TABLE `tbl_endereco` DISABLE KEYS */;
-INSERT INTO `tbl_endereco` VALUES (1,'Rua Antônio gomes dos santos','Paque dos lagos','06622-445',NULL,1,3525003,'2019-10-12 20:43:33','2019-10-12 20:43:33'),(2,'Ruinha legal','Teraza','06622220',NULL,2,3525003,'2019-10-12 20:43:34','2019-10-12 20:43:34');
+INSERT INTO `tbl_endereco` VALUES (1,'Rua Antônio gomes dos santos','Paque dos lagos','06622-445',NULL,1,3525003,'2019-10-19 16:50:38','2019-10-19 16:50:38'),(2,'Ruinha legal','Teraza','06622220',NULL,2,3525003,'2019-10-19 16:50:45','2019-10-19 16:50:45');
 /*!40000 ALTER TABLE `tbl_endereco` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tbl_endereco_cliente`
+--
+
+DROP TABLE IF EXISTS `tbl_endereco_cliente`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `tbl_endereco_cliente` (
+  `id_endereco_cliente` int(11) NOT NULL AUTO_INCREMENT,
+  `id_endereco` int(11) NOT NULL,
+  `id_cliente` int(11) NOT NULL,
+  PRIMARY KEY (`id_endereco_cliente`),
+  KEY `fk_endereco_cliente_cliente_idx` (`id_cliente`),
+  KEY `fk_endereco_cliente_endereco_idx` (`id_endereco`),
+  CONSTRAINT `fk_endereco_cliente_cliente` FOREIGN KEY (`id_cliente`) REFERENCES `tbl_cliente` (`id_cliente`),
+  CONSTRAINT `fk_endereco_cliente_endereco` FOREIGN KEY (`id_endereco`) REFERENCES `tbl_endereco` (`id_endereco`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tbl_endereco_cliente`
+--
+
+LOCK TABLES `tbl_endereco_cliente` WRITE;
+/*!40000 ALTER TABLE `tbl_endereco_cliente` DISABLE KEYS */;
+INSERT INTO `tbl_endereco_cliente` VALUES (1,1,1);
+/*!40000 ALTER TABLE `tbl_endereco_cliente` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tbl_endereco_estabelecimento`
+--
+
+DROP TABLE IF EXISTS `tbl_endereco_estabelecimento`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `tbl_endereco_estabelecimento` (
+  `id_endereco_estabelecimento` int(11) NOT NULL AUTO_INCREMENT,
+  `id_endereco` int(11) NOT NULL,
+  `id_estabelecimento` int(11) NOT NULL,
+  PRIMARY KEY (`id_endereco_estabelecimento`),
+  KEY `fk_endereco_estabelecimento_endereco_idx` (`id_endereco`),
+  KEY `fk_endereco_estabelecimento_endereco_idx1` (`id_estabelecimento`),
+  CONSTRAINT `fk_endereco_estabelecimento_endereco` FOREIGN KEY (`id_endereco`) REFERENCES `tbl_endereco` (`id_endereco`),
+  CONSTRAINT `fk_endereco_estabelecimento_estabelecimento` FOREIGN KEY (`id_estabelecimento`) REFERENCES `tbl_estabelecimento` (`id_estabelecimento`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tbl_endereco_estabelecimento`
+--
+
+LOCK TABLES `tbl_endereco_estabelecimento` WRITE;
+/*!40000 ALTER TABLE `tbl_endereco_estabelecimento` DISABLE KEYS */;
+INSERT INTO `tbl_endereco_estabelecimento` VALUES (1,2,1);
+/*!40000 ALTER TABLE `tbl_endereco_estabelecimento` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -245,12 +326,9 @@ CREATE TABLE `tbl_estabelecimento` (
   `senha` varchar(255) NOT NULL,
   `criado_em` datetime DEFAULT NULL,
   `atualizado_em` datetime DEFAULT NULL,
-  `id_endereco` int(11) NOT NULL,
   PRIMARY KEY (`id_estabelecimento`),
   UNIQUE KEY `cnpj_UNIQUE` (`cnpj`),
-  UNIQUE KEY `razao_social_UNIQUE` (`razao_social`),
-  KEY `FK_estabelecimento_endereco_idx` (`id_endereco`),
-  CONSTRAINT `FK_estabelecimento_endereco` FOREIGN KEY (`id_endereco`) REFERENCES `tbl_endereco` (`id_endereco`)
+  UNIQUE KEY `razao_social_UNIQUE` (`razao_social`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -260,7 +338,7 @@ CREATE TABLE `tbl_estabelecimento` (
 
 LOCK TABLES `tbl_estabelecimento` WRITE;
 /*!40000 ALTER TABLE `tbl_estabelecimento` DISABLE KEYS */;
-INSERT INTO `tbl_estabelecimento` VALUES (1,'58.373.487/0001-38','agendaTeste','TesteAgenda s2',NULL,NULL,'11 46197048','teste@oul.com','123456789','2019-10-12 20:43:34','2019-10-12 20:43:34',2);
+INSERT INTO `tbl_estabelecimento` VALUES (1,'58.373.487/0001-38','agendaTeste','TesteAgenda s2',NULL,NULL,'11 46197048','teste@oul.com','123456789','2019-10-19 16:50:48','2019-10-19 16:50:48');
 /*!40000 ALTER TABLE `tbl_estabelecimento` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -315,7 +393,7 @@ CREATE TABLE `tbl_fale_conosco` (
 
 LOCK TABLES `tbl_fale_conosco` WRITE;
 /*!40000 ALTER TABLE `tbl_fale_conosco` DISABLE KEYS */;
-INSERT INTO `tbl_fale_conosco` VALUES (1,'david','david@gmail.com','muito bom isso ai','2019-10-12 20:43:35',1);
+INSERT INTO `tbl_fale_conosco` VALUES (1,'david','david@gmail.com','muito bom isso ai','2019-10-19 16:51:02',1);
 /*!40000 ALTER TABLE `tbl_fale_conosco` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -356,13 +434,16 @@ CREATE TABLE `tbl_funcionario` (
   `id_funcionario` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(100) NOT NULL,
   `foto` varchar(255) DEFAULT NULL,
+  `status` tinyint(4) NOT NULL,
   `email` varchar(100) NOT NULL,
   `senha` varchar(255) NOT NULL,
   `id_salario` int(11) NOT NULL,
+  `criado_em` datetime DEFAULT NULL,
+  `atualizado_em` datetime DEFAULT NULL,
   PRIMARY KEY (`id_funcionario`),
   KEY `fk_funcionario_salario_idx` (`id_salario`),
   CONSTRAINT `fk_funcionario_salario` FOREIGN KEY (`id_salario`) REFERENCES `tbl_salario` (`id_salario`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -371,7 +452,7 @@ CREATE TABLE `tbl_funcionario` (
 
 LOCK TABLES `tbl_funcionario` WRITE;
 /*!40000 ALTER TABLE `tbl_funcionario` DISABLE KEYS */;
-INSERT INTO `tbl_funcionario` VALUES (1,'Ivanildo',NULL,'ivan_fera','789456123',1);
+INSERT INTO `tbl_funcionario` VALUES (1,'Ivanildo',NULL,0,'ivan_fera','789456123',1,'2019-10-19 16:51:36','2019-10-19 16:51:36'),(2,'David',NULL,0,'david@gmail.com','123456789',2,'2019-10-19 16:57:00','2019-10-19 16:57:00');
 /*!40000 ALTER TABLE `tbl_funcionario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -391,7 +472,7 @@ CREATE TABLE `tbl_funcionario_estabelecimento` (
   KEY `fk_funcionario_estabelecimento_estabelecimento_idx` (`id_estabelecimento`),
   CONSTRAINT `fk_funcionario_estabelecimento_estabelecimento` FOREIGN KEY (`id_estabelecimento`) REFERENCES `tbl_estabelecimento` (`id_estabelecimento`),
   CONSTRAINT `fk_funcionario_estabelecimento_funcionario` FOREIGN KEY (`id_funcionario`) REFERENCES `tbl_funcionario` (`id_funcionario`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -400,7 +481,7 @@ CREATE TABLE `tbl_funcionario_estabelecimento` (
 
 LOCK TABLES `tbl_funcionario_estabelecimento` WRITE;
 /*!40000 ALTER TABLE `tbl_funcionario_estabelecimento` DISABLE KEYS */;
-INSERT INTO `tbl_funcionario_estabelecimento` VALUES (1,1,1);
+INSERT INTO `tbl_funcionario_estabelecimento` VALUES (1,1,1),(2,2,1);
 /*!40000 ALTER TABLE `tbl_funcionario_estabelecimento` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -462,7 +543,7 @@ CREATE TABLE `tbl_horario_estabelecimento` (
 
 LOCK TABLES `tbl_horario_estabelecimento` WRITE;
 /*!40000 ALTER TABLE `tbl_horario_estabelecimento` DISABLE KEYS */;
-INSERT INTO `tbl_horario_estabelecimento` VALUES (1,'08:30:00','20:00:00',1,3,'2019-10-13 19:16:11','2019-10-13 19:16:11'),(2,'08:30:00','20:00:00',1,4,'2019-10-13 19:16:12','2019-10-13 19:16:12'),(3,'08:30:00','20:00:00',1,5,'2019-10-13 19:16:13','2019-10-13 19:16:13'),(4,'08:30:00','20:00:00',1,6,'2019-10-13 19:16:14','2019-10-13 19:16:14'),(5,'09:00:00','17:00:00',1,7,'2019-10-13 19:16:15','2019-10-13 19:16:15');
+INSERT INTO `tbl_horario_estabelecimento` VALUES (1,'08:30:00','20:00:00',1,3,'2019-10-19 16:52:11','2019-10-19 16:52:11'),(2,'08:30:00','20:00:00',1,4,'2019-10-19 16:52:12','2019-10-19 16:52:12'),(3,'08:30:00','20:00:00',1,5,'2019-10-19 16:52:14','2019-10-19 16:52:14'),(4,'08:30:00','20:00:00',1,6,'2019-10-19 16:52:15','2019-10-19 16:52:15'),(5,'09:00:00','17:00:00',1,7,'2019-10-19 16:52:16','2019-10-19 16:52:16');
 /*!40000 ALTER TABLE `tbl_horario_estabelecimento` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -488,7 +569,7 @@ CREATE TABLE `tbl_horario_funcionario` (
   KEY `fk_horario_funcionario_idx` (`id_funcionario`),
   CONSTRAINT `fk_horario_dia_semana` FOREIGN KEY (`id_dia_semana`) REFERENCES `tbl_dia_semana` (`id_dia_semana`),
   CONSTRAINT `fk_horario_funcionario` FOREIGN KEY (`id_funcionario`) REFERENCES `tbl_funcionario` (`id_funcionario`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -497,6 +578,7 @@ CREATE TABLE `tbl_horario_funcionario` (
 
 LOCK TABLES `tbl_horario_funcionario` WRITE;
 /*!40000 ALTER TABLE `tbl_horario_funcionario` DISABLE KEYS */;
+INSERT INTO `tbl_horario_funcionario` VALUES (1,'08:30:00','17:00:00','12:00:00','13:00:00',7,1,'2019-10-19 16:51:40','2019-10-19 16:51:40'),(2,'08:30:00','17:00:00','12:00:00','13:00:00',3,1,'2019-10-19 16:51:41','2019-10-19 16:51:41'),(3,'08:30:00','17:00:00','12:00:00','13:00:00',4,1,'2019-10-19 16:51:42','2019-10-19 16:51:42'),(4,'08:30:00','17:00:00','12:00:00','13:00:00',5,1,'2019-10-19 16:51:43','2019-10-19 16:51:43'),(5,'08:30:00','17:00:00','12:00:00','13:00:00',6,1,'2019-10-19 16:51:44','2019-10-19 16:51:44');
 /*!40000 ALTER TABLE `tbl_horario_funcionario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -536,7 +618,7 @@ DROP TABLE IF EXISTS `tbl_salario`;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `tbl_salario` (
   `id_salario` int(11) NOT NULL AUTO_INCREMENT,
-  `salario` decimal(7,2) NOT NULL,
+  `salario` decimal(7,2) DEFAULT NULL,
   `percentual` int(11) DEFAULT NULL,
   `id_tipo_salario` int(11) NOT NULL,
   `criado_em` datetime DEFAULT NULL,
@@ -544,7 +626,7 @@ CREATE TABLE `tbl_salario` (
   PRIMARY KEY (`id_salario`),
   KEY `fk_salario_tipo_salario_idx` (`id_tipo_salario`),
   CONSTRAINT `fk_salario_tipo_salario` FOREIGN KEY (`id_tipo_salario`) REFERENCES `tbl_tipo_salario` (`id_tipo_salario`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -553,7 +635,7 @@ CREATE TABLE `tbl_salario` (
 
 LOCK TABLES `tbl_salario` WRITE;
 /*!40000 ALTER TABLE `tbl_salario` DISABLE KEYS */;
-INSERT INTO `tbl_salario` VALUES (1,500.00,NULL,1,'2019-10-12 20:43:38','2019-10-12 20:43:38');
+INSERT INTO `tbl_salario` VALUES (1,500.00,NULL,2,'2019-10-19 16:51:26','2019-10-19 16:51:26'),(2,0.00,50,1,'2019-10-19 16:56:16','2019-10-19 16:56:16');
 /*!40000 ALTER TABLE `tbl_salario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -587,7 +669,7 @@ CREATE TABLE `tbl_servico` (
 
 LOCK TABLES `tbl_servico` WRITE;
 /*!40000 ALTER TABLE `tbl_servico` DISABLE KEYS */;
-INSERT INTO `tbl_servico` VALUES (1,'BABY BANGS',35.00,30,1,2,'2019-10-13 17:55:26','2019-10-13 17:55:26'),(2,'SOCIAL',20.00,20,1,1,'2019-10-13 17:55:27','2019-10-13 17:55:27');
+INSERT INTO `tbl_servico` VALUES (1,'BABY BANGS',35.00,30,1,2,'2019-10-19 16:51:50','2019-10-19 16:51:50'),(2,'SOCIAL',20.00,20,1,1,'2019-10-19 16:51:51','2019-10-19 16:51:51');
 /*!40000 ALTER TABLE `tbl_servico` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -648,4 +730,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-10-14 12:57:18
+-- Dump completed on 2019-10-19 21:16:02

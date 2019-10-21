@@ -13,7 +13,7 @@ import lumicode.agendaja.api.model.CategoriaServico;
 import lumicode.agendaja.api.repository.CategoriaServicoRepository;
 
 @RestController
-@RequestMapping("/categoriaServico")
+@RequestMapping("/categoriaServicos")
 @CrossOrigin(origins="http://localhost:3000")
 public class CategoriaServicoResource {
 	@Autowired

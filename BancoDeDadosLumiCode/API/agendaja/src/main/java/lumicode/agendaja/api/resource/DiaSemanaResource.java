@@ -13,7 +13,7 @@ import lumicode.agendaja.api.model.DiaSemana;
 import lumicode.agendaja.api.repository.DiaSemanaRepository;
 
 @RestController
-@RequestMapping("/diaSemana")
+@RequestMapping("/diasSemanas")
 @CrossOrigin(origins = "*")
 public class DiaSemanaResource {
 	@Autowired

@@ -14,7 +14,7 @@ import lumicode.agendaja.api.model.Servico;
 import lumicode.agendaja.api.repository.AgendamentoServicoRepository;
 
 @RestController
-@RequestMapping("/agendamentoServico")
+@RequestMapping("/agendamentoServicos")
 @CrossOrigin(origins = "*")
 public class AgendamentoServicoResource {
 	@Autowired
@@ -26,7 +26,7 @@ public class AgendamentoServicoResource {
 	}
 	
 	
-	@GetMapping("/{id}")
+	@GetMapping("/agendamento/{id}")
 	private List<Servico> getAgendamentoServicos(@PathVariable Long id){
 		return agendamentoServicoRepository.pegarAgendamentoServico(id);
 	}

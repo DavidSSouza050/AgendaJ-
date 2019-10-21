@@ -24,7 +24,7 @@ import lumicode.agendaja.api.repository.SalarioRepository;
 import lumicode.agendaja.api.utils.ConverterDatas;
 
 @RestController
-@RequestMapping("/salario")
+@RequestMapping("/salarios")
 @CrossOrigin(origins = "*")
 public class SalarioResource {
 	@Autowired

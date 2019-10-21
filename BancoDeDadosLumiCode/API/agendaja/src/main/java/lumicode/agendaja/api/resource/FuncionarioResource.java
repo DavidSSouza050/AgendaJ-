@@ -24,7 +24,7 @@ import lumicode.agendaja.api.repository.FuncionarioRepository;
 import lumicode.agendaja.api.utils.ConverterDatas;
 
 @RestController
-@RequestMapping("/funcionario")
+@RequestMapping("/funcionarios")
 @CrossOrigin(origins = "*")
 public class FuncionarioResource {
 	

@@ -12,7 +12,7 @@ import lumicode.agendaja.api.model.Assunto;
 import lumicode.agendaja.api.repository.AssuntoRepository;
 
 @RestController
-@RequestMapping("/assunto")
+@RequestMapping("/assuntos")
 public class AssuntoResource {
 	@Autowired
 	private AssuntoRepository assuntoRepository;

@@ -22,7 +22,7 @@ import lumicode.agendaja.api.model.FuncionarioEstabelecimento;
 import lumicode.agendaja.api.repository.FuncionarioEstabelecimentoRepository;
 
 @RestController
-@RequestMapping("/funcionarioEstabelecimento")
+@RequestMapping("/funcionariosEstabelecimentos")
 public class FuncionarioEstabelecimentoResource {
 	@Autowired
 	private FuncionarioEstabelecimentoRepository funcionarioEstabelecimentoRepository;
@@ -53,7 +53,7 @@ public class FuncionarioEstabelecimentoResource {
 		URI uri = ServletUriComponentsBuilder
 				  .fromCurrentRequest()
 				  .path("/{id}")
-				  .buildAndExpand(funcionarioEstabelecimento.getIdFuncionarioEsatabelecimento())
+				  .buildAndExpand(funcionarioEstabelecimento.getIdFuncionarioEstabelecimento())
 				  .toUri();
 		//colocando no header o localização do cliente que está na uri
 		response.addHeader("Location", uri.toASCIIString());

@@ -13,7 +13,7 @@ import lumicode.agendaja.api.model.Microrregiao;
 import lumicode.agendaja.api.repository.MicrorregiaoRepository;
 
 @RestController
-@RequestMapping("/microrregiao")
+@RequestMapping("/microrregioes")
 public class MicrorregiaoResource {
 	@Autowired
 	private MicrorregiaoRepository microrregiaoRepository;

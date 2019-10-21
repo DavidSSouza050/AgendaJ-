@@ -8,42 +8,49 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import lumicode.agendaja.api.model.dto.EstabelecimentoDTO;
+import lumicode.agendaja.api.model.dto.FuncionarioDTO;
+
 @Entity
 @Table(name = "tbl_funcionario_estabelecimento")
 public class FuncionarioEstabelecimento {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long idFuncionarioEsatabelecimento;
+	private Long idFuncionarioEstabelecimento;
 	@ManyToOne
 	@JoinColumn(name = "id_funcionario")
-	private Funcionario funcionario;
+	private FuncionarioDTO funcionario;
 	@ManyToOne
 	@JoinColumn(name = "id_estabelecimento")
-	private Estabelecimento estabelecimento;
+	private EstabelecimentoDTO estabelecimento;
 
-	public Long getIdFuncionarioEsatabelecimento() {
-		return idFuncionarioEsatabelecimento;
+	
+
+	public Long getIdFuncionarioEstabelecimento() {
+		return idFuncionarioEstabelecimento;
 	}
 
-	public void setIdFuncionarioEsatabelecimento(Long idFuncionarioEsatabelecimento) {
-		this.idFuncionarioEsatabelecimento = idFuncionarioEsatabelecimento;
+	public void setIdFuncionarioEstabelecimento(Long idFuncionarioEstabelecimento) {
+		this.idFuncionarioEstabelecimento = idFuncionarioEstabelecimento;
 	}
 
-	public Funcionario getFuncionario() {
+	public FuncionarioDTO getFuncionario() {
 		return funcionario;
 	}
 
-	public void setFuncionario(Funcionario funcionario) {
+	public void setFuncionario(FuncionarioDTO funcionario) {
 		this.funcionario = funcionario;
 	}
 
-	public Estabelecimento getEstabelecimento() {
+	public EstabelecimentoDTO getEstabelecimento() {
 		return estabelecimento;
 	}
 
-	public void setEstabelecimento(Estabelecimento estabelecimento) {
+	public void setEstabelecimento(EstabelecimentoDTO estabelecimento) {
 		this.estabelecimento = estabelecimento;
 	}
+
+	
 	
 	
 	

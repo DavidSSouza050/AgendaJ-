@@ -44,13 +44,16 @@ INSERT INTO tbl_tipo_endereco VALUES (2, 'Comercial');
 -- Cadastrando um cliente padrao
 INSERT INTO tbl_endereco (id_endereco, logradouro, bairro, cep, id_tipo_endereco, id_cidade, criado_em, atualizado_em) VALUES (1, 'Rua Antônio gomes dos santos', 'Paque dos lagos', '06622-445', 1, 3525003, NOW(), NOW());
 
-INSERT INTO tbl_cliente values (1,'David', 'Silva', '(11) 97709-9609', '435.423.668-03', 'M', '2002-12-06', 'david@gmail.com','123456789',  null, NOW(), NOW(), 1);
+INSERT INTO tbl_cliente values (1,'David', 'Silva', '(11) 97709-9609', '435.423.668-03', 'M', '2002-12-06', 'david@gmail.com','123456789',  null, NOW(), NOW());
 
+INSERT INTO tbl_endereco_cliente values (1, 1, 1);
 
 -- Cadastrando Estabelecimento padrão
 INSERT INTO tbl_endereco (id_endereco, logradouro, bairro, cep, id_tipo_endereco, id_cidade, criado_em, atualizado_em) VALUES (2,'Ruinha legal', 'Teraza', '06622220', 2, 3525003,  NOW(), NOW());
 
-INSERT INTO tbl_estabelecimento (id_estabelecimento, cnpj, razao_social, nome_estabelecimento, telefone, email, senha, criado_em, atualizado_em, id_endereco) values (1,'58.373.487/0001-38', 'agendaTeste', 'TesteAgenda s2', '11 46197048', 'teste@oul.com', '123456789',  NOW(), NOW(), 2);
+INSERT INTO tbl_estabelecimento (id_estabelecimento, cnpj, razao_social, nome_estabelecimento, telefone, email, senha, numero, criado_em, atualizado_em) values (1,'58.373.487/0001-38', 'agendaTeste', 'TesteAgenda s2', '11 46197048', 'teste@oul.com', '123456789', 03, NOW(), NOW());
+
+INSERT INTO tbl_endereco_estabelecimento values (1,2,1);
 
 -- cadastro de Assunto padrão 
 
@@ -82,7 +85,7 @@ SELECT * FROM TBL_SALARIO;
 INSERT INTO tbl_salario values (1, 500.00, NULL, 1, NOW(), NOW() );
 desc tbl_funcionario;
 select * from tbl_funcionario;
-INSERT INTO tbl_funcionario values (1, 'Ivanildo', null, 'ivan_fera', '789456123', 1, now(), now()777777777777777777777777777777777777777777777777777777777777777777777);
+INSERT INTO tbl_funcionario values (1, 'Ivanildo', null, 'ivan_fera', '789456123', 1, now(), now());
 
 select * from tbl_horario;
 INSERT INTO tbl_horario_funcionario values(1, '8:30:00' , '17:00:00', '12:00:00', '13:00:00', 7, 1, now(), now());
@@ -107,20 +110,6 @@ insert into tbl_funcionario_servico values (0, 1, 1);
 insert into tbl_funcionario_servico values (0, 1, 2); 
 
 desc tbl_categoria_servico;
-
-SELECT f.nome, s.servico, cs.categoria_servico, sa.salario, tipoSa.tipo_salario, h.hora_entrada, ds.dia_semana
-	FROM tbl_funcionario as f INNER JOIN tbl_funcionario_servico as fs
-    ON f.id_funcionario = fs.id_funcionario INNER JOIN tbl_servico AS s
-    ON s.id_servico = fs.id_servico INNER JOIN tbl_categoria_servico as cs
-    ON cs.id_categoria_servico = s.id_categoria_servico INNER JOIN tbl_salario as sa
-    ON sa.id_salario = f.id_salario INNER JOIN tbl_tipo_salario as tipoSa
-    ON sa.id_tipo_salario = tipoSa.id_tipo_salario INNER JOIN tbl_horario_funcionario as h
-    ON f.id_funcionario = h.id_funcionario INNER JOIN tbl_dia_semana as ds
-    ON h.id_dia_semana = ds.id_dia_semana; 
-    
-SELECT f.nome ,h.hora_entrada, h.hora_saida, h.hora_pausa, h.duracao_pausa, h.id_dia_semana
-	FROM tbl_horario_funcionario as h INNER JOIN tbl_funcionario as f
-    ON h.id_funcionario = f.id_funcionario ;
     
 SELECT * from tbl_funcionario_estabelecimento;
 
@@ -139,7 +128,7 @@ SELECT e.nome_estabelecimento , s.servico, f.nome, s.preco, ds.dia_semana
 select * from  tbl_agendamento;
  desc tbl_agendamento;
 
-INSERT INTO tbl_agendamento values (1, 1, 1, 1, 1,  '2019-10-15 14:00:00',0, now(), now());
+INSERT INTO tbl_agendamento values (1, 1, 1, 1,  '2019-10-15 14:00:00',0, now(), now());
 UPDATE tbl_agendamento set id_servico = 2, atualizado_em = now() WHERE id_agendamento = 1;
 select * from tbl_agendamento;
 select * from tbl_cliente;
@@ -165,26 +154,17 @@ INSERT INTO tbl_horario_estabelecimento VALUES(4, '8:30:00', '20:00:00', 1, 6, n
 INSERT INTO tbl_horario_estabelecimento VALUES(5, '9:00:00', '17:00:00', 1, 7, now(), now());
 
 
-insert into tbl_cliente_servico values (1,1,1);
-insert into tbl_cliente_servico values (2,1,2);
-
-select * from tbl_cliente_servico;
+insert into tbl_agendamento_servico values (1,1,1);
+insert into tbl_agendamento_servico values (2,2,1);
+select * from tbl_agendamento_servico;
 select * from tbl_salario;
 select * from tbl_agendamento;
 desc tbl_endereco;
 insert into tbl_salario values (2, 0, 50, 1, now(),now());
 
 select * from tbl_funcionario;
-INSERT INTO tbl_funcionario values (2, 'David', null, 'david@gmail.com', '123456789', 2, 1, now(), now());
+INSERT INTO tbl_funcionario values (2, 'David', null, 'david@gmail.com', '123456789', 2, now(), now());
 
-
-
-
-SELECT s.servico, cas.categoria_servico, c.nome, f.nome, e.nome_estabelecimento
-	From tbl_agendamento as a INNER JOIN tbl_cliente as c
-    ON a.id_cliente = c.id_cliente INNER JOIN tbl_cliente_servico as cs
-    ON cs.id_cliente = c.id_cliente INNER JOIN tbl_servico as s
-    ON cs.id_servico = s.id_servico INNER JOIN tbl_categoria_servico as cas
-    ON s.id_categoria_servico = cas.id_categoria_servico INNER JOIN tbl_funcionario as f
-    ON a.id_funcionario = f.id_funcionario INNER JOIN tbl_estabelecimento as e
-    ON a.id_estabelecimento = e.id_estabelecimento;
+select * from tbl_funcionario_estabelecimento;
+INSERT INTO tbl_funcionario_estabelecimento values(1,1,1);
+INSERT INTO tbl_funcionario_estabelecimento values(2,2,1);
