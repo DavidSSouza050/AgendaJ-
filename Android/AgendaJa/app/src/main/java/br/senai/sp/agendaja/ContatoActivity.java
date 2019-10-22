@@ -1,6 +1,5 @@
 package br.senai.sp.agendaja;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
@@ -18,11 +17,12 @@ import com.github.rtoshiro.util.format.text.MaskTextWatcher;
 import java.util.concurrent.ExecutionException;
 
 import br.senai.sp.agendaja.Services.CadastroFoto;
-import br.senai.sp.agendaja.modal.Cliente;
-import br.senai.sp.agendaja.modal.Endereco;
-import br.senai.sp.agendaja.modal.Informacao;
+import br.senai.sp.agendaja.model.Cliente;
+import br.senai.sp.agendaja.model.Endereco;
+import br.senai.sp.agendaja.model.Informacao;
 import br.senai.sp.agendaja.tasks.TaskCadastrarCliente;
 import br.senai.sp.agendaja.tasks.TaskCadastrarEndereco;
+import br.senai.sp.agendaja.tasks.TaskCadastrarEnderecoCliente;
 import br.senai.sp.agendaja.tasks.TaskGetToken;
 import br.senai.sp.agendaja.tasks.TaskLoginClienteToken;
 import retrofit2.Call;
@@ -84,7 +84,7 @@ public class ContatoActivity extends AppCompatActivity implements View.OnClickLi
                 //if(email.getText().toString() == confirmarEmail.getText().toString()
                      //&& senha.getText().toString() == confirmarSenha.getText().toString() ){
 
-//                    infomacoesCliente = new Informacao();
+//                  infomacoesCliente = new Informacao();
                     clienteFinal.setCelular(celular.getText().toString());
                     clienteFinal.setEmail(email.getText().toString());
                     clienteFinal.setSenha(senha.getText().toString());
@@ -95,23 +95,33 @@ public class ContatoActivity extends AppCompatActivity implements View.OnClickLi
                     taskCadastrarEndereco.execute();
 
                     try {
-                        int respostaCadastroEndereco = (Integer) taskCadastrarEndereco.get();
+                        final int respostaCadastroEndereco = (Integer) taskCadastrarEndereco.get();
 
                         if(respostaCadastroEndereco != 0){
                             //cadastrando cliente
-                            TaskCadastrarCliente taskCadastrarCliente = new TaskCadastrarCliente(clienteFinal,respostaCadastroEndereco);
+                            TaskCadastrarCliente taskCadastrarCliente = new TaskCadastrarCliente(clienteFinal);
                             taskCadastrarCliente.execute();
 
                             final Cliente respostaCadastroCliente = (Cliente) taskCadastrarCliente.get();
                             if(respostaCadastroCliente.getIdCliente()!=null){
 
-                                TaskGetToken getToken = new TaskGetToken(respostaCadastroCliente.getEmail(),respostaCadastroCliente.getSenha());
-                                getToken.execute();
+                                TaskCadastrarEnderecoCliente enderecoCliente = new TaskCadastrarEnderecoCliente(respostaCadastroCliente.getIdCliente(),respostaCadastroEndereco);
+                                enderecoCliente.execute();
 
-                                if(getToken.get()!=null){
-                                    token = (String) getToken.get();
+                                Boolean respostaCadastroEnderecoCliente = (Boolean) enderecoCliente.get();
+
+                                if(respostaCadastroEnderecoCliente){
+
+                                    TaskGetToken getToken = new TaskGetToken(respostaCadastroCliente.getEmail(),respostaCadastroCliente.getSenha());
+                                    getToken.execute();
+
+                                    if(getToken.get()!=null){
+                                        token = (String) getToken.get();
+                                    }else{
+                                        token = null;
+                                    }
                                 }else{
-                                    token = null;
+                                    Toast.makeText(ContatoActivity.this,"Erro ao cadastrar",Toast.LENGTH_LONG).show();
                                 }
 
                                 //EM FASE DE MELHORAS.
@@ -137,6 +147,7 @@ public class ContatoActivity extends AppCompatActivity implements View.OnClickLi
                                                     try {
 
                                                         Cliente clienteLogado = (Cliente) loginClienteToken.get();
+                                                        clienteLogado.setIdEndereco(respostaCadastroEndereco);
                                                         Intent intent = new Intent(ContatoActivity.this,MainActivity.class);
                                                         intent.putExtra("clienteLogado",clienteLogado);
                                                         intent.putExtra("token",token);

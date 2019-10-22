@@ -15,7 +15,7 @@ import java.net.URL;
 import java.util.Scanner;
 
 import br.senai.sp.agendaja.MainActivity;
-import br.senai.sp.agendaja.modal.Cliente;
+import br.senai.sp.agendaja.model.Cliente;
 
 public class TaskEditarDadosPessoais extends AsyncTask {
   private Cliente clienteEditarDados;
@@ -48,7 +48,7 @@ public class TaskEditarDadosPessoais extends AsyncTask {
       jsCliente.endObject();
 
 
-      URL url = new URL("http://"+ MainActivity.IP_SERVER+"/cliente/"+clienteEditarDados.getIdCliente());
+      URL url = new URL("http://"+ MainActivity.IP_SERVER+"/clientes/"+clienteEditarDados.getIdCliente());
       HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 
       Log.d("idCliente", String.valueOf(clienteEditarDados.getIdCliente()));

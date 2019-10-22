@@ -1,18 +1,14 @@
 package br.senai.sp.agendaja.Services;
 
-import android.content.Context;
-import android.content.Intent;
 import android.util.Log;
 
 import java.io.File;
 
-import br.senai.sp.agendaja.modal.Cliente;
+import br.senai.sp.agendaja.model.Cliente;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class CadastroFoto {
   private FileService fileService;

@@ -18,7 +18,7 @@ import com.github.rtoshiro.util.format.text.MaskTextWatcher;
 
 import java.util.concurrent.ExecutionException;
 
-import br.senai.sp.agendaja.modal.Cliente;
+import br.senai.sp.agendaja.model.Cliente;
 import br.senai.sp.agendaja.tasks.TaskEditarDadosPessoais;
 
 public class EditarDadosPessoaisActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener, View.OnClickListener{

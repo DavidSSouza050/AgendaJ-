@@ -15,18 +15,15 @@ import java.net.URL;
 import java.util.Scanner;
 
 import br.senai.sp.agendaja.MainActivity;
-import br.senai.sp.agendaja.modal.Cliente;
-import br.senai.sp.agendaja.modal.Informacao;
+import br.senai.sp.agendaja.model.Cliente;
 
 public class TaskCadastrarCliente extends AsyncTask {
   private Cliente cliente;
-  private int codEndereco;
   private String resposta;
   private Cliente clienteVoltado;
 
-  public TaskCadastrarCliente(Cliente cliente, int codEndereco) {
+  public TaskCadastrarCliente(Cliente cliente) {
     this.cliente = cliente;
-    this.codEndereco = codEndereco;
   }
 
   @Override
@@ -45,10 +42,9 @@ public class TaskCadastrarCliente extends AsyncTask {
       jsCliente.key("dataNascimento").value(cliente.getDataNascimento());
       jsCliente.key("email").value(cliente.getEmail());
       jsCliente.key("senha").value(cliente.getSenha());
-      jsCliente.key("endereco").object().key("idEndereco").value(codEndereco).endObject();
       jsCliente.endObject();
 
-      URL url = new URL("http://"+ MainActivity.IP_SERVER+"/cliente");
+      URL url = new URL("http://"+ MainActivity.IP_SERVER+"/clientes");
       HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 
       connection.setRequestProperty("Content-type","application/json");
@@ -76,7 +72,6 @@ public class TaskCadastrarCliente extends AsyncTask {
       clienteVoltado.setCelular(object.getString("celular"));
       clienteVoltado.setCpf(object.getString("cpf"));
       clienteVoltado.setSexo(object.getString("sexo"));
-      clienteVoltado.setIdEndereco(Integer.valueOf(object.getJSONObject("endereco").getString("idEndereco")));
       clienteVoltado.setDataNascimento(object.getString("dataNascimento"));
 
     } catch (JSONException e) {

@@ -1,7 +1,6 @@
-package br.senai.sp.agendaja.modal;
+package br.senai.sp.agendaja.model;
 
 import java.io.Serializable;
-import java.util.Arrays;
 
 public class Informacao extends Endereco implements Serializable{
   private String celular;

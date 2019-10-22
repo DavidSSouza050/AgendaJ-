@@ -19,7 +19,7 @@ import java.net.URL;
 
 import javax.net.ssl.HttpsURLConnection;
 
-import br.senai.sp.agendaja.modal.Endereco;
+import br.senai.sp.agendaja.model.Endereco;
 
 
 public class TaskCarregarLocalizacao extends AsyncTask{

@@ -1,4 +1,4 @@
-package br.senai.sp.agendaja.modal;
+package br.senai.sp.agendaja.model;
 
 import java.io.Serializable;
 

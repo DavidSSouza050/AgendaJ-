@@ -15,7 +15,7 @@ import java.net.URL;
 import java.util.Scanner;
 
 import br.senai.sp.agendaja.MainActivity;
-import br.senai.sp.agendaja.modal.Cliente;
+import br.senai.sp.agendaja.model.Cliente;
 
 public class TaskLoginClienteToken extends AsyncTask {
 
@@ -42,7 +42,7 @@ public class TaskLoginClienteToken extends AsyncTask {
       jsLogin.key("senha").value(senha);
       jsLogin.endObject();
 
-      URL url = new URL("http://"+ MainActivity.IP_SERVER +"/cliente/login");
+      URL url = new URL("http://"+ MainActivity.IP_SERVER +"/clientes/login");
       HttpURLConnection connection =(HttpURLConnection) url.openConnection();
 
       connection.setRequestProperty("Content-type","application/json");
@@ -70,7 +70,6 @@ public class TaskLoginClienteToken extends AsyncTask {
         clienteLogin.setEmail(object.getString("email"));
         clienteLogin.setSexo(object.getString("sexo"));
         clienteLogin.setCelular(object.getString("celular"));
-        clienteLogin.setIdEndereco(Integer.valueOf(object.getJSONObject("endereco").getString("idEndereco")));
         clienteLogin.setSenha(object.getString("senha"));
         clienteLogin.setFoto(object.getString("fotoCliente"));
       }else{

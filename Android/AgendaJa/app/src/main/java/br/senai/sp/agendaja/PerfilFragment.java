@@ -1,22 +1,14 @@
 package br.senai.sp.agendaja;
 
-import android.content.ContentProvider;
-import android.content.ContentValues;
-import android.content.Context;
 import android.content.Intent;
-import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.util.Log;
-import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,19 +18,15 @@ import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
-import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
-import java.net.URI;
 import java.net.URL;
-import java.security.Provider;
 import java.util.concurrent.ExecutionException;
 
 import br.senai.sp.agendaja.Paths.RealPathPhoto;
 import br.senai.sp.agendaja.Services.CadastroFoto;
-import br.senai.sp.agendaja.modal.Cliente;
+import br.senai.sp.agendaja.model.Cliente;
 import br.senai.sp.agendaja.tasks.TaskLoginClienteToken;
 import de.hdodenhof.circleimageview.CircleImageView;
 import retrofit2.Call;

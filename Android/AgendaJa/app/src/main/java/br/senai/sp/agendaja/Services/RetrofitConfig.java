@@ -8,7 +8,7 @@ public class RetrofitConfig {
   private RetrofitConfig() {
   }
 
-  public static  final String URL = "http://" + MainActivity.IP_SERVER +"/foto/";
+  public static  final String URL = "http://" + MainActivity.IP_SERVER +"/fotos/";
 
     public static FileService getFileService(){
      return RetrofitClient.getClient(URL).create(FileService.class);

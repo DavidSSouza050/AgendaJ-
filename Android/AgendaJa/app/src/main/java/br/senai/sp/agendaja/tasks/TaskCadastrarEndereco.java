@@ -14,7 +14,7 @@ import java.net.URL;
 import java.util.Scanner;
 
 import br.senai.sp.agendaja.MainActivity;
-import br.senai.sp.agendaja.modal.Endereco;
+import br.senai.sp.agendaja.model.Endereco;
 
 public class TaskCadastrarEndereco extends AsyncTask{
   private Endereco endereco;
@@ -35,13 +35,12 @@ public class TaskCadastrarEndereco extends AsyncTask{
       jsEndereco.key("logradouro").value(endereco.getLogradouro());
       jsEndereco.key("bairro").value(endereco.getBairro());
       jsEndereco.key("cep").value(endereco.getCep());
-      jsEndereco.key("idTipoEndereco").object().key("idTipoEndereco").value(1).endObject();
       jsEndereco.key("idCidade").object().key("idCidade").value(endereco.getCodIBGE()).endObject();
       jsEndereco.endObject();
 
 
       //definindo url
-      URL url = new URL("HTTP://"+ MainActivity.IP_SERVER+"/endereco");
+      URL url = new URL("http://"+ MainActivity.IP_SERVER+"/enderecos");
 
       //Abrindo conexao
       HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -71,26 +70,15 @@ public class TaskCadastrarEndereco extends AsyncTask{
       enderecoSalvo.setLogradouro(objectResposta.getString("logradouro"));
 
 
-
     } catch (MalformedURLException e) {
       e.printStackTrace();
     } catch (JSONException e) {
       e.printStackTrace();
     } catch (IOException e) {
       e.printStackTrace();
+    } catch (Throwable throwable) {
+      throwable.printStackTrace();
     }
-
-    /*
-    * "logradouro" : "kajsdfh"
-    * "cep":""
-    * "numero": null
-    * bairro:
-    * "idCidade" :{
-    *   idCidade: ibge
-    * }
-    *
-    *
-    * */
 
     if(enderecoSalvo!=null){
       return enderecoSalvo.getIdEndereco();

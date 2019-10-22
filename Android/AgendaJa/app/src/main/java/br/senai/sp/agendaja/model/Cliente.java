@@ -1,9 +1,6 @@
-package br.senai.sp.agendaja.modal;
+package br.senai.sp.agendaja.model;
 
-import java.io.File;
 import java.io.Serializable;
-import java.util.Arrays;
-import java.util.Date;
 
 public class Cliente extends Informacao implements Serializable {
   private Integer idCliente;

@@ -9,11 +9,9 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import br.senai.sp.agendaja.modal.Cliente;
+import br.senai.sp.agendaja.model.Cliente;
 
 public class MainActivity extends AppCompatActivity{
 

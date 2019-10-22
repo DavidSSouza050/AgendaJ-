@@ -1,8 +1,6 @@
 package br.senai.sp.agendaja;
 
-import android.content.CursorLoader;
 import android.content.Intent;
-import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -18,7 +16,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -30,9 +27,8 @@ import java.io.FileNotFoundException;
 import java.io.InputStream;
 
 import br.senai.sp.agendaja.Paths.RealPathPhoto;
-import br.senai.sp.agendaja.conversaoImagem.ConverterImagem;
-import br.senai.sp.agendaja.modal.Cliente;
-import br.senai.sp.agendaja.modal.Endereco;
+import br.senai.sp.agendaja.model.Cliente;
+import br.senai.sp.agendaja.model.Endereco;
 
 public class DadosPessoaisActivity extends AppCompatActivity implements View.OnClickListener,AdapterView.OnItemSelectedListener{
 
