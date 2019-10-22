@@ -81,9 +81,6 @@ public class ServicoResource {
 		ConverterDatas converterDatas = new ConverterDatas();
 		//setando o atualizada em
 		servico.setAtualizadoEm(converterDatas.dataAtual());
-		//para não atualizar o criadoEm estou setando de novo apra nao copiar
-		String criadoEm = clienteAtualizado.getCriadoEm();
-		servico.setCriadoEm(criadoEm);
 		// *************************
 		
 		BeanUtils.copyProperties(servico, clienteAtualizado, "id");

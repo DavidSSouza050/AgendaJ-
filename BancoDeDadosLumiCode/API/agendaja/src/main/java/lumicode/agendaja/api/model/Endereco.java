@@ -27,9 +27,6 @@ public class Endereco {
 	private String cep;
 	private String numero;
 	@ManyToOne
-	@JoinColumn(name = "id_tipo_endereco")
-	private TipoEndereco idTipoEndereco;
-	@ManyToOne
 	@JoinColumn(name = "id_cidade")
 	private Cidade idCidade;
 	private String criadoEm;
@@ -74,14 +71,6 @@ public class Endereco {
 
 	public void setNumero(String numero) {
 		this.numero = numero;
-	}
-
-	public TipoEndereco getIdTipoEndereco() {
-		return idTipoEndereco;
-	}
-
-	public void setIdTipoEndereco(TipoEndereco idTipoEndereco) {
-		this.idTipoEndereco = idTipoEndereco;
 	}
 
 	public Cidade getIdCidade() {

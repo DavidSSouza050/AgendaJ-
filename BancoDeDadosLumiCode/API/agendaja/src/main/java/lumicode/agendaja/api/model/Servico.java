@@ -17,7 +17,7 @@ public class Servico {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idServico;
-	@Size(min = 5, max = 50, message = "Minimo de caracteres do servico e 5")
+	@Size(min = 3, max = 50, message = "Minimo de caracteres do servico e 3")
 	private String servico;
 	private float preco;
 	private int duracaoServico;

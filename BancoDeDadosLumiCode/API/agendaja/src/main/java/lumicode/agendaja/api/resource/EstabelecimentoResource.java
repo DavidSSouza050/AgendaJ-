@@ -32,21 +32,18 @@ public class EstabelecimentoResource {
 	private EstabelecimentoRepository estabelecimentoRepository;
 	
 	//pegando todos os estabelecimentos
-	@CrossOrigin("http://localhost:3000")
 	@GetMapping
 	private List<Estabelecimento> getEstabelecimento(){
 		return estabelecimentoRepository.findAll();
 	}
 	
 	//pegando apenas um estabelecimento
-	@CrossOrigin("http://localhost:3000")
 	@GetMapping("/{id}")
 	private Estabelecimento visualizarEstabelecimento(@PathVariable Long id) {
 		return estabelecimentoRepository.findById(id).get();
 	}
 	
 	//Login estabelecimento
-	@CrossOrigin("http://localhost:3000")
 	@PostMapping("/login")
 	private ResponseEntity<?> loginEstabelecimento(@RequestBody Estabelecimento estabelecimento) {
 		Estabelecimento estabelecimentologado = estabelecimentoRepository.loginEstabelecimento(estabelecimento.getEmail(), estabelecimento.getSenha());
@@ -61,7 +58,6 @@ public class EstabelecimentoResource {
 	
 	
 	//cadastrando um estabelecimento
-	@CrossOrigin("http://localhost:3000")
 	@PostMapping
 	private ResponseEntity<?> salvarEstabelecimento(
 			@Validated @RequestBody Estabelecimento estabelecimento,
@@ -107,7 +103,6 @@ public class EstabelecimentoResource {
 	
 	
 	//Atualizar o estabelecimento
-	@CrossOrigin("http://localhost:3000")
 	@PutMapping("/{id}")
 	private ResponseEntity<?> atualizarEstabelecimento(@Validated @RequestBody 
 			Estabelecimento estabelecimento, @PathVariable Long id){
