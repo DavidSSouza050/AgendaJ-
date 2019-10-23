@@ -1,0 +1,34 @@
+package lumicode.agendaja.api.model;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "tbl_cargo")
+public class Cargo {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long idCargo;
+	private String cargo;
+
+	public Long getIdCargo() {
+		return idCargo;
+	}
+
+	public void setIdCargo(Long idCargo) {
+		this.idCargo = idCargo;
+	}
+
+	public String getCargo() {
+		return cargo;
+	}
+
+	public void setCargo(String cargo) {
+		this.cargo = cargo;
+	}
+
+}

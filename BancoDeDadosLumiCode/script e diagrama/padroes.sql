@@ -167,17 +167,4 @@ INSERT INTO tbl_funcionario_estabelecimento values(2,2,1);
 
 
 
-create table tbl_cargo(
-	id_cargo INT primary KEY auto_increment not null,
-    cargo varchar(50) not null 
-);
-
-
-CREATE TABLE tbl_cargo_funcionario(
-	id_cargo_funcionario int primary key auto_increment,
-    id_cargo INT not null,
-    id_funcionario INT not null
-);
-
-
 

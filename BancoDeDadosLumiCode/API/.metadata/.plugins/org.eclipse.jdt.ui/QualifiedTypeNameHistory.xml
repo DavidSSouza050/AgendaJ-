@@ -33,7 +33,6 @@
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RestController"/>
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMapping"/>
 <fullyQualifiedTypeName name="lumicode.agendaja.api.repository.EnderecoClienteRepository"/>
-<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.CrossOrigin"/>
 <fullyQualifiedTypeName name="lumicode.agendaja.api.model.EnderecoCliente"/>
 <fullyQualifiedTypeName name="lumicode.agendaja.api.model.Endereco"/>
 <fullyQualifiedTypeName name="org.springframework.data.jpa.repository.Query"/>
@@ -44,11 +43,7 @@
 <fullyQualifiedTypeName name="lumicode.agendaja.api.model.dto.EstabelecimentoDTO"/>
 <fullyQualifiedTypeName name="lumicode.agendaja.api.model.dto.FuncionarioDTO"/>
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PostMapping"/>
-<fullyQualifiedTypeName name="javax.persistence.Entity"/>
-<fullyQualifiedTypeName name="javax.persistence.Table"/>
-<fullyQualifiedTypeName name="javax.persistence.Id"/>
 <fullyQualifiedTypeName name="javax.annotation.Generated"/>
-<fullyQualifiedTypeName name="javax.persistence.GeneratedValue"/>
 <fullyQualifiedTypeName name="lumicode.agendaja.api.model.dto.ServicoIdDTO"/>
 <fullyQualifiedTypeName name="javax.persistence.JoinColumn"/>
 <fullyQualifiedTypeName name="lumicode.agendaja.api.model.dto.AgendamentoIdDTO"/>
@@ -60,4 +55,9 @@
 <fullyQualifiedTypeName name="lumicode.agendaja.api.resource.AgendamentoServicoResource"/>
 <fullyQualifiedTypeName name="lumicode.agendaja.api.model.dto.AgendamentoServicosIdDTO"/>
 <fullyQualifiedTypeName name="lumicode.agendaja.api.repository.dto.AgendamentoServicosIdDTORepository"/>
+<fullyQualifiedTypeName name="javax.persistence.Entity"/>
+<fullyQualifiedTypeName name="javax.persistence.Table"/>
+<fullyQualifiedTypeName name="javax.persistence.Id"/>
+<fullyQualifiedTypeName name="javax.persistence.GeneratedValue"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.CrossOrigin"/>
 </qualifiedTypeNameHistroy>

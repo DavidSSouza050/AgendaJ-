@@ -26,7 +26,6 @@ import lumicode.agendaja.api.utils.ConverterDatas;
 
 @RestController
 @RequestMapping("/estabelecimentos")
-@CrossOrigin(origins = "*")
 public class EstabelecimentoResource {
 	
 	@Autowired

@@ -6587,3 +6587,179 @@ This warning can be switched off on the Team > Git > Confirmations and Warnings 
 
 !ENTRY org.eclipse.jface.text 2 0 2019-10-22 14:30:44.337
 !MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.boolean'
+!SESSION 2019-10-23 17:06:57.057 -----------------------------------------------
+eclipse.buildId=4.10.0.I20181206-0815
+java.version=1.8.0_191
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=pt_BR
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.jface.text 2 0 2019-10-23 17:10:18.746
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.boolean'
+
+!ENTRY org.eclipse.egit.ui 2 0 2019-10-23 17:10:29.515
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\18175740'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.osgi 2 0 2019-10-23 17:10:33.404
+!MESSAGE While loading class "org.eclipse.m2e.jdt.internal.MavenClasspathContainerInitializer", thread "Thread[Worker-1: Initializing Java Tooling,5,main]" timed out waiting (5022ms) for thread "Thread[Worker-2: Decoration Calculation,5,main]" to finish starting bundle "org.eclipse.m2e.jdt_1.10.0.20181127-2120 [573]". To avoid deadlock, thread "Thread[Worker-1: Initializing Java Tooling,5,main]" is proceeding but "org.eclipse.m2e.jdt.internal.MavenClasspathContainerInitializer" may not be fully initialized.
+!STACK 0
+org.osgi.framework.BundleException: Unable to acquire the state change lock for the module: osgi.identity; type="osgi.bundle"; version:Version="1.10.0.20181127-2120"; osgi.identity="org.eclipse.m2e.jdt"; singleton:="true" [id=573] STARTED [STARTED]
+	at org.eclipse.osgi.container.Module.lockStateChange(Module.java:344)
+	at org.eclipse.osgi.container.Module.start(Module.java:408)
+	at org.eclipse.osgi.framework.util.SecureAction.start(SecureAction.java:471)
+	at org.eclipse.osgi.internal.hooks.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:117)
+	at org.eclipse.osgi.internal.loader.classpath.ClasspathManager.findLocalClass(ClasspathManager.java:557)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.findLocalClass(ModuleClassLoader.java:331)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(BundleLoader.java:395)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:473)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:422)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:414)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:153)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.loadClass(EquinoxBundle.java:612)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:196)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:934)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:246)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:63)
+	at org.eclipse.jdt.core.JavaCore.computeClasspathContainerInitializer(JavaCore.java:3708)
+	at org.eclipse.jdt.core.JavaCore.getClasspathContainerInitializer(JavaCore.java:3684)
+	at org.eclipse.jdt.internal.core.JavaModelManager.initializeContainer(JavaModelManager.java:3176)
+	at org.eclipse.jdt.internal.core.JavaModelManager$10.run(JavaModelManager.java:3079)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2295)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2322)
+	at org.eclipse.jdt.internal.core.JavaModelManager.initializeAllContainers(JavaModelManager.java:3141)
+	at org.eclipse.jdt.internal.core.JavaModelManager.getClasspathContainer(JavaModelManager.java:2111)
+	at org.eclipse.jdt.core.JavaCore.initializeAfterLoad(JavaCore.java:4454)
+	at org.eclipse.jdt.internal.ui.InitializeAfterLoadJob$RealJob.run(InitializeAfterLoadJob.java:39)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: java.util.concurrent.TimeoutException: Timeout after waiting 5 seconds to acquire the lock.
+	at org.eclipse.osgi.container.Module.lockStateChange(Module.java:341)
+	... 27 more
+Root exception:
+java.util.concurrent.TimeoutException: Timeout after waiting 5 seconds to acquire the lock.
+	at org.eclipse.osgi.container.Module.lockStateChange(Module.java:341)
+	at org.eclipse.osgi.container.Module.start(Module.java:408)
+	at org.eclipse.osgi.framework.util.SecureAction.start(SecureAction.java:471)
+	at org.eclipse.osgi.internal.hooks.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:117)
+	at org.eclipse.osgi.internal.loader.classpath.ClasspathManager.findLocalClass(ClasspathManager.java:557)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.findLocalClass(ModuleClassLoader.java:331)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(BundleLoader.java:395)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:473)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:422)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:414)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:153)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.loadClass(EquinoxBundle.java:612)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:196)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:934)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:246)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:63)
+	at org.eclipse.jdt.core.JavaCore.computeClasspathContainerInitializer(JavaCore.java:3708)
+	at org.eclipse.jdt.core.JavaCore.getClasspathContainerInitializer(JavaCore.java:3684)
+	at org.eclipse.jdt.internal.core.JavaModelManager.initializeContainer(JavaModelManager.java:3176)
+	at org.eclipse.jdt.internal.core.JavaModelManager$10.run(JavaModelManager.java:3079)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2295)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2322)
+	at org.eclipse.jdt.internal.core.JavaModelManager.initializeAllContainers(JavaModelManager.java:3141)
+	at org.eclipse.jdt.internal.core.JavaModelManager.getClasspathContainer(JavaModelManager.java:2111)
+	at org.eclipse.jdt.core.JavaCore.initializeAfterLoad(JavaCore.java:4454)
+	at org.eclipse.jdt.internal.ui.InitializeAfterLoadJob$RealJob.run(InitializeAfterLoadJob.java:39)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.osgi 2 0 2019-10-23 17:10:34.504
+!MESSAGE While loading class "org.eclipse.m2e.jdt.internal.MavenClasspathContainerInitializer", thread "Thread[Worker-9: Update dynamic Java sources working sets,5,main]" timed out waiting (5011ms) for thread "Thread[Worker-2: Decoration Calculation,5,main]" to finish starting bundle "org.eclipse.m2e.jdt_1.10.0.20181127-2120 [573]". To avoid deadlock, thread "Thread[Worker-9: Update dynamic Java sources working sets,5,main]" is proceeding but "org.eclipse.m2e.jdt.internal.MavenClasspathContainerInitializer" may not be fully initialized.
+!STACK 0
+org.osgi.framework.BundleException: Unable to acquire the state change lock for the module: osgi.identity; type="osgi.bundle"; version:Version="1.10.0.20181127-2120"; osgi.identity="org.eclipse.m2e.jdt"; singleton:="true" [id=573] STARTED [STARTED]
+	at org.eclipse.osgi.container.Module.lockStateChange(Module.java:344)
+	at org.eclipse.osgi.container.Module.start(Module.java:408)
+	at org.eclipse.osgi.framework.util.SecureAction.start(SecureAction.java:471)
+	at org.eclipse.osgi.internal.hooks.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:117)
+	at org.eclipse.osgi.internal.loader.classpath.ClasspathManager.findLocalClass(ClasspathManager.java:557)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.findLocalClass(ModuleClassLoader.java:331)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(BundleLoader.java:395)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:473)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:422)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:414)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:153)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.loadClass(EquinoxBundle.java:612)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:196)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:934)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:246)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:63)
+	at org.eclipse.jdt.core.JavaCore.computeClasspathContainerInitializer(JavaCore.java:3708)
+	at org.eclipse.jdt.core.JavaCore.getClasspathContainerInitializer(JavaCore.java:3684)
+	at org.eclipse.jdt.internal.core.JavaModelManager.initializeContainer(JavaModelManager.java:3176)
+	at org.eclipse.jdt.internal.core.JavaModelManager$10.run(JavaModelManager.java:3079)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2295)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2322)
+	at org.eclipse.jdt.internal.core.JavaModelManager.initializeAllContainers(JavaModelManager.java:3141)
+	at org.eclipse.jdt.internal.core.JavaModelManager.getClasspathContainer(JavaModelManager.java:2111)
+	at org.eclipse.jdt.core.JavaCore.getClasspathContainer(JavaCore.java:3661)
+	at org.eclipse.jdt.internal.core.JavaProject.resolveClasspath(JavaProject.java:3156)
+	at org.eclipse.jdt.internal.core.JavaProject.resolveClasspath(JavaProject.java:3320)
+	at org.eclipse.jdt.internal.core.JavaProject.getResolvedClasspath(JavaProject.java:2397)
+	at org.eclipse.jdt.internal.core.JavaProject.buildStructure(JavaProject.java:478)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:268)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:596)
+	at org.eclipse.jdt.internal.core.JavaElement.getElementInfo(JavaElement.java:326)
+	at org.eclipse.jdt.internal.core.JavaElement.getElementInfo(JavaElement.java:312)
+	at org.eclipse.jdt.internal.core.JavaElement.getChildren(JavaElement.java:267)
+	at org.eclipse.jdt.internal.core.JavaProject.getPackageFragmentRoots(JavaProject.java:2273)
+	at org.eclipse.jdt.internal.ui.workingsets.DynamicSourcesWorkingSetUpdater.updateElements(DynamicSourcesWorkingSetUpdater.java:201)
+	at org.eclipse.jdt.internal.ui.workingsets.DynamicSourcesWorkingSetUpdater.updateElements(DynamicSourcesWorkingSetUpdater.java:182)
+	at org.eclipse.jdt.internal.ui.workingsets.DynamicSourcesWorkingSetUpdater$1.run(DynamicSourcesWorkingSetUpdater.java:169)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: java.util.concurrent.TimeoutException: Timeout after waiting 5 seconds to acquire the lock.
+	at org.eclipse.osgi.container.Module.lockStateChange(Module.java:341)
+	... 39 more
+Root exception:
+java.util.concurrent.TimeoutException: Timeout after waiting 5 seconds to acquire the lock.
+	at org.eclipse.osgi.container.Module.lockStateChange(Module.java:341)
+	at org.eclipse.osgi.container.Module.start(Module.java:408)
+	at org.eclipse.osgi.framework.util.SecureAction.start(SecureAction.java:471)
+	at org.eclipse.osgi.internal.hooks.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:117)
+	at org.eclipse.osgi.internal.loader.classpath.ClasspathManager.findLocalClass(ClasspathManager.java:557)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.findLocalClass(ModuleClassLoader.java:331)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(BundleLoader.java:395)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:473)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:422)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:414)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:153)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.loadClass(EquinoxBundle.java:612)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:196)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:934)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:246)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:63)
+	at org.eclipse.jdt.core.JavaCore.computeClasspathContainerInitializer(JavaCore.java:3708)
+	at org.eclipse.jdt.core.JavaCore.getClasspathContainerInitializer(JavaCore.java:3684)
+	at org.eclipse.jdt.internal.core.JavaModelManager.initializeContainer(JavaModelManager.java:3176)
+	at org.eclipse.jdt.internal.core.JavaModelManager$10.run(JavaModelManager.java:3079)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2295)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2322)
+	at org.eclipse.jdt.internal.core.JavaModelManager.initializeAllContainers(JavaModelManager.java:3141)
+	at org.eclipse.jdt.internal.core.JavaModelManager.getClasspathContainer(JavaModelManager.java:2111)
+	at org.eclipse.jdt.core.JavaCore.getClasspathContainer(JavaCore.java:3661)
+	at org.eclipse.jdt.internal.core.JavaProject.resolveClasspath(JavaProject.java:3156)
+	at org.eclipse.jdt.internal.core.JavaProject.resolveClasspath(JavaProject.java:3320)
+	at org.eclipse.jdt.internal.core.JavaProject.getResolvedClasspath(JavaProject.java:2397)
+	at org.eclipse.jdt.internal.core.JavaProject.buildStructure(JavaProject.java:478)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:268)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:596)
+	at org.eclipse.jdt.internal.core.JavaElement.getElementInfo(JavaElement.java:326)
+	at org.eclipse.jdt.internal.core.JavaElement.getElementInfo(JavaElement.java:312)
+	at org.eclipse.jdt.internal.core.JavaElement.getChildren(JavaElement.java:267)
+	at org.eclipse.jdt.internal.core.JavaProject.getPackageFragmentRoots(JavaProject.java:2273)
+	at org.eclipse.jdt.internal.ui.workingsets.DynamicSourcesWorkingSetUpdater.updateElements(DynamicSourcesWorkingSetUpdater.java:201)
+	at org.eclipse.jdt.internal.ui.workingsets.DynamicSourcesWorkingSetUpdater.updateElements(DynamicSourcesWorkingSetUpdater.java:182)
+	at org.eclipse.jdt.internal.ui.workingsets.DynamicSourcesWorkingSetUpdater$1.run(DynamicSourcesWorkingSetUpdater.java:169)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.jface.text 2 0 2019-10-23 17:12:38.314
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.boolean'

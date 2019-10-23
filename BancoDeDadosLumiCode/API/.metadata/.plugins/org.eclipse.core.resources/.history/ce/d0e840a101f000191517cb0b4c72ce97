@@ -1,5 +1,0 @@
-package lumicode.agendaja.api.repository;
-
-public interface ClienteServicoRepository {
-
-}
