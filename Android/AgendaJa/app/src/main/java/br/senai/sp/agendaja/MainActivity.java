@@ -11,7 +11,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-import br.senai.sp.agendaja.model.Cliente;
+import br.senai.sp.agendaja.Model.Cliente;
 
 public class MainActivity extends AppCompatActivity{
 

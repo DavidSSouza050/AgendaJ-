@@ -1,4 +1,4 @@
-package br.senai.sp.agendaja.tasks;
+package br.senai.sp.agendaja.Tasks;
 
 import android.os.AsyncTask;
 
@@ -14,7 +14,7 @@ import java.net.URL;
 import java.util.Scanner;
 
 import br.senai.sp.agendaja.MainActivity;
-import br.senai.sp.agendaja.model.Endereco;
+import br.senai.sp.agendaja.Model.Endereco;
 
 public class TaskCadastrarEndereco extends AsyncTask{
   private Endereco endereco;

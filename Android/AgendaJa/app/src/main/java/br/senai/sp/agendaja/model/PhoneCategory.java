@@ -1,4 +1,4 @@
-package br.senai.sp.agendaja.model;
+package br.senai.sp.agendaja.Model;
 
 public class PhoneCategory {
 

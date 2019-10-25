@@ -27,8 +27,8 @@ import java.io.FileNotFoundException;
 import java.io.InputStream;
 
 import br.senai.sp.agendaja.Paths.RealPathPhoto;
-import br.senai.sp.agendaja.model.Cliente;
-import br.senai.sp.agendaja.model.Endereco;
+import br.senai.sp.agendaja.Model.Cliente;
+import br.senai.sp.agendaja.Model.Endereco;
 
 public class DadosPessoaisActivity extends AppCompatActivity implements View.OnClickListener,AdapterView.OnItemSelectedListener{
 

@@ -1,6 +1,6 @@
 package br.senai.sp.agendaja.Services;
 
-import br.senai.sp.agendaja.model.Cliente;
+import br.senai.sp.agendaja.Model.Cliente;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 import retrofit2.Call;

@@ -4,7 +4,7 @@ import android.util.Log;
 
 import java.io.File;
 
-import br.senai.sp.agendaja.model.Cliente;
+import br.senai.sp.agendaja.Model.Cliente;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;

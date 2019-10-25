@@ -1,10 +1,8 @@
-package br.senai.sp.agendaja.tasks;
+package br.senai.sp.agendaja.Tasks;
 
 import android.annotation.SuppressLint;
 import android.os.AsyncTask;
 import android.util.Log;
-
-import com.google.gson.JsonObject;
 
 import org.json.JSONException;
 import org.json.JSONStringer;

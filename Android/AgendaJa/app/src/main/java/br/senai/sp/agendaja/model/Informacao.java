@@ -1,4 +1,4 @@
-package br.senai.sp.agendaja.model;
+package br.senai.sp.agendaja.Model;
 
 import java.io.Serializable;
 
@@ -6,6 +6,15 @@ public class Informacao extends Endereco implements Serializable{
   private String celular;
   private String email;
   private String senha;
+  private String telefone;
+
+  public String getTelefone() {
+    return telefone;
+  }
+
+  public void setTelefone(String telefone) {
+    this.telefone = telefone;
+  }
 
   public String getCelular() {
     return celular;

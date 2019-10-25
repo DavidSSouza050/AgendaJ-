@@ -1,4 +1,4 @@
-package br.senai.sp.agendaja.tasks;
+package br.senai.sp.agendaja.Tasks;
 
 import android.content.Context;
 import android.os.AsyncTask;
@@ -19,7 +19,7 @@ import java.net.URL;
 
 import javax.net.ssl.HttpsURLConnection;
 
-import br.senai.sp.agendaja.model.Endereco;
+import br.senai.sp.agendaja.Model.Endereco;
 
 
 public class TaskCarregarLocalizacao extends AsyncTask{

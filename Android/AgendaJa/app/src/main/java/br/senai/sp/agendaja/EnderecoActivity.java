@@ -14,9 +14,9 @@ import android.widget.Toast;
 
 import java.util.concurrent.ExecutionException;
 
-import br.senai.sp.agendaja.model.Cliente;
-import br.senai.sp.agendaja.model.Endereco;
-import br.senai.sp.agendaja.tasks.TaskCarregarLocalizacao;
+import br.senai.sp.agendaja.Model.Cliente;
+import br.senai.sp.agendaja.Model.Endereco;
+import br.senai.sp.agendaja.Tasks.TaskCarregarLocalizacao;
 
 public class EnderecoActivity extends AppCompatActivity implements View.OnClickListener, TextWatcher{
 

@@ -1,8 +1,8 @@
-package br.senai.sp.agendaja.model;
+package br.senai.sp.agendaja.Model;
 
 import java.io.Serializable;
 
-public class Estabelecimento implements Serializable{
+public class Estabelecimento extends Endereco implements Serializable {
 
   private int idEstabelecimento;
   private String cnpj;
@@ -21,7 +21,6 @@ public class Estabelecimento implements Serializable{
   public void setIdEstabelecimento(int idEstabelecimento) {
     this.idEstabelecimento = idEstabelecimento;
   }
-
 
   public String getCnpj() {
     return cnpj;

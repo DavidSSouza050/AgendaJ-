@@ -26,8 +26,8 @@ import java.util.concurrent.ExecutionException;
 
 import br.senai.sp.agendaja.Paths.RealPathPhoto;
 import br.senai.sp.agendaja.Services.CadastroFoto;
-import br.senai.sp.agendaja.model.Cliente;
-import br.senai.sp.agendaja.tasks.TaskLoginClienteToken;
+import br.senai.sp.agendaja.Model.Cliente;
+import br.senai.sp.agendaja.Tasks.TaskLoginClienteToken;
 import de.hdodenhof.circleimageview.CircleImageView;
 import retrofit2.Call;
 import retrofit2.Callback;

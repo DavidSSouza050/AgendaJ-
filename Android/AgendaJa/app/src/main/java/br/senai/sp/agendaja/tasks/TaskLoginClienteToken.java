@@ -1,4 +1,4 @@
-package br.senai.sp.agendaja.tasks;
+package br.senai.sp.agendaja.Tasks;
 
 import android.os.AsyncTask;
 
@@ -15,7 +15,7 @@ import java.net.URL;
 import java.util.Scanner;
 
 import br.senai.sp.agendaja.MainActivity;
-import br.senai.sp.agendaja.model.Cliente;
+import br.senai.sp.agendaja.Model.Cliente;
 
 public class TaskLoginClienteToken extends AsyncTask {
 

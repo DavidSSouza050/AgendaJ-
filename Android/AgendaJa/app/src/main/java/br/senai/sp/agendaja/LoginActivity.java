@@ -15,9 +15,9 @@ import android.widget.Toast;
 
 import java.util.concurrent.ExecutionException;
 
-import br.senai.sp.agendaja.model.Cliente;
-import br.senai.sp.agendaja.tasks.TaskGetToken;
-import br.senai.sp.agendaja.tasks.TaskLoginClienteToken;
+import br.senai.sp.agendaja.Model.Cliente;
+import br.senai.sp.agendaja.Tasks.TaskGetToken;
+import br.senai.sp.agendaja.Tasks.TaskLoginClienteToken;
 
 
 //LoaderCallbacks<Cursor>,
