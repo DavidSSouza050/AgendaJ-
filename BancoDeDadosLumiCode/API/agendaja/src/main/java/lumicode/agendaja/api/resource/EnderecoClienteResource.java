@@ -21,7 +21,6 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import lumicode.agendaja.api.model.Endereco;
 import lumicode.agendaja.api.model.EnderecoCliente;
-import lumicode.agendaja.api.model.dto.EnderecoDTO;
 import lumicode.agendaja.api.repository.EnderecoClienteRepository;
 
 @RestController
@@ -42,7 +41,7 @@ public class EnderecoClienteResource {
 	}
 	
 	@GetMapping("/endereco/{id}")
-	private List<EnderecoDTO> pegarendereco(@PathVariable Long id){
+	private List<Endereco> pegarendereco(@PathVariable Long id){
 		return enderecoClienteRepository.pegarEndereco(id);
 	}
 	

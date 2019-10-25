@@ -9,7 +9,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lumicode.agendaja.api.model.dto.ClienteDTO;
-import lumicode.agendaja.api.model.dto.EnderecoDTO;
 
 @Entity
 @Table(name = "tbl_endereco_cliente")
@@ -19,7 +18,7 @@ public class EnderecoCliente {
 	private Long idEnderecoCliente;
 	@ManyToOne
 	@JoinColumn(name = "id_endereco")
-	private EnderecoDTO endereco;
+	private Endereco endereco;
 	@ManyToOne
 	@JoinColumn(name = "id_cliente")
 	private ClienteDTO cliente;
@@ -32,11 +31,13 @@ public class EnderecoCliente {
 		this.idEnderecoCliente = idEnderecoCliente;
 	}
 
-	public EnderecoDTO getEndereco() {
+	
+
+	public Endereco getEndereco() {
 		return endereco;
 	}
 
-	public void setEndereco(EnderecoDTO endereco) {
+	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
 	}
 

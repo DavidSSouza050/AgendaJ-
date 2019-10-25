@@ -19,8 +19,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import lumicode.agendaja.api.model.Endereco;
 import lumicode.agendaja.api.model.EnderecoEstabelecimento;
-import lumicode.agendaja.api.model.dto.EnderecoDTO;
 import lumicode.agendaja.api.repository.EnderecoEstabelecimentoRepository;
 
 @RestController
@@ -41,8 +41,8 @@ public class EnderecoEstabelecimentoResource {
 		return enderecoEstabelecimentoRepository.findById(id).get();
 	}
 	
-	@GetMapping("/endereco/{id}")
-	private List<EnderecoDTO> pegarEndereco(@PathVariable Long id) {
+	@GetMapping("/estabelecimento/{id}")
+	private List<Endereco> pegarEndereco(@PathVariable Long id) {
 		return enderecoEstabelecimentoRepository.pegarEndereco(id);
 	}
 	

@@ -12,6 +12,7 @@ C:\Users\18175740\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\ja
 C:\Users\18175740\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\java\lumicode\agendaja\api\model\Funcionario.java
 C:\Users\18175740\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\java\lumicode\agendaja\api\resource\AgendamentoResource.java
 C:\Users\18175740\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\java\lumicode\agendaja\api\model\TipoEndereco.java
+C:\Users\18175740\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\java\lumicode\agendaja\api\repository\dto\AgendamentoServicosIdDTORepository.java
 C:\Users\18175740\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\java\lumicode\agendaja\api\model\DiaSemana.java
 C:\Users\18175740\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\java\lumicode\agendaja\api\model\Assunto.java
 C:\Users\18175740\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\java\lumicode\agendaja\api\repository\DiaSemanaRepository.java

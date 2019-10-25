@@ -9,7 +9,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
-import lumicode.agendaja.api.model.dto.EnderecoDTO;
 import lumicode.agendaja.api.model.dto.EstabelecimentoDTO;
 
 @Entity
@@ -21,7 +20,7 @@ public class EnderecoEstabelecimento {
 	@NotNull
 	@ManyToOne
 	@JoinColumn(name = "id_endereco")
-	private EnderecoDTO endereco;
+	private Endereco endereco;
 	@NotNull
 	@ManyToOne
 	@JoinColumn(name = "id_estabelecimento")
@@ -30,17 +29,15 @@ public class EnderecoEstabelecimento {
 	public Long getIdEnderecoEstabelecimento() {
 		return idEnderecoEstabelecimento;
 	}
-
 	
-	public EnderecoDTO getEndereco() {
+	public Endereco getEndereco() {
 		return endereco;
 	}
 
-
-
-	public void setEndereco(EnderecoDTO endereco) {
+	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
 	}
+
 
 
 

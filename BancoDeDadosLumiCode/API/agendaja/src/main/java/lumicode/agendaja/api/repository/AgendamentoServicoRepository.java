@@ -15,4 +15,8 @@ public interface AgendamentoServicoRepository
 			+ "INNER JOIN a.agendamento as ag WHERE ag.idAgendamento = ?1")
 	public List<Servico> pegarAgendamentoServico(Long idAgendamento);
 	
+	@Query("SELECT a.servico FROM AgendamentoServico as a "
+			+ "INNER JOIN a.servico as s "
+			+ "INNER JOIN a.agendamento as ag WHERE s.idServico = ?1 AND ag.idAgendamento = ?2")
+	public Servico verificarRelacionamento(Long idServico, Long IdAgendamento);
 }

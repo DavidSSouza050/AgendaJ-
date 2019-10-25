@@ -56,13 +56,17 @@ public class JwtTokenUtill implements Serializable {
 	public String generateTokenConsumidor(Cliente cliente) {
 		Map<String, Object> claims = new HashMap<>();
 		
+		System.out.println(cliente.getEmail()+" "+ cliente.getIdCliente());
+		
 		return doGenerateToken(claims, cliente.getEmail(), cliente.getIdCliente());
+		
 	}
 	
 	//intermediario da geracao do token
 		public String generateTokenRestaurante(Estabelecimento estabelecimento) {
 			Map<String, Object> claims = new HashMap<>();
-			
+		
+			System.out.println(estabelecimento.getEmail()+" "+estabelecimento.getIdEstabelecimento());
 			return doGenerateToken(claims, estabelecimento.getEmail(), estabelecimento.getIdEstabelecimento());
 		}
 

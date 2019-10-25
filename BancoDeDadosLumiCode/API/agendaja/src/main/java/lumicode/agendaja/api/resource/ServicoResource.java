@@ -25,7 +25,7 @@ import lumicode.agendaja.api.utils.ConverterDatas;
 
 @RestController
 @RequestMapping("/servicos")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "*")
 public class ServicoResource {
 	@Autowired
 	private ServicoRepository servicoRepository;
@@ -74,20 +74,22 @@ public class ServicoResource {
 	private ResponseEntity<?> atualizarCliente(@RequestBody Servico servico,
 			@PathVariable Long id ){
 	
-		Servico clienteAtualizado = servicoRepository.findById(id).get();
+		Servico servicoAtualizado = servicoRepository.findById(id).get();
 		
 		
 		//declarando o coverter datas 
 		ConverterDatas converterDatas = new ConverterDatas();
 		//setando o atualizada em
 		servico.setAtualizadoEm(converterDatas.dataAtual());
+		String criadoEm = servico.getCriadoEm();
+		servico.setCriadoEm(criadoEm);
 		// *************************
 		
-		BeanUtils.copyProperties(servico, clienteAtualizado, "id");
+		BeanUtils.copyProperties(servico, servicoAtualizado, "id");
 	
 		servicoRepository.save(servico);
 		
-		return ResponseEntity.ok(clienteAtualizado);
+		return ResponseEntity.ok(servicoAtualizado);
 	
 	
 	}

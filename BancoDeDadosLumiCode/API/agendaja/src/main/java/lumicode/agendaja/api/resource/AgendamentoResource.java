@@ -94,9 +94,16 @@ public class AgendamentoResource {
 	}
 	
 	
-	@GetMapping("/agendamento/{id}")
-	private Agendamento visualizar(@PathVariable Long id) {
-		return agendamentoRepository.pegarServico(id);
+	@PutMapping("/desativar/{id}")
+	private ResponseEntity<?> desativarAgedamento(@PathVariable Long id){
+		
+		Agendamento agedamentoDesativado = agendamentoRepository.findById(id).get();
+		
+		agedamentoDesativado.setStatus('D'); 
+		
+		agendamentoRepository.save(agedamentoDesativado);
+		
+		return ResponseEntity.ok("{\"mesage\":\"Agendamento Desativado\"}");
 	}
 	
 	

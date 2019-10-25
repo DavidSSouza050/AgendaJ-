@@ -1,6 +1,5 @@
 package lumicode.agendaja.api.model;
 
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -30,10 +29,9 @@ public class Agendamento {
 	private EstabelecimentoDTO estabelecimento;
 	private String dataHorarioAgendado;
 	private int finalizado;
+	private char status;
 	private String criadoEm;
 	private String atualizadoEm;
-	
-	
 
 	public Long getIdAgendamento() {
 		return idAgendamento;
@@ -42,9 +40,6 @@ public class Agendamento {
 	public void setIdAgendamento(Long idAgendamento) {
 		this.idAgendamento = idAgendamento;
 	}
-
-
-	
 
 	public ClienteDTO getCliente() {
 		return cliente;
@@ -86,6 +81,15 @@ public class Agendamento {
 		this.finalizado = finalizado;
 	}
 
+	
+	public char getStatus() {
+		return status;
+	}
+
+	public void setStatus(char status) {
+		this.status = status;
+	}
+
 	public String getCriadoEm() {
 		return criadoEm;
 	}
@@ -101,8 +105,5 @@ public class Agendamento {
 	public void setAtualizadoEm(String atualizadoEm) {
 		this.atualizadoEm = atualizadoEm;
 	}
-	
-	
-	
-	
+
 }

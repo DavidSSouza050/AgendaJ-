@@ -83,8 +83,8 @@ public class FuncionarioResource {
 		//setando o atualizada em
 		funcionario.setAtualizadoEm(converterDatas.dataAtual());
 		//para não atualizar o criadoEm estou setando de novo apra nao copiar
-//		String criadoEm = funcionarioAtualizado.getCriadoEm();
-//		funcionario.setCriadoEm(criadoEm);
+		String criadoEm = funcionarioAtualizado.getCriadoEm();
+		funcionario.setCriadoEm(criadoEm);
 		// *************************
 		
 		BeanUtils.copyProperties(funcionario, funcionarioAtualizado, "id");
