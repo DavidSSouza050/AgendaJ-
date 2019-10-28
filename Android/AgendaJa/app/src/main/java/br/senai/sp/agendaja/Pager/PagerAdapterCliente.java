@@ -7,11 +7,11 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 import br.senai.sp.agendaja.Tabs.TabServicosAbertos;
 import br.senai.sp.agendaja.Tabs.TabServicosFechados;
 
-public class PagerAdapter extends FragmentStatePagerAdapter {
+public class PagerAdapterCliente extends FragmentStatePagerAdapter {
 
   private int number;
 
-  public PagerAdapter(FragmentManager fm, int number) {
+  public PagerAdapterCliente(FragmentManager fm, int number) {
     super(fm);
     this.number = number;
   }

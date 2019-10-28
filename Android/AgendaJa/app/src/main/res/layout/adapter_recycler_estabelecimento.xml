@@ -5,6 +5,7 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="12dp"
+    android:id="@+id/card_adapter_estabelecimento"
     android:layout_margin="12dp"
     android:padding="8dp">
 
@@ -17,7 +18,6 @@
             android:layout_width="match_parent"
             android:layout_height="43dp"
             android:background="@android:color/white"
-            android:text="Nome do Estabelecimento"
             android:textSize="24dp"
             android:textAlignment="center"
             android:padding="4dp"/>
@@ -26,15 +26,13 @@
             android:id="@+id/img_estabelecimento_adapter"
             android:layout_width="match_parent"
             android:layout_height="230dp"
-            android:layout_below="@+id/txt_nome_estabelecimento_adapter"
-            android:background="@drawable/retro_hear" />
+            android:layout_below="@+id/txt_nome_estabelecimento_adapter" />
 
         <TextView
             android:id="@+id/txt_nome_endereco_adapter"
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:background="@android:color/white"
-            android:text="Rua Elton Silva, 905 - Centro, 06600-025 - Jandira - SP"
             android:textSize="24dp"
             android:padding="4dp"
             android:layout_below="@+id/img_estabelecimento_adapter"/>

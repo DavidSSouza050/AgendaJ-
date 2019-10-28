@@ -2,6 +2,7 @@ package br.senai.sp.agendaja.Adapters;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,11 +31,13 @@ public class EstabelecimentoAdapter extends RecyclerView.Adapter<Estabelecimento
   private Context context;
   private String token;
   private Endereco endereco;
+  private EstabelecimentoViewHolder.ClickCardView clickCardView;
 
-  public EstabelecimentoAdapter(List<Estabelecimento> estabelecimentosList, Context context, String token) {
+  public EstabelecimentoAdapter(List<Estabelecimento> estabelecimentosList, Context context, String token, EstabelecimentoViewHolder.ClickCardView clickCardView) {
     this.estabelecimentosList = estabelecimentosList;
     this.context = context;
     this.token = token;
+    this.clickCardView = clickCardView;
   }
 
 
@@ -53,26 +56,45 @@ public class EstabelecimentoAdapter extends RecyclerView.Adapter<Estabelecimento
     final Estabelecimento estabelecimento = estabelecimentosList.get(i);
 
     TaskGetEnderecoIdEstab getEnderecoIdEstab = new TaskGetEnderecoIdEstab(estabelecimento.getIdEstabelecimento(),token);
+    getEnderecoIdEstab.execute();
 
     try {
 
       if(getEnderecoIdEstab.get()!=null){
         endereco = (Endereco) getEnderecoIdEstab.get();
 
+        estabelecimento.setIdEndereco(endereco.getIdEndereco());
+        estabelecimento.setLogradouro(endereco.getLogradouro());
+        estabelecimento.setBairro(endereco.getBairro());
+        estabelecimento.setCep(endereco.getCep());
+        estabelecimento.setCodIBGE(endereco.getCodIBGE());
+        estabelecimento.setEstado(endereco.getEstado());
+        estabelecimento.setCidade(endereco.getCidade());
+
         //Setando os valores nos campos
         estabelecimentoViewHolder.nomeEstabelecimento.setText(estabelecimento.getNomeEstabelecimento());
-        URL url = new URL(MainActivity.IP_FOTO + estabelecimento.getFoto());
+    URL url = null;
 
-        Picasso
+
+      url = new URL(MainActivity.IP_FOTO + estabelecimento.getFoto());
+
+
+
+    Picasso
              .get()
              .load(String.valueOf(url))
              .into(estabelecimentoViewHolder.imagemEstabelecimento);
 
-        estabelecimentoViewHolder.enderecoEstabelecimento.setText(endereco.getBairro() + " " + estabelecimento.getCep() + ", " + estabelecimento.getCidade() + "-" + estabelecimento.getEstado());
+        estabelecimentoViewHolder.enderecoEstabelecimento.setText(estabelecimento.getBairro() + " " + estabelecimento.getCep() + ", " + estabelecimento.getCidade() + "-" + estabelecimento.getEstado());
 
+        estabelecimentoViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+          @Override
+          public void onClick(View v) {
+            clickCardView.onClickCard(estabelecimento);
+          }
+        });
 
       }
-
 
     } catch (ExecutionException e) {
       e.printStackTrace();
@@ -90,8 +112,9 @@ public class EstabelecimentoAdapter extends RecyclerView.Adapter<Estabelecimento
     return estabelecimentosList!=null? estabelecimentosList.size() : 0;
   }
 
-  public class EstabelecimentoViewHolder extends RecyclerView.ViewHolder{
+  public static class EstabelecimentoViewHolder extends RecyclerView.ViewHolder{
 
+    private CardView cardEstabelecimento;
     private TextView nomeEstabelecimento;
     private ImageView imagemEstabelecimento;
     private TextView enderecoEstabelecimento;
@@ -101,11 +124,17 @@ public class EstabelecimentoAdapter extends RecyclerView.Adapter<Estabelecimento
     public EstabelecimentoViewHolder(@NonNull View itemView) {
       super(itemView);
 
+      cardEstabelecimento = itemView.findViewById(R.id.card_adapter_estabelecimento);
       nomeEstabelecimento = itemView.findViewById(R.id.txt_nome_estabelecimento_adapter);
       imagemEstabelecimento = itemView.findViewById(R.id.img_estabelecimento_adapter);
       enderecoEstabelecimento = itemView.findViewById(R.id.txt_nome_endereco_adapter);
 
     }
+
+    public interface ClickCardView{
+      public void onClickCard(Estabelecimento estabelecimento);
+    }
+
   }
 
 }

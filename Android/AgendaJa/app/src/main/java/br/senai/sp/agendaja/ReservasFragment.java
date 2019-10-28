@@ -5,10 +5,9 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
-import br.senai.sp.agendaja.Pager.PagerAdapter;
+import br.senai.sp.agendaja.Pager.PagerAdapterCliente;
 
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -38,8 +37,8 @@ public class ReservasFragment extends Fragment implements TabLayout.OnTabSelecte
         tabLayout.setTabGravity(tabLayout.GRAVITY_FILL);
 
         viewPager = getActivity().findViewById(R.id.pager);
-        PagerAdapter pagerAdapter = new PagerAdapter(getActivity().getSupportFragmentManager(),tabLayout.getTabCount());
-        viewPager.setAdapter(pagerAdapter);
+        PagerAdapterCliente pagerAdapterCliente = new PagerAdapterCliente(getActivity().getSupportFragmentManager(),tabLayout.getTabCount());
+        viewPager.setAdapter(pagerAdapterCliente);
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(this);
 

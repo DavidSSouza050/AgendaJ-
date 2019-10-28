@@ -1,63 +1,102 @@
 package br.senai.sp.agendaja;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.support.v7.widget.Toolbar;
 
+import com.squareup.picasso.Picasso;
+
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.senai.sp.agendaja.Model.Estabelecimento;
 import br.senai.sp.agendaja.Model.Phone;
 import br.senai.sp.agendaja.Model.PhoneCategory;
+import br.senai.sp.agendaja.Pager.PagerAdapterEstabelecimento;
 import iammert.com.expandablelib.ExpandableLayout;
 import iammert.com.expandablelib.Section;
 
-public class ServicosDoEstabelecimentoActivity extends AppCompatActivity {
+public class ServicosDoEstabelecimentoActivity extends AppCompatActivity implements TabLayout.OnTabSelectedListener{
+    private ViewPager viewPager;
+    private ImageView imagemEstabelecimento;
+    private TextView nomeEstabelecimento;
+    private TextView enderecoEstabelecimento;
+    private Estabelecimento estabelecimento;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_servicos_do_estabelecimento);
+        Toolbar toolbar = findViewById(R.id.toolbar_servicos_estabelecimento);
+        setSupportActionBar(toolbar);
 
-        ExpandableLayout layout = (ExpandableLayout)findViewById(R.id.expandable_layout);
+        TabLayout tabLayout = findViewById(R.id.tabLayout_servicos_estabelecimento);
+        tabLayout.addTab(tabLayout.newTab().setText("Serviços"));
+        tabLayout.addTab(tabLayout.newTab().setText("Detalhes"));
+        tabLayout.addTab(tabLayout.newTab().setText("Avaliações"));
+        tabLayout.addTab(tabLayout.newTab().setText("Portifólio"));
+        tabLayout.setTabGravity(tabLayout.GRAVITY_FILL);
 
-        layout.setRenderer(new ExpandableLayout.Renderer<PhoneCategory,Phone>() {
+        viewPager = findViewById(R.id.pager_servicos_estabelecimento);
+        PagerAdapterEstabelecimento adapterEstabelecimento = new PagerAdapterEstabelecimento(getSupportFragmentManager(),tabLayout.getTabCount());
+        viewPager.setAdapter(adapterEstabelecimento);
+        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+        tabLayout.addOnTabSelectedListener(this);
 
-            @Override
-            public void renderParent(View view, PhoneCategory phoneCategory, boolean isExpanded, int parentPosition) {
-                ((TextView)view.findViewById(R.id.tv_parent_name)).setText(phoneCategory.name);
-                view.findViewById(R.id.arrow).setBackgroundResource(isExpanded? R.drawable.ic_arrow: R.drawable.ic_arrow_dwon);
-            }
+        //pegando o estabelecimento que veio com a intent
 
-            @Override
-            public void renderChild(final View view, Phone phone, int parentPosition, int childPosition) {
-                ((TextView)view.findViewById(R.id.tv_child_name)).setText(phone.name);
-                ((TextView)view.findViewById(R.id.tv_child_name)).setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        TextView txt = (TextView)view.findViewById(R.id.tv_child_name);
-                        Toast.makeText(ServicosDoEstabelecimentoActivity.this, "Clicked : "+txt.getText(), Toast.LENGTH_LONG).show();
-                    }
-                });
-            }
-        });
+        Intent intentEstab = getIntent();
+        if(intentEstab.getSerializableExtra("estabelecimento")!=null){
+            estabelecimento = (Estabelecimento) intentEstab.getSerializableExtra("estabelecimento");
+        }
 
-        layout.addSection(getSection());
-        layout.addSection(getSection());
-        layout.addSection(getSection());
+
+
+        ///instanciando os elementos da view
+        imagemEstabelecimento = findViewById(R.id.linearLayout2);
+        nomeEstabelecimento = findViewById(R.id.textView);
+        enderecoEstabelecimento = findViewById(R.id.textView3);
+
+
+        //setando os valores nos elementos da view
+
+        try {
+            URL url = new URL(MainActivity.IP_FOTO+ estabelecimento.getFoto());
+            Picasso.get().load(String.valueOf(url)).into(imagemEstabelecimento);
+
+            nomeEstabelecimento.setText(estabelecimento.getNomeEstabelecimento());
+
+            enderecoEstabelecimento.setText(estabelecimento.getBairro() + " " + estabelecimento.getCep() + ", " + estabelecimento.getCidade() + "-" + estabelecimento.getEstado());
+
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+
+
     }
 
-    private Section<PhoneCategory,Phone> getSection(){
-        Section<PhoneCategory,Phone> section = new Section<>();
-        PhoneCategory phoneCategory = new PhoneCategory("Phone");
 
-        List<Phone> listPhone = new ArrayList<>();
-        for (int i=1;i<=5;i++)
-            listPhone.add(new Phone("Phone "+i));
-        section.parent = phoneCategory;
-        section.children.addAll(listPhone);
-        return section;
+    @Override
+    public void onTabSelected(TabLayout.Tab tab) {
+        viewPager.setCurrentItem(tab.getPosition());
+    }
+
+    @Override
+    public void onTabUnselected(TabLayout.Tab tab) {
+
+    }
+
+    @Override
+    public void onTabReselected(TabLayout.Tab tab) {
+
     }
 }

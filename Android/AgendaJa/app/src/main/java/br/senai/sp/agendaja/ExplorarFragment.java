@@ -1,5 +1,6 @@
 package br.senai.sp.agendaja;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -17,7 +18,7 @@ import br.senai.sp.agendaja.Adapters.EstabelecimentoAdapter;
 import br.senai.sp.agendaja.Model.Estabelecimento;
 import br.senai.sp.agendaja.Tasks.TaskGetListEstabelecimentos;
 
-public class ExplorarFragment extends Fragment {
+public class ExplorarFragment extends Fragment implements EstabelecimentoAdapter.EstabelecimentoViewHolder.ClickCardView{
 
     private List<Estabelecimento> estabelecimentoList;
     private RecyclerView viewEstabelecimentos;
@@ -40,7 +41,7 @@ public class ExplorarFragment extends Fragment {
                 estabelecimentoList = (List<Estabelecimento>) getListEstabelecimentos.get();
             }
 
-            EstabelecimentoAdapter estabelecimentoAdapter  = new EstabelecimentoAdapter(estabelecimentoList,getActivity().getBaseContext(),MainActivity.TOKEN);
+            EstabelecimentoAdapter estabelecimentoAdapter  = new EstabelecimentoAdapter(estabelecimentoList,getActivity(),MainActivity.TOKEN,this);
             viewEstabelecimentos.setAdapter(estabelecimentoAdapter);
 
         } catch (ExecutionException e) {
@@ -55,7 +56,15 @@ public class ExplorarFragment extends Fragment {
 
     private void carregarAdapterEstabelecimentos(final List<Estabelecimento> estabelecimentoList){
         this.estabelecimentoList = estabelecimentoList;
-        EstabelecimentoAdapter estabelecimentoAdapter = new EstabelecimentoAdapter(estabelecimentoList,getActivity(),MainActivity.TOKEN);
+        EstabelecimentoAdapter estabelecimentoAdapter = new EstabelecimentoAdapter(estabelecimentoList,getActivity(),MainActivity.TOKEN,this);
         viewEstabelecimentos.setAdapter(estabelecimentoAdapter);
+    }
+
+
+    @Override
+    public void onClickCard(Estabelecimento estabelecimento) {
+        Intent intentServicosEstabelecimento = new Intent(getActivity(),ServicosDoEstabelecimentoActivity.class);
+        intentServicosEstabelecimento.putExtra("estabelecimento",estabelecimento);
+        startActivity(intentServicosEstabelecimento);
     }
 }

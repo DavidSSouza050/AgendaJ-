@@ -1,7 +1,9 @@
 package br.senai.sp.agendaja.Tasks;
 
 import android.os.AsyncTask;
+import android.util.Log;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -32,10 +34,13 @@ public class TaskGetEnderecoIdEstab extends AsyncTask {
     try {
 
       URL url = new URL("http://"+ MainActivity.IP_SERVER + "/enderecosEstabelecimentos/estabelecimento/"+ idEstabelecimento);
+
+      Log.d("url enderecos",String.valueOf(url));
       HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 
-      connection.setRequestProperty("Content-type","Application/json");
+      //connection.setRequestProperty("Content-type","Application/json");
       connection.setRequestProperty("token",token);
+      connection.setRequestMethod("GET");
 
       InputStream inputStream = connection.getInputStream();
       InputStreamReader streamReader = new InputStreamReader(inputStream);
@@ -50,7 +55,8 @@ public class TaskGetEnderecoIdEstab extends AsyncTask {
 
       if(dados!=null){
         endereco = new Endereco();
-        JSONObject object = new JSONObject(dados);
+        JSONArray array = new JSONArray(dados);
+        JSONObject object = (JSONObject) array.get(0);
         endereco.setIdEndereco(object.getInt("idEndereco"));
         endereco.setCep(object.getString("cep"));
         endereco.setLogradouro(object.getString("logradouro"));
