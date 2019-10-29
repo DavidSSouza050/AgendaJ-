@@ -1,5 +1,0 @@
-package lumicode.agendaja.api.model.dto;
-
-public class EnderecoDTO {
-
-}

@@ -1,9 +1,9 @@
--- MySQL dump 10.13  Distrib 8.0.11, for Win64 (x86_64)
+﻿-- MySQL dump 10.13  Distrib 8.0.15, for Win64 (x86_64)
 --
 -- Host: localhost    Database: db_lumicode
 -- ------------------------------------------------------
--- Server version	8.0.11
-
+-- Server version	8.0.15
+use db_lumicode;
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
@@ -18,7 +18,7 @@
 --
 -- Table structure for table `tbl_agendamento`
 --
-use db_lumicode;
+
 DROP TABLE IF EXISTS `tbl_agendamento`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
@@ -28,7 +28,8 @@ CREATE TABLE `tbl_agendamento` (
   `id_funcionario` int(11) NOT NULL,
   `id_estabelecimento` int(11) NOT NULL,
   `data_horario_agendado` datetime NOT NULL,
-  `finalizado` tinyint(4) DEFAULT NULL,
+  `finalizado` tinyint(4) DEFAULT '0',
+  `status` char(1) DEFAULT 'A',
   `criado_em` datetime DEFAULT NULL,
   `atualizado_em` datetime DEFAULT NULL,
   PRIMARY KEY (`id_agendamento`),
@@ -47,7 +48,7 @@ CREATE TABLE `tbl_agendamento` (
 
 LOCK TABLES `tbl_agendamento` WRITE;
 /*!40000 ALTER TABLE `tbl_agendamento` DISABLE KEYS */;
-INSERT INTO `tbl_agendamento` VALUES (1,1,1,1,'2019-10-15 14:00:00',0,'2019-10-21 14:18:19','2019-10-21 14:18:19');
+INSERT INTO `tbl_agendamento` VALUES (1,1,1,1,'2019-10-15 14:00:00',0,'A','2019-10-28 13:51:00','2019-10-28 13:51:00');
 /*!40000 ALTER TABLE `tbl_agendamento` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -186,7 +187,7 @@ CREATE TABLE `tbl_cliente` (
 
 LOCK TABLES `tbl_cliente` WRITE;
 /*!40000 ALTER TABLE `tbl_cliente` DISABLE KEYS */;
-INSERT INTO `tbl_cliente` VALUES (1,'David','Silva','(11) 97709-9609','435.423.668-03','M','2002-12-06','david@gmail.com','123456789',NULL,'2019-10-21 14:12:34','2019-10-21 14:12:34');
+INSERT INTO `tbl_cliente` VALUES (1,'David','Silva','(11) 97709-9609','435.423.668-03','M','2002-12-06','david@gmail.com','123456789',NULL,'2019-10-28 13:49:21','2019-10-28 13:49:21');
 /*!40000 ALTER TABLE `tbl_cliente` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -242,7 +243,7 @@ CREATE TABLE `tbl_endereco` (
 
 LOCK TABLES `tbl_endereco` WRITE;
 /*!40000 ALTER TABLE `tbl_endereco` DISABLE KEYS */;
-INSERT INTO `tbl_endereco` VALUES (1,'Rua Antônio gomes dos santos','Paque dos lagos','06622-445',NULL,3525003,'2019-10-21 14:12:26','2019-10-21 14:12:26'),(2,'Ruinha legal','Teraza','06622220','452',3525003,'2019-10-21 14:16:01','2019-10-21 14:16:01');
+INSERT INTO `tbl_endereco` VALUES (1,'Rua Antônio gomes dos santos','Paque dos lagos','06622-445',NULL,3525003,'2019-10-28 13:49:21','2019-10-28 13:49:21'),(2,'Ruinha legal','Teraza','06622220','452',3525003,'2019-10-28 13:49:21','2019-10-28 13:49:21');
 /*!40000 ALTER TABLE `tbl_endereco` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -335,7 +336,7 @@ CREATE TABLE `tbl_estabelecimento` (
 
 LOCK TABLES `tbl_estabelecimento` WRITE;
 /*!40000 ALTER TABLE `tbl_estabelecimento` DISABLE KEYS */;
-INSERT INTO `tbl_estabelecimento` VALUES (1,'58.373.487/0001-38','agendaTeste','TesteAgenda s2',NULL,NULL,'11 46197048','teste@oul.com','123456789','2019-10-21 14:16:19','2019-10-21 14:16:19');
+INSERT INTO `tbl_estabelecimento` VALUES (1,'58.373.487/0001-38','agendaTeste','TesteAgenda s2',NULL,NULL,'11 46197048','teste@oul.com','123456789','2019-10-28 13:49:21','2019-10-28 13:49:21');
 /*!40000 ALTER TABLE `tbl_estabelecimento` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -390,7 +391,7 @@ CREATE TABLE `tbl_fale_conosco` (
 
 LOCK TABLES `tbl_fale_conosco` WRITE;
 /*!40000 ALTER TABLE `tbl_fale_conosco` DISABLE KEYS */;
-INSERT INTO `tbl_fale_conosco` VALUES (1,'david','david@gmail.com','muito bom isso ai','2019-10-21 14:16:31',1);
+INSERT INTO `tbl_fale_conosco` VALUES (1,'david','david@gmail.com','muito bom isso ai','2019-10-28 13:49:22',1);
 /*!40000 ALTER TABLE `tbl_fale_conosco` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -449,7 +450,7 @@ CREATE TABLE `tbl_funcionario` (
 
 LOCK TABLES `tbl_funcionario` WRITE;
 /*!40000 ALTER TABLE `tbl_funcionario` DISABLE KEYS */;
-INSERT INTO `tbl_funcionario` VALUES (1,'Ivanildo',NULL,1,'ivan_fera','789456123',1,'2019-10-21 14:17:48','2019-10-21 14:17:48'),(2,'David',NULL,1,'david@gmail.com','123456789',2,'2019-10-21 14:19:13','2019-10-21 14:19:13');
+INSERT INTO `tbl_funcionario` VALUES (1,'Ivanildo',NULL,1,'ivan_fera','789456123',1,'2019-10-28 13:49:25','2019-10-28 13:49:25'),(2,'David',NULL,1,'david@gmail.com','123456789',2,'2019-10-28 13:51:10','2019-10-28 13:51:10');
 /*!40000 ALTER TABLE `tbl_funcionario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -540,7 +541,7 @@ CREATE TABLE `tbl_horario_estabelecimento` (
 
 LOCK TABLES `tbl_horario_estabelecimento` WRITE;
 /*!40000 ALTER TABLE `tbl_horario_estabelecimento` DISABLE KEYS */;
-INSERT INTO `tbl_horario_estabelecimento` VALUES (1,'08:30:00','20:00:00',1,3,'2019-10-21 14:18:33','2019-10-21 14:18:33'),(2,'08:30:00','20:00:00',1,4,'2019-10-21 14:18:34','2019-10-21 14:18:34'),(3,'08:30:00','20:00:00',1,5,'2019-10-21 14:18:35','2019-10-21 14:18:35'),(4,'08:30:00','20:00:00',1,6,'2019-10-21 14:18:36','2019-10-21 14:18:36'),(5,'09:00:00','17:00:00',1,7,'2019-10-21 14:18:37','2019-10-21 14:18:37');
+INSERT INTO `tbl_horario_estabelecimento` VALUES (1,'08:30:00','20:00:00',1,3,'2019-10-28 13:50:28','2019-10-28 13:50:28'),(2,'08:30:00','20:00:00',1,4,'2019-10-28 13:50:29','2019-10-28 13:50:29'),(3,'08:30:00','20:00:00',1,5,'2019-10-28 13:50:30','2019-10-28 13:50:30'),(4,'08:30:00','20:00:00',1,6,'2019-10-28 13:50:31','2019-10-28 13:50:31'),(5,'09:00:00','17:00:00',1,7,'2019-10-28 13:50:31','2019-10-28 13:50:31');
 /*!40000 ALTER TABLE `tbl_horario_estabelecimento` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -575,7 +576,7 @@ CREATE TABLE `tbl_horario_funcionario` (
 
 LOCK TABLES `tbl_horario_funcionario` WRITE;
 /*!40000 ALTER TABLE `tbl_horario_funcionario` DISABLE KEYS */;
-INSERT INTO `tbl_horario_funcionario` VALUES (1,'08:30:00','17:00:00','12:00:00','13:00:00',7,1,'2019-10-21 14:17:52','2019-10-21 14:17:52'),(2,'08:30:00','17:00:00','12:00:00','13:00:00',3,1,'2019-10-21 14:17:53','2019-10-21 14:17:53'),(3,'08:30:00','17:00:00','12:00:00','13:00:00',4,1,'2019-10-21 14:17:54','2019-10-21 14:17:54'),(4,'08:30:00','17:00:00','12:00:00','13:00:00',5,1,'2019-10-21 14:17:55','2019-10-21 14:17:55'),(5,'08:30:00','17:00:00','12:00:00','13:00:00',6,1,'2019-10-21 14:17:55','2019-10-21 14:17:55');
+INSERT INTO `tbl_horario_funcionario` VALUES (1,'08:30:00','17:00:00','12:00:00','13:00:00',7,1,'2019-10-28 13:50:00','2019-10-28 13:50:00'),(2,'08:30:00','17:00:00','12:00:00','13:00:00',3,1,'2019-10-28 13:50:03','2019-10-28 13:50:03'),(3,'08:30:00','17:00:00','12:00:00','13:00:00',4,1,'2019-10-28 13:50:05','2019-10-28 13:50:05'),(4,'08:30:00','17:00:00','12:00:00','13:00:00',5,1,'2019-10-28 13:50:06','2019-10-28 13:50:06'),(5,'08:30:00','17:00:00','12:00:00','13:00:00',6,1,'2019-10-28 13:50:06','2019-10-28 13:50:06');
 /*!40000 ALTER TABLE `tbl_horario_funcionario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -632,7 +633,7 @@ CREATE TABLE `tbl_salario` (
 
 LOCK TABLES `tbl_salario` WRITE;
 /*!40000 ALTER TABLE `tbl_salario` DISABLE KEYS */;
-INSERT INTO `tbl_salario` VALUES (1,500.00,NULL,1,'2019-10-21 14:16:48','2019-10-21 14:16:48'),(2,0.00,50,1,'2019-10-21 14:18:43','2019-10-21 14:18:43');
+INSERT INTO `tbl_salario` VALUES (1,500.00,NULL,1,'2019-10-28 13:49:24','2019-10-28 13:49:24'),(2,0.00,50,1,'2019-10-28 13:51:08','2019-10-28 13:51:08');
 /*!40000 ALTER TABLE `tbl_salario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -666,7 +667,7 @@ CREATE TABLE `tbl_servico` (
 
 LOCK TABLES `tbl_servico` WRITE;
 /*!40000 ALTER TABLE `tbl_servico` DISABLE KEYS */;
-INSERT INTO `tbl_servico` VALUES (1,'BABY BANGS',35.00,30,1,2,'2019-10-21 14:18:02','2019-10-21 14:18:02'),(2,'SOCIAL',20.00,20,1,1,'2019-10-21 14:18:03','2019-10-21 14:18:03');
+INSERT INTO `tbl_servico` VALUES (1,'BABY BANGS',35.00,30,1,2,'2019-10-28 13:50:12','2019-10-28 13:50:12'),(2,'SOCIAL',20.00,20,1,1,'2019-10-28 13:50:13','2019-10-28 13:50:13');
 /*!40000 ALTER TABLE `tbl_servico` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -703,4 +704,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-10-22 13:43:52
+-- Dump completed on 2019-10-28 13:53:39

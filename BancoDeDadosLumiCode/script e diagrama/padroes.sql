@@ -23,7 +23,6 @@ select * from tbl_agendamento;
 
 -- endereco
 select * from tbl_endereco;
-select * from tbl_tipo_endereco;
 select * from tbl_cidade;
 select * from tbl_microrregiao;
 select * from tbl_estado;
@@ -84,7 +83,6 @@ desc tbl_funcionario;
 select * from tbl_funcionario;
 INSERT INTO tbl_funcionario values (1, 'Ivanildo', null, 1,'ivan_fera', '789456123', 1, now(), now());
 
-select * from tbl_horario;
 INSERT INTO tbl_horario_funcionario values(1, '8:30:00' , '17:00:00', '12:00:00', '13:00:00', 7, 1, now(), now());
 INSERT INTO tbl_horario_funcionario values(2, '8:30:00' , '17:00:00', '12:00:00', '13:00:00', 3, 1, now(), now());
 INSERT INTO tbl_horario_funcionario values(3, '8:30:00' , '17:00:00', '12:00:00', '13:00:00', 4, 1, now(), now());
@@ -125,7 +123,7 @@ SELECT e.nome_estabelecimento , s.servico, f.nome, s.preco, ds.dia_semana
 select * from  tbl_agendamento;
  desc tbl_agendamento;
 
-INSERT INTO tbl_agendamento values (1, 1, 1, 1,  '2019-10-15 14:00:00',0, now(), now());
+INSERT INTO tbl_agendamento values (1, 1, 1, 1,  '2019-10-15 14:00:00',0, 'A', now(), now());
 select * from tbl_agendamento;
 select * from tbl_cliente;
 select * from tbl_categoria_servico;
