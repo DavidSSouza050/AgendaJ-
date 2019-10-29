@@ -31,9 +31,9 @@ public class EstabelecimentoAdapter extends RecyclerView.Adapter<Estabelecimento
   private Context context;
   private String token;
   private Endereco endereco;
-  private EstabelecimentoViewHolder.ClickCardView clickCardView;
+  private ClickCardView clickCardView;
 
-  public EstabelecimentoAdapter(List<Estabelecimento> estabelecimentosList, Context context, String token, EstabelecimentoViewHolder.ClickCardView clickCardView) {
+  public EstabelecimentoAdapter(List<Estabelecimento> estabelecimentosList, Context context, String token,ClickCardView clickCardView) {
     this.estabelecimentosList = estabelecimentosList;
     this.context = context;
     this.token = token;
@@ -131,10 +131,10 @@ public class EstabelecimentoAdapter extends RecyclerView.Adapter<Estabelecimento
 
     }
 
-    public interface ClickCardView{
-      public void onClickCard(Estabelecimento estabelecimento);
-    }
+  }
 
+  public interface ClickCardView{
+    public void onClickCard(Estabelecimento estabelecimento);
   }
 
 }

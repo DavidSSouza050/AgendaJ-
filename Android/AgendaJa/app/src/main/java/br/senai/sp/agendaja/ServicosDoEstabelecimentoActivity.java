@@ -36,8 +36,8 @@ public class ServicosDoEstabelecimentoActivity extends AppCompatActivity impleme
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_servicos_do_estabelecimento);
-        Toolbar toolbar = findViewById(R.id.toolbar_servicos_estabelecimento);
-        setSupportActionBar(toolbar);
+//        Toolbar toolbar = findViewById(R.id.toolbar_servicos_estabelecimento);
+//        setSupportActionBar(toolbar);
 
         TabLayout tabLayout = findViewById(R.id.tabLayout_servicos_estabelecimento);
         tabLayout.addTab(tabLayout.newTab().setText("Serviços"));

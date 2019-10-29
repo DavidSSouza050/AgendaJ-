@@ -1,21 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent">
-    
-    <RelativeLayout
-        android:id="@+id/caixa_child_name"
-        android:background="#EEE"
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/lista_servicos_estabelecimento"
         android:layout_width="match_parent"
-        android:layout_height="56dp">
+        android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/tv_child_name"
-            android:layout_margin="16dp"
-            android:layout_centerVertical="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
 
-    </RelativeLayout>
+    </android.support.v7.widget.RecyclerView>
 
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>

@@ -23,7 +23,6 @@
             android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
             android:layout_marginStart="13dp"
-            android:text="Serviço X"
             android:textSize="24dp" />
 
         <TextView
@@ -33,7 +32,6 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentTop="true"
             android:layout_marginEnd="117dp"
-            android:text="R$ 20,00"
             android:textSize="24dp"
             android:paddingTop="8dp"/>
 
@@ -43,7 +41,6 @@
             android:layout_height="wrap_content"
             android:layout_alignEnd="@+id/text_preco_do_servico"
             android:layout_below="@+id/text_preco_do_servico"
-            android:text="30 min"
             android:textSize="14dp" />
 
         <Button

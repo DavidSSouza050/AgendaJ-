@@ -18,7 +18,7 @@ import br.senai.sp.agendaja.Adapters.EstabelecimentoAdapter;
 import br.senai.sp.agendaja.Model.Estabelecimento;
 import br.senai.sp.agendaja.Tasks.TaskGetListEstabelecimentos;
 
-public class ExplorarFragment extends Fragment implements EstabelecimentoAdapter.EstabelecimentoViewHolder.ClickCardView{
+public class ExplorarFragment extends Fragment implements EstabelecimentoAdapter.ClickCardView{
 
     private List<Estabelecimento> estabelecimentoList;
     private RecyclerView viewEstabelecimentos;
@@ -41,7 +41,7 @@ public class ExplorarFragment extends Fragment implements EstabelecimentoAdapter
                 estabelecimentoList = (List<Estabelecimento>) getListEstabelecimentos.get();
             }
 
-            EstabelecimentoAdapter estabelecimentoAdapter  = new EstabelecimentoAdapter(estabelecimentoList,getActivity(),MainActivity.TOKEN,this);
+            EstabelecimentoAdapter estabelecimentoAdapter  = new EstabelecimentoAdapter(estabelecimentoList,getActivity(),MainActivity.TOKEN, (EstabelecimentoAdapter.ClickCardView) this);
             viewEstabelecimentos.setAdapter(estabelecimentoAdapter);
 
         } catch (ExecutionException e) {
@@ -56,7 +56,7 @@ public class ExplorarFragment extends Fragment implements EstabelecimentoAdapter
 
     private void carregarAdapterEstabelecimentos(final List<Estabelecimento> estabelecimentoList){
         this.estabelecimentoList = estabelecimentoList;
-        EstabelecimentoAdapter estabelecimentoAdapter = new EstabelecimentoAdapter(estabelecimentoList,getActivity(),MainActivity.TOKEN,this);
+        EstabelecimentoAdapter estabelecimentoAdapter = new EstabelecimentoAdapter(estabelecimentoList,getActivity(),MainActivity.TOKEN, (EstabelecimentoAdapter.ClickCardView) this);
         viewEstabelecimentos.setAdapter(estabelecimentoAdapter);
     }
 
