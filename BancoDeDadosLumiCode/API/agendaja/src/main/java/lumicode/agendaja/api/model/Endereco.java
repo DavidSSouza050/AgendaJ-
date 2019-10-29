@@ -29,8 +29,6 @@ public class Endereco {
 	@ManyToOne
 	@JoinColumn(name = "id_cidade")
 	private Cidade idCidade;
-	private String criadoEm;
-	private String atualizadoEm;
 	
 
 	public Long getIdEndereco() {
@@ -82,26 +80,5 @@ public class Endereco {
 	}
 
 
-	public String getCriadoEm() {
-		return criadoEm;
-	}
-
-	public void setCriadoEm(String criadoEm) {
-		this.criadoEm = criadoEm;
-	}
-
-	public String getAtualizadoEm() {
-		return atualizadoEm;
-	}
-
-	public void setAtualizadoEm(String atualizadoEm) {
-		this.atualizadoEm = atualizadoEm;
-	}
-	
-	
-	
-	
-
-	
 	
 }

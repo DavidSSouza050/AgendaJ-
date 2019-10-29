@@ -5,11 +5,15 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Null;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.br.CPF;
+import org.hibernate.validator.internal.IgnoreForbiddenApisErrors;
 
 
 @Entity
@@ -44,9 +48,6 @@ public class Cliente {
 	@Size(min = 8, max = 255, message="a senha deve conter no minimo 8 caracteres")
 	private String senha;
 	private String fotoCliente;
-	private String criadoEm;
-	private String atualizadoEm;
-	
 	
 	public Long getIdCliente() {
 		return idCliente;
@@ -129,21 +130,6 @@ public class Cliente {
 		this.fotoCliente = fotoCliente;
 	}
 
-	public String getCriadoEm() {
-		return criadoEm;
-	}
-
-	public void setCriadoEm(String criadoEm) {
-		this.criadoEm = criadoEm;
-	}
-
-	public String getAtualizadoEm() {
-		return atualizadoEm;
-	}
-
-	public void setAtualizadoEm(String atualizadoEm) {
-		this.atualizadoEm = atualizadoEm;
-	}
 
 
 	

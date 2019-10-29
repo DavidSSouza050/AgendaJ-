@@ -1,5 +1,0 @@
-package lumicode.agendaja.api.repository.dto;
-
-public interface AgendamentoServicosIdDTO {
-
-}

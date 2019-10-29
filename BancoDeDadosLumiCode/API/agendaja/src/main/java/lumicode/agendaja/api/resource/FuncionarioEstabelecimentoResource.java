@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import lumicode.agendaja.api.model.FuncionarioEstabelecimento;
+import lumicode.agendaja.api.model.dto.FuncionarioDTO;
 import lumicode.agendaja.api.repository.FuncionarioEstabelecimentoRepository;
 
 @RestController
@@ -38,7 +39,10 @@ public class FuncionarioEstabelecimentoResource {
 		return funcionarioEstabelecimentoRepository.findById(id).get();
 	}
 	
-	
+	@GetMapping("/estabelecimento/{id}")
+	private List<FuncionarioDTO> visualizarfuncionarioPorEstabelecimento(@PathVariable Long id){
+		return funcionarioEstabelecimentoRepository.funcionarioPorEstabelecimento(id);
+	}
 	
 	
 	// Cadastrando uma relação com funcionario e servico

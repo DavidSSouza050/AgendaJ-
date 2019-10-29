@@ -33,7 +33,7 @@ public class FuncionarioEstabelecimento {
 	public void setIdFuncionarioEstabelecimento(Long idFuncionarioEstabelecimento) {
 		this.idFuncionarioEstabelecimento = idFuncionarioEstabelecimento;
 	}
-
+	
 	public FuncionarioDTO getFuncionario() {
 		return funcionario;
 	}

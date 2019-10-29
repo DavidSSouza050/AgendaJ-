@@ -13,6 +13,7 @@ public class FuncionarioDTO {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idFuncionario;
 	private String nome;
+	private String foto;
 
 	public Long getIdFuncionario() {
 		return idFuncionario;
@@ -29,6 +30,15 @@ public class FuncionarioDTO {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+
+	public String getFoto() {
+		return foto;
+	}
+
+	public void setFoto(String foto) {
+		this.foto = foto;
+	}
+	
 	
 	
 	

@@ -7,7 +7,6 @@ import org.springframework.data.jpa.repository.Query;
 
 import lumicode.agendaja.api.model.Endereco;
 import lumicode.agendaja.api.model.EnderecoEstabelecimento;
-import lumicode.agendaja.api.model.dto.EnderecoDTO;
 
 public interface EnderecoEstabelecimentoRepository 
 	extends JpaRepository<EnderecoEstabelecimento, Long>{

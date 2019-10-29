@@ -39,6 +39,10 @@ public class ServicoResource {
 	private Servico visualizarServico(@PathVariable Long id) {
 		return servicoRepository.findById(id).get();
 	}
+	@GetMapping("/estabelecimento/{id}")
+	private List<Servico> visualizaeServicosPorEstabelecimento(@PathVariable Long id){
+		return servicoRepository.visualizarServicosPorestabelecimento(id);
+	}
 	
 	@PostMapping
 	private ResponseEntity<Servico> salvarServico(

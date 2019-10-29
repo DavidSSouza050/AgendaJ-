@@ -46,11 +46,7 @@ public class EnderecoResource {
 	private ResponseEntity<Endereco> salvarEndereco(
 			@Validated @RequestBody Endereco endereco,
 			HttpServletResponse response){
-		//setando data
-		ConverterDatas converterDatas = new ConverterDatas();
-		endereco.setCriadoEm(converterDatas.dataAtual());
-		endereco.setAtualizadoEm(converterDatas.dataAtual());
-		//
+		
 		Endereco enderecoSalvo = enderecoRepository.save(endereco);
 		
 		URI uri = ServletUriComponentsBuilder
@@ -71,12 +67,7 @@ public class EnderecoResource {
 			@Validated @RequestBody Endereco endereco, @PathVariable Long id){
 		
 		Endereco enderecoAtualizado = enderecoRepository.findById(id).get();
-		//setando data atual
-		ConverterDatas converterDatas = new ConverterDatas();
-		endereco.setAtualizadoEm(converterDatas.dataAtual());
-		String criadoEm = enderecoAtualizado.getCriadoEm();
-		endereco.setCriadoEm(criadoEm);
-		//*****
+		
 		BeanUtils.copyProperties(endereco, enderecoAtualizado, "id");
 		
 		enderecoRepository.save(enderecoAtualizado);
