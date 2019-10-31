@@ -82,9 +82,11 @@ public class LoginActivity extends AppCompatActivity implements  View.OnClickLis
                             intentMain.putExtra("token",token);
                             startActivity(intentMain);
                         }else{
-                            Toast.makeText(LoginActivity.this,"Email ou senhas incorretos",Toast.LENGTH_LONG).show();
+                            Toast.makeText(LoginActivity.this,"Email ou senha incorretos",Toast.LENGTH_LONG).show();
                         }
 
+                    }else{
+                        Toast.makeText(LoginActivity.this,"Email ou senha incorretos",Toast.LENGTH_LONG).show();
                     }
 
                 } catch (ExecutionException e) {
