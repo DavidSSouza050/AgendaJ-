@@ -1,27 +1,22 @@
 package br.senai.sp.agendaja.Tabs;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.FrameLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
-import java.util.stream.IntStream;
-import java.util.stream.Stream;
 
-import br.senai.sp.agendaja.Adapters.ServicoAdapter;
+import br.senai.sp.agendaja.FazerReservaActivity;
 import br.senai.sp.agendaja.Model.Estabelecimento;
 import br.senai.sp.agendaja.Model.Servico;
 import br.senai.sp.agendaja.R;
@@ -29,7 +24,7 @@ import br.senai.sp.agendaja.Tasks.TaskGetListServicos;
 import iammert.com.expandablelib.ExpandableLayout;
 import iammert.com.expandablelib.Section;
 
-public class TabServicosEstabelecimento extends Fragment implements ServicoAdapter.ServicoViewHolder.ClickReserva{
+public class TabServicosEstabelecimento extends Fragment{
   private List<Servico> servicoList;
   private Estabelecimento estabelecimento;
   private Servico servico;
@@ -66,10 +61,6 @@ public class TabServicosEstabelecimento extends Fragment implements ServicoAdapt
     return view;
   }
 
-
-
-
-
   @Override
   public void onActivityCreated(@Nullable Bundle savedInstanceState) {
     super.onActivityCreated(savedInstanceState);
@@ -80,14 +71,12 @@ public class TabServicosEstabelecimento extends Fragment implements ServicoAdapt
       @Override
       public void renderParent(View view, String nomeServico, boolean b, int i) {
 
-        servico = servicoList.get(i);
-
-        ((TextView)view.findViewById(R.id.tv_parent_name)).setText(servico.getCategoriaServico());
+        ((TextView)view.findViewById(R.id.tv_parent_name)).setText(nomeServico);
         view.findViewById(R.id.arrow).setBackgroundResource(b? R.drawable.ic_arrow: R.drawable.ic_arrow_dwon);
       }
 
       @Override
-      public void renderChild(View view, Servico servico, int i, int i1){
+      public void renderChild(View view, final Servico servico, int i, int i1){
         nomeServico = view.findViewById(R.id.text_servico_do_estabelecimento);
         precoServico = view.findViewById(R.id.text_preco_do_servico);
         duracaoServico = view.findViewById(R.id.text_tempo_do_servico);
@@ -95,12 +84,15 @@ public class TabServicosEstabelecimento extends Fragment implements ServicoAdapt
 
 
         nomeServico.setText(servico.getNomeServico());
-        precoServico.setText(String.valueOf(servico.getPrecoServico()));
-        duracaoServico.setText(String.valueOf(servico.getDuracao()));
+        precoServico.setText("R$" + String.valueOf(servico.getPrecoServico()));
+        duracaoServico.setText(String.valueOf(servico.getDuracao()) + "min");
         btnReserva.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View v) {
-            Toast.makeText(getContext(),"teste",Toast.LENGTH_LONG).show();
+            Intent intentFazerReserva = new Intent(getActivity(), FazerReservaActivity.class);
+            intentFazerReserva.putExtra("estabelecimento",estabelecimento);
+            intentFazerReserva.putExtra("servicoEscolhido",servico);
+            startActivity(intentFazerReserva);
           }
         });
 
@@ -114,21 +106,31 @@ public class TabServicosEstabelecimento extends Fragment implements ServicoAdapt
       expandableLayout.addSection(getSection(i));
     }
 
+    Log.d("categoria quimica",nomeCategorias.get(2));
+
 
   }
 
   public Section<String,Servico> getSection(int i){
     Section<String, Servico> servicoSection = new Section<>();
 
-
-    // int numeroCategorias = getCountCategorias(servicoList);
+    List<Servico> servicosCompativeis = new ArrayList<>();
 
     String categoria = nomeCategorias.get(i);
 
+    if(categoria!=null){
+      for(int numServicos=0;numServicos<servicoList.size();numServicos++){
+        Servico servico = servicoList.get(numServicos);
 
-    servicoSection.parent = categoria;
-    servicoSection.children.addAll(servicoList);
+        if(servico.getCategoriaServico().equals(categoria)){
+          servicosCompativeis.add(servico);
+        }
 
+      }
+
+      servicoSection.parent = categoria;
+      servicoSection.children.addAll(servicosCompativeis);
+    }
 
     return servicoSection;
   }
@@ -140,6 +142,7 @@ public class TabServicosEstabelecimento extends Fragment implements ServicoAdapt
 
     nomeCategorias = new ArrayList<>();
 
+    //estrutura de repetição para verificar o numero de categorias e quantas categorias existem
     for (int i=0;i<listaCountServicos.size();i++){
       Servico servicoContagem = listaCountServicos.get(i);
 
@@ -161,8 +164,4 @@ public class TabServicosEstabelecimento extends Fragment implements ServicoAdapt
     return total;
   }
 
-  @Override
-  public void onClickReserva(Servico servico) {
-
-  }
 }
