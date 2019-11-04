@@ -8,6 +8,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import lumicode.agendaja.api.model.dto.EstabelecimentoDTO;
+
 @Entity
 @Table(name = "tbl_horario_estabelecimento")
 public class HorarioEstabelecimento {
@@ -18,12 +20,10 @@ public class HorarioEstabelecimento {
 	private String abreAs;
 	@ManyToOne
 	@JoinColumn(name = "id_estabelecimento")
-	private Estabelecimento estabelecimento;
+	private EstabelecimentoDTO estabelecimento;
 	@ManyToOne
 	@JoinColumn(name = "id_dia_semana")
 	private DiaSemana diaSemana;
-	private String criadoEm;
-	private String atualizadoEm;
 
 	public Long getIdHorarioEstabelecimento() {
 		return idHorarioEstabelecimento;
@@ -49,11 +49,13 @@ public class HorarioEstabelecimento {
 		this.abreAs = abreAs;
 	}
 
-	public Estabelecimento getEstabelecimento() {
+	
+
+	public EstabelecimentoDTO getEstabelecimento() {
 		return estabelecimento;
 	}
 
-	public void setEstabelecimento(Estabelecimento estabelecimento) {
+	public void setEstabelecimento(EstabelecimentoDTO estabelecimento) {
 		this.estabelecimento = estabelecimento;
 	}
 
@@ -65,20 +67,5 @@ public class HorarioEstabelecimento {
 		this.diaSemana = diaSemana;
 	}
 
-	public String getCriadoEm() {
-		return criadoEm;
-	}
-
-	public void setCriadoEm(String criadoEm) {
-		this.criadoEm = criadoEm;
-	}
-
-	public String getAtualizadoEm() {
-		return atualizadoEm;
-	}
-
-	public void setAtualizadoEm(String atualizadoEm) {
-		this.atualizadoEm = atualizadoEm;
-	}
 	
 }

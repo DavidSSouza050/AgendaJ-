@@ -17,5 +17,7 @@ public interface ClienteRepository
 	@Query("select c from Cliente c where c.idCliente = ?1")
 	public Cliente getById(Long id);
 	
+	@Query("select c from Cliente as c where c.cpf like %?1%")
+	public Cliente getByCpf(String cpf);
 	
 }

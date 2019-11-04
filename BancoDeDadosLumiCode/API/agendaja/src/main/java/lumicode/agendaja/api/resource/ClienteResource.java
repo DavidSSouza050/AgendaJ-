@@ -60,6 +60,19 @@ public class ClienteResource {
 		return clienteRepository.findById(id).get();
 	}
 	
+	@PostMapping("/verificaCpf")
+	private Boolean verificarCpf(@RequestBody Cliente cliente){
+		
+		if(clienteRepository.getByCpf(cliente.getCpf()) != null) {
+			return true;
+		}else {
+			return false;
+		}
+		
+		
+	}
+	
+	
 	//login para cliente
 	@PostMapping("/login")
 	private ResponseEntity<?> login(@RequestBody Cliente cliente) {

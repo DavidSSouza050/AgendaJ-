@@ -30,8 +30,6 @@ public class Agendamento {
 	private String dataHorarioAgendado;
 	private int finalizado;
 	private char status;
-	private String criadoEm;
-	private String atualizadoEm;
 
 	public Long getIdAgendamento() {
 		return idAgendamento;
@@ -90,20 +88,5 @@ public class Agendamento {
 		this.status = status;
 	}
 
-	public String getCriadoEm() {
-		return criadoEm;
-	}
-
-	public void setCriadoEm(String criadoEm) {
-		this.criadoEm = criadoEm;
-	}
-
-	public String getAtualizadoEm() {
-		return atualizadoEm;
-	}
-
-	public void setAtualizadoEm(String atualizadoEm) {
-		this.atualizadoEm = atualizadoEm;
-	}
-
+	
 }

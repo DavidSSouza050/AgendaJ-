@@ -10,15 +10,11 @@ import org.springframework.web.multipart.MultipartFile;
 
 import lumicode.agendaja.api.model.Cliente;
 import lumicode.agendaja.api.model.Estabelecimento;
-import lumicode.agendaja.api.model.Funcionario;
 import lumicode.agendaja.api.model.dto.FuncionarioDTO;
 import lumicode.agendaja.api.repository.ClienteRepository;
 import lumicode.agendaja.api.repository.EstabelecimentoRepository;
-import lumicode.agendaja.api.repository.FuncionarioRepository;
 import lumicode.agendaja.api.repository.dto.FuncionarioDTORepository;
 import lumicode.agendaja.api.storage.Disco;
-import lumicode.agendaja.api.utils.ConverterDatas;
-
 @RestController
 @RequestMapping("/fotos")
 public class FotosResource {
@@ -32,8 +28,6 @@ public class FotosResource {
 	// funcionario
 	@Autowired
 	private FuncionarioDTORepository funcionarioDTORepository;
-	@Autowired
-	private FuncionarioRepository funcionarioRepository;
 	/****/
 	//varivavel da raiz da imagem
 	@Value("${contato.disco.raiz}")
@@ -55,11 +49,7 @@ public class FotosResource {
 		
 		if(localFoto != null) {
 			estabelecimento.setFoto(localFoto);
-			//setando datas de atualização e criado
-			ConverterDatas converterDatas = new ConverterDatas();
-			estabelecimento.setAtualizadoEm(converterDatas.dataAtual());
-			String criadoEm = estabelecimento.getCriadoEm();
-			estabelecimento.setCriadoEm(criadoEm);
+			
 			//
 			estabelecimentoRepository.save(estabelecimento);
 		}
@@ -94,11 +84,9 @@ public class FotosResource {
 	//gravando a imagem do funcionario
 	@PostMapping("/funcionario")
 	public FuncionarioDTO uploadFuncionario(@RequestParam MultipartFile foto, @RequestParam Long id) {
-		Funcionario funcionario = new Funcionario();
 		FuncionarioDTO funcionarioDTO = new FuncionarioDTO();
 		//verificando se o cliente ja tem uma imagem se tiver ele excluir primeiro e depois cria a nova
 		funcionarioDTO = funcionarioDTORepository.findById(id).get();
-		funcionario = funcionarioRepository.findById(id).get();
 		String fotoAntiga = raiz+funcionarioDTO.getFoto();
 		if(fotoAntiga != null) {
 			disco.deletar(fotoAntiga);
@@ -109,16 +97,9 @@ public class FotosResource {
 		
 		if(localFoto != null) {
 			funcionarioDTO.setFoto(localFoto);
-			//setando o atualizada em
 			
-			ConverterDatas converterDatas = new ConverterDatas();
-			funcionario.setAtualizadoEm(converterDatas.dataAtual());
-			//para não atualizar o criadoEm estou setando de novo para nao copiar
-			String criadoEm = funcionario.getCriadoEm();
-			funcionario.setCriadoEm(criadoEm);
 			//setando o cliente com uma imagem
 			funcionarioDTORepository.save(funcionarioDTO);
-			funcionarioRepository.save(funcionario);
 		}
 		
 		return funcionarioDTO;

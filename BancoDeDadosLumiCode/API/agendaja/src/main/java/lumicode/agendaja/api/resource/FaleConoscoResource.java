@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import lumicode.agendaja.api.model.FaleConosco;
 import lumicode.agendaja.api.repository.FaleConoscoRepository;
-import lumicode.agendaja.api.utils.ConverterDatas;
 
 @RestController
 @RequestMapping("/faleConosco")
@@ -41,9 +40,6 @@ public class FaleConoscoResource {
 	@CrossOrigin("http://localhost:3000")
 	@PostMapping
 	private ResponseEntity<String> salvarComentario(@RequestBody FaleConosco faleConosco, HttpServletResponse response){
-		ConverterDatas converterDatas = new ConverterDatas();
-		//adicionando criado em no comentario do faleConosco
-		faleConosco.setCriadoEm(converterDatas.dataAtual());
 		
 		//fazendo verificação para enviar a mensagem
 		if(faleConoscoRepository.save(faleConosco) != null) 

@@ -21,7 +21,6 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import lumicode.agendaja.api.model.Salario;
 import lumicode.agendaja.api.repository.SalarioRepository;
-import lumicode.agendaja.api.utils.ConverterDatas;
 
 @RestController
 @RequestMapping("/salarios")
@@ -48,11 +47,6 @@ public class SalarioResource {
 			@Validated @RequestBody Salario salario,
 			HttpServletResponse response){
 		
-		ConverterDatas converterDatas = new ConverterDatas();
-		//setando o criado em 
-		salario.setCriadoEm(converterDatas.dataAtual());
-		//setando o atualizado 
-		salario.setAtualizadoEm(converterDatas.dataAtual());
 		
 		Salario salarioSalvo = salarioRepository.save(salario);
 		
@@ -77,14 +71,6 @@ public class SalarioResource {
 	
 		Salario salarioAtualizado = salarioRepository.findById(id).get();
 
-		//declarando o coverter datas 
-		ConverterDatas converterDatas = new ConverterDatas();
-		//setando o atualizada em
-		salario.setAtualizadoEm(converterDatas.dataAtual());
-		//para não atualizar o criadoEm estou setando de novo apra nao copiar
-		String criadoEm = salario.getCriadoEm();
-		salario.setCriadoEm(criadoEm);
-		// *************************
 		
 		BeanUtils.copyProperties(salario, salarioAtualizado, "id");
 	

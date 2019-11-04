@@ -27,9 +27,7 @@ public class Servico {
 	@ManyToOne
 	@JoinColumn(name = "id_categoria_servico")
 	private CategoriaServico categoriaServico;
-	private String criadoEm;
-	private String atualizadoEm;
-
+	
 	public Long getIdServico() {
 		return idServico;
 	}
@@ -78,21 +76,7 @@ public class Servico {
 		this.categoriaServico = categoriaServico;
 	}
 
-	public String getCriadoEm() {
-		return criadoEm;
-	}
-
-	public void setCriadoEm(String criadoEm) {
-		this.criadoEm = criadoEm;
-	}
-
-	public String getAtualizadoEm() {
-		return atualizadoEm;
-	}
-
-	public void setAtualizadoEm(String atualizadoEm) {
-		this.atualizadoEm = atualizadoEm;
-	}
+	
 
 	
 	

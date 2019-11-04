@@ -21,7 +21,6 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import lumicode.agendaja.api.model.Servico;
 import lumicode.agendaja.api.repository.ServicoRepository;
-import lumicode.agendaja.api.utils.ConverterDatas;
 
 @RestController
 @RequestMapping("/servicos")
@@ -50,13 +49,6 @@ public class ServicoResource {
 			HttpServletResponse response){
 		
 		
-		//declarando o coverter datas 
-		ConverterDatas converterDatas = new ConverterDatas();
-		//setando o criado em 
-		servico.setCriadoEm(converterDatas.dataAtual());
-		//setando o atualizado 
-		servico.setAtualizadoEm(converterDatas.dataAtual());
-		
 		Servico servicoSalvo = servicoRepository.save(servico);
 		
 		//criando o cliente depois de salvo para retornar o json  
@@ -80,14 +72,6 @@ public class ServicoResource {
 	
 		Servico servicoAtualizado = servicoRepository.findById(id).get();
 		
-		
-		//declarando o coverter datas 
-		ConverterDatas converterDatas = new ConverterDatas();
-		//setando o atualizada em
-		servico.setAtualizadoEm(converterDatas.dataAtual());
-		String criadoEm = servico.getCriadoEm();
-		servico.setCriadoEm(criadoEm);
-		// *************************
 		
 		BeanUtils.copyProperties(servico, servicoAtualizado, "id");
 	

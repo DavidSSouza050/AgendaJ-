@@ -21,7 +21,6 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import lumicode.agendaja.api.model.Funcionario;
 import lumicode.agendaja.api.repository.FuncionarioRepository;
-import lumicode.agendaja.api.utils.ConverterDatas;
 
 @RestController
 @RequestMapping("/funcionarios")
@@ -45,12 +44,7 @@ public class FuncionarioResource {
 	private ResponseEntity<Funcionario> cadastrarFuncionario(
 			@Validated @RequestBody Funcionario funcionario,
 			HttpServletResponse response){
-		
-		ConverterDatas converterDatas = new ConverterDatas();
-		//setando o criado em 
-		funcionario.setCriadoEm(converterDatas.dataAtual());
-		//setando o atualizado 
-		funcionario.setAtualizadoEm(converterDatas.dataAtual());
+
 		//setando status
 		funcionario.setStatus(1);
 		
@@ -78,14 +72,7 @@ public class FuncionarioResource {
 	
 		Funcionario funcionarioAtualizado = funcionarioRepository.findById(id).get();
 
-		//declarando o coverter datas 
-		ConverterDatas converterDatas = new ConverterDatas();
-		//setando o atualizada em
-		funcionario.setAtualizadoEm(converterDatas.dataAtual());
-		//para não atualizar o criadoEm estou setando de novo apra nao copiar
-		String criadoEm = funcionarioAtualizado.getCriadoEm();
-		funcionario.setCriadoEm(criadoEm);
-		// *************************
+
 		
 		BeanUtils.copyProperties(funcionario, funcionarioAtualizado, "id");
 	
@@ -100,10 +87,6 @@ public class FuncionarioResource {
 		
 		Funcionario funcionario = funcionarioRepository.findById(id).get();
 		funcionario.setStatus(0);
-		
-		ConverterDatas converterDatas = new ConverterDatas();
-		//setando data atualizada
-		funcionario.setAtualizadoEm(converterDatas.dataAtual());
 
 		funcionarioRepository.save(funcionario);
 		
@@ -111,5 +94,16 @@ public class FuncionarioResource {
 		
 	}
 	
+	
+	@PutMapping("/ativar/{id}")
+	private ResponseEntity<?> ativarFuncionario(@PathVariable Long id){
+		Funcionario funcionario = funcionarioRepository.findById(id).get();
+		funcionario.setStatus(1);
+
+		funcionarioRepository.save(funcionario);
+		
+		return ResponseEntity.ok("{\"message\":\"Funcionario ativado\"}");
+		
+	}
 	
 }

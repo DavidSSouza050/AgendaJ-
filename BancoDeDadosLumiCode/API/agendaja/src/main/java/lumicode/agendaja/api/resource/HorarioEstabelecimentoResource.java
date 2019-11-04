@@ -21,7 +21,6 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import lumicode.agendaja.api.model.HorarioEstabelecimento;
 import lumicode.agendaja.api.repository.HorarioEstabelecimentoRepository;
-import lumicode.agendaja.api.utils.ConverterDatas;
 
 @RestController
 @RequestMapping("/horariosEstabelecimentos")
@@ -46,11 +45,6 @@ public class HorarioEstabelecimentoResource {
 			@Validated @RequestBody HorarioEstabelecimento horarioEstabelecimento,
 			HttpServletResponse response){
 		
-		ConverterDatas converterDatas = new ConverterDatas();
-		//setando o criado em 
-		horarioEstabelecimento.setCriadoEm(converterDatas.dataAtual());
-		//setando o atualizado 
-		horarioEstabelecimento.setAtualizadoEm(converterDatas.dataAtual());
 		
 		HorarioEstabelecimento horarioEstabelecimentoSalvo = horarioEstabelecimentoRepository.save(horarioEstabelecimento);
 		
@@ -75,15 +69,6 @@ public class HorarioEstabelecimentoResource {
 			@PathVariable Long id ){
 	
 		HorarioEstabelecimento horarioEstabelecimentoAtualizado = horarioEstabelecimentoRepository.findById(id).get();
-
-		//declarando o coverter datas 
-		ConverterDatas converterDatas = new ConverterDatas();
-		//setando o atualizada em
-		horarioEstabelecimento.setAtualizadoEm(converterDatas.dataAtual());
-		//para não atualizar o criadoEm estou setando de novo apra nao copiar
-		String criadoEm = horarioEstabelecimentoAtualizado.getCriadoEm();
-		horarioEstabelecimento.setCriadoEm(criadoEm);
-		// *************************
 		
 		BeanUtils.copyProperties(horarioEstabelecimento, horarioEstabelecimentoAtualizado, "id");
 	

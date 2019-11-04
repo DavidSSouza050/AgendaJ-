@@ -20,8 +20,6 @@ public class Salario {
 	@ManyToOne
 	@JoinColumn(name = "id_tipo_salario")
 	private TipoSalario tipoSalario;
-	private String criadoEm;
-	private String atualizadoEm;
 
 	public Long getIdSalario() {
 		return idSalario;
@@ -57,20 +55,6 @@ public class Salario {
 		this.tipoSalario = tipoSalario;
 	}
 
-	public String getCriadoEm() {
-		return criadoEm;
-	}
-
-	public void setCriadoEm(String criadoEm) {
-		this.criadoEm = criadoEm;
-	}
-
-	public String getAtualizadoEm() {
-		return atualizadoEm;
-	}
-
-	public void setAtualizadoEm(String atualizadoEm) {
-		this.atualizadoEm = atualizadoEm;
-	}
+	
 	
 }

@@ -38,16 +38,16 @@ select * from tbl_assunto;
 
 
 -- Cadastrando um cliente padrao
-INSERT INTO tbl_endereco (id_endereco, logradouro, bairro, cep, id_cidade, criado_em, atualizado_em) VALUES (1, 'Rua Antônio gomes dos santos', 'Paque dos lagos', '06622-445', 3525003, NOW(), NOW());
+INSERT INTO tbl_endereco (id_endereco, logradouro, bairro, cep, id_cidade) VALUES (1, 'Rua Antônio gomes dos santos', 'Paque dos lagos', '06622-445', 3525003);
 
 INSERT INTO tbl_cliente values (1,'David', 'Silva', '(11) 97709-9609', '435.423.668-03', 'M', '2002-12-06', 'david@gmail.com','123456789',  null, NOW(), NOW());
 
 INSERT INTO tbl_endereco_cliente values (1, 1, 1);
 
 -- Cadastrando Estabelecimento padrão
-INSERT INTO tbl_endereco (id_endereco, logradouro, bairro, cep, id_cidade, numero, criado_em, atualizado_em) VALUES (2,'Ruinha legal', 'Teraza', '06622220', 3525003,  452, NOW(), NOW());
+INSERT INTO tbl_endereco (id_endereco, logradouro, bairro, cep, id_cidade, numero) VALUES (2,'Ruinha legal', 'Teraza', '06622220', 3525003,  452);
 
-INSERT INTO tbl_estabelecimento (id_estabelecimento, cnpj, razao_social, nome_estabelecimento, telefone, email, senha, criado_em, atualizado_em) values (1,'58.373.487/0001-38', 'agendaTeste', 'TesteAgenda s2', '11 46197048', 'teste@oul.com', '123456789', NOW(), NOW());
+INSERT INTO tbl_estabelecimento (id_estabelecimento, cnpj, razao_social, nome_estabelecimento, telefone, email, senha) values (1,'58.373.487/0001-38', 'agendaTeste', 'TesteAgenda s2', '11 46197048', 'teste@oul.com', '123456789');
 
 INSERT INTO tbl_endereco_estabelecimento values (1,2,1);
 
@@ -141,11 +141,11 @@ SELECT c.nome, e.nome_estabelecimento, ag.finalizado, f.nome, s.servico, s.preco
 
 desc tbl_horario_estabelecimento;
 select * FROM tbl_horario_estabelecimento;
-INSERT INTO tbl_horario_estabelecimento VALUES(1, '8:30:00', '20:00:00', 1, 3, now(), now());
-INSERT INTO tbl_horario_estabelecimento VALUES(2, '8:30:00', '20:00:00', 1, 4, now(), now());
-INSERT INTO tbl_horario_estabelecimento VALUES(3, '8:30:00', '20:00:00', 1, 5, now(), now());
-INSERT INTO tbl_horario_estabelecimento VALUES(4, '8:30:00', '20:00:00', 1, 6, now(), now());
-INSERT INTO tbl_horario_estabelecimento VALUES(5, '9:00:00', '17:00:00', 1, 7, now(), now());
+INSERT INTO tbl_horario_estabelecimento VALUES(1,  '20:00:00', '8:30:00', 1, 3, now(), now());
+INSERT INTO tbl_horario_estabelecimento VALUES(2, '20:00:00','8:30:00',  1, 4, now(), now());
+INSERT INTO tbl_horario_estabelecimento VALUES(3, '20:00:00','8:30:00',  1, 5, now(), now());
+INSERT INTO tbl_horario_estabelecimento VALUES(4,  '20:00:00','8:30:00', 1, 6, now(), now());
+INSERT INTO tbl_horario_estabelecimento VALUES(5, '17:00:00','9:00:00', 1, 7, now(), now());
 
 
 insert into tbl_agendamento_servico values (1,1,1);
@@ -156,13 +156,26 @@ select * from tbl_agendamento;
 desc tbl_endereco;
 insert into tbl_salario values (2, 0, 50, 1, now(),now());
 
-select * from tbl_funcionario;
+select * from tbl_cliente;
 INSERT INTO tbl_funcionario values (2, 'David', null, 1, 'david@gmail.com', '123456789', 2, now(), now());
 
-select * from tbl_funcionario_estabelecimento;
 INSERT INTO tbl_funcionario_estabelecimento values(1,1,1);
 INSERT INTO tbl_funcionario_estabelecimento values(2,2,1);
 
 
+SELECT nome, cpf from tbl_cliente WHERE cpf like '435.423.668-03';
 
+
+SELECT * FROM tbl_horario_estabelecimento;
+
+create table tbl_em_servico (
+	id_em_servico INT not null auto_increment primary key,
+    id_funcionario INT not null,
+    id_dia_semana INT not null,
+    ocupado_inicio TIME NOT NULL,
+    ocupado_fim time not null,
+    criado_em TIMESTAMP NOT NULL
+);
+
+select * from tbl_em_servico;
 

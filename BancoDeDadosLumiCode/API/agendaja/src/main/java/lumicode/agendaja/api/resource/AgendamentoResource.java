@@ -21,7 +21,6 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import lumicode.agendaja.api.model.Agendamento;
 import lumicode.agendaja.api.repository.AgendamentoRepository;
-import lumicode.agendaja.api.utils.ConverterDatas;
 
 @RestController
 @RequestMapping("/agendamentos")
@@ -47,12 +46,6 @@ public class AgendamentoResource {
 			@Validated @RequestBody Agendamento agendamento,
 			HttpServletResponse response){
 		
-		ConverterDatas converterDatas = new ConverterDatas();
-		//setando o criado em 
-		agendamento.setCriadoEm(converterDatas.dataAtual());
-		//setando o atualizado 
-		agendamento.setAtualizadoEm(converterDatas.dataAtual());
-		
 		Agendamento agendamentoSalvo = agendamentoRepository.save(agendamento);
 		
 		//criando o cliente depois de salvo para retornar o json  
@@ -76,14 +69,7 @@ public class AgendamentoResource {
 	
 		Agendamento agendamentoAtualizado = agendamentoRepository.findById(id).get();
 
-		//declarando o coverter datas 
-		ConverterDatas converterDatas = new ConverterDatas();
-		//setando o atualizada em
-		agendamento.setAtualizadoEm(converterDatas.dataAtual());
-		//para não atualizar o criadoEm estou setando de novo apra nao copiar
-		String criadoEm = agendamento.getCriadoEm();
-		agendamento.setCriadoEm(criadoEm);
-		// *************************
+		
 		
 		BeanUtils.copyProperties(agendamento, agendamentoAtualizado, "id");
 	

@@ -21,7 +21,6 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import lumicode.agendaja.api.model.Endereco;
 import lumicode.agendaja.api.repository.EnderecoRepository;
-import lumicode.agendaja.api.utils.ConverterDatas;
 
 @RestController
 @RequestMapping("/enderecos")
@@ -75,19 +74,6 @@ public class EnderecoResource {
 		return ResponseEntity.ok(enderecoAtualizado);
 		
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	

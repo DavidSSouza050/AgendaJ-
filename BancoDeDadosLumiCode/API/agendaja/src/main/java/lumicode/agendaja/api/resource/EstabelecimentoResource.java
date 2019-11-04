@@ -22,7 +22,6 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import lumicode.agendaja.api.model.Estabelecimento;
 import lumicode.agendaja.api.repository.EstabelecimentoRepository;
-import lumicode.agendaja.api.utils.ConverterDatas;
 
 @RestController
 @RequestMapping("/estabelecimentos")
@@ -81,11 +80,7 @@ public class EstabelecimentoResource {
 		}
 		
 		try {
-			//setando data atual
-			ConverterDatas converterDatas = new ConverterDatas();
-			estabelecimento.setCriadoEm(converterDatas.dataAtual());
-			estabelecimento.setAtualizadoEm(converterDatas.dataAtual());
-			//*********
+			
 			Estabelecimento estabelecimentoSalvo = estabelecimentoRepository.save(estabelecimento);
 			URI uri = ServletUriComponentsBuilder
 					  .fromCurrentRequestUri()
@@ -112,12 +107,6 @@ public class EstabelecimentoResource {
 			Estabelecimento estabelecimentoAtualizado = estabelecimentoRepository
 						.findById(id).get();
 			
-			//setando data atual
-			ConverterDatas converterDatas = new ConverterDatas();
-			estabelecimento.setAtualizadoEm(converterDatas.dataAtual());
-			String criadoEm = estabelecimentoAtualizado.getCriadoEm();
-			estabelecimento.setCriadoEm(criadoEm);
-			//*********
 			//verificando se tem imagem
 			String img = estabelecimentoAtualizado.getFoto();
 			if(estabelecimentoRepository.verificarImagem(img, id) != null){

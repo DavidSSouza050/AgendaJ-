@@ -8,6 +8,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import lumicode.agendaja.api.model.dto.FuncionarioDTO;
+
 @Entity
 @Table(name = "tbl_horario_funcionario")
 public class HorarioFuncionario {
@@ -16,16 +18,12 @@ public class HorarioFuncionario {
 	private Long idHorarioFuncionario;
 	private String horaEntrada;
 	private String horaSaida;
-	private String horaPausa;
-	private String duaracaoPausa;
 	@ManyToOne
 	@JoinColumn(name = "id_dia_semana")
 	private DiaSemana diaSemana;
 	@ManyToOne
 	@JoinColumn(name = "id_funcionario")
-	private Funcionario funcionario;
-	private String criadoEm;
-	private String atualizadoEm;
+	private FuncionarioDTO funcionario;
 
 	public Long getIdHorarioFuncionario() {
 		return idHorarioFuncionario;
@@ -51,22 +49,6 @@ public class HorarioFuncionario {
 		this.horaSaida = horaSaida;
 	}
 
-	public String getHoraPausa() {
-		return horaPausa;
-	}
-
-	public void setHoraPausa(String horaPausa) {
-		this.horaPausa = horaPausa;
-	}
-
-	public String getDuaracaoPausa() {
-		return duaracaoPausa;
-	}
-
-	public void setDuaracaoPausa(String duaracaoPausa) {
-		this.duaracaoPausa = duaracaoPausa;
-	}
-
 	public DiaSemana getDiaSemana() {
 		return diaSemana;
 	}
@@ -75,28 +57,12 @@ public class HorarioFuncionario {
 		this.diaSemana = diaSemana;
 	}
 
-	public Funcionario getFuncionario() {
+	public FuncionarioDTO getFuncionario() {
 		return funcionario;
 	}
 
-	public void setFuncionario(Funcionario funcionario) {
+	public void setFuncionario(FuncionarioDTO funcionario) {
 		this.funcionario = funcionario;
-	}
-
-	public String getCriadoEm() {
-		return criadoEm;
-	}
-
-	public void setCriadoEm(String criadoEm) {
-		this.criadoEm = criadoEm;
-	}
-
-	public String getAtualizadoEm() {
-		return atualizadoEm;
-	}
-
-	public void setAtualizadoEm(String atualizadoEm) {
-		this.atualizadoEm = atualizadoEm;
 	}
 	
 	
