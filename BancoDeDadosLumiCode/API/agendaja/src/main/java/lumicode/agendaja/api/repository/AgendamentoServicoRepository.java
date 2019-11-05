@@ -1,6 +1,5 @@
 package lumicode.agendaja.api.repository;
 
-import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -13,7 +12,7 @@ public interface AgendamentoServicoRepository
 
 	@Query("SELECT a.servico FROM AgendamentoServico as a "
 			+ "INNER JOIN a.agendamento as ag WHERE ag.idAgendamento = ?1")
-	public List<Servico> pegarAgendamentoServico(Long idAgendamento);
+	public Servico pegarAgendamentoServico(Long idAgendamento);
 	
 	@Query("SELECT a.servico FROM AgendamentoServico as a "
 			+ "INNER JOIN a.servico as s "

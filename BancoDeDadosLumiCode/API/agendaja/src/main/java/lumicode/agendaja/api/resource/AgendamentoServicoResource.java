@@ -44,8 +44,7 @@ public class AgendamentoServicoResource {
 	}
 	
 	@GetMapping("/agendamento/{id}")
-	private List<Servico> getAgendamentoServicos(@PathVariable Long id){		
-		
+	private Servico getAgendamentoServicos(@PathVariable Long id){		
 		return agendamentoServicoRepository.pegarAgendamentoServico(id);
 	}
 	

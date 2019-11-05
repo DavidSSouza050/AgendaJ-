@@ -10,6 +10,6 @@ public interface AgendamentoRepository
 	
 
 	@Query("SELECT a from Agendamento a WHERE a.idAgendamento = ?1")
-	public Agendamento  pegarServico(Long idAgendamento);
+	public Agendamento  pegarAgendamento(Long idAgendamento);
 	
 }

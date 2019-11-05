@@ -47,6 +47,7 @@ public class AgendamentoResource {
 			HttpServletResponse response){
 		
 		Agendamento agendamentoSalvo = agendamentoRepository.save(agendamento);
+	
 		
 		//criando o cliente depois de salvo para retornar o json  
 		URI uri = ServletUriComponentsBuilder
