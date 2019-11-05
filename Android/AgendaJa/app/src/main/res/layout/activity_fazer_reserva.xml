@@ -9,7 +9,7 @@
 
 
     <Button
-        android:id="@+id/btn_salvar_editar_endereco"
+        android:id="@+id/btn_salvar_agendamento"
         style="@style/Animation.AppCompat.Dialog"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
@@ -49,7 +49,7 @@
             <LinearLayout
                 android:id="@+id/linear_horario_disponivel"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="50dp"
                 android:orientation="vertical"
                 app:layout_constraintTop_toBottomOf="@+id/calendarView"
                 tools:layout_editor_absoluteX="8dp">
@@ -59,19 +59,29 @@
             <LinearLayout
                 android:id="@+id/linear_dados_do_servico_escolhido"
                 android:layout_width="match_parent"
-                android:layout_height="74dp"
+                android:layout_height="84dp"
                 android:orientation="vertical"
                 app:layout_constraintTop_toBottomOf="@+id/linear_horario_disponivel"
-                tools:layout_editor_absoluteX="0dp">
+                tools:layout_editor_absoluteX="0dp"
+                android:padding="2dp"
+                >
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recycler_funcionarios"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                </android.support.v7.widget.RecyclerView>
+
 
             </LinearLayout>
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="63dp"
+                android:background="@drawable/borda"
                 android:orientation="vertical"
-                app:layout_constraintTop_toBottomOf="@id/linear_dados_do_servico_escolhido"
-                android:background="@drawable/borda">
+                app:layout_constraintTop_toBottomOf="@id/linear_dados_do_servico_escolhido">
 
                 <ImageView
                     android:layout_width="24dp"

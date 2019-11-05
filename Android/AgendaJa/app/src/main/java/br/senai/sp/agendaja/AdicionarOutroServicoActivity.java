@@ -2,17 +2,7 @@ package br.senai.sp.agendaja;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import br.senai.sp.agendaja.Model.Phone;
-import br.senai.sp.agendaja.Model.PhoneCategory;
 import iammert.com.expandablelib.ExpandableLayout;
-import iammert.com.expandablelib.Section;
 
 public class AdicionarOutroServicoActivity extends AppCompatActivity {
 

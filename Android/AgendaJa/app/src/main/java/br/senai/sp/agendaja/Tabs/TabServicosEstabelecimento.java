@@ -106,8 +106,6 @@ public class TabServicosEstabelecimento extends Fragment{
       expandableLayout.addSection(getSection(i));
     }
 
-    Log.d("categoria quimica",nomeCategorias.get(2));
-
 
   }
 

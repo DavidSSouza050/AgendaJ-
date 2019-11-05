@@ -19,8 +19,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.senai.sp.agendaja.Model.Estabelecimento;
-import br.senai.sp.agendaja.Model.Phone;
-import br.senai.sp.agendaja.Model.PhoneCategory;
 import br.senai.sp.agendaja.Pager.PagerAdapterEstabelecimento;
 import iammert.com.expandablelib.ExpandableLayout;
 import iammert.com.expandablelib.Section;
