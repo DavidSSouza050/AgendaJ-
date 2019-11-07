@@ -8,6 +8,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import lumicode.agendaja.api.model.dto.EstabelecimentoDTO;
 import lumicode.agendaja.api.model.dto.FuncionarioDTO;
 
 
@@ -18,13 +19,15 @@ public class EmServico {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idEmServico;
 	@ManyToOne
+	@JoinColumn(name="id_estabelecimento")
+	private EstabelecimentoDTO estabelecimento;
+	@ManyToOne
 	@JoinColumn(name="id_funcionario")
 	private FuncionarioDTO funcionario;
-	@ManyToOne
-	@JoinColumn(name="id_dia_semana")
-	private DiaSemana diaSemana;
-	private int diaMes;
-	private int mes;
+	private String diaMes;
+	private String mes;
+	
+	private String ano;
 	private String ocupadoInicio;
 	private String ocupadoFim;
 
@@ -44,28 +47,38 @@ public class EmServico {
 		this.funcionario = funcionario;
 	}
 
-	public DiaSemana getDiaSemana() {
-		return diaSemana;
+	
+
+	public EstabelecimentoDTO getEstabelecimento() {
+		return estabelecimento;
 	}
 
-	public void setDiaSemana(DiaSemana diaSemana) {
-		this.diaSemana = diaSemana;
+	public void setEstabelecimento(EstabelecimentoDTO estabelecimento) {
+		this.estabelecimento = estabelecimento;
 	}
-	
-	public int getDiaMes() {
+
+	public String getDiaMes() {
 		return diaMes;
 	}
 
-	public void setDiaMes(int diaMes) {
+	public void setDiaMes(String diaMes) {
 		this.diaMes = diaMes;
 	}
 
-	public int getMes() {
+	public String getMes() {
 		return mes;
 	}
 
-	public void setMes(int mes) {
+	public void setMes(String mes) {
 		this.mes = mes;
+	}
+
+	public String getAno() {
+		return ano;
+	}
+
+	public void setAno(String ano) {
+		this.ano = ano;
 	}
 
 	public String getOcupadoInicio() {
