@@ -1,6 +1,9 @@
 package br.senai.sp.agendaja;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -20,7 +23,9 @@ import br.senai.sp.agendaja.Model.Funcionario;
 import br.senai.sp.agendaja.Model.Servico;
 import br.senai.sp.agendaja.Tasks.TaskGetFuncionarios;
 
-public class FazerReservaActivity extends AppCompatActivity implements View.OnClickListener, CalendarView.OnDateChangeListener{
+import static br.senai.sp.agendaja.R.color.colorCinza;
+
+public class FazerReservaActivity extends AppCompatActivity implements View.OnClickListener, CalendarView.OnDateChangeListener, FuncionarioAdapter.ClickFuncionario{
 
     private CalendarView calendarioReserva;
     private RecyclerView listaDeFuncionarios;
@@ -83,7 +88,38 @@ public class FazerReservaActivity extends AppCompatActivity implements View.OnCl
 
 
     public void setAdapaterFuncionario(List<Funcionario> funcionariosList, RecyclerView recyclerViewFuncionario){
-        FuncionarioAdapter adapter = new FuncionarioAdapter(funcionariosList,FazerReservaActivity.this);
+        FuncionarioAdapter adapter = new FuncionarioAdapter(funcionariosList,FazerReservaActivity.this,this);
         recyclerViewFuncionario.setAdapter(adapter);
     }
+
+
+  @SuppressLint("ResourceAsColor")
+  @Override
+  public void onClickFuncionario(LinearLayout linearLayout, Funcionario funcionario) {
+      int situacao=0;
+      Boolean status = true;
+
+    if(situacao==1){
+      status = false;
+    }else if(situacao==0){
+      status = true;
+    }
+
+    if(status){
+      //linearLayout.setDrawingCacheBackgroundColor();
+
+
+      situacao++;
+    }else{
+      linearLayout.setBackgroundColor(R.color.colorRoxoMeioAzul);
+      situacao++;
+    }
+
+    if(situacao==2){
+      linearLayout.setBackgroundColor(R.color.colorRed);
+    }
+
+
+
+  }
 }

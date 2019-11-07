@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
@@ -21,10 +22,12 @@ public class FuncionarioAdapter extends RecyclerView.Adapter<FuncionarioAdapter.
 
   private List<Funcionario> funcionarioList;
   private Context context;
+  private ClickFuncionario clickFuncionario;
 
-  public FuncionarioAdapter(List<Funcionario> funcionarioList, Context context) {
+  public FuncionarioAdapter(List<Funcionario> funcionarioList, Context context,ClickFuncionario clickFuncionario) {
     this.funcionarioList = funcionarioList;
     this.context = context;
+    this.clickFuncionario = clickFuncionario;
   }
 
   @NonNull
@@ -38,18 +41,25 @@ public class FuncionarioAdapter extends RecyclerView.Adapter<FuncionarioAdapter.
   }
 
   @Override
-  public void onBindViewHolder(@NonNull FuncionarioViewHolder funcionarioViewHolder, int i) {
+  public void onBindViewHolder(@NonNull final FuncionarioViewHolder funcionarioViewHolder, int i) {
 
-    Funcionario funcionario = funcionarioList.get(i);
+    final Funcionario funcionario = funcionarioList.get(i);
 
     if(funcionario.getFotoFuncionario()!=null && funcionario.getNomeFuncionario()!=null){
       Picasso
            .get()
            .load(MainActivity.IP_FOTO + funcionario.getFotoFuncionario())
-           .resize(64,64)
+           .resize(85,85)
            .into(funcionarioViewHolder.imagemFuncionario);
 
       funcionarioViewHolder.nomeFuncionario.setText(funcionario.getNomeFuncionario());
+
+      funcionarioViewHolder.imagemFuncionario.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+          clickFuncionario.onClickFuncionario(funcionarioViewHolder.linearLayout,funcionario);
+        }
+      });
 
     }
 
@@ -65,15 +75,20 @@ public class FuncionarioAdapter extends RecyclerView.Adapter<FuncionarioAdapter.
 
     private CircleImageView imagemFuncionario;
     private TextView nomeFuncionario;
-
+    private LinearLayout linearLayout;
 
     public FuncionarioViewHolder(@NonNull View itemView) {
       super(itemView);
 
       nomeFuncionario= itemView.findViewById(R.id.txt_nome_funcionario);
       imagemFuncionario = itemView.findViewById(R.id.img_foto_funcionario);
+      linearLayout = itemView.findViewById(R.id.linear_funcionarios);
 
     }
+  }
+
+  public interface ClickFuncionario{
+    public void onClickFuncionario(LinearLayout linearLayout,Funcionario funcionario);
   }
 
 }
