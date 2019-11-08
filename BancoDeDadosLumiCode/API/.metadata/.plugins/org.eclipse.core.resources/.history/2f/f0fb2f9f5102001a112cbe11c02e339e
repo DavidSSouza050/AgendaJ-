@@ -45,8 +45,7 @@ public class AgendamentoResource {
 	private ResponseEntity<Agendamento> cadastrarAgendamento(
 			@Validated @RequestBody Agendamento agendamento,
 			HttpServletResponse response){
-		agendamento.setFinalizado(0);
-		agendamento.setStatus('A');
+		
 		Agendamento agendamentoSalvo = agendamentoRepository.save(agendamento);
 	
 		
@@ -87,24 +86,13 @@ public class AgendamentoResource {
 		
 		Agendamento agedamentoDesativado = agendamentoRepository.findById(id).get();
 		
-		agedamentoDesativado.setStatus('C'); 
+		agedamentoDesativado.setStatus('D'); 
 		
 		agendamentoRepository.save(agedamentoDesativado);
 		
 		return ResponseEntity.ok("{\"mesage\":\"Agendamento Desativado\"}");
 	}
 	
-	
-	@PutMapping("/finalizar/{id}")
-	private ResponseEntity<?> finalizarAgendamento(@PathVariable Long id){
-		Agendamento agendamentoFinalizado = agendamentoRepository.findById(id).get();
-		
-		agendamentoFinalizado.setFinalizado(1);
-		
-		agendamentoRepository.save(agendamentoFinalizado);
-		
-		return ResponseEntity.ok("{\"masage\":\"Agendamento Finalizado}");
-	}
 	
 	
 }

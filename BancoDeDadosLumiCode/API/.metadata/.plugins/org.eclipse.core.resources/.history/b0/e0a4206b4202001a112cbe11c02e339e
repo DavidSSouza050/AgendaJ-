@@ -1,7 +1,6 @@
 package lumicode.agendaja.api.resource;
 
 import java.net.URI;
-import java.util.Calendar;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
@@ -38,13 +37,6 @@ public class HorarioFuncionarioResource {
 	@GetMapping("/{id}")
 	private HorarioFuncionario visualizarHorarioFuncionario(@PathVariable Long id) {
 		return horarioFuncionarioRepository.findById(id).get();
-	}
-	
-	@GetMapping("/estabelecimento/{id}")
-	private List<HorarioFuncionario> funcionariosPorEstabelecimento(@PathVariable Long id){
-		Calendar calendar = Calendar.getInstance();
-		Integer diaSemana = calendar.get(Calendar.DAY_OF_WEEK);
-		return horarioFuncionarioRepository.pegarHorarioDefuncionario(id, diaSemana);
 	}
 	
 	@PostMapping

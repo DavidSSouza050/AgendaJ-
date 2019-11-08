@@ -13,4 +13,9 @@ public interface EmServicoRepository
 	@Query(value= "SELECT * FROM tbl_em_servico as em INNER JOIN tbl_funcionario as f 	ON f.id_funcionario = em.id_funcionario INNER JOIN tbl_estabelecimento as e  ON em.id_estabelecimento = e.id_estabelecimento where em.dia_mes = ?1 and em.mes = ?2 and em.ano = ?3 and em.id_estabelecimento = ?4 ", nativeQuery = true)
 	public List<EmServico> pegarOcuapados1(Integer dia_mes,Integer mes, Integer ano, Long idEstabelecimento );
 	
+//	@Query("SELECT em FROM EmServico as em "
+//			+ "INNER JOIN em.funcionario as f "
+//			+ "INNER JOIN em.estabelecimento as e "
+//			+ "WHERE em.dia_mes = ?1 AND em.mes = ?2 AND em.ano = ?3 AND e.idEstabelecimento = ?4")
+//	public List<EmServico> ocupados(Integer dia_mes,Integer mes, Integer ano, Long idEstabelecimento);
 }

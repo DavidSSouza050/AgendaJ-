@@ -7,6 +7,8 @@ select * from tbl_foto;
 
 -- funcionario
 select * from tbl_funcionario;
+select * from tbl_agendamento;
+select * from tbl_agendamento_servico;
 select * from tbl_funcionario_estabelecimento;
 select * from tbl_funcionario_servico;
 select * from tbl_categoria_servico;
@@ -17,6 +19,37 @@ select * from tbl_tipo_salario;
 select * from tbl_horario_funcionario;
 select * from tbl_dia_semana;
 -- 
+
+SELECT f.id_funcionario, f.nome, f.id_salario, 
+sa.salario, 
+ts.tipo_salario,
+a.data_horario_agendado,
+s.id_servico, s.servico, s.preco;
+
+
+SELECT 
+SUM(s.preco) AS total_comissao
+FROM tbl_funcionario AS f
+INNER JOIN tbl_salario AS sa
+ON f.id_salario = sa.id_salario
+INNER JOIN tbl_tipo_salario AS ts
+ON sa.id_tipo_salario = ts.id_tipo_salario
+INNER JOIN tbl_agendamento AS a
+ON f.id_funcionario = a.id_funcionario
+INNER JOIN tbl_agendamento_servico AS ase
+ON a.id_agendamento = ase.id_agendamento
+INNER JOIN tbl_servico AS s
+ON ase.id_servico = s.id_servico
+WHERE f.id_funcionario = 1;
+
+SELECT 
+    sum(s.preco)
+FROM
+    tbl_agendamento AS a
+        INNER JOIN
+    tbl_agendamento_servico AS ase ON a.id_agendamento = ase.id_agendamento
+        INNER JOIN
+    tbl_servico AS s ON ase.id_servico = s.id_servico;
 
 -- agendamento 
 select * from tbl_agendamento;
@@ -165,17 +198,38 @@ INSERT INTO tbl_funcionario_estabelecimento values(2,2,1);
 
 SELECT nome, cpf from tbl_cliente WHERE cpf like '435.423.668-03';
 
+desc tbl_agendamento;
+desc tbl_em_servico;
+
 
 SELECT * FROM tbl_horario_estabelecimento;
 
-create table tbl_em_servico (
-	id_em_servico INT not null auto_increment primary key,
-    id_funcionario INT not null,
-    id_dia_semana INT not null,
-    ocupado_inicio TIME NOT NULL,
-    ocupado_fim time not null,
-    criado_em TIMESTAMP NOT NULL
-);
 
+select * from tbl_agendamento WHERE id_agendamento = 1;
+
+SELECT * FROM tbl_agendamento_servico as a
+	INNER JOIN tbl_agendamento as ag WHERE ag.id_agendamento = 1;
+    
+    
 select * from tbl_em_servico;
+DELETE FROM tbl_em_servico where id_em_servico > 0;
+
+
+
+SELECT f.nome, em.ocupado_inicio, em.ocupado_fim FROM tbl_em_servico as em INNER JOIN tbl_funcionario as f 	ON f.id_funcionario = em.id_funcionario INNER JOIN tbl_estabelecimento as e  ON em.id_estabelecimento = e.id_estabelecimento where em.dia_mes = 20 and em.mes = 11 and em.ano = 2019 and em.id_estabelecimento = 1;
+
+
+SELECT * FROM tbl_funcionario as f INNER JOIN tbl_funcionario_estabelecimento as fe
+	ON f.id_funcionario = fe.id_funcionario INNER JOIN tbl_estabelecimento as e
+    ON fe.id_estabelecimento = e.id_estabelecimento INNER JOIN  tbl_horario_funcionario as hf
+    ON f.id_funcionario = hf.id_funcionario WHERE e.id_estabelecimento = 1 and hf.id_dia_semana = 7;
+
+select * from tbl_horario_funcionario where id_funcionario = 2;
+
+INSERT INTO tbl_horario_funcionario (hora_entrada, hora_saida, id_dia_semana, id_funcionario) values('8:00:00','16:00:00', 2, 2);
+
+DESC tbl_horario_funcionario;
+
+SELECT * from tbl_funcionario as f INNER JOIN tbl_horario_funcionario as hf
+	ON f.id_funcionario = hf.id_funcionario WHERE hf.id_dia_semana = 6 AND hf.hora_entrada <> '16:00:00' AND hf.hora_saida <> '17:00:00'
 

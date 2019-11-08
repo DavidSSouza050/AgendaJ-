@@ -43,8 +43,7 @@ public class HorarioFuncionarioResource {
 	@GetMapping("/estabelecimento/{id}")
 	private List<HorarioFuncionario> funcionariosPorEstabelecimento(@PathVariable Long id){
 		Calendar calendar = Calendar.getInstance();
-		Integer diaSemana = calendar.get(Calendar.DAY_OF_WEEK);
-		return horarioFuncionarioRepository.pegarHorarioDefuncionario(id, diaSemana);
+		return horarioFuncionarioRepository.pegarHorarioDefuncionario(id, calendar.DAY_OF_WEEK);
 	}
 	
 	@PostMapping

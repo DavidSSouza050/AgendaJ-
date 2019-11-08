@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -56,7 +57,7 @@ public class EmServicoResource {
 	}
 	
 	@PostMapping
-	private ResponseEntity<?> cadastrarEmServico(@RequestParam Long idAgendamento, HttpServletResponse response  ){
+	private ResponseEntity<?> cadastrarEmServico(@RequestBody Long idAgendamento, HttpServletResponse response  ){
 		
 		Agendamento agendamento = agendamentoRepository.pegarAgendamento(idAgendamento);
 		
@@ -89,7 +90,7 @@ public class EmServicoResource {
 		emServico.setOcupadoInicio(ocupadoInicio);
 		emServico.setOcupadoFim(ocupadoFim);
 		
-		
+		System.out.println(emServico);
 		EmServico emServicoSalvo = emServicoRepository.save(emServico);
 		
 		URI uri = ServletUriComponentsBuilder
