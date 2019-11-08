@@ -33,6 +33,7 @@ public class FazerReservaActivity extends AppCompatActivity implements View.OnCl
     private Estabelecimento estabelecimento;
     private Servico servicoEscolhido;
     private Button btnSalvar;
+    private int status = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,30 +97,14 @@ public class FazerReservaActivity extends AppCompatActivity implements View.OnCl
   @SuppressLint("ResourceAsColor")
   @Override
   public void onClickFuncionario(LinearLayout linearLayout, Funcionario funcionario) {
-      int situacao=0;
-      Boolean status = true;
 
-    if(situacao==1){
-      status = false;
-    }else if(situacao==0){
-      status = true;
+    if(status==0){
+      linearLayout.setBackgroundResource(R.color.colorCinza);
+      status++;
+    }else if(status==1){
+      linearLayout.setBackgroundResource(R.color.colorTrasparente);
+       status--;
     }
-
-    if(status){
-      //linearLayout.setDrawingCacheBackgroundColor();
-
-
-      situacao++;
-    }else{
-      linearLayout.setBackgroundColor(R.color.colorRoxoMeioAzul);
-      situacao++;
-    }
-
-    if(situacao==2){
-      linearLayout.setBackgroundColor(R.color.colorRed);
-    }
-
-
 
   }
 }

@@ -1,11 +1,16 @@
 package br.senai.sp.agendaja;
 
+import android.Manifest;
+import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -25,6 +30,8 @@ import com.github.rtoshiro.util.format.text.MaskTextWatcher;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 import br.senai.sp.agendaja.Paths.RealPathPhoto;
 import br.senai.sp.agendaja.Model.Cliente;
@@ -49,12 +56,14 @@ public class DadosPessoaisActivity extends AppCompatActivity implements View.OnC
     private Bitmap imagemBitmap;
     public static final int GALERY_REQUEST = 10;
     public static final int CAMERA_REQUEST = 20;
+    public static final int PERMISSION_REQUEST = 30;
     private String nomeFoto;
     private String caminhoFoto;
     private String imagePath;
     private Endereco cepVoltado;
     private Cliente clienteVoltadoDoContato;
     private File arquivoFoto;
+    private String[] appPermissoes = {Manifest.permission.WRITE_EXTERNAL_STORAGE};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,7 +105,9 @@ public class DadosPessoaisActivity extends AppCompatActivity implements View.OnC
         MaskTextWatcher maskDataNascimento = new MaskTextWatcher(dtNascimento,formtDataNascimento);
         dtNascimento.addTextChangedListener(maskDataNascimento);
 
-        //
+        //Sistema de permissao
+
+        verificarPermissao();
 
 
         imgButtonGaleria.setOnClickListener(this);
@@ -169,10 +180,15 @@ public class DadosPessoaisActivity extends AppCompatActivity implements View.OnC
                 finish();
                 break;
             case R.id.image_button_galeria:
-                Intent intentGaleria = new Intent();
-                intentGaleria.setType("image/*");
-                intentGaleria.setAction(Intent.ACTION_PICK);
-                startActivityForResult(intentGaleria,GALERY_REQUEST);
+
+
+                    Intent intentGaleria = new Intent();
+                    intentGaleria.setType("image/*");
+                    intentGaleria.setAction(Intent.ACTION_PICK);
+                    startActivityForResult(intentGaleria,GALERY_REQUEST);
+
+
+
                 break;
             case R.id.image_button_camera:
                 Intent intentCamera = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
@@ -241,6 +257,31 @@ public class DadosPessoaisActivity extends AppCompatActivity implements View.OnC
         }
 
         return validacao;
+    }
+
+
+    //método para dar permissao para a aplicação
+
+    public boolean verificarPermissao(){
+
+        Boolean status;
+
+        List<String> permissoesRequeridas = new ArrayList<>();
+
+        for(String permissao : appPermissoes){
+            if(ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)!= PackageManager.PERMISSION_GRANTED){
+               permissoesRequeridas.add(permissao);
+            }
+        }
+
+        if(!permissoesRequeridas.isEmpty()){
+            ActivityCompat.requestPermissions(this,permissoesRequeridas.toArray(new String[permissoesRequeridas.size()]),PERMISSION_REQUEST);
+            status = true;
+        }else{
+            status = false;
+        }
+
+        return status;
     }
 
 
