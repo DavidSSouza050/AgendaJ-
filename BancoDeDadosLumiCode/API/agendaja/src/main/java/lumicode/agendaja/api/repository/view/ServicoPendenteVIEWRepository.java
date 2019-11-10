@@ -1,0 +1,20 @@
+package lumicode.agendaja.api.repository.view;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+import lumicode.agendaja.api.model.view.ServicoPendenteVIEW;
+
+public interface ServicoPendenteVIEWRepository
+	extends JpaRepository<ServicoPendenteVIEW, Long>{
+
+	
+	@Query(value = "SELECT * FROM view_servico_pendente WHERE funcionario = ?1 AND month(data_hora) = ?2 AND year(data_hora) = ?3 AND finalizado = 0", nativeQuery=true)
+	public List<ServicoPendenteVIEW> pegerServicosPendentesFuncionario(Long idFuncionario, Integer mes, Integer ano);
+	
+	@Query(value = "SELECT * FROM view_servico_pendente WHERE estabelecimento = ?1 AND month(data_hora) = ?2 AND year(data_hora) = ?3 AND finalizado = 0", nativeQuery=true)
+	public List<ServicoPendenteVIEW> pegerServicosPendentesEstabelecimento(Long idEstabelecimento, Integer mes, Integer ano);
+	
+}

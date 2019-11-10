@@ -6,5 +6,8 @@ import lumicode.agendaja.api.model.Salario;
 
 public interface SalarioRepository 
 	extends JpaRepository<Salario, Long>{
+	
 
+	
+	
 }

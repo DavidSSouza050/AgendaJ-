@@ -47,7 +47,10 @@ public class AgendamentoServicoResource {
 	private Servico getAgendamentoServicos(@PathVariable Long id){		
 		return agendamentoServicoRepository.pegarAgendamentoServico(id);
 	}
-	
+	@GetMapping("/agendamentosFinalizados/estabelecimento/{id}")
+	private List<AgendamentoServico> historicoDeServicosFinalizado(@PathVariable Long id){
+		return agendamentoServicoRepository.servicosRealizados(id);
+	}
 	
 	@PostMapping
 	private ResponseEntity<?> cadastrarAgendamento(

@@ -1,0 +1,5 @@
+package lumicode.agendaja.api.repository.view;
+
+public interface ServicoPendenteVIEWRepository {
+
+}

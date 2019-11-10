@@ -15,6 +15,7 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import lumicode.agendaja.api.model.Cliente;
 import lumicode.agendaja.api.model.Estabelecimento;
+import lumicode.agendaja.api.model.Funcionario;
 @Component
 public class JwtTokenUtill implements Serializable {
 
@@ -53,7 +54,7 @@ public class JwtTokenUtill implements Serializable {
 	}
 
 	//intermediario da geracao do token
-	public String generateTokenConsumidor(Cliente cliente) {
+	public String generateTokeCliente(Cliente cliente) {
 		Map<String, Object> claims = new HashMap<>();
 		
 		System.out.println(cliente.getEmail()+" "+ cliente.getIdCliente());
@@ -63,12 +64,20 @@ public class JwtTokenUtill implements Serializable {
 	}
 	
 	//intermediario da geracao do token
-		public String generateTokenRestaurante(Estabelecimento estabelecimento) {
-			Map<String, Object> claims = new HashMap<>();
-		
-			System.out.println(estabelecimento.getEmail()+" "+estabelecimento.getIdEstabelecimento());
-			return doGenerateToken(claims, estabelecimento.getEmail(), estabelecimento.getIdEstabelecimento());
-		}
+	public String generateTokenEstabelecimento(Estabelecimento estabelecimento) {
+		Map<String, Object> claims = new HashMap<>();
+	
+		System.out.println(estabelecimento.getEmail()+" "+estabelecimento.getIdEstabelecimento());
+		return doGenerateToken(claims, estabelecimento.getEmail(), estabelecimento.getIdEstabelecimento());
+	}
+	
+		//intermediario da geracao do token
+	public String generateTokenFuncionario(Funcionario funcionario) {
+		Map<String, Object> claims = new HashMap<>();
+	
+		System.out.println(funcionario.getEmail()+" "+funcionario.getIdFuncionario());
+		return doGenerateToken(claims, funcionario.getEmail(), funcionario.getIdFuncionario());
+	}
 
 
 	//gerando o tokem com o id e nome do usuario 

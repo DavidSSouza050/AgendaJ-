@@ -1,0 +1,19 @@
+package lumicode.agendaja.api.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+import lumicode.agendaja.api.model.Agendamento;
+
+public interface AgendamentoRepository
+	extends JpaRepository<Agendamento, Long>{
+	
+
+	@Query("SELECT a from Agendamento a WHERE a.idAgendamento = ?1")
+	public Agendamento  pegarAgendamento(Long idAgendamento);
+	
+	@Query(value = "SELECT count(*) as total_de_agendamentos from tbl_agendamento where finalizado = 1 "
+			+ "and status <> 'C' "
+			+ "and id_estabelecimento = ?1", nativeQuery = true)
+	public Integer  agendamentosPendentesTotal(Long idEstabelecimento);
+}

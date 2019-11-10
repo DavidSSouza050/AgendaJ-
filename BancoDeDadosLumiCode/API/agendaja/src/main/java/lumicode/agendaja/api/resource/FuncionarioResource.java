@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -38,6 +39,19 @@ public class FuncionarioResource {
 	@GetMapping("/{id}")
 	private Funcionario visualizarFuncionario(@PathVariable Long id) {
 		return funcionarioRepository.findById(id).get();
+	}
+	
+	@PostMapping("/login")
+	private ResponseEntity<?> loginFuncionario(@RequestBody Funcionario funcionario) {
+		
+		if(funcionarioRepository.verificarEmail(funcionario.getEmail()) != null) {
+			return new ResponseEntity<String>("{\"mesage\":\"Email já cadastrado\"", HttpStatus.BAD_REQUEST) ;
+		}
+		
+		Funcionario funcionarioLogado = funcionarioRepository.loginFuncionario(funcionario.getEmail(), funcionario.getSenha());
+		
+		
+		return ResponseEntity.ok(funcionarioLogado);
 	}
 	
 	@PostMapping

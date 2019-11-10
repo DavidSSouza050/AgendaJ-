@@ -1,12 +1,14 @@
 package lumicode.agendaja.api.resource;
 
 import java.net.URI;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -29,6 +31,12 @@ public class AgendamentoResource {
 	@Autowired
 	private AgendamentoRepository agendamentoRepository;
 	
+	
+	Calendar calendar = Calendar.getInstance();
+	Integer mes = calendar.get(Calendar.MONTH)+1;
+	Integer ano = calendar.get(Calendar.YEAR);
+	Integer dia = calendar.get(Calendar.DAY_OF_MONTH);
+	
 	@GetMapping
 	private List<Agendamento> getAgendamento(){
 		return agendamentoRepository.findAll();
@@ -40,13 +48,20 @@ public class AgendamentoResource {
 		return agendamentoRepository.findById(id).get();
 	}
 	
+	@GetMapping("/total/estabelecimento/{id}")
+	private String totalAgendamento(@PathVariable Long id) {
+		
+		Integer totalAgendamento = agendamentoRepository.agendamentosPendentesTotal(mes, ano, dia, id);
+		
+		return "{\"mesage\":\""+totalAgendamento+"\"}";
+	}
+	
 	
 	@PostMapping
 	private ResponseEntity<Agendamento> cadastrarAgendamento(
 			@Validated @RequestBody Agendamento agendamento,
 			HttpServletResponse response){
 		agendamento.setFinalizado(0);
-		agendamento.setStatus('A');
 		Agendamento agendamentoSalvo = agendamentoRepository.save(agendamento);
 	
 		
@@ -82,16 +97,20 @@ public class AgendamentoResource {
 	}
 	
 	
-	@PutMapping("/desativar/{id}")
+	@PutMapping("/cancelar/{id}")
 	private ResponseEntity<?> desativarAgedamento(@PathVariable Long id){
 		
-		Agendamento agedamentoDesativado = agendamentoRepository.findById(id).get();
+		Agendamento agendamentoCancelado = agendamentoRepository.findById(id).get();
 		
-		agedamentoDesativado.setStatus('C'); 
+		if(agendamentoCancelado.getFinalizado() == 1) {
+			return new ResponseEntity<String>("{\"mesage\":\"Agendamento já finalizado\"}", HttpStatus.LOCKED);
+		}
 		
-		agendamentoRepository.save(agedamentoDesativado);
+		agendamentoCancelado.setStatus('C'); 
 		
-		return ResponseEntity.ok("{\"mesage\":\"Agendamento Desativado\"}");
+		agendamentoRepository.save(agendamentoCancelado);
+		
+		return new ResponseEntity<String>("{\"mesage\":\"Agendamento Cancelado\"}", HttpStatus.OK);
 	}
 	
 	
@@ -99,11 +118,15 @@ public class AgendamentoResource {
 	private ResponseEntity<?> finalizarAgendamento(@PathVariable Long id){
 		Agendamento agendamentoFinalizado = agendamentoRepository.findById(id).get();
 		
+		if(agendamentoFinalizado.getStatus() == 'C') {
+			return new ResponseEntity<String>("{\"mesage\":\"Agendamento foi Cancelado\"}", HttpStatus.LOCKED);
+		}
+		
 		agendamentoFinalizado.setFinalizado(1);
 		
 		agendamentoRepository.save(agendamentoFinalizado);
 		
-		return ResponseEntity.ok("{\"masage\":\"Agendamento Finalizado}");
+		return new ResponseEntity<String>("{\"mesage\":\"Agendamento Finalizado}", HttpStatus.OK);
 	}
 	
 	

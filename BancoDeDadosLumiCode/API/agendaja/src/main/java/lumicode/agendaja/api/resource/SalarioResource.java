@@ -1,6 +1,7 @@
 package lumicode.agendaja.api.resource;
 
 import java.net.URI;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
@@ -19,8 +20,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import lumicode.agendaja.api.model.Funcionario;
 import lumicode.agendaja.api.model.Salario;
+import lumicode.agendaja.api.model.view.TotalComissaoVIEW;
+import lumicode.agendaja.api.repository.FuncionarioRepository;
 import lumicode.agendaja.api.repository.SalarioRepository;
+import lumicode.agendaja.api.repository.view.TotalComissaoVIEWRepository;
 
 @RestController
 @RequestMapping("/salarios")
@@ -28,6 +33,12 @@ import lumicode.agendaja.api.repository.SalarioRepository;
 public class SalarioResource {
 	@Autowired
 	private SalarioRepository salarioRepository;
+	
+	@Autowired
+	private TotalComissaoVIEWRepository totalComissaoRepository;
+	
+	@Autowired
+	private FuncionarioRepository funcionarioRepository;
 	
 	@GetMapping
 	private List<Salario> getSalario(){
@@ -40,7 +51,54 @@ public class SalarioResource {
 		return salarioRepository.findById(id).get();
 	}
 	
-	
+	@GetMapping("/funcionario/{id}")
+	private String pegarSalariomes(@PathVariable Long id) {
+		Funcionario salarioFuncionario = funcionarioRepository.pegarSalarioDeFuncionario(id);
+		
+		//total de comissao do mes atual
+		Calendar calendar = Calendar.getInstance();
+		int mes = calendar.get(Calendar.MONTH);
+		int ano = calendar.get(Calendar.YEAR);
+		
+		Salario salario = salarioFuncionario.getSalario();
+		
+		String salarioFinal = null;
+		
+		//se o salario for null ira fazer o calculo de comissao  
+		if(salario.getSalario() == 0.0) {
+			//conta de percentual
+			TotalComissaoVIEW totalComissao = totalComissaoRepository.pegarComissaoFuncionario(id, mes, ano);
+			//caso não há agendamentos
+			if(totalComissao == null) {
+				return salarioFinal = "{\"mesage\" : \"Mês sem agendamentos finalizados\"}";
+			}
+			
+			 Double salarioTotal =  (salario.getPercentual()/100)*totalComissao.getTotalComissao();
+			
+			 salarioFinal = "{\"salario\":\""+salarioTotal+"\"}";
+		}
+		//caso o funcionario tenha os dois, ira fazer o calculo do percentual e o total junto o o salario fixo
+		if(salario.getPercentual() != null && salario.getSalario() != 00.0) {
+			// conta de salario e percentual		
+			TotalComissaoVIEW totalComissao = totalComissaoRepository.pegarComissaoFuncionario(id, mes, ano);
+			
+			
+			Double salarioTotal = ((salario.getPercentual()/100)*totalComissao.getTotalComissao()) + salario.getSalario();
+			
+			
+			salarioFinal = "{\"salario\":\""+salarioTotal+"\"}";
+		}
+		
+		
+		//se o perncentual for null ira apresentar o salario normal
+		if(salario.getPercentual() == null) {
+			//conta de salario	
+			salarioFinal = "{\"salario\":\""+salario.getSalario()+"\"}";
+		}
+		
+		
+		return salarioFinal;
+	}
 
 	@PostMapping
 	private ResponseEntity<Salario> cadastrarAgendamento(
@@ -64,7 +122,7 @@ public class SalarioResource {
 	
 	}
 		
-	//atualizando o cliente
+	//atualizando o salario
 	@PutMapping("/{id}")
 	private ResponseEntity<?> atualizarAgendamento(@RequestBody Salario salario,
 			@PathVariable Long id ){

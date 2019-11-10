@@ -17,10 +17,12 @@ import org.springframework.web.bind.annotation.RestController;
 import lumicode.agendaja.api.jwtme.security.JwtTokenUtill;
 import lumicode.agendaja.api.model.Cliente;
 import lumicode.agendaja.api.model.Estabelecimento;
+import lumicode.agendaja.api.model.Funcionario;
 import lumicode.agendaja.api.model.JWTRequest;
 import lumicode.agendaja.api.model.JWTResponse;
 import lumicode.agendaja.api.repository.ClienteRepository;
 import lumicode.agendaja.api.repository.EstabelecimentoRepository;
+import lumicode.agendaja.api.repository.FuncionarioRepository;
 
 
 @RestController
@@ -39,12 +41,15 @@ public class JwtAuthenticationResource {
 	@Autowired
 	EstabelecimentoRepository estabelecimentoRepository;
 	
+	@Autowired
+	FuncionarioRepository funcionarioRepository;
+	
 	@PostMapping("/login/cliente")
 	public ResponseEntity<?> createAuthenticationTokenCliente(@RequestBody JWTRequest authenticationRequest) throws Exception {
 		final Cliente cliente = clienteRepository.entrar(authenticationRequest.getEmail(), authenticationRequest.getPassword());
 
 		if (cliente != null) {
-			final String token = jwtTokenUtil.generateTokenConsumidor(cliente);
+			final String token = jwtTokenUtil.generateTokeCliente(cliente);
 			return ResponseEntity.ok(new JWTResponse(token));
 		}
 
@@ -57,7 +62,20 @@ public class JwtAuthenticationResource {
 		final Estabelecimento estabelecimento = estabelecimentoRepository.loginEstabelecimento(authenticationRequest.getEmail(), authenticationRequest.getPassword());
 		
 		if (estabelecimento != null) {
-			final String token = jwtTokenUtil.generateTokenRestaurante(estabelecimento);
+			final String token = jwtTokenUtil.generateTokenEstabelecimento(estabelecimento);
+			return ResponseEntity.ok(new JWTResponse(token));
+		}
+
+		return ResponseEntity.ok("{\"error\": \"E-mail ou senha Incorreto\"}");
+
+	}
+	
+	@PostMapping("/login/funcionario")
+	public ResponseEntity<?> createAuthenticationTokenfuncionario(@RequestBody JWTRequest authenticationRequest) throws Exception {
+		final Funcionario funcionario = funcionarioRepository.loginFuncionario(authenticationRequest.getEmail(), authenticationRequest.getPassword());
+		
+		if (funcionario != null) {
+			final String token = jwtTokenUtil.generateTokenFuncionario(funcionario);
 			return ResponseEntity.ok(new JWTResponse(token));
 		}
 

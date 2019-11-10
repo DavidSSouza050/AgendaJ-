@@ -1,0 +1,28 @@
+package lumicode.agendaja.api.repository;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+import lumicode.agendaja.api.model.Agendamento;
+import lumicode.agendaja.api.model.Funcionario;
+import lumicode.agendaja.api.model.Servico;
+
+public interface FuncionarioRepository 
+	extends JpaRepository<Funcionario, Long>{
+
+	@Query(value = "SELECT * FROM tbl_salario as s inner join tbl_funcionario as f " + 
+			"ON s.id_salario = f.id_salario WHERE f.id_funcionario = ?1", nativeQuery= true)
+	public Funcionario pegarSalarioDeFuncionario(Long idFuncionario);
+	
+	
+	@Query(value = "SELECT s.servico FROM tbl_agendamento as a INNER JOIN tbl_agendamento_servico as ags " + 
+			"ON a.id_agendamento = ags.id_agendamento INNER JOIN tbl_servico as s " + 
+			"ON ags.id_servico = s.id_servico INNER JOIN tbl_funcionario as f " + 
+			"ON f.id_funcionario = a.id_funcionario WHERE month(a.data_horario_agendado) = ?1 "
+			+ "AND year(a.data_horario_agendado) = ?2 AND a.finalizado = 0 AND f.id_funcionario = ?3", nativeQuery = true)
+	public List<Servico> pegarServicos(Integer mes, Integer ano, Long idFuncionario);
+	
+	
+}

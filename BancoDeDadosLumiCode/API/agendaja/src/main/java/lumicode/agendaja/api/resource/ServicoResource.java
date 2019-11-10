@@ -1,6 +1,7 @@
 package lumicode.agendaja.api.resource;
 
 import java.net.URI;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
@@ -20,7 +21,11 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import lumicode.agendaja.api.model.Servico;
+import lumicode.agendaja.api.model.view.ServicoPendenteVIEW;
+import lumicode.agendaja.api.model.view.ServicosFuncionarioVIEW;
 import lumicode.agendaja.api.repository.ServicoRepository;
+import lumicode.agendaja.api.repository.view.ServicoPendenteVIEWRepository;
+import lumicode.agendaja.api.repository.view.ServicosFuncionarioVIEWRepository;
 
 @RestController
 @RequestMapping("/servicos")
@@ -28,6 +33,18 @@ import lumicode.agendaja.api.repository.ServicoRepository;
 public class ServicoResource {
 	@Autowired
 	private ServicoRepository servicoRepository;
+
+	@Autowired
+	private ServicosFuncionarioVIEWRepository servicosFuncionarioVIEWRepository;
+	
+	@Autowired
+	private ServicoPendenteVIEWRepository servicoPendenteVIEWRepository;
+	
+	
+	Calendar calendar = Calendar.getInstance();
+	Integer mes = calendar.get(Calendar.MONTH)+1;
+	Integer ano = calendar.get(Calendar.YEAR);
+	
 	
 	@GetMapping
 	private List<Servico> getServico(){
@@ -38,6 +55,28 @@ public class ServicoResource {
 	private Servico visualizarServico(@PathVariable Long id) {
 		return servicoRepository.findById(id).get();
 	}
+	
+	@GetMapping("/funcionario/{id}/servicosRealizados")
+	private List<ServicosFuncionarioVIEW> servicosRealizados(@PathVariable Long id){
+		
+		return servicosFuncionarioVIEWRepository.pegarServicos(mes, ano, id);
+	}
+	
+	@GetMapping("/funcionario/{id}/servicosPendente")
+	private List<ServicoPendenteVIEW> servicosPendenteFuncionario(@PathVariable Long id){
+		
+		return servicoPendenteVIEWRepository.pegerServicosPendentesFuncionario(id, mes, ano);
+	}
+	
+	
+	@GetMapping("/estabelecimento/{id}/servicosPendente")
+	private List<ServicoPendenteVIEW> servicosPendenteEstabelecimento(@PathVariable Long id){
+		
+		return servicoPendenteVIEWRepository.pegerServicosPendentesEstabelecimento(id, mes, ano);
+	}
+	
+	
+	
 	@GetMapping("/estabelecimento/{id}")
 	private List<Servico> visualizaeServicosPorEstabelecimento(@PathVariable Long id){
 		return servicoRepository.visualizarServicosPorestabelecimento(id);

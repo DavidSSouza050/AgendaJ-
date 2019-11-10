@@ -40,16 +40,77 @@ INNER JOIN tbl_agendamento_servico AS ase
 ON a.id_agendamento = ase.id_agendamento
 INNER JOIN tbl_servico AS s
 ON ase.id_servico = s.id_servico
-WHERE f.id_funcionario = 1;
+WHERE f.id_funcionario = 1 AND MONTH(a.data_horario_agendado) = '10';
 
+desc tbl_agendamento;
+DROP VIEW view_total_comissao;
+
+-- CREATE VIEW view_total_comissao as
 SELECT 
-    sum(s.preco)
-FROM
-    tbl_agendamento AS a
-        INNER JOIN
-    tbl_agendamento_servico AS ase ON a.id_agendamento = ase.id_agendamento
-        INNER JOIN
-    tbl_servico AS s ON ase.id_servico = s.id_servico;
+f.id_funcionario as funcionario, 
+sum(s.preco) AS total_comissao,
+month(a.data_horario_agendado) as mes,
+year(a.data_horario_agendado) as ano,
+a.data_horario_agendado as hora,
+a.finalizado as finalizado
+FROM tbl_funcionario AS f
+INNER JOIN tbl_salario AS sa
+ON f.id_salario = sa.id_salario
+INNER JOIN tbl_agendamento AS a
+ON f.id_funcionario = a.id_funcionario
+INNER JOIN tbl_agendamento_servico AS ase
+ON a.id_agendamento = ase.id_agendamento
+INNER JOIN tbl_servico AS s
+ON ase.id_servico = s.id_servico; 
+
+SELECT * from view_total_comissao where funcionario = 2 and mes = 10 and ano = 2019 ;
+
+SELECT *FROM tbl_salario as s inner join tbl_funcionario as f
+ON s.id_salario = f.id_salario WHERE f.id_funcionario = 1;
+desc tbl_salario;
+DROP VIEW view_servico_pendente;
+-- CREATE VIEW view_servico_pendente as
+SELECT 
+a.id_agendamento as id,
+f.id_funcionario as funcionario, 
+e.id_estabelecimento as estabelecimento,
+s.preco as preco, 
+concat_ws(" ",c.nome, c.sobrenome)  as nome_cliente,
+c.foto_cliente as foto_cliente,
+c.celular as celular_cliente,
+s.servico as servico,
+cs.categoria_servico as categoria,
+s.duracao_servico as duracao_servico,
+a.data_horario_agendado as data_hora,
+a.finalizado as finalizado,
+a.status as cancelado
+FROM tbl_agendamento as a INNER JOIN tbl_agendamento_servico as ags
+ON a.id_agendamento = ags.id_agendamento INNER JOIN tbl_servico as s
+ON ags.id_servico = s.id_servico INNER JOIN tbl_funcionario as f
+ON f.id_funcionario = a.id_funcionario INNER JOIN tbl_cliente as c
+ON a.id_cliente = c.id_cliente INNER JOIN tbl_categoria_servico as cs
+ON s.id_categoria_servico = cs.id_categoria_servico INNER JOIN tbl_estabelecimento as e
+ON a.id_estabelecimento = e.id_estabelecimento;
+
+SELECT * FROM view_servicos_funcionario WHERE mes = 10 AND ano = 2019 AND finalizado = 1 AND funcionario = 1;
+
+SELECT * FROM view_servico_pendente WHERE estabelecimento = 1 AND month(data_hora) = 10 AND year(data_hora) = 2019 and finalizado = 1;
+
+SELECT count(*) as total_de_agendamentos from tbl_agendamento where finalizado = 1 and status <> 'C' and month(data_horario_agendado) = 10 and year(data_horario_agendado) = 2019 and day(data_horario_agendado) = 15 and id_estabelecimento = 1;
+
+select * from tbl_agendamento where finalizado = 1;
+
+SELECT a.id_agendamento as id,
+	concat_ws(" ",c.nome, c.sobrenome) as nome_cliente, 
+	c.celular as celular,
+    s.servico as servico,
+    f.id_funcionario as funcionario
+    FROM tbl_agendamento as a INNER JOIN tbl_cliente as c
+	ON a.id_cliente = c.id_cliente INNER JOIN tbl_funcionario as f
+    ON f.id_funcionario = a.id_funcionario INNER JOIN tbl_agendamento_servico as ags
+    ON ags.id_agendamento = a.id_agendamento INNER JOIN tbl_servico as s
+    ON ags.id_servico = s.id_servico INNER JOIN tbl_categoria_servico as cs
+    ON s.id_categoria_servico = cs.categoria_servico WHERE a.finalizado = 0;
 
 -- agendamento 
 select * from tbl_agendamento;
@@ -111,7 +172,7 @@ insert into tbl_tipo_salario values (2, 'Valor Fixo');
 insert into tbl_tipo_salario values (3, 'Comissão + Valor Fixo');
 
 SELECT * FROM TBL_SALARIO;
-INSERT INTO tbl_salario values (1, 500.00, NULL, 1, NOW(), NOW() );
+INSERT INTO tbl_salario values (1, 500.00, NULL, 2, NOW(), NOW() );
 desc tbl_funcionario;
 select * from tbl_funcionario;
 INSERT INTO tbl_funcionario values (1, 'Ivanildo', null, 1,'ivan_fera', '789456123', 1, now(), now());
