@@ -56,14 +56,12 @@ public class DadosPessoaisActivity extends AppCompatActivity implements View.OnC
     private Bitmap imagemBitmap;
     public static final int GALERY_REQUEST = 10;
     public static final int CAMERA_REQUEST = 20;
-    public static final int PERMISSION_REQUEST = 30;
     private String nomeFoto;
     private String caminhoFoto;
     private String imagePath;
     private Endereco cepVoltado;
     private Cliente clienteVoltadoDoContato;
     private File arquivoFoto;
-    private String[] appPermissoes = {Manifest.permission.WRITE_EXTERNAL_STORAGE};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -106,8 +104,6 @@ public class DadosPessoaisActivity extends AppCompatActivity implements View.OnC
         dtNascimento.addTextChangedListener(maskDataNascimento);
 
         //Sistema de permissao
-
-        verificarPermissao();
 
 
         imgButtonGaleria.setOnClickListener(this);
@@ -257,31 +253,6 @@ public class DadosPessoaisActivity extends AppCompatActivity implements View.OnC
         }
 
         return validacao;
-    }
-
-
-    //método para dar permissao para a aplicação
-
-    public boolean verificarPermissao(){
-
-        Boolean status;
-
-        List<String> permissoesRequeridas = new ArrayList<>();
-
-        for(String permissao : appPermissoes){
-            if(ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)!= PackageManager.PERMISSION_GRANTED){
-               permissoesRequeridas.add(permissao);
-            }
-        }
-
-        if(!permissoesRequeridas.isEmpty()){
-            ActivityCompat.requestPermissions(this,permissoesRequeridas.toArray(new String[permissoesRequeridas.size()]),PERMISSION_REQUEST);
-            status = true;
-        }else{
-            status = false;
-        }
-
-        return status;
     }
 
 

@@ -1,5 +1,6 @@
 package br.senai.sp.agendaja;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -241,9 +242,12 @@ public class PerfilFragment extends Fragment implements View.OnClickListener {
               }
             }
 
+            @SuppressLint("LongLogTag")
             @Override
             public void onFailure(Call<Cliente> call, Throwable t) {
                 Toast.makeText(getContext(),"Erro ao atualizar foto",Toast.LENGTH_LONG).show();
+
+                Log.d("problema de atualizar a foto",t.getMessage());
             }
           });
 

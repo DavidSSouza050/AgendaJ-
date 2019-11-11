@@ -1,6 +1,7 @@
 package br.senai.sp.agendaja.Model;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class Estabelecimento extends Endereco implements Serializable {
 
@@ -13,6 +14,7 @@ public class Estabelecimento extends Endereco implements Serializable {
   private String telefone;
   private String email;
   private String senha;
+  private List<Horario> horarios;
 
   public int getIdEstabelecimento() {
     return idEstabelecimento;
@@ -86,6 +88,14 @@ public class Estabelecimento extends Endereco implements Serializable {
     this.senha = senha;
   }
 
+  public List<Horario> getHorarios() {
+    return horarios;
+  }
+
+  public void setHorarios(List<Horario> horarios) {
+    this.horarios = horarios;
+  }
+
   @Override
   public String toString() {
     return "Estabelecimento{" +
@@ -98,6 +108,7 @@ public class Estabelecimento extends Endereco implements Serializable {
          ", telefone='" + telefone + '\'' +
          ", email='" + email + '\'' +
          ", senha='" + senha + '\'' +
+         ", horarios=" + horarios +
          '}';
   }
 }
