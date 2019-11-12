@@ -4,11 +4,15 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
@@ -20,11 +24,12 @@ public class HorarioAdapter extends RecyclerView.Adapter<HorarioAdapter.HorarioV
   private Context context;
   private List<Horario> horarioList;
   private List<String> horariosUtilizados;
-  private Horario horarioDoDia;
+  private ClickHorario clickHorario;
 
-  public HorarioAdapter(Context context,List<Horario> horarioList) {
+  public HorarioAdapter(Context context,List<Horario> horarioList,ClickHorario clickHorario) {
     this.context = context;
     this.horarioList = horarioList;
+    this.clickHorario = clickHorario;
   }
 
   @NonNull
@@ -38,16 +43,25 @@ public class HorarioAdapter extends RecyclerView.Adapter<HorarioAdapter.HorarioV
   }
 
   @Override
-  @SuppressLint("WrongConstant")
   public void onBindViewHolder(@NonNull HorarioViewHolder horarioViewHolder, int i) {
 
 
+    String horariosDaLista = horariosUtilizados.get(i);
+
+    horarioViewHolder.txtHorario.setText(horariosDaLista);
+
+    horarioViewHolder.txtHorario.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        clickHorario.onClickHorario();
+      }
+    });
 
   }
 
   @Override
   public int getItemCount() {
-    return horariosUtilizados!=null?horariosUtilizados.size():0;
+    return horarioList!=null?horarioList.size():0;
   }
 
   public class HorarioViewHolder extends RecyclerView.ViewHolder{
@@ -61,38 +75,8 @@ public class HorarioAdapter extends RecyclerView.Adapter<HorarioAdapter.HorarioV
     }
   }
 
-  public List<String> verificandoHorarios(){
-    Calendar c = Calendar.getInstance();
-
-    int idDiaAtual = c.get(Calendar.DAY_OF_WEEK);
-
-    for(int cont=0;cont<horarioList.size();cont++){
-      if(horarioList.get(cont).getIdDiaSemana()==idDiaAtual){
-        horarioDoDia = (Horario) horarioList.get(cont);
-      }
-    }
-
-    String[] arrayHorarioAbertura = horarioDoDia.getHorarioAbertura().split(":");
-    String[] arrayHorarioFechamento = horarioDoDia.getHorarioFechamento().split(":");
-
-
-    if(Integer.parseInt(arrayHorarioAbertura[1])==0  && Integer.parseInt(arrayHorarioFechamento[2])==0){
-      for(int cont=Integer.parseInt(arrayHorarioAbertura[0]);cont<=Integer.parseInt(arrayHorarioFechamento[0]);cont=cont+20){
-        String horarioAtual = horarioDoDia.getHorarioAbertura();
-        String horarioFinal = CalculoHorario.calcularHorarioFinal(horarioAtual,cont);
-
-        horariosUtilizados.add(horarioFinal);
-      }
-
-    }else{
-
-      //Double valorInicial = Double (arrayHorarioAbertura[0],((arrayHorarioAbertura[1])/60));
-
-    }
-
-    horariosUtilizados.add(0,horarioDoDia.getHorarioAbertura());
-    horariosUtilizados.add(horariosUtilizados.size()-1,horarioDoDia.getHorarioFechamento());
-
-    return horariosUtilizados;
+  public interface ClickHorario{
+    public void onClickHorario();
   }
+
 }

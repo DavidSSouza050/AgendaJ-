@@ -66,7 +66,7 @@ public class TaskGetListEstabelecimentos extends AsyncTask {
         JSONArray arrayHorarios = object.getJSONArray("horarioEstabelecimento");
 
 
-        for(int cont=0;cont<jsonArray.length();cont++){
+        for(int cont=0;cont<arrayHorarios.length();cont++){
           JSONObject objectHorarios = (JSONObject) arrayHorarios.get(cont);
 
           Horario horario = new Horario();
