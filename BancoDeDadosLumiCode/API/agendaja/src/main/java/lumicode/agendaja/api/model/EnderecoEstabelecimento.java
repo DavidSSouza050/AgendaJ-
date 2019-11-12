@@ -9,7 +9,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
-import lumicode.agendaja.api.model.dto.EstabelecimentoDTO;
 
 @Entity
 @Table (name = "tbl_endereco_estabelecimento")
@@ -24,7 +23,7 @@ public class EnderecoEstabelecimento {
 	@NotNull
 	@ManyToOne
 	@JoinColumn(name = "id_estabelecimento")
-	private EstabelecimentoDTO estabelecimento;
+	private Estabelecimento estabelecimento;
 
 	public Long getIdEnderecoEstabelecimento() {
 		return idEnderecoEstabelecimento;
@@ -45,15 +44,17 @@ public class EnderecoEstabelecimento {
 		this.idEnderecoEstabelecimento = idEnderecoEstabelecimento;
 	}
 
-
-
-	public EstabelecimentoDTO getEstabelecimento() {
+	public Estabelecimento getEstabelecimento() {
 		return estabelecimento;
 	}
 
-	public void setEstabelecimento(EstabelecimentoDTO estabelecimento) {
+	public void setEstabelecimento(Estabelecimento estabelecimento) {
 		this.estabelecimento = estabelecimento;
 	}
+
+
+
+	
 	
 	
 	

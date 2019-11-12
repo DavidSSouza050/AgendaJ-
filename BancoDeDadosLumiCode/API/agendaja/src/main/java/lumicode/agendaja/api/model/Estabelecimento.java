@@ -6,7 +6,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
@@ -44,6 +43,7 @@ public class Estabelecimento {
 	private String senha;
 	@OneToMany(mappedBy = "estabelecimento")
 	private List<HorarioEstabelecimento> horarioEstabelecimento;
+	
 	
 	
 	public Long getIdEstabelecimento() {
@@ -125,6 +125,8 @@ public class Estabelecimento {
 	public void setHorarioEstabelecimento(List<HorarioEstabelecimento> horarioEstabelecimento) {
 		this.horarioEstabelecimento = horarioEstabelecimento;
 	}
+
+
 
 	
 

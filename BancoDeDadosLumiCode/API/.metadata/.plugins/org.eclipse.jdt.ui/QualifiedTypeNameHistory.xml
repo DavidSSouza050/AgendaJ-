@@ -1,14 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="javax.validation.constraints.Null"/>
-<fullyQualifiedTypeName name="org.hibernate.validator.internal.IgnoreForbiddenApisErrors"/>
-<fullyQualifiedTypeName name="javax.persistence.Transient"/>
-<fullyQualifiedTypeName name="org.hibernate.annotations.GeneratorType"/>
-<fullyQualifiedTypeName name="net.bytebuddy.dynamic.loading.ClassReloadingStrategy.Strategy"/>
-<fullyQualifiedTypeName name="javax.persistence.GeneratedValue"/>
-<fullyQualifiedTypeName name="lumicode.agendaja.api.model.DiaSemana"/>
-<fullyQualifiedTypeName name="java.lang.String"/>
-<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMapping"/>
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.CrossOrigin"/>
 <fullyQualifiedTypeName name="lumicode.agendaja.api.resource.EmServicoResource"/>
 <fullyQualifiedTypeName name="lumicode.agendaja.api.repository.EmServicoRepository"/>
@@ -17,15 +8,12 @@
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.ResponseBody"/>
 <fullyQualifiedTypeName name="lumicode.agendaja.api.utils.CalculadoDeDuracao"/>
 <fullyQualifiedTypeName name="lumicode.agendaja.api.repository.dto.FuncionarioDTORepository"/>
-<fullyQualifiedTypeName name="lumicode.agendaja.api.model.Estabelecimento"/>
 <fullyQualifiedTypeName name="lumicode.agendaja.api.repository.dto.EstabelecimentoDTORepository"/>
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RestController"/>
-<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestParam"/>
 <fullyQualifiedTypeName name="lumicode.agendaja.api.model.EmServico"/>
 <fullyQualifiedTypeName name="lumicode.agendaja.api.model.HorarioFuncionario"/>
 <fullyQualifiedTypeName name="java.lang.Long"/>
 <fullyQualifiedTypeName name="java.lang.Integer"/>
-<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PutMapping"/>
 <fullyQualifiedTypeName name="lumicode.agendaja.api.repository.view.TotalComissaoVIEWRepository"/>
 <fullyQualifiedTypeName name="lumicode.agendaja.api.model.view.TotalComissaoVIEW"/>
 <fullyQualifiedTypeName name="lumicode.agendaja.api.model.Servico"/>
@@ -47,17 +35,29 @@
 <fullyQualifiedTypeName name="lumicode.agendaja.api.model.view.ServicoPendenteVIEW"/>
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PostMapping"/>
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestBody"/>
-<fullyQualifiedTypeName name="org.springframework.http.HttpStatus"/>
-<fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
 <fullyQualifiedTypeName name="lumicode.agendaja.api.repository.FuncionarioRepository"/>
 <fullyQualifiedTypeName name="lumicode.agendaja.api.model.Funcionario"/>
 <fullyQualifiedTypeName name="java.util.Calendar"/>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="lumicode.agendaja.api.model.AgendamentoServico"/>
-<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
-<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
 <fullyQualifiedTypeName name="com.sun.org.apache.xpath.internal.axes.PathComponent"/>
 <fullyQualifiedTypeName name="java.nio.file.Path"/>
-<fullyQualifiedTypeName name="lumicode.agendaja.api.model.dto.EstabelecimentoDTO"/>
+<fullyQualifiedTypeName name="javax.annotation.Resource"/>
+<fullyQualifiedTypeName name="java.io.InputStream"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PutMapping"/>
 <fullyQualifiedTypeName name="org.springframework.http.ResponseEntity"/>
+<fullyQualifiedTypeName name="lumicode.agendaja.api.model.Foto"/>
+<fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+<fullyQualifiedTypeName name="lumicode.agendaja.api.storage.Disco"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestParam"/>
+<fullyQualifiedTypeName name="org.springframework.boot.autoconfigure.web.servlet.MultipartAutoConfiguration"/>
+<fullyQualifiedTypeName name="org.springframework.web.multipart.MultipartFile"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.DeleteMapping"/>
+<fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="org.springframework.http.HttpStatus"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
+<fullyQualifiedTypeName name="lumicode.agendaja.api.model.EnderecoEstabelecimento"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="lumicode.agendaja.api.model.Estabelecimento"/>
+<fullyQualifiedTypeName name="lumicode.agendaja.api.model.dto.EstabelecimentoDTO"/>
 </qualifiedTypeNameHistroy>

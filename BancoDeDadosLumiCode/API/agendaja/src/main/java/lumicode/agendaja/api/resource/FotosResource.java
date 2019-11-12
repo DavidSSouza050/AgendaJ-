@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -122,14 +124,18 @@ public class FotosResource {
 	
 	
 	@PostMapping("/estabelecimento/galeria")
-	public List<Foto> uploadGaleria(@RequestParam List<MultipartFile> imgs, @RequestParam Long id ){
+	public ResponseEntity<?> uploadGaleria(@RequestParam List<MultipartFile> imgs, @RequestParam Long id ){
 		EstabelecimentoDTO estabelecimento = estabelecimentoDTORepository.pegarEstabelecimento(id);
 		String nomeEstabelecimento = estabelecimento.getNomeEstabelecimento();
+		
+		if(imgs.size() >= 1048576) {
+			return new ResponseEntity<String>("{\"mesage\":\"Imagens não podem conter mais de 1Mega\"}", HttpStatus.BAD_REQUEST);
+		}
 		
 		for(MultipartFile img : imgs) {
 			if(!img.getOriginalFilename().isEmpty() && img.getSize() > 0) {
 				
-				String nameImg = disco.salvarImagemGaleria(img, "estabelecimento/"+nomeEstabelecimento);
+				String nameImg = disco.salvarFoto(img, "estabelecimento/"+nomeEstabelecimento);
 				
 				if(nameImg != null) {
 					Foto foto = new Foto();
@@ -142,7 +148,7 @@ public class FotosResource {
 		}
 		
 		
-		return fotoRepository.galeriaEstabelecimento(id);
+		return ResponseEntity.ok(fotoRepository.galeriaEstabelecimento(id));
 	}
 	
 	

@@ -263,8 +263,13 @@ desc tbl_agendamento;
 desc tbl_em_servico;
 
 
-SELECT * FROM tbl_horario_estabelecimento;
+SELECT * FROM tbl_foto;
 
+SELECT e.nome_estabelecimento, m.microrregiao, c.id_cidade FROM  tbl_endereco as en INNER JOIN tbl_endereco_estabelecimento as ene
+ON en.id_endereco = ene.id_endereco INNER JOIN tbl_estabelecimento as e 
+ON e.id_estabelecimento = ene.id_estabelecimento INNER JOIN tbl_cidade as c 
+ON en.id_cidade = c.id_cidade INNER JOIN tbl_microrregiao as m
+ON c.id_microrregiao = m.id_microrregiao;
 
 select * from tbl_agendamento WHERE id_agendamento = 1;
 

@@ -1,0 +1,66 @@
+package lumicode.agendaja.api.resource;
+
+import java.io.InputStream;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import lumicode.agendaja.api.model.Foto;
+import lumicode.agendaja.api.model.dto.EstabelecimentoDTO;
+import lumicode.agendaja.api.repository.FotoRepository;
+import lumicode.agendaja.api.repository.dto.EstabelecimentoDTORepository;
+
+@RestController
+@RequestMapping("/galerias")
+@CrossOrigin(origins = "*")
+public class FotoGaleriaResource {
+	
+	@Autowired
+	private FotoRepository fotoRepository;
+	
+	@Autowired
+	private EstabelecimentoDTORepository estabelecimentoDTORepository;
+	
+	@Value("${contato.disco.raiz}")
+	private String raiz;
+	
+	@Value("${contato.disco.diretorio-fotos}")
+	private String diretorioFotos;
+	//****************************
+	
+	@GetMapping
+	private List<Foto> getfoto() {
+		return fotoRepository.findAll();
+	}
+	
+	@GetMapping("/galeria/estabelecimento/{id}")
+	private List<Foto> visualizarGaleria(@PathVariable Long id){
+		return fotoRepository.galeriaEstabelecimento(id);
+	}
+	
+	
+	@GetMapping("/estabelecimento/{id}/image/{image}")
+	private ResponseEntity<?> visualizarImagem(@PathVariable String image, @PathVariable Long id) {
+		
+		EstabelecimentoDTO estabelecimento = estabelecimentoDTORepository.findById(id).get();
+		
+		Path caminho = Paths.get(diretorioFotos+"/estabelecimento/"+estabelecimento.getNomeEstabelecimento());
+		
+	
+		//InputStream in =  
+		
+		//return caminho.resolve(image);	
+		return null;
+	}
+	
+	
+}
