@@ -25,6 +25,10 @@ public class Disco {
 		return this.salvar(this.diretorioFotos+"/"+pasta, foto);
 	}
 	
+	public String salvarImagemGaleria(MultipartFile foto, String pasta) {
+		return this.salvarGaleria(this.diretorioFotos+"/"+pasta, foto);
+	}
+	
 	//metodo de tratamento para salvar a imagem
 	public String salvar(String diretorio, MultipartFile arquivo) {
 		String local = null;
@@ -52,6 +56,29 @@ public class Disco {
 		
 	}
 	
+	
+	
+	public String salvarGaleria(String diretorio, MultipartFile arquivo) {
+		String local = null;
+		
+		Path diretorioPath = Paths.get(this.raiz, diretorio);
+		//criando o nome do arquivo 
+		local = (System.currentTimeMillis() +"_"+ arquivo.getOriginalFilename());
+		//
+		//onde o arquivo vai ser salvo mais o nome do arquivo
+		Path arquivoPath = diretorioPath.resolve(local);
+		try {
+			Files.createDirectories(diretorioPath);
+			arquivo.transferTo(arquivoPath.toFile());
+		}catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		
+		return local.toString();
+		
+	}
 	
 	public void deletar(String caminho) {
 		File apaga = new File(caminho);

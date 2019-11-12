@@ -1,5 +1,7 @@
 package lumicode.agendaja.api.resource;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -10,9 +12,13 @@ import org.springframework.web.multipart.MultipartFile;
 
 import lumicode.agendaja.api.model.Cliente;
 import lumicode.agendaja.api.model.Estabelecimento;
+import lumicode.agendaja.api.model.Foto;
+import lumicode.agendaja.api.model.dto.EstabelecimentoDTO;
 import lumicode.agendaja.api.model.dto.FuncionarioDTO;
 import lumicode.agendaja.api.repository.ClienteRepository;
 import lumicode.agendaja.api.repository.EstabelecimentoRepository;
+import lumicode.agendaja.api.repository.FotoRepository;
+import lumicode.agendaja.api.repository.dto.EstabelecimentoDTORepository;
 import lumicode.agendaja.api.repository.dto.FuncionarioDTORepository;
 import lumicode.agendaja.api.storage.Disco;
 @RestController
@@ -23,12 +29,19 @@ public class FotosResource {
 	private Disco disco;
 	@Autowired
 	private EstabelecimentoRepository estabelecimentoRepository;
+	@Autowired
+	private EstabelecimentoDTORepository estabelecimentoDTORepository;
 	@Autowired	
 	private ClienteRepository clienteRepository;
 	// funcionario
 	@Autowired
 	private FuncionarioDTORepository funcionarioDTORepository;
 	/****/
+	
+	// foto
+	@Autowired
+	private FotoRepository fotoRepository;
+	
 	//varivavel da raiz da imagem
 	@Value("${contato.disco.raiz}")
 	private String raiz;
@@ -103,6 +116,33 @@ public class FotosResource {
 		}
 		
 		return funcionarioDTO;
+	}
+	
+	
+	
+	
+	@PostMapping("/estabelecimento/galeria")
+	public List<Foto> uploadGaleria(@RequestParam List<MultipartFile> imgs, @RequestParam Long id ){
+		EstabelecimentoDTO estabelecimento = estabelecimentoDTORepository.pegarEstabelecimento(id);
+		String nomeEstabelecimento = estabelecimento.getNomeEstabelecimento();
+		
+		for(MultipartFile img : imgs) {
+			if(!img.getOriginalFilename().isEmpty() && img.getSize() > 0) {
+				
+				String nameImg = disco.salvarImagemGaleria(img, "estabelecimento/"+nomeEstabelecimento);
+				
+				if(nameImg != null) {
+					Foto foto = new Foto();
+					foto.setFoto(nameImg);
+					foto.setEstabelecimento(estabelecimento);
+					fotoRepository.save(foto);
+				}
+				
+			}
+		}
+		
+		
+		return fotoRepository.galeriaEstabelecimento(id);
 	}
 	
 	

@@ -1,9 +1,13 @@
 package lumicode.agendaja.api.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
@@ -38,6 +42,8 @@ public class Estabelecimento {
 	@NonNull
 	@Size(min = 8, max = 255, message = "A senha que conter 8 ou mais caracteres!")
 	private String senha;
+	@OneToMany(mappedBy = "estabelecimento")
+	private List<HorarioEstabelecimento> horarioEstabelecimento;
 	
 	
 	public Long getIdEstabelecimento() {
@@ -110,6 +116,14 @@ public class Estabelecimento {
 
 	public void setFoto(String foto) {
 		this.foto = foto;
+	}
+
+	public List<HorarioEstabelecimento> getHorarioEstabelecimento() {
+		return horarioEstabelecimento;
+	}
+
+	public void setHorarioEstabelecimento(List<HorarioEstabelecimento> horarioEstabelecimento) {
+		this.horarioEstabelecimento = horarioEstabelecimento;
 	}
 
 	

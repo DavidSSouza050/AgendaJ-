@@ -1,4 +1,4 @@
--- MySQL dump 10.13  Distrib 8.0.15, for Win64 (x86_64)
+﻿-- MySQL dump 10.13  Distrib 8.0.15, for Win64 (x86_64)
 --
 -- Host: localhost    Database: db_lumicode
 -- ------------------------------------------------------
@@ -20,7 +20,8 @@
 --
 DROP DATABASE `db_lumicode`;
 CREATE DATABASE `db_lumicode`;
-USE `db_lumicode`;
+USE  `db_lumicode`;
+
 
 DROP TABLE IF EXISTS `tbl_agendamento`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -775,7 +776,6 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `view_servico_pendente` AS select `a`.`id_agendamento` AS `id`,`f`.`id_funcionario` AS `funcionario`,`e`.`id_estabelecimento` AS `estabelecimento`,`s`.`preco` AS `preco`,concat_ws(' ',`c`.`nome`,`c`.`sobrenome`) AS `nome_cliente`,`c`.`foto_cliente` AS `foto_cliente`,`c`.`celular` AS `celular_cliente`,`s`.`servico` AS `servico`,`cs`.`categoria_servico` AS `categoria`,`s`.`duracao_servico` AS `duracao_servico`,`a`.`data_horario_agendado` AS `data_hora`,`a`.`finalizado` AS `finalizado`,`a`.`status` AS `cancelado` from ((((((`tbl_agendamento` `a` join `tbl_agendamento_servico` `ags` on((`a`.`id_agendamento` = `ags`.`id_agendamento`))) join `tbl_servico` `s` on((`ags`.`id_servico` = `s`.`id_servico`))) join `tbl_funcionario` `f` on((`f`.`id_funcionario` = `a`.`id_funcionario`))) join `tbl_cliente` `c` on((`a`.`id_cliente` = `c`.`id_cliente`))) join `tbl_categoria_servico` `cs` on((`s`.`id_categoria_servico` = `cs`.`id_categoria_servico`))) join `tbl_estabelecimento` `e` on((`a`.`id_estabelecimento` = `e`.`id_estabelecimento`))) */;
@@ -793,7 +793,6 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `view_servicos_funcionario` AS select `ags`.`id_agendamento_servico` AS `id`,`f`.`id_funcionario` AS `funcionario`,`s`.`preco` AS `preco`,concat_ws(' ',`c`.`nome`,`c`.`sobrenome`) AS `nome_cliente`,`s`.`servico` AS `servico`,month(`a`.`data_horario_agendado`) AS `mes`,year(`a`.`data_horario_agendado`) AS `ano`,`a`.`finalizado` AS `finalizado`,`a`.`status` AS `cancelado` from ((((`tbl_agendamento` `a` join `tbl_agendamento_servico` `ags` on((`a`.`id_agendamento` = `ags`.`id_agendamento`))) join `tbl_servico` `s` on((`ags`.`id_servico` = `s`.`id_servico`))) join `tbl_funcionario` `f` on((`f`.`id_funcionario` = `a`.`id_funcionario`))) join `tbl_cliente` `c` on((`a`.`id_cliente` = `c`.`id_cliente`))) */;
@@ -811,7 +810,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `view_total_comissao` AS select `f`.`id_funcionario` AS `funcionario`,sum(`s`.`preco`) AS `total_comissao`,month(`a`.`data_horario_agendado`) AS `mes`,year(`a`.`data_horario_agendado`) AS `ano`,`a`.`finalizado` AS `finalizado` from ((((`tbl_funcionario` `f` join `tbl_salario` `sa` on((`f`.`id_salario` = `sa`.`id_salario`))) join `tbl_agendamento` `a` on((`f`.`id_funcionario` = `a`.`id_funcionario`))) join `tbl_agendamento_servico` `ase` on((`a`.`id_agendamento` = `ase`.`id_agendamento`))) join `tbl_servico` `s` on((`ase`.`id_servico` = `s`.`id_servico`))) */;

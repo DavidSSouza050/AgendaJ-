@@ -292,5 +292,6 @@ INSERT INTO tbl_horario_funcionario (hora_entrada, hora_saida, id_dia_semana, id
 DESC tbl_horario_funcionario;
 
 SELECT * from tbl_funcionario as f INNER JOIN tbl_horario_funcionario as hf
-	ON f.id_funcionario = hf.id_funcionario WHERE hf.id_dia_semana = 6 AND hf.hora_entrada <> '16:00:00' AND hf.hora_saida <> '17:00:00'
+	ON f.id_funcionario = hf.id_funcionario WHERE hf.id_dia_semana = 6 AND hf.hora_entrada <> '16:00:00' AND hf.hora_saida <> '17:00:00';
 
+select * from tbl_estabelecimento;

@@ -44,21 +44,24 @@ public class FuncionarioResource {
 	@PostMapping("/login")
 	private ResponseEntity<?> loginFuncionario(@RequestBody Funcionario funcionario) {
 		
-		if(funcionarioRepository.verificarEmail(funcionario.getEmail()) != null) {
-			return new ResponseEntity<String>("{\"mesage\":\"Email já cadastrado\"", HttpStatus.BAD_REQUEST) ;
-		}
-		
 		Funcionario funcionarioLogado = funcionarioRepository.loginFuncionario(funcionario.getEmail(), funcionario.getSenha());
 		
-		
-		return ResponseEntity.ok(funcionarioLogado);
+		if(funcionarioLogado != null) {
+			return ResponseEntity.ok(funcionarioLogado);
+			
+		}else {
+			return new ResponseEntity<String>("{\"mesage\":\"Email ou senha incorretos\"}", HttpStatus.BAD_REQUEST) ;
+		}
+	
 	}
 	
 	@PostMapping
-	private ResponseEntity<Funcionario> cadastrarFuncionario(
+	private ResponseEntity<?> cadastrarFuncionario(
 			@Validated @RequestBody Funcionario funcionario,
 			HttpServletResponse response){
-
+		if(funcionarioRepository.verificarEmail(funcionario.getEmail()) != null) {
+			return  new ResponseEntity<String>("{\"mensage\": \"E-mail Já cadastrado\"}",HttpStatus.BAD_REQUEST);
+		}
 		//setando status
 		funcionario.setStatus(1);
 		
