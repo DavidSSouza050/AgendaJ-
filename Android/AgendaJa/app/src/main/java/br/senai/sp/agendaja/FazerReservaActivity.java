@@ -16,9 +16,12 @@ import android.widget.CalendarView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
@@ -42,10 +45,14 @@ public class FazerReservaActivity extends AppCompatActivity implements View.OnCl
     private Servico servicoEscolhido;
     private Button btnSalvar;
     private int status = 0;
+    private int statusHorario;
     private RecyclerView recyclerHorarios;
     private Horario horarioDoDia;
     private List<Horario> horarioList;
     private List<String>horariosDisponiveis;
+    private Funcionario funcionarioEscolhido;
+    private String horarioEscolhido;
+    private String dataEscolhida;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,12 +80,9 @@ public class FazerReservaActivity extends AppCompatActivity implements View.OnCl
         LinearLayoutManager layoutHorarios = new LinearLayoutManager(FazerReservaActivity.this,LinearLayout.HORIZONTAL,false);
         recyclerHorarios.setLayoutManager(layoutHorarios);
         //setando o adapter de horarios na recycler
-
         if(estabelecimento.getHorarios()!=null){
-          setAdapterHorarios(recyclerHorarios,estabelecimento.getHorarios());
+          setAdapterHorarios(recyclerHorarios,horariosDisponiveis);
         }
-
-
 
         listaDeFuncionarios.setLayoutManager(new LinearLayoutManager(this));
 
@@ -103,48 +107,71 @@ public class FazerReservaActivity extends AppCompatActivity implements View.OnCl
             e.printStackTrace();
         }
 
+
+        //setando os listenners no calendar e no botao;
+        btnSalvar.setOnClickListener(this);
+        calendarioReserva.setOnDateChangeListener(this);
     }
 
     @Override
     public void onClick(View v) {
 
+      switch (v.getId()){
+        case R.id.btn_salvar_agendamento:
+
+          break;
+      }
+
     }
 
     @Override
     public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
+      switch (view.getId()){
+        case R.id.calendarView:
+          dataEscolhida = String.valueOf(year+"/"+month+1+"/"+dayOfMonth);
+          Log.d("data escolhida",dataEscolhida);
+      }
+
 
     }
-
-
-    public void setAdapaterFuncionario(List<Funcionario> funcionariosList, RecyclerView recyclerViewFuncionario){
-        FuncionarioAdapter adapter = new FuncionarioAdapter(funcionariosList,FazerReservaActivity.this,this);
-        recyclerViewFuncionario.setAdapter(adapter);
-    }
-
 
   @SuppressLint("ResourceAsColor")
   @Override
   public void onClickFuncionario(LinearLayout linearLayout, Funcionario funcionario) {
 
     if(status==0){
-      linearLayout.setBackgroundResource(R.color.colorCinza);
+      linearLayout.setBackgroundResource(R.color.colorLilasClaro);
       status++;
     }else if(status==1){
-      linearLayout.setBackgroundResource(R.color.colorTrasparente);
+      linearLayout.setBackgroundResource(R.color.colorBrancoAcinzentadoo);
        status--;
     }
 
   }
 
-  public void setAdapterHorarios(RecyclerView recyclerHorarios, List<Horario> horarioList){
-      //HorarioAdapter horarioAdapter = new HorarioAdapter(FazerReservaActivity.this,horarioList,this);
-      //recyclerHorarios.setAdapter(horarioAdapter);
+
+  @SuppressLint("ResourceAsColor")
+  @Override
+  public void onClickHorario(LinearLayout linearLayout,String horario) {
+    if(statusHorario==0){
+      linearLayout.setBackgroundColor(R.color.colorLilasClaro);
+      statusHorario++;
+    }else if(statusHorario==1){
+      linearLayout.setBackgroundColor(R.color.colorBrancoAcinzentadoo);
+      statusHorario--;
+    }
   }
 
-  @Override
-  public void onClickHorario() {
-    Toast.makeText(this,"Teste horario",Toast.LENGTH_LONG).show();
+  public void setAdapaterFuncionario(List<Funcionario> funcionariosList, RecyclerView recyclerViewFuncionario){
+    FuncionarioAdapter adapter = new FuncionarioAdapter(funcionariosList,FazerReservaActivity.this,this);
+    recyclerViewFuncionario.setAdapter(adapter);
   }
+
+  public void setAdapterHorarios(RecyclerView recyclerHorarios, List<String> horarioList){
+      HorarioAdapter horarioAdapter = new HorarioAdapter(FazerReservaActivity.this,horarioList,this);
+      recyclerHorarios.setAdapter(horarioAdapter);
+  }
+
 
   public List<String> verificandoHorarios(){
 
@@ -175,12 +202,12 @@ public class FazerReservaActivity extends AppCompatActivity implements View.OnCl
 
 
     if(Integer.parseInt(arrayHorarioAbertura[1])==0  && Integer.parseInt(arrayHorarioFechamento[2])==0){
-      for(int cont=Integer.parseInt(arrayHorarioAbertura[0]);cont<=Integer.parseInt(arrayHorarioFechamento[0]);cont=cont+20){
-        String horarioAtual = horarioDoDia.getHorarioAbertura();
-        String horarioFinal = CalculoHorario.calcularHorarioFinal(horarioAtual,cont);
-
-        horariosDoEstabelecimento.add(horarioFinal);
-      }
+//      for(int cont=Integer.parseInt(arrayHorarioAbertura[0]);cont<=Integer.parseInt(arrayHorarioFechamento[0]);cont=cont+20){
+//        String horarioAtual = horarioDoDia.getHorarioAbertura();
+//        String horarioFinal = CalculoHorario.calcularHorarioFinal(horarioAtual,cont);
+//
+//        horariosDoEstabelecimento.add(horarioFinal);
+//      }
 
     }else{
 
@@ -204,43 +231,73 @@ public class FazerReservaActivity extends AppCompatActivity implements View.OnCl
       Double horaFechamentoFormatada = Double.valueOf(arrayHorarioFechamento[0]) + minFechamento;
 
       //esse é o contados que também é convertido de minutos para horas
-      Float contador = Float.valueOf((20/60));
-//      DecimalFormat dfContador = new DecimalFormat("#.#");
-//      contador = Double.valueOf(dfContador.format(contador));
+      Double contador = Double.valueOf((20.00/60.00));
+      DecimalFormat dfContador = new DecimalFormat("#.##");
+      contador = Double.valueOf(dfContador.format(contador));
 
       Log.d("contador", String.valueOf(contador));
 
       Log.d("horaAberturaFormatada", String.valueOf(horaAberturaFormatada));
       Log.d("horaFechamentoFormatada", String.valueOf(horaFechamentoFormatada));
 
-      for(contFor=(horaAberturaFormatada);contFor<=(horaFechamentoFormatada);contFor=contFor+Double.parseDouble(String.valueOf(contador))){
+      for(contFor=horaAberturaFormatada;contFor<=horaFechamentoFormatada;contFor=contFor+contador){
 
         //nessa parte do codigo faz-se o processo inverso feito acima, as horas decimais são convertidas para minnutos novamente e é chamado o método calcularHorarioFinal que faz a conta e devolve um string;
-        int contadorReverso = (int) (contFor*60);
 
-        Double minutosReversos = horaAberturaFormatada%1;
+        Double minutosEmHoras = (contFor%1);
 
-        Log.d("minutos reversos", String.valueOf(minutosReversos));
+        DecimalFormat dfMinutos = new DecimalFormat("#.##");
+        dfMinutos.setRoundingMode(RoundingMode.UP);
+        minutosEmHoras = Double.valueOf(dfMinutos.format(minutosEmHoras));
+
+//        Log.d("minutos reversos", String.valueOf(contFor));
+
+        int horasParaMinutos =  ((int) (minutosEmHoras*60));
+
+
+        DecimalFormat dfMinutosReverso = new DecimalFormat("##");
+        dfMinutosReverso.setRoundingMode(RoundingMode.UP);
+
+
+        String horasString = String.valueOf(horasParaMinutos);
+
+        if(horasString.endsWith("9")){
+          horasParaMinutos++;
+        }else if(horasString.endsWith("8")){
+          horasParaMinutos += 2;
+        }else if(horasString.endsWith("7")){
+          horasParaMinutos += 3;
+        }else if(horasString.endsWith("6")){
+          horasParaMinutos += 4;
+        }else if(horasString.endsWith("5")){
+          horasParaMinutos += 5;
+        }else if(horasString.endsWith("4")){
+          horasParaMinutos += 6;
+        }else if (horasString.endsWith("3")){
+          horasParaMinutos += 7;
+        }else if (horasString.endsWith("2")){
+          horasParaMinutos += 8;
+        }else if(horasString.endsWith("1")){
+          horasParaMinutos += 9;
+        }
 
 
 
+        int horarioAberturaReverso = (int) (contFor/1);
 
-        //Log.d("primeiro horarioReverso", String.valueOf(arrayHorarioReverso[0]));
+        String horaReversa = horarioAberturaReverso + ":" + horasParaMinutos;
 
-//        int minutosReverso =  Integer.parseInt(horarioAberturaReverso[1])*60;
-//
-//        String horaReversa = horarioAberturaReverso[0] + ":" + minutosReverso;
-//
-//        String horaFinal = CalculoHorario.calcularHorarioFinal(horaReversa,contadorReverso);
-//
-//        horariosDoEstabelecimento.add(horaFinal);
+        Log.d("hora reversa",horaReversa);
+
+        String horaFinal = CalculoHorario.calcularHorarioFinal(horaReversa);
+
+        horariosDoEstabelecimento.add(horaFinal);
 
       }
 
     }
 
-    horariosDoEstabelecimento.add(0,horarioDoDia.getHorarioAbertura());
-    horariosDoEstabelecimento.add(horariosDoEstabelecimento.size()-1,horarioDoDia.getHorarioFechamento());
+    horariosDoEstabelecimento.remove(horariosDoEstabelecimento.size()-1);
 
     return horariosDoEstabelecimento;
   }

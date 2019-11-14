@@ -48,7 +48,7 @@ public class EditarDadosPessoaisActivity extends AppCompatActivity implements Ad
     //Pegando Cliente para segunda edicao
     clienteSegundaEdicao = (Cliente) intentCliente.getSerializableExtra("clienteSegundaEdicao");
 
-//    sexo = clienteLogado.getSexo();
+//    sexo = CLIENTELOGADO.getSexo();
 
     //instanciando os campos
     editarNome = findViewById(R.id.text_contato_perfil);
@@ -220,7 +220,7 @@ public class EditarDadosPessoaisActivity extends AppCompatActivity implements Ad
           if(clienteEditadoComSucesso.getIdCliente()!=null){
             Intent intentMain = new Intent(EditarDadosPessoaisActivity.this,MainActivity.class);
             intentMain.putExtra("clienteEditado",clienteEditadoComSucesso);
-           // intentMain.putExtra("clienteLogado",clienteEditadoComSucesso);
+           // intentMain.putExtra("CLIENTELOGADO",clienteEditadoComSucesso);
             intentMain.putExtra("token",MainActivity.TOKEN);
             startActivity(intentMain);
             finish();

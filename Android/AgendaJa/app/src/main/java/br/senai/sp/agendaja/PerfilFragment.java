@@ -72,7 +72,7 @@ public class PerfilFragment extends Fragment implements View.OnClickListener {
 
 
     //instanciando os cliente do login e da edição
-    clienteLogado = (Cliente) clientes.getSerializableExtra("clienteLogado");
+    clienteLogado = (Cliente) clientes.getSerializableExtra("CLIENTELOGADO");
     clienteEditadoComSucesso = (Cliente) getActivity().getIntent().getSerializableExtra("clienteEditado");
 
 
@@ -186,7 +186,7 @@ public class PerfilFragment extends Fragment implements View.OnClickListener {
         intentGalery.setAction(Intent.ACTION_PICK);
         startActivityForResult(intentGalery,GALERY_REQUEST);
 
-//        Toast.makeText(getContext(), MainActivity.IP_FOTO + clienteLogado.getFoto(), Toast.LENGTH_SHORT).show();
+//        Toast.makeText(getContext(), MainActivity.IP_FOTO + CLIENTELOGADO.getFoto(), Toast.LENGTH_SHORT).show();
 
     }
   }

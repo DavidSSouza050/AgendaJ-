@@ -4,7 +4,7 @@ import java.util.Date;
 
 public final class CalculoHorario {
 
-  public static String calcularHorarioFinal(String horarioInicial, int contador){
+  public static String calcularHorarioFinal(String horarioInicial){
 
     String[] horario = horarioInicial.split(":");
 
@@ -16,22 +16,21 @@ public final class CalculoHorario {
 
     String horaFinal = null;
 
-    soma = minutos + contador;
+    if(minutos>=60){
 
-    if(soma>=60){
-      while(soma>=60){
-        soma = soma - 60;
+      while(minutos>=60){
+        minutos = minutos -60;
         cont++;
       }
 
-      if(soma==0) {
-        resto = soma;
+      if(minutos==0) {
+        resto = minutos;
 
         horas = horas+cont;
 
         horaFinal = horas + ":" + resto + "0";
-      }else if(soma<60){
-        resto = soma;
+      }else if(minutos<60){
+        resto = minutos;
 
         horas = horas+cont;
 
@@ -40,7 +39,7 @@ public final class CalculoHorario {
       }
 
     }else{
-      horaFinal = horas + ":" +  soma;
+      horaFinal = horas + ":" +  minutos;
     }
 
     return horaFinal;

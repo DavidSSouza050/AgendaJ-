@@ -78,7 +78,7 @@ public class LoginActivity extends AppCompatActivity implements  View.OnClickLis
 
                         if(clienteLogado.getIdCliente()!=null){
                             Intent intentMain = new Intent(LoginActivity.this,MainActivity.class);
-                            intentMain.putExtra("clienteLogado",clienteLogado);
+                            intentMain.putExtra("CLIENTELOGADO",clienteLogado);
                             intentMain.putExtra("token",token);
                             startActivity(intentMain);
                         }else{

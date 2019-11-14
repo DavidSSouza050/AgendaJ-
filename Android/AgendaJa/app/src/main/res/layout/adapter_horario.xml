@@ -3,16 +3,23 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="80dp"
     android:layout_height="40dp"
-    android:background="@color/colorAccent"
+    android:orientation="horizontal"
+    android:id="@+id/linear_horarios"
     >
 
     <TextView
         android:id="@+id/txt_horario"
-        android:layout_width="match_parent"
+        android:layout_width="76dp"
         android:layout_height="match_parent"
         android:textSize="24dp"
         android:padding="5dp"
-
         />
+
+    <TextView
+        android:layout_width="3dp"
+        android:layout_height="match_parent"
+        android:background="@android:color/black"
+        />
+
 
 </LinearLayout>

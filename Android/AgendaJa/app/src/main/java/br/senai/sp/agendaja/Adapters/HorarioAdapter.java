@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,11 +23,10 @@ import br.senai.sp.agendaja.R;
 
 public class HorarioAdapter extends RecyclerView.Adapter<HorarioAdapter.HorarioViewHolder>{
   private Context context;
-  private List<Horario> horarioList;
-  private List<String> horariosUtilizados;
+  private List<String> horarioList;
   private ClickHorario clickHorario;
 
-  public HorarioAdapter(Context context,List<Horario> horarioList,ClickHorario clickHorario) {
+  public HorarioAdapter(Context context,List<String> horarioList,ClickHorario clickHorario) {
     this.context = context;
     this.horarioList = horarioList;
     this.clickHorario = clickHorario;
@@ -43,17 +43,16 @@ public class HorarioAdapter extends RecyclerView.Adapter<HorarioAdapter.HorarioV
   }
 
   @Override
-  public void onBindViewHolder(@NonNull HorarioViewHolder horarioViewHolder, int i) {
+  public void onBindViewHolder(@NonNull final HorarioViewHolder horarioViewHolder, int i) {
 
+    final String horario = horarioList.get(i);
 
-    String horariosDaLista = horariosUtilizados.get(i);
-
-    horarioViewHolder.txtHorario.setText(horariosDaLista);
+    horarioViewHolder.txtHorario.setText(horario);
 
     horarioViewHolder.txtHorario.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
-        clickHorario.onClickHorario();
+        clickHorario.onClickHorario(horarioViewHolder.layoutHorario,horario);
       }
     });
 
@@ -67,16 +66,18 @@ public class HorarioAdapter extends RecyclerView.Adapter<HorarioAdapter.HorarioV
   public class HorarioViewHolder extends RecyclerView.ViewHolder{
 
     private TextView txtHorario;
+    private LinearLayout layoutHorario;
 
     public HorarioViewHolder(@NonNull View itemView) {
       super(itemView);
 
       txtHorario = itemView.findViewById(R.id.txt_horario);
+      layoutHorario = itemView.findViewById(R.id.linear_horarios);
     }
   }
 
   public interface ClickHorario{
-    public void onClickHorario();
+    public void onClickHorario(LinearLayout linearLayout,String horario);
   }
 
 }

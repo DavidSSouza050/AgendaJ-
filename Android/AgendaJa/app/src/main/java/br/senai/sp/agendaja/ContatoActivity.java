@@ -149,7 +149,7 @@ public class ContatoActivity extends AppCompatActivity implements View.OnClickLi
                                                         Cliente clienteLogado = (Cliente) loginClienteToken.get();
                                                         clienteLogado.setIdEndereco(respostaCadastroEndereco);
                                                         Intent intent = new Intent(ContatoActivity.this,MainActivity.class);
-                                                        intent.putExtra("clienteLogado",clienteLogado);
+                                                        intent.putExtra("CLIENTELOGADO",clienteLogado);
                                                         intent.putExtra("token",token);
                                                         startActivity(intent);
                                                         finish();

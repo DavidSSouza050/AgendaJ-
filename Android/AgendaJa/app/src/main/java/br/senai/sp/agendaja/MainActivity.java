@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity{
     public static String  IP_SERVER  = "52.55.177.56:8080";
     public static String IP_FOTO = "http://52.55.177.56/";
     public static String TOKEN;
-    public static Cliente clienteLogado;
+    public static Cliente CLIENTELOGADO;
 
     @SuppressLint("WrongViewCast")
     @Override
@@ -37,11 +37,11 @@ public class MainActivity extends AppCompatActivity{
         }
 
 
-        clienteLogado = (Cliente) getTokenECliente.getSerializableExtra("clienteLogado");
+        CLIENTELOGADO = (Cliente) getTokenECliente.getSerializableExtra("CLIENTELOGADO");
 
-        if(clienteLogado!=null && clienteLogado.getIdCliente()!=null) {
+        if(CLIENTELOGADO !=null && CLIENTELOGADO.getIdCliente()!=null) {
 
-            Log.d("Esse é o nome", clienteLogado.getNome());
+            Log.d("Esse é o nome", CLIENTELOGADO.getNome());
 
         }
 
