@@ -22,7 +22,11 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import lumicode.agendaja.api.model.Agendamento;
+import lumicode.agendaja.api.model.view.ServicoPendenteVIEW;
+import lumicode.agendaja.api.model.view.ServicosFuncionarioVIEW;
 import lumicode.agendaja.api.repository.AgendamentoRepository;
+import lumicode.agendaja.api.repository.view.ServicoPendenteVIEWRepository;
+import lumicode.agendaja.api.repository.view.ServicosFuncionarioVIEWRepository;
 
 @RestController
 @RequestMapping("/agendamentos")
@@ -30,7 +34,11 @@ import lumicode.agendaja.api.repository.AgendamentoRepository;
 public class AgendamentoResource {
 	@Autowired
 	private AgendamentoRepository agendamentoRepository;
+	@Autowired
+	private ServicosFuncionarioVIEWRepository servicosFuncionarioVIEWRepository;
 	
+	@Autowired
+	private ServicoPendenteVIEWRepository servicoPendenteVIEWRepository;
 	
 	Calendar calendar = Calendar.getInstance();
 	Integer mes = calendar.get(Calendar.MONTH)+1;
@@ -56,7 +64,52 @@ public class AgendamentoResource {
 		return "{\"mesage\":\""+totalAgendamento+"\"}";
 	}
 	
+	// Agendamentos dos funcionario e estabelecimento
 	
+	//agendamento realizado do funcionario
+	@GetMapping("/funcionario/{id}/servicosRealizados")
+	private List<ServicosFuncionarioVIEW> servicosRealizados(@PathVariable Long id){
+		
+		return servicosFuncionarioVIEWRepository.pegarServicos(mes, ano, id);
+	}
+
+	//agendamento pendente do funcionario mes
+	@GetMapping("/funcionario/{id}/mes/servicosPendente")
+	private List<ServicoPendenteVIEW> servicosPendenteFuncionario(@PathVariable Long id){
+		
+		return servicoPendenteVIEWRepository.pegerServicosPendentesFuncionario(id, mes, ano);
+	}
+	//agendamento do dia
+	@GetMapping("/funcionario/{id}/dia/servicosPendente")
+	private List<ServicoPendenteVIEW> servicosPendenteFuncionarioDia(@PathVariable Long id){
+		return servicoPendenteVIEWRepository.pegerServicosPendentesFuncionarioDia(id, mes, ano, dia);
+	}
+	
+	
+	//agendamento pendentes do estabelecimento mes
+	@GetMapping("/estabelecimento/{id}/mes/servicosPendente")
+	private List<ServicoPendenteVIEW> servicosPendenteEstabelecimento(@PathVariable Long id){
+		
+		return servicoPendenteVIEWRepository.pegerServicosPendentesEstabelecimento(id, mes, ano, dia);
+	}
+	
+	//agendamento penentes do estabelecimento dia
+	
+	@GetMapping("/estabelecimento/{id}/dia/servicosPendente")
+	private List<ServicoPendenteVIEW> servicosPendenteEstabelecimentoDia(@PathVariable Long id){
+		
+		return servicoPendenteVIEWRepository.pegerServicosPendentesEstabelecimentoDia(id, mes, ano, dia);
+	}
+	
+	//agendamento realizados pelo estabelecimento
+	@GetMapping("/estabelecimento/{id}/servicosRealizados")
+	private List<ServicoPendenteVIEW> servicosRealizadosEstabelecimento(@PathVariable Long id){
+		return servicoPendenteVIEWRepository.pegarServicosRealizadosEstabelecimento(id);
+	}
+	
+	
+	
+	// cadastrar um agendamento
 	@PostMapping
 	private ResponseEntity<Agendamento> cadastrarAgendamento(
 			@Validated @RequestBody Agendamento agendamento,
@@ -86,8 +139,6 @@ public class AgendamentoResource {
 	
 		Agendamento agendamentoAtualizado = agendamentoRepository.findById(id).get();
 
-		
-		
 		BeanUtils.copyProperties(agendamento, agendamentoAtualizado, "id");
 	
 		agendamentoRepository.save(agendamentoAtualizado);

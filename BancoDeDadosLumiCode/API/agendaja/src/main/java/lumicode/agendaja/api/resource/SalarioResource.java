@@ -57,7 +57,7 @@ public class SalarioResource {
 		
 		//total de comissao do mes atual
 		Calendar calendar = Calendar.getInstance();
-		int mes = calendar.get(Calendar.MONTH);
+		int mes = calendar.get(Calendar.MONTH)+1;
 		int ano = calendar.get(Calendar.YEAR);
 		
 		Salario salario = salarioFuncionario.getSalario();

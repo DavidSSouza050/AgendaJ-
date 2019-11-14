@@ -14,7 +14,17 @@ public interface ServicoPendenteVIEWRepository
 	@Query(value = "SELECT * FROM view_servico_pendente WHERE funcionario = ?1 AND month(data_hora) = ?2 AND year(data_hora) = ?3 AND finalizado = 0", nativeQuery=true)
 	public List<ServicoPendenteVIEW> pegerServicosPendentesFuncionario(Long idFuncionario, Integer mes, Integer ano);
 	
-	@Query(value = "SELECT * FROM view_servico_pendente WHERE estabelecimento = ?1 AND month(data_hora) = ?2 AND year(data_hora) = ?3 AND finalizado = 0", nativeQuery=true)
-	public List<ServicoPendenteVIEW> pegerServicosPendentesEstabelecimento(Long idEstabelecimento, Integer mes, Integer ano);
+	@Query(value = "SELECT * FROM view_servico_pendente WHERE funcionario = ?1 AND month(data_hora) = ?2 AND year(data_hora) = ?3 AND day(data_hora) = ?4 AND finalizado = 0", nativeQuery=true)
+	public List<ServicoPendenteVIEW> pegerServicosPendentesFuncionarioDia(Long idFuncionario, Integer mes, Integer ano, Integer dia);
+	
+	@Query(value = "SELECT * FROM view_servico_pendente WHERE estabelecimento = ?1 AND month(data_hora) = ?2 AND year(data_hora) = ?3 AND day(data_hora) <> ?4 AND finalizado = 0", nativeQuery=true)
+	public List<ServicoPendenteVIEW> pegerServicosPendentesEstabelecimento(Long idEstabelecimento, Integer mes, Integer ano, Integer dia);
+	
+	@Query(value = "SELECT * FROM view_servico_pendente WHERE estabelecimento = ?1 AND month(data_hora) = ?2 AND year(data_hora) = ?3 AND day(data_hora) = ?4 AND finalizado = 0", nativeQuery=true)
+	public List<ServicoPendenteVIEW> pegerServicosPendentesEstabelecimentoDia(Long idEstabelecimento, Integer mes, Integer ano, Integer dia);
+	
+	@Query(value = "SELECT * FROM view_servico_pendente WHERE finalizado = 1 AND estabelecimento = ?1 order by data_hora desc", nativeQuery=true)
+	public List<ServicoPendenteVIEW> pegarServicosRealizadosEstabelecimento(Long idEstabelecimento);
+	
 	
 }

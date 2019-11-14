@@ -82,6 +82,7 @@ s.servico as servico,
 cs.categoria_servico as categoria,
 s.duracao_servico as duracao_servico,
 a.data_horario_agendado as data_hora,
+
 a.finalizado as finalizado,
 a.status as cancelado
 FROM tbl_agendamento as a INNER JOIN tbl_agendamento_servico as ags
@@ -99,6 +100,8 @@ SELECT * FROM view_servico_pendente WHERE estabelecimento = 1 AND month(data_hor
 SELECT count(*) as total_de_agendamentos from tbl_agendamento where finalizado = 1 and status <> 'C' and month(data_horario_agendado) = 10 and year(data_horario_agendado) = 2019 and day(data_horario_agendado) = 15 and id_estabelecimento = 1;
 
 select * from tbl_agendamento where finalizado = 1;
+
+SELECT * FROM view_servico_pendente where finalizado = 1 AND estabelecimento = 1 order by data_hora desc;
 
 SELECT a.id_agendamento as id,
 	concat_ws(" ",c.nome, c.sobrenome) as nome_cliente, 

@@ -14,7 +14,8 @@ import lumicode.agendaja.api.model.dto.FuncionarioDTO;
 @Table(name = "view_servico_pendente")
 public class ServicoPendenteVIEW {
 	@Id
-	private Long id;
+	@Column(name = "id")
+	private Long idAgendamento;
 	@ManyToOne
 	@JoinColumn(name = "funcionario")
 	private FuncionarioDTO funcionario;
@@ -42,12 +43,13 @@ public class ServicoPendenteVIEW {
 	@Column(name = "cancelado")
 	private char cancelado;
 
-	public Long getId() {
-		return id;
+	
+	public Long getIdAgendamento() {
+		return idAgendamento;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setIdAgendamento(Long idAgendamento) {
+		this.idAgendamento = idAgendamento;
 	}
 
 	public FuncionarioDTO getFuncionario() {
