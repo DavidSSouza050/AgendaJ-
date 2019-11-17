@@ -1,4 +1,4 @@
-package br.senai.sp.agendaja.Tasks;
+package br.senai.sp.agendaja.tasks;
 
 import android.os.AsyncTask;
 
@@ -22,6 +22,7 @@ public class TaskCadastrarAgendamento extends AsyncTask {
   private int idFuncionario;
   private String data;
   private String resposta;
+  private int idAgendamento;
 
   public TaskCadastrarAgendamento(int idCliente, int idEstabelecimento, int idFuncionario, String data) {
     this.idCliente = idCliente;
@@ -60,6 +61,11 @@ public class TaskCadastrarAgendamento extends AsyncTask {
       Scanner scanner = new Scanner(connection.getInputStream());
       resposta = scanner.nextLine();
 
+      if(resposta!=null){
+        JSONObject object = new JSONObject(resposta);
+        idAgendamento = object.getInt("idAgendamento");
+      }
+
     } catch (JSONException e) {
       e.printStackTrace();
     } catch (MalformedURLException e) {
@@ -71,10 +77,10 @@ public class TaskCadastrarAgendamento extends AsyncTask {
 
 
 
-    if(resposta!=null){
-      return true;
+    if(idAgendamento!=0){
+      return idAgendamento;
     }else{
-      return  false;
+      return  0;
     }
   }
 }

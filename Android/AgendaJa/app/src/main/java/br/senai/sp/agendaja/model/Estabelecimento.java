@@ -1,9 +1,11 @@
-package br.senai.sp.agendaja.Model;
+package br.senai.sp.agendaja.model;
 
 import java.io.Serializable;
 import java.util.List;
 
-public class Estabelecimento extends Endereco implements Serializable {
+import br.senai.sp.agendaja.model.Horario;
+
+public class Estabelecimento extends br.senai.sp.agendaja.Model.Endereco implements Serializable {
 
   private int idEstabelecimento;
   private String cnpj;

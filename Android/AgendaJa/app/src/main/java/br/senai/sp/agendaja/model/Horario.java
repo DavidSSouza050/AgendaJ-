@@ -1,4 +1,4 @@
-package br.senai.sp.agendaja.Model;
+package br.senai.sp.agendaja.model;
 
 import java.io.Serializable;
 import java.util.Date;

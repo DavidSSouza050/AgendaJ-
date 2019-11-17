@@ -21,7 +21,7 @@ import java.util.concurrent.ExecutionException;
 
 import br.senai.sp.agendaja.MainActivity;
 import br.senai.sp.agendaja.Model.Endereco;
-import br.senai.sp.agendaja.Model.Estabelecimento;
+import br.senai.sp.agendaja.model.Estabelecimento;
 import br.senai.sp.agendaja.R;
 import br.senai.sp.agendaja.Tasks.TaskGetEnderecoIdEstab;
 
@@ -62,6 +62,7 @@ public class EstabelecimentoAdapter extends RecyclerView.Adapter<Estabelecimento
 
       if(getEnderecoIdEstab.get()!=null){
         endereco = (Endereco) getEnderecoIdEstab.get();
+
 
         estabelecimento.setIdEndereco(endereco.getIdEndereco());
         estabelecimento.setLogradouro(endereco.getLogradouro());

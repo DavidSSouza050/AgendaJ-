@@ -28,9 +28,9 @@ import java.util.concurrent.ExecutionException;
 import br.senai.sp.agendaja.Adapters.FuncionarioAdapter;
 import br.senai.sp.agendaja.Adapters.HorarioAdapter;
 import br.senai.sp.agendaja.CalculoHorario.CalculoHorario;
-import br.senai.sp.agendaja.Model.Estabelecimento;
+import br.senai.sp.agendaja.model.Estabelecimento;
 import br.senai.sp.agendaja.Model.Funcionario;
-import br.senai.sp.agendaja.Model.Horario;
+import br.senai.sp.agendaja.model.Horario;
 import br.senai.sp.agendaja.Model.Servico;
 import br.senai.sp.agendaja.Tasks.TaskGetFuncionarios;
 
@@ -118,10 +118,35 @@ public class FazerReservaActivity extends AppCompatActivity implements View.OnCl
 
       switch (v.getId()){
         case R.id.btn_salvar_agendamento:
+            if(validar()){
+                Intent intentConfirmarReserva  = new Intent(FazerReservaActivity.this,ConfirmarReservaActivity.class);
+                intentConfirmarReserva.putExtra("estabelecimentoEscolhido",estabelecimento);
+                intentConfirmarReserva.putExtra("servicoEscolhido",servicoEscolhido);
+                intentConfirmarReserva.putExtra("horaEscolhido",horarioEscolhido);
+                intentConfirmarReserva.putExtra("dataEscolhida",dataEscolhida);
+                intentConfirmarReserva.putExtra("funcionarioEscolhido",funcionarioEscolhido);
+                startActivity(intentConfirmarReserva);
+
+            }else{
+                Toast.makeText(FazerReservaActivity.this,"Escolha o horário e o funcionário",Toast.LENGTH_LONG).show();
+            }
+
 
           break;
       }
 
+    }
+
+    public boolean validar(){
+        boolean validacao = true;
+
+        if(horarioEscolhido==null){
+            validacao = false;
+        }else if(funcionarioEscolhido==null){
+            validacao = false;
+        }
+
+        return validacao;
     }
 
     @Override
@@ -147,6 +172,8 @@ public class FazerReservaActivity extends AppCompatActivity implements View.OnCl
        status--;
     }
 
+    this.funcionarioEscolhido = funcionario;
+
   }
 
 
@@ -160,6 +187,8 @@ public class FazerReservaActivity extends AppCompatActivity implements View.OnCl
       linearLayout.setBackgroundColor(R.color.colorBrancoAcinzentadoo);
       statusHorario--;
     }
+
+    this.horarioEscolhido = horario;
   }
 
   public void setAdapaterFuncionario(List<Funcionario> funcionariosList, RecyclerView recyclerViewFuncionario){
@@ -175,8 +204,7 @@ public class FazerReservaActivity extends AppCompatActivity implements View.OnCl
 
   public List<String> verificandoHorarios(){
 
-      horarioList = estabelecimento.getHorarios();
-
+      horarioList =  estabelecimento.getHorarios();
     List<String> horariosDoEstabelecimento = new ArrayList<>();
 
     Calendar c = Calendar.getInstance();
@@ -193,7 +221,7 @@ public class FazerReservaActivity extends AppCompatActivity implements View.OnCl
 
       if(horario.getIdDiaSemana()==idDiaAtual){
         horarioDoDia = horario;
-        Toast.makeText(FazerReservaActivity.this,"O numero é" + cont,Toast.LENGTH_LONG).show();
+//        Toast.makeText(FazerReservaActivity.this,"O numero é" + cont,Toast.LENGTH_LONG).show();
       }
     }
 
