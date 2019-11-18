@@ -1,17 +1,23 @@
 package br.senai.sp.agendaja;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.concurrent.ExecutionException;
+
 import br.senai.sp.agendaja.CalculoHorario.CalculoHorario;
-import br.senai.sp.agendaja.model.Estabelecimento;
+import br.senai.sp.agendaja.Model.Estabelecimento;
 import br.senai.sp.agendaja.Model.Funcionario;
 import br.senai.sp.agendaja.Model.Servico;
+import br.senai.sp.agendaja.Tasks.TaskCadastrarAgendamento;
+import br.senai.sp.agendaja.Tasks.TaskCadastrarServicoAgendamento;
 
 public class ConfirmarReservaActivity extends AppCompatActivity  implements View.OnClickListener{
     private Estabelecimento estabelecimentoEscolhido;
@@ -24,6 +30,8 @@ public class ConfirmarReservaActivity extends AppCompatActivity  implements View
     private TextView txtEnderecoEstabelecimento;
     private TextView txtPrecoServico;
     private TextView txtDuracaoServico;
+    private TextView txtNomeServico;
+    private TextView txtNomeFuncionario;
     private Button btnConfirmarReserva;
 
     @Override
@@ -43,12 +51,12 @@ public class ConfirmarReservaActivity extends AppCompatActivity  implements View
             servicoEscolhido = (Servico) intentGetObjects.getSerializableExtra("servicoEscolhido");
         }
 
-        if(intentGetObjects.getSerializableExtra("horaEscolhido")!=null){
-            horaEscolhida = (String) intentGetObjects.getSerializableExtra("horaEscolhido");
+        if(intentGetObjects.getStringExtra("horaEscolhido")!=null){
+            horaEscolhida = (String) intentGetObjects.getStringExtra("horaEscolhido");
         }
 
         if(intentGetObjects.getSerializableExtra("dataEscolhida")!=null){
-            dataEscolhida = (String) intentGetObjects.getSerializableExtra("dataEscolhida");
+            dataEscolhida = (String) intentGetObjects.getStringExtra("dataEscolhida");
         }
 
         if(intentGetObjects.getSerializableExtra("funcionarioEscolhido")!=null){
@@ -61,16 +69,18 @@ public class ConfirmarReservaActivity extends AppCompatActivity  implements View
         txtEnderecoEstabelecimento = findViewById(R.id.textViewEnderecoEstabelecimentoConfirma);
         txtDuracaoServico = findViewById(R.id.txtDuracaoServicoConfirma);
         txtPrecoServico = findViewById(R.id.txtPrecoServicoConfirma);
+        txtNomeFuncionario = findViewById(R.id.text_funcionario_do_confirmar_servico);
+        txtNomeServico = findViewById(R.id.text_servico_do_confirmar_servico);
         btnConfirmarReserva = findViewById(R.id.btn_confirmar_reserva);
 
 
-        String[] horario = horarioEscolhido.split(":");
-        int horas = Integer.parseInt(horario[0]);
-        int minutos = Integer.parseInt(horario[1]);
-
-        int soma = minutos + servicoEscolhido.getDuracao();
-
-        String horaFinal = horas + ":"  + soma;
+//        String[] horario = horarioEscolhido.split(":");
+//        int horas = Integer.parseInt(horario[0]);
+//        int minutos = Integer.parseInt(horario[1]);
+//
+//        int soma = minutos + servicoEscolhido.getDuracao();
+//
+//        String horaFinal = horas + ":"  + soma;
 
         //colocando conteudo nas views
 
@@ -81,7 +91,10 @@ public class ConfirmarReservaActivity extends AppCompatActivity  implements View
         );
 
         txtPrecoServico.setText("R$" + servicoEscolhido.getPrecoServico());
-        txtDuracaoServico.setText(horaEscolhida + " - " + CalculoHorario.calcularHorarioFinal(horaFinal));
+        //txtDuracaoServico.setText(horaEscolhida + " - " + CalculoHorario.calcularHorarioFinal(horaFinal));
+        txtDuracaoServico.setText(horaEscolhida);
+        txtNomeServico.setText(servicoEscolhido.getNomeServico());
+        txtNomeFuncionario.setText(funcionarioEscolhido.getNomeFuncionario());
 
 
         //setando os listenner nos views
@@ -89,12 +102,54 @@ public class ConfirmarReservaActivity extends AppCompatActivity  implements View
 
     }
 
+    @SuppressLint("LongLogTag")
     @Override
     public void onClick(View v) {
 
         switch (v.getId()){
             case R.id.btn_confirmar_reserva:
-                Toast.makeText(this,"TERMINAR DE FAZER RESERVA",Toast.LENGTH_LONG).show();
+                horarioEscolhido = dataEscolhida + " " + horaEscolhida;
+
+                TaskCadastrarAgendamento cadastrarAgendamento  = new TaskCadastrarAgendamento(MainActivity.CLIENTELOGADO.getIdCliente(),
+                     estabelecimentoEscolhido.getIdEstabelecimento(),funcionarioEscolhido.getIdFuncionario(),horarioEscolhido
+                );
+
+                cadastrarAgendamento.execute();
+
+                try {
+
+                    if(cadastrarAgendamento.get()!=null){
+                        int idAgendamentoRetornado = (int) cadastrarAgendamento.get();
+
+                        TaskCadastrarServicoAgendamento cadastrarServicoAgendamento = new TaskCadastrarServicoAgendamento(servicoEscolhido.getIdServico(),idAgendamentoRetornado);
+                        cadastrarServicoAgendamento.execute();
+
+
+                        if(cadastrarServicoAgendamento.get()!=null){
+                            boolean retornoCadastroServicoAgendamento = (boolean) cadastrarServicoAgendamento.get();
+                            if(retornoCadastroServicoAgendamento){
+                                Intent intentSucesso = new Intent(ConfirmarReservaActivity.this,MainActivity.class);
+                                startActivity(intentSucesso);
+                            }
+
+
+                        }else{
+                            Log.d("erro no cadastro ServicoAgendamento","deu erro sinto muito");
+                        }
+
+
+                    }else{
+                        Log.d("Erro ao agendar","Retorno nulo");
+                    }
+
+
+                } catch (ExecutionException e) {
+                    e.printStackTrace();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
+
         }
 
     }

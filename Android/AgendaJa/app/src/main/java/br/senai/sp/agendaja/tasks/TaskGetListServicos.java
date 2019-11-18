@@ -1,6 +1,5 @@
 package br.senai.sp.agendaja.Tasks;
 
-import android.content.Intent;
 import android.os.AsyncTask;
 
 import org.json.JSONArray;

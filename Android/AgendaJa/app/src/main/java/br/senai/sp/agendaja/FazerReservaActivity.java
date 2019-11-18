@@ -2,8 +2,6 @@ package br.senai.sp.agendaja;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -16,25 +14,21 @@ import android.widget.CalendarView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 import br.senai.sp.agendaja.Adapters.FuncionarioAdapter;
 import br.senai.sp.agendaja.Adapters.HorarioAdapter;
 import br.senai.sp.agendaja.CalculoHorario.CalculoHorario;
-import br.senai.sp.agendaja.model.Estabelecimento;
+import br.senai.sp.agendaja.Model.Estabelecimento;
 import br.senai.sp.agendaja.Model.Funcionario;
-import br.senai.sp.agendaja.model.Horario;
+import br.senai.sp.agendaja.Model.Horario;
 import br.senai.sp.agendaja.Model.Servico;
 import br.senai.sp.agendaja.Tasks.TaskGetFuncionarios;
-
-import static br.senai.sp.agendaja.R.color.colorCinza;
 
 public class FazerReservaActivity extends AppCompatActivity implements View.OnClickListener, CalendarView.OnDateChangeListener, FuncionarioAdapter.ClickFuncionario,HorarioAdapter.ClickHorario{
 
@@ -204,6 +198,10 @@ public class FazerReservaActivity extends AppCompatActivity implements View.OnCl
 
   public List<String> verificandoHorarios(){
 
+      if(estabelecimento.getHorarios()!=null){
+
+
+
       horarioList =  estabelecimento.getHorarios();
     List<String> horariosDoEstabelecimento = new ArrayList<>();
 
@@ -219,7 +217,7 @@ public class FazerReservaActivity extends AppCompatActivity implements View.OnCl
 
       Horario horario = horarioList.get(cont);
 
-      if(horario.getIdDiaSemana()==idDiaAtual){
+      if(horario.getIdDiaSemana()==idDiaAtual+1){
         horarioDoDia = horario;
 //        Toast.makeText(FazerReservaActivity.this,"O numero é" + cont,Toast.LENGTH_LONG).show();
       }
@@ -328,6 +326,9 @@ public class FazerReservaActivity extends AppCompatActivity implements View.OnCl
     horariosDoEstabelecimento.remove(horariosDoEstabelecimento.size()-1);
 
     return horariosDoEstabelecimento;
+      }else{
+        return null;
+      }
   }
 
 }

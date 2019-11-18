@@ -21,7 +21,7 @@ import java.util.concurrent.ExecutionException;
 
 import br.senai.sp.agendaja.MainActivity;
 import br.senai.sp.agendaja.Model.Endereco;
-import br.senai.sp.agendaja.model.Estabelecimento;
+import br.senai.sp.agendaja.Model.Estabelecimento;
 import br.senai.sp.agendaja.R;
 import br.senai.sp.agendaja.Tasks.TaskGetEnderecoIdEstab;
 

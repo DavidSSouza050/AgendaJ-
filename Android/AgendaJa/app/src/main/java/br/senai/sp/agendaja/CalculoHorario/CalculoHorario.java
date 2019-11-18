@@ -13,6 +13,7 @@ public final class CalculoHorario {
     int cont = 0;
     int soma;
     int resto;
+    String horaString;
 
     String horaFinal = null;
 
@@ -28,18 +29,38 @@ public final class CalculoHorario {
 
         horas = horas+cont;
 
-        horaFinal = horas + ":" + resto + "0";
+        if(String.valueOf(horas).length()==1){
+           horaString = "0"+horas;
+        }else{
+          horaString = String.valueOf(horas);
+        }
+
+        horaFinal =  horaString + ":" + resto + "0";
       }else if(minutos<60){
         resto = minutos;
 
         horas = horas+cont;
 
-        horaFinal = horas + ":" + resto;
+        if(String.valueOf(horas).length()==1){
+          horaString = "0"+horas;
+        }else{
+          horaString = String.valueOf(horas);
+        }
+
+        horaFinal = horaString+ ":" + resto;
 
       }
 
+
     }else{
-      horaFinal = horas + ":" +  minutos;
+
+      if(String.valueOf(horas).length()==1){
+        horaString = "0"+horas;
+      }else{
+        horaString = String.valueOf(horas);
+      }
+
+      horaFinal = horaString + ":" +  minutos;
     }
 
     return horaFinal;

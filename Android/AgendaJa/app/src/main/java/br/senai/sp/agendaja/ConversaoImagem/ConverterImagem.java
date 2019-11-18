@@ -1,4 +1,4 @@
-package br.senai.sp.agendaja.conversaoImagem;
+package br.senai.sp.agendaja.ConversaoImagem;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
