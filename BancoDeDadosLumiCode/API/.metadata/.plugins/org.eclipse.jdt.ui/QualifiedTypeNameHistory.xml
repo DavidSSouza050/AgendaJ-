@@ -1,15 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.CrossOrigin"/>
-<fullyQualifiedTypeName name="lumicode.agendaja.api.resource.EmServicoResource"/>
-<fullyQualifiedTypeName name="lumicode.agendaja.api.repository.EmServicoRepository"/>
-<fullyQualifiedTypeName name="lumicode.agendaja.api.repository.ServicoRepository"/>
-<fullyQualifiedTypeName name="lumicode.agendaja.api.repository.AgendamentoServicoRepository"/>
-<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.ResponseBody"/>
-<fullyQualifiedTypeName name="lumicode.agendaja.api.utils.CalculadoDeDuracao"/>
-<fullyQualifiedTypeName name="lumicode.agendaja.api.repository.dto.FuncionarioDTORepository"/>
 <fullyQualifiedTypeName name="lumicode.agendaja.api.repository.dto.EstabelecimentoDTORepository"/>
-<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RestController"/>
 <fullyQualifiedTypeName name="lumicode.agendaja.api.model.EmServico"/>
 <fullyQualifiedTypeName name="lumicode.agendaja.api.model.HorarioFuncionario"/>
 <fullyQualifiedTypeName name="java.lang.Long"/>
@@ -21,14 +12,8 @@
 <fullyQualifiedTypeName name="lumicode.agendaja.api.model.Agendamento"/>
 <fullyQualifiedTypeName name="lumicode.agendaja.api.repository.view.ServicosFuncionarioVIEWRepository"/>
 <fullyQualifiedTypeName name="lumicode.agendaja.api.model.view.ServicosFuncionarioVIEW"/>
-<fullyQualifiedTypeName name="javax.persistence.Entity"/>
-<fullyQualifiedTypeName name="javax.persistence.Table"/>
-<fullyQualifiedTypeName name="javax.persistence.Id"/>
 <fullyQualifiedTypeName name="lumicode.agendaja.api.model.dto.FuncionarioDTO"/>
-<fullyQualifiedTypeName name="javax.persistence.JoinColumn"/>
-<fullyQualifiedTypeName name="javax.persistence.ManyToOne"/>
 <fullyQualifiedTypeName name="java.lang.Double"/>
-<fullyQualifiedTypeName name="org.springframework.data.jpa.repository.JpaRepository"/>
 <fullyQualifiedTypeName name="org.springframework.data.jpa.repository.Query"/>
 <fullyQualifiedTypeName name="lumicode.agendaja.api.repository.view.ServicoPendenteVIEWRepository"/>
 <fullyQualifiedTypeName name="lumicode.agendaja.api.model.view.ServicoPendenteVIEW"/>
@@ -45,7 +30,6 @@
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PutMapping"/>
 <fullyQualifiedTypeName name="org.springframework.http.ResponseEntity"/>
 <fullyQualifiedTypeName name="lumicode.agendaja.api.model.Foto"/>
-<fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
 <fullyQualifiedTypeName name="lumicode.agendaja.api.storage.Disco"/>
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestParam"/>
 <fullyQualifiedTypeName name="org.springframework.boot.autoconfigure.web.servlet.MultipartAutoConfiguration"/>
@@ -57,7 +41,23 @@
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="lumicode.agendaja.api.model.Estabelecimento"/>
-<fullyQualifiedTypeName name="lumicode.agendaja.api.model.dto.EstabelecimentoDTO"/>
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
+<fullyQualifiedTypeName name="javax.persistence.Id"/>
+<fullyQualifiedTypeName name="javax.persistence.GeneratedValue"/>
+<fullyQualifiedTypeName name="lumicode.agendaja.api.model.dto.ClienteDTO"/>
+<fullyQualifiedTypeName name="lumicode.agendaja.api.model.dto.EstabelecimentoDTO"/>
+<fullyQualifiedTypeName name="javax.persistence.ManyToOne"/>
+<fullyQualifiedTypeName name="javax.persistence.JoinColumn"/>
 <fullyQualifiedTypeName name="javax.persistence.Column"/>
+<fullyQualifiedTypeName name="javax.persistence.Entity"/>
+<fullyQualifiedTypeName name="javax.persistence.Table"/>
+<fullyQualifiedTypeName name="lumicode.agendaja.api.model.AvaliacaoEstabelecimento"/>
+<fullyQualifiedTypeName name="org.springframework.data.jpa.repository.JpaRepository"/>
+<fullyQualifiedTypeName name="lumicode.agendaja.api.model.AvaliacaoCliente"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.CrossOrigin"/>
+<fullyQualifiedTypeName name="lumicode.agendaja.api.repository.AvaliacaoEstabelecimentoRepository"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RestController"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMapping"/>
+<fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+<fullyQualifiedTypeName name="lumicode.agendaja.api.repository.AvaliacaoClienteRepository"/>
 </qualifiedTypeNameHistroy>

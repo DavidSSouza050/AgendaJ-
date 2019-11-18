@@ -303,3 +303,22 @@ SELECT * from tbl_funcionario as f INNER JOIN tbl_horario_funcionario as hf
 	ON f.id_funcionario = hf.id_funcionario WHERE hf.id_dia_semana = 6 AND hf.hora_entrada <> '16:00:00' AND hf.hora_saida <> '17:00:00';
 
 select * from tbl_estabelecimento;
+
+-- avaliação de estabelecimento
+
+CREATE TABLE tbl_avaliacao_estabelecimento(
+	id_avaliacao_estabelecimento INT AUTO_INCREMENT primary KEY,
+    id_estabelecimento INT NOT NULL,
+    id_cliente INT NOT NULL,
+    avaliacao INT NOT NULL,
+    comentario varchar(360)  NULL
+);
+
+
+CREATE TABLE tbl_avaliacao_cliente(
+	id_avaliacao_cliente INT AUTO_INCREMENT primary KEY,
+    id_estabelecimento INT NOT NULL,
+    id_cliente INT NOT NULL,
+    avaliacao INT NOT NULL,
+    comentario varchar(360)  NULL
+);

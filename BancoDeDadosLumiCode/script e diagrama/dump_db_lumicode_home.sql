@@ -1,4 +1,4 @@
-﻿-- MySQL dump 10.13  Distrib 8.0.15, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.15, for Win64 (x86_64)
 --
 -- Host: localhost    Database: db_lumicode
 -- ------------------------------------------------------
@@ -18,10 +18,6 @@
 --
 -- Table structure for table `tbl_agendamento`
 --
-DROP DATABASE `db_lumicode`;
-CREATE DATABASE `db_lumicode`;
-USE  `db_lumicode`;
-
 
 DROP TABLE IF EXISTS `tbl_agendamento`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -107,6 +103,66 @@ LOCK TABLES `tbl_assunto` WRITE;
 /*!40000 ALTER TABLE `tbl_assunto` DISABLE KEYS */;
 INSERT INTO `tbl_assunto` VALUES (1,'Comentário'),(2,'Sugetão'),(3,'Duvida');
 /*!40000 ALTER TABLE `tbl_assunto` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tbl_avaliacao_cliente`
+--
+
+DROP TABLE IF EXISTS `tbl_avaliacao_cliente`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `tbl_avaliacao_cliente` (
+  `id_avaliacao_cliente` int(11) NOT NULL AUTO_INCREMENT,
+  `id_estabelecimento` int(11) NOT NULL,
+  `id_cliente` int(11) NOT NULL,
+  `avaliacao` int(11) NOT NULL,
+  `comentario` varchar(360) DEFAULT NULL,
+  PRIMARY KEY (`id_avaliacao_cliente`),
+  KEY `fk_avaliacao_cliente_cliente_idx` (`id_cliente`),
+  KEY `fk_avaliacao_cliente_estabelecimento_idx` (`id_estabelecimento`),
+  CONSTRAINT `fk_avaliacao_cliente_cliente` FOREIGN KEY (`id_cliente`) REFERENCES `tbl_cliente` (`id_cliente`),
+  CONSTRAINT `fk_avaliacao_cliente_estabelecimento` FOREIGN KEY (`id_estabelecimento`) REFERENCES `tbl_estabelecimento` (`id_estabelecimento`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tbl_avaliacao_cliente`
+--
+
+LOCK TABLES `tbl_avaliacao_cliente` WRITE;
+/*!40000 ALTER TABLE `tbl_avaliacao_cliente` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tbl_avaliacao_cliente` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tbl_avaliacao_estabelecimento`
+--
+
+DROP TABLE IF EXISTS `tbl_avaliacao_estabelecimento`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `tbl_avaliacao_estabelecimento` (
+  `id_avaliacao_estabelecimento` int(11) NOT NULL AUTO_INCREMENT,
+  `id_estabelecimento` int(11) NOT NULL,
+  `id_cliente` int(11) NOT NULL,
+  `avaliacao` int(11) NOT NULL,
+  `comentario` varchar(360) DEFAULT NULL,
+  PRIMARY KEY (`id_avaliacao_estabelecimento`),
+  KEY `fk_avaliacao_estabelecimento_estabelecimento_idx` (`id_estabelecimento`),
+  KEY `fk_avaliacao_estabelecimento_cliente_idx` (`id_cliente`),
+  CONSTRAINT `fk_avaliacao_estabelecimento_cliente` FOREIGN KEY (`id_cliente`) REFERENCES `tbl_cliente` (`id_cliente`),
+  CONSTRAINT `fk_avaliacao_estabelecimento_estabelecimento` FOREIGN KEY (`id_estabelecimento`) REFERENCES `tbl_estabelecimento` (`id_estabelecimento`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tbl_avaliacao_estabelecimento`
+--
+
+LOCK TABLES `tbl_avaliacao_estabelecimento` WRITE;
+/*!40000 ALTER TABLE `tbl_avaliacao_estabelecimento` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tbl_avaliacao_estabelecimento` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -444,10 +500,12 @@ CREATE TABLE `tbl_foto` (
   `id_foto` int(11) NOT NULL AUTO_INCREMENT,
   `foto` varchar(255) NOT NULL,
   `id_estabelecimento` int(11) NOT NULL,
+  `criado_em` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `atualizado_em` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_foto`),
   KEY `fk_foto_estabelecimento_idx` (`id_estabelecimento`),
   CONSTRAINT `fk_foto_estabelecimento` FOREIGN KEY (`id_estabelecimento`) REFERENCES `tbl_estabelecimento` (`id_estabelecimento`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -456,6 +514,7 @@ CREATE TABLE `tbl_foto` (
 
 LOCK TABLES `tbl_foto` WRITE;
 /*!40000 ALTER TABLE `tbl_foto` DISABLE KEYS */;
+INSERT INTO `tbl_foto` VALUES (1,'fotos\\estabelecimento\\TesteAgenda s2\\1573503598914_diploma magna1.jpg',1,'2019-11-11 20:20:02','2019-11-11 20:20:02'),(2,'fotos\\estabelecimento\\TesteAgenda s2\\1573503607791_Historico Magna1.jpg',1,'2019-11-11 20:20:07','2019-11-11 20:20:07'),(3,'fotos\\estabelecimento\\TesteAgenda s2\\1573503608646__titulo rg e cpf Magna1.jpg',1,'2019-11-11 20:20:08','2019-11-11 20:20:08'),(4,'1573522917309_Histórico Magna2.jpg',1,'2019-11-12 01:41:57','2019-11-12 01:41:57'),(5,'1573522919523__titulo rg e cpf Magna1.jpg',1,'2019-11-12 01:41:59','2019-11-12 01:41:59'),(6,'1573522919947_diploma magna1.jpg',1,'2019-11-12 01:41:59','2019-11-12 01:41:59');
 /*!40000 ALTER TABLE `tbl_foto` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -776,6 +835,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `view_servico_pendente` AS select `a`.`id_agendamento` AS `id`,`f`.`id_funcionario` AS `funcionario`,`e`.`id_estabelecimento` AS `estabelecimento`,`s`.`preco` AS `preco`,concat_ws(' ',`c`.`nome`,`c`.`sobrenome`) AS `nome_cliente`,`c`.`foto_cliente` AS `foto_cliente`,`c`.`celular` AS `celular_cliente`,`s`.`servico` AS `servico`,`cs`.`categoria_servico` AS `categoria`,`s`.`duracao_servico` AS `duracao_servico`,`a`.`data_horario_agendado` AS `data_hora`,`a`.`finalizado` AS `finalizado`,`a`.`status` AS `cancelado` from ((((((`tbl_agendamento` `a` join `tbl_agendamento_servico` `ags` on((`a`.`id_agendamento` = `ags`.`id_agendamento`))) join `tbl_servico` `s` on((`ags`.`id_servico` = `s`.`id_servico`))) join `tbl_funcionario` `f` on((`f`.`id_funcionario` = `a`.`id_funcionario`))) join `tbl_cliente` `c` on((`a`.`id_cliente` = `c`.`id_cliente`))) join `tbl_categoria_servico` `cs` on((`s`.`id_categoria_servico` = `cs`.`id_categoria_servico`))) join `tbl_estabelecimento` `e` on((`a`.`id_estabelecimento` = `e`.`id_estabelecimento`))) */;
@@ -793,6 +853,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `view_servicos_funcionario` AS select `ags`.`id_agendamento_servico` AS `id`,`f`.`id_funcionario` AS `funcionario`,`s`.`preco` AS `preco`,concat_ws(' ',`c`.`nome`,`c`.`sobrenome`) AS `nome_cliente`,`s`.`servico` AS `servico`,month(`a`.`data_horario_agendado`) AS `mes`,year(`a`.`data_horario_agendado`) AS `ano`,`a`.`finalizado` AS `finalizado`,`a`.`status` AS `cancelado` from ((((`tbl_agendamento` `a` join `tbl_agendamento_servico` `ags` on((`a`.`id_agendamento` = `ags`.`id_agendamento`))) join `tbl_servico` `s` on((`ags`.`id_servico` = `s`.`id_servico`))) join `tbl_funcionario` `f` on((`f`.`id_funcionario` = `a`.`id_funcionario`))) join `tbl_cliente` `c` on((`a`.`id_cliente` = `c`.`id_cliente`))) */;
@@ -810,7 +871,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `view_total_comissao` AS select `f`.`id_funcionario` AS `funcionario`,sum(`s`.`preco`) AS `total_comissao`,month(`a`.`data_horario_agendado`) AS `mes`,year(`a`.`data_horario_agendado`) AS `ano`,`a`.`finalizado` AS `finalizado` from ((((`tbl_funcionario` `f` join `tbl_salario` `sa` on((`f`.`id_salario` = `sa`.`id_salario`))) join `tbl_agendamento` `a` on((`f`.`id_funcionario` = `a`.`id_funcionario`))) join `tbl_agendamento_servico` `ase` on((`a`.`id_agendamento` = `ase`.`id_agendamento`))) join `tbl_servico` `s` on((`ase`.`id_servico` = `s`.`id_servico`))) */;
@@ -827,4 +888,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-11-10 19:53:36
+-- Dump completed on 2019-11-17 21:22:55
