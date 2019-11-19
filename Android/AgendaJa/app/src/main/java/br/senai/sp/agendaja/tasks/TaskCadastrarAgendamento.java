@@ -38,13 +38,13 @@ public class TaskCadastrarAgendamento extends AsyncTask {
     try {
 
       jsAgendamento.object();
-      jsAgendamento.key("cliente").object().key("idCliente").value(idCliente);
-      jsAgendamento.key("funcionario").object().key("idFuncionario").value(idFuncionario);
-      jsAgendamento.key("estabelecimento").object().key("idEstabelecimento").value(idEstabelecimento);
-      jsAgendamento.key("dataHorarioAgendamento").value(data);
+      jsAgendamento.key("cliente").object().key("idCliente").value(idCliente).endObject();
+      jsAgendamento.key("funcionario").object().key("idFuncionario").value(idFuncionario).endObject();
+      jsAgendamento.key("estabelecimento").object().key("idEstabelecimento").value(idEstabelecimento).endObject();
+      jsAgendamento.key("dataHorarioAgendado").value(data);
       jsAgendamento.endObject();
 
-      URL url = new URL("http://"+ MainActivity.IP_SERVER+"/"+"agendamentos");
+      URL url = new URL("http://"+ MainActivity.IP_SERVER+"/agendamentos");
 
       HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 

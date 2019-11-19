@@ -147,7 +147,10 @@ public class FazerReservaActivity extends AppCompatActivity implements View.OnCl
     public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
       switch (view.getId()){
         case R.id.calendarView:
-          dataEscolhida = String.valueOf(year+"/"+month+1+"/"+dayOfMonth);
+
+          int somaMes = month+1;
+
+          dataEscolhida = String.valueOf(year+"-"+somaMes+"-"+dayOfMonth);
           Log.d("data escolhida",dataEscolhida);
       }
 

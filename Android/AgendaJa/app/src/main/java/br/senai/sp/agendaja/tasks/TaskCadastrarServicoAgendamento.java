@@ -31,8 +31,8 @@ public class TaskCadastrarServicoAgendamento extends AsyncTask {
         try {
 
             jsAgendamentoServico.object();
-            jsAgendamentoServico.key("servico").object().key("idServico").value(idServico);
-            jsAgendamentoServico.key("agendamento").object().key("idAgendamento").value(idAgendamento);
+            jsAgendamentoServico.key("servico").object().key("idServico").value(idServico).endObject();
+            jsAgendamentoServico.key("agendamento").object().key("idAgendamento").value(idAgendamento).endObject();
             jsAgendamentoServico.endObject();
 
             URL url  = new URL("http://"+ MainActivity.IP_SERVER+"/agendamentoServicos");

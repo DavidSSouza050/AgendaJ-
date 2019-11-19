@@ -108,7 +108,13 @@ public class ConfirmarReservaActivity extends AppCompatActivity  implements View
 
         switch (v.getId()){
             case R.id.btn_confirmar_reserva:
-                horarioEscolhido = dataEscolhida + " " + horaEscolhida;
+                horarioEscolhido = dataEscolhida + " " + horaEscolhida+":00";
+
+                Log.d("data e horario",horarioEscolhido);
+                Log.d("idClienteLogado",String.valueOf(MainActivity.CLIENTELOGADO.getIdCliente()));
+                Log.d("estabelecimentoEscolhido", String.valueOf(estabelecimentoEscolhido.getIdEstabelecimento()));
+                Log.d("funcioanrioEscolhido", String.valueOf(funcionarioEscolhido.getIdFuncionario()));
+                Log.d("ServicoEscolhido", String.valueOf(servicoEscolhido.getIdServico()));
 
                 TaskCadastrarAgendamento cadastrarAgendamento  = new TaskCadastrarAgendamento(MainActivity.CLIENTELOGADO.getIdCliente(),
                      estabelecimentoEscolhido.getIdEstabelecimento(),funcionarioEscolhido.getIdFuncionario(),horarioEscolhido
