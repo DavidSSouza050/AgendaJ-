@@ -70,9 +70,9 @@ public class EditarDadosPessoaisActivity extends AppCompatActivity implements Ad
     btnSalvarDados.setOnClickListener(this);
 
     //Formatando os campos da data de nascimento e cpf
-    SimpleMaskFormatter simpleMaskData = new SimpleMaskFormatter("NN/NN/NNNN");
-    MaskTextWatcher watcherDataNasciemnto = new MaskTextWatcher(editarDataNascimento,simpleMaskData);
-    editarDataNascimento.addTextChangedListener(watcherDataNasciemnto);
+//    SimpleMaskFormatter simpleMaskData = new SimpleMaskFormatter("NN/NN/NNNN");
+//    MaskTextWatcher watcherDataNasciemnto = new MaskTextWatcher(editarDataNascimento,simpleMaskData);
+//    editarDataNascimento.addTextChangedListener(watcherDataNasciemnto);
 
     SimpleMaskFormatter simpleMaskCpf = new SimpleMaskFormatter("NNN.NNN.NNN-NN");
     MaskTextWatcher watcherCpf = new MaskTextWatcher(editarCpf,simpleMaskCpf);
@@ -220,7 +220,7 @@ public class EditarDadosPessoaisActivity extends AppCompatActivity implements Ad
           if(clienteEditadoComSucesso.getIdCliente()!=null){
             Intent intentMain = new Intent(EditarDadosPessoaisActivity.this,MainActivity.class);
             intentMain.putExtra("clienteEditado",clienteEditadoComSucesso);
-           // intentMain.putExtra("CLIENTELOGADO",clienteEditadoComSucesso);
+            intentMain.putExtra("CLIENTELOGADO",clienteEditadoComSucesso);
             intentMain.putExtra("token",MainActivity.TOKEN);
             startActivity(intentMain);
             finish();
