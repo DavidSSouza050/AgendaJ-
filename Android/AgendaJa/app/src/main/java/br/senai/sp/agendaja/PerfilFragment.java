@@ -25,6 +25,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.ExecutionException;
 
+import br.senai.sp.agendaja.AcessoGaleria.VerificandoAcessoGaleria;
 import br.senai.sp.agendaja.Paths.RealPathPhoto;
 import br.senai.sp.agendaja.Services.CadastroFoto;
 import br.senai.sp.agendaja.Model.Cliente;
@@ -157,6 +158,9 @@ public class PerfilFragment extends Fragment implements View.OnClickListener {
 
       case R.id.img_foto_usuario_perfilFragment:
 
+        VerificandoAcessoGaleria acessoGaleria = new VerificandoAcessoGaleria(getActivity());
+        acessoGaleria.verificarPermissao();
+
         Intent intentGalery = new Intent();
         intentGalery.setType("image/*");
         intentGalery.setAction(Intent.ACTION_PICK);
@@ -165,7 +169,6 @@ public class PerfilFragment extends Fragment implements View.OnClickListener {
       case R.id.caixa_endereco_perfil:
 
         Intent intentEditarEndereco = new Intent(getContext(),EditarEnderecoActivity.class);
-        intentEditarEndereco.putExtra("idCliente",MainActivity.CLIENTELOGADO.getIdCliente());
         startActivity(intentEditarEndereco);
 
     }

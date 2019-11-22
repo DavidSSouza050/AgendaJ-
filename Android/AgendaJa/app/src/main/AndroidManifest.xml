@@ -105,7 +105,6 @@
             android:parentActivityName=".MainActivity">
         </activity>
         <activity android:name=".FazerReservaActivity"></activity>
-        <activity android:name=".AtualizarEndereco"></activity>
     </application>
 
 </manifest>
