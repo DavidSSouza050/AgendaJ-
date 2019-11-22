@@ -39,7 +39,6 @@ import static android.app.Activity.RESULT_OK;
 public class PerfilFragment extends Fragment implements View.OnClickListener {
 
   private RelativeLayout dadosPessoais;
-  private Cliente clienteLogado;
   private CircleImageView imagemCliente;
   private TextView nomeCompletoCliente;
   private TextView telefoneCliente;
@@ -48,13 +47,9 @@ public class PerfilFragment extends Fragment implements View.OnClickListener {
   private int GALERY_REQUEST = 10;
   private String caminhoFoto;
   private Call<Cliente> atualizarFoto;
-
-  @Override
-  public void onCreate(@Nullable Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-
-
-  }
+  private RelativeLayout editarEndereco;
+  private RelativeLayout editarContato;
+  private RelativeLayout sobreAgendaJa;
 
   @Nullable
   @Override
@@ -72,7 +67,7 @@ public class PerfilFragment extends Fragment implements View.OnClickListener {
 
 
     //instanciando os cliente do login e da edição
-    clienteLogado = (Cliente) clientes.getSerializableExtra("CLIENTELOGADO");
+    //clienteLogado = (Cliente) clientes.getSerializableExtra("CLIENTELOGADO");
     clienteEditadoComSucesso = (Cliente) getActivity().getIntent().getSerializableExtra("clienteEditado");
 
 
@@ -82,17 +77,18 @@ public class PerfilFragment extends Fragment implements View.OnClickListener {
     nomeCompletoCliente = getActivity().findViewById(R.id.text_nome_completo_perfil);
     telefoneCliente = getActivity().findViewById(R.id.text_telefone_perfil);
     relativeSair = getActivity().findViewById(R.id.caixa_sair_perfil);
+    editarEndereco= getActivity().findViewById(R.id.caixa_endereco_perfil);
 
     // verificando se o cliente veio nulo
-    if (clienteLogado != null && clienteLogado.getIdCliente() != null) {
+    if (MainActivity.CLIENTELOGADO != null && MainActivity.CLIENTELOGADO.getIdCliente() != null) {
       //colocando os dados do cliente nos campos
-      nomeCompletoCliente.setText(clienteLogado.getNome() + " " + clienteLogado.getSobrenome());
-      telefoneCliente.setText(clienteLogado.getCelular());
+      nomeCompletoCliente.setText(MainActivity.CLIENTELOGADO.getNome() + " " + MainActivity.CLIENTELOGADO.getSobrenome());
+      telefoneCliente.setText(MainActivity.CLIENTELOGADO.getCelular());
 
 
     try {
 
-        URL url = new URL(MainActivity.IP_FOTO + clienteLogado.getFoto());
+        URL url = new URL(MainActivity.IP_FOTO + MainActivity.CLIENTELOGADO.getFoto());
 
         Picasso.get()
              .load(String.valueOf(url))
@@ -109,39 +105,22 @@ public class PerfilFragment extends Fragment implements View.OnClickListener {
     dadosPessoais.setOnClickListener(this);
     relativeSair.setOnClickListener(this);
     imagemCliente.setOnClickListener(this);
+    editarEndereco.setOnClickListener(this);
   }
 
   @Override
   public void onResume() {
     super.onResume();
 
-    if (clienteEditadoComSucesso != null && clienteEditadoComSucesso.getIdCliente() != null) {
-      clienteLogado =null;
-      nomeCompletoCliente.setText(clienteEditadoComSucesso.getNome() + " " + clienteEditadoComSucesso.getSobrenome());
-      telefoneCliente.setText(clienteEditadoComSucesso.getCelular());
-
-      URL url = null;
-      try {
-        url = new URL(MainActivity.IP_FOTO + clienteEditadoComSucesso.getFoto());
-
-        Picasso.get()
-             .load(String.valueOf(url))
-             .resize(100,100)
-             .into(imagemCliente);
-
-      } catch (MalformedURLException e) {
-        e.printStackTrace();
-      }
-
-    }else if (clienteLogado != null && clienteLogado.getIdCliente() != null) {
+     if (MainActivity.CLIENTELOGADO != null && MainActivity.CLIENTELOGADO.getIdCliente() != null) {
       //colocando os dados do cliente nos campos
-      nomeCompletoCliente.setText(clienteLogado.getNome() + " " + clienteLogado.getSobrenome());
-      telefoneCliente.setText(clienteLogado.getCelular());
+      nomeCompletoCliente.setText(MainActivity.CLIENTELOGADO.getNome() + " " + MainActivity.CLIENTELOGADO.getSobrenome());
+      telefoneCliente.setText(MainActivity.CLIENTELOGADO.getCelular());
 
 
       try {
 
-        URL url = new URL(MainActivity.IP_FOTO + clienteLogado.getFoto());
+        URL url = new URL(MainActivity.IP_FOTO + MainActivity.CLIENTELOGADO.getFoto());
 
         Picasso.get()
              .load(String.valueOf(url))
@@ -163,11 +142,8 @@ public class PerfilFragment extends Fragment implements View.OnClickListener {
       case R.id.caixa_dados_pessoais_perfil:
 
         Intent intent = new Intent(getContext(), EditarDadosPessoaisActivity.class);
-        if (clienteLogado != null) {
-          intent.putExtra("clientePrimeiraEdicao", clienteLogado);
-        }
-        else if(clienteEditadoComSucesso!=null){
-          intent.putExtra("clienteSegundaEdicao",clienteEditadoComSucesso);
+        if (MainActivity.CLIENTELOGADO != null) {
+          intent.putExtra("clientePrimeiraEdicao", MainActivity.CLIENTELOGADO);
         }
         startActivity(intent);
         break;
@@ -186,7 +162,11 @@ public class PerfilFragment extends Fragment implements View.OnClickListener {
         intentGalery.setAction(Intent.ACTION_PICK);
         startActivityForResult(intentGalery,GALERY_REQUEST);
 
-//        Toast.makeText(getContext(), MainActivity.IP_FOTO + CLIENTELOGADO.getFoto(), Toast.LENGTH_SHORT).show();
+      case R.id.caixa_endereco_perfil:
+
+        Intent intentEditarEndereco = new Intent(getContext(),EditarEnderecoActivity.class);
+        intentEditarEndereco.putExtra("idCliente",MainActivity.CLIENTELOGADO.getIdCliente());
+        startActivity(intentEditarEndereco);
 
     }
   }
@@ -213,26 +193,21 @@ public class PerfilFragment extends Fragment implements View.OnClickListener {
 
           CadastroFoto cadastroFoto = new CadastroFoto();
 
-          if(clienteLogado!=null && clienteLogado.getIdCliente()!=null){
-            atualizarFoto = cadastroFoto.CadastrarFoto(caminhoFoto,clienteLogado.getIdCliente());
-          }else if(clienteEditadoComSucesso!=null && clienteEditadoComSucesso.getIdCliente()!=null){
-            atualizarFoto = cadastroFoto.CadastrarFoto(caminhoFoto,clienteEditadoComSucesso.getIdCliente());
+          if(MainActivity.CLIENTELOGADO!=null && MainActivity.CLIENTELOGADO.getIdCliente()!=null){
+            atualizarFoto = cadastroFoto.CadastrarFoto(caminhoFoto,MainActivity.CLIENTELOGADO.getIdCliente());
           }
-
-
           atualizarFoto.enqueue(new Callback<Cliente>() {
             @Override
             public void onResponse(Call<Cliente> call, Response<Cliente> response) {
               if(response.isSuccessful()){
-                TaskLoginClienteToken loginClienteToken = new TaskLoginClienteToken(clienteLogado.getEmail(),clienteLogado.getSenha(),MainActivity.TOKEN);
+                TaskLoginClienteToken loginClienteToken = new TaskLoginClienteToken(MainActivity.CLIENTELOGADO.getEmail(),
+                        MainActivity.CLIENTELOGADO.getSenha(),MainActivity.TOKEN);
                 loginClienteToken.execute();
-                clienteLogado = null;
-
                 try {
                   if(loginClienteToken.get()!=null) {
-                    clienteLogado = (Cliente) loginClienteToken.get();
+                    MainActivity.CLIENTELOGADO = (Cliente) loginClienteToken.get();
                     imagemCliente.setImageBitmap(imagemBitmap);
-                    Log.d("Essa é a foto atu", clienteLogado.getFoto());
+                    Log.d("Essa é a foto atu", MainActivity.CLIENTELOGADO.getFoto());
                   }
                 } catch (ExecutionException e) {
                   e.printStackTrace();
