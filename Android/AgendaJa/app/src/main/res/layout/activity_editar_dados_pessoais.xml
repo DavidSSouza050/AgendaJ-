@@ -10,6 +10,8 @@
     android:padding="8dp"
     android:background="@color/colorBrancoAcinzentadoo">
 
+
+
     <RelativeLayout
         android:id="@+id/dados_pessoais"
         android:layout_width="match_parent"

@@ -3,7 +3,6 @@ package br.senai.sp.agendaja;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -26,6 +25,7 @@ import java.util.concurrent.ExecutionException;
 
 import br.senai.sp.agendaja.Adapters.FuncionarioAdapter;
 import br.senai.sp.agendaja.Adapters.HorarioAdapter;
+import br.senai.sp.agendaja.CalculoHorario.CalculoHorario;
 import br.senai.sp.agendaja.Model.Estabelecimento;
 import br.senai.sp.agendaja.Model.Funcionario;
 import br.senai.sp.agendaja.Model.Horario;
@@ -45,7 +45,6 @@ public class FazerReservaActivity extends AppCompatActivity implements View.OnCl
     private int statusHorario;
     private RecyclerView recyclerHorarios;
     private Horario horarioDoDia;
-//    private List<Horario> horarioList;
     private List<String>horariosDisponiveis;
     private Funcionario funcionarioEscolhido;
     private String horarioEscolhido;
@@ -185,6 +184,25 @@ public class FazerReservaActivity extends AppCompatActivity implements View.OnCl
     }
 
     this.horarioEscolhido = horario;
+
+    String[] horarioList = horario.split(":");
+    Log.d("horario em array",horarioList[0]);
+
+    Double minutos = Double.parseDouble(horarioList[1]);
+    int soma = (int) (minutos+servicoEscolhido.getDuracao());
+
+    String horarioSomado = horarioList[0] + ":" + soma;
+
+    String horarioFinal = CalculoHorario.calcularHorarioFinal(horarioSomado);
+
+    Log.d("horarioConvertido",horarioFinal);
+
+
+
+
+
+
+
   }
 
   public void setAdapaterFuncionario(List<Funcionario> funcionariosList, RecyclerView recyclerViewFuncionario){
@@ -195,6 +213,7 @@ public class FazerReservaActivity extends AppCompatActivity implements View.OnCl
   public void setAdapterHorarios(RecyclerView recyclerHorarios, List<String> horarioList){
       HorarioAdapter horarioAdapter = new HorarioAdapter(FazerReservaActivity.this,horarioList,this);
       recyclerHorarios.setAdapter(horarioAdapter);
+
   }
 
   @Override

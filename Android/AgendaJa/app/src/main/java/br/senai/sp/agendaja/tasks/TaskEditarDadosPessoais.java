@@ -3,7 +3,6 @@ package br.senai.sp.agendaja.Tasks;
 import android.icu.util.Calendar;
 import android.os.AsyncTask;
 import android.os.Build;
-import android.support.annotation.RequiresApi;
 import android.util.Log;
 
 import org.json.JSONException;
@@ -32,8 +31,6 @@ public class TaskEditarDadosPessoais extends AsyncTask {
     this.clienteEditarDados = clienteEditarDados;
     this.token = token;
   }
-
-  @RequiresApi(api = Build.VERSION_CODES.N)
   @Override
   protected Object doInBackground(Object[] objects) {
 

@@ -1,6 +1,5 @@
 package br.senai.sp.agendaja;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -50,11 +49,11 @@ public class EditarEnderecoActivity extends AppCompatActivity implements View.On
         btnAtualizar = findViewById(R.id.btn_salvar_editar_endereco);
 
         //setando valores
-      txtCidade.setText(enderecoCliente.getCidade());
-      txtBairro.setText(enderecoCliente.getBairro());
-      txtCep.setText(enderecoCliente.getCep());
-      txtEstado.setText(enderecoCliente.getEstado());
-      txtLogradouro.setText(enderecoCliente.getLogradouro());
+//      txtCidade.setText(enderecoCliente.getCidade());
+//      txtBairro.setText(enderecoCliente.getBairro());
+//      txtCep.setText(enderecoCliente.getCep());
+//      txtEstado.setText(enderecoCliente.getEstado());
+//      txtLogradouro.setText(enderecoCliente.getLogradouro());
 
 
         //setando os listenners

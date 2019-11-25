@@ -6,8 +6,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -16,7 +14,6 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.squareup.picasso.Picasso;
 
 import java.io.FileNotFoundException;
@@ -25,6 +22,8 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.ExecutionException;
 
+import androidx.annotation.NonNull;;
+import androidx.annotation.Nullable;
 import br.senai.sp.agendaja.AcessoGaleria.VerificandoAcessoGaleria;
 import br.senai.sp.agendaja.Paths.RealPathPhoto;
 import br.senai.sp.agendaja.Services.CadastroFoto;
@@ -34,6 +33,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+
 
 import static android.app.Activity.RESULT_OK;
 
@@ -168,8 +168,8 @@ public class PerfilFragment extends Fragment implements View.OnClickListener {
 
       case R.id.caixa_endereco_perfil:
 
-        Intent intentEditarEndereco = new Intent(getContext(),EditarEnderecoActivity.class);
-        startActivity(intentEditarEndereco);
+//        Intent intentEditarEndereco = new Intent(getContext(),EditarEnderecoActivity.class);
+//        startActivity(intentEditarEndereco);
 
     }
   }

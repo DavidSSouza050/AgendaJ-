@@ -13,11 +13,16 @@ import android.widget.Toast;
 import java.util.concurrent.ExecutionException;
 
 import br.senai.sp.agendaja.CalculoHorario.CalculoHorario;
+import br.senai.sp.agendaja.Model.EmServico;
 import br.senai.sp.agendaja.Model.Estabelecimento;
 import br.senai.sp.agendaja.Model.Funcionario;
 import br.senai.sp.agendaja.Model.Servico;
+import br.senai.sp.agendaja.Services.CadastarEmServico;
 import br.senai.sp.agendaja.Tasks.TaskCadastrarAgendamento;
 import br.senai.sp.agendaja.Tasks.TaskCadastrarServicoAgendamento;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class ConfirmarReservaActivity extends AppCompatActivity  implements View.OnClickListener{
     private Estabelecimento estabelecimentoEscolhido;
@@ -134,8 +139,28 @@ public class ConfirmarReservaActivity extends AppCompatActivity  implements View
                         if(cadastrarServicoAgendamento.get()!=null){
                             boolean retornoCadastroServicoAgendamento = (boolean) cadastrarServicoAgendamento.get();
                             if(retornoCadastroServicoAgendamento){
-                                Intent intentSucesso = new Intent(ConfirmarReservaActivity.this,MainActivity.class);
-                                startActivity(intentSucesso);
+                                CadastarEmServico cadastarEmServico = new CadastarEmServico();
+                                Call<EmServico> postEmServico = cadastarEmServico.postEmServico(idAgendamentoRetornado);
+
+                                postEmServico.enqueue(new Callback<EmServico>() {
+                                    @Override
+                                    public void onResponse(Call<EmServico> call, Response<EmServico> response) {
+                                        if(response.isSuccessful()){
+                                            Intent intentMain = new Intent();
+                                            intentMain.putExtra("CLIENTELOGADO",MainActivity.CLIENTELOGADO);
+                                            intentMain.putExtra("token",MainActivity.TOKEN);
+                                            startActivity(intentMain);
+                                        }
+                                    }
+
+                                    @Override
+                                    public void onFailure(Call<EmServico> call, Throwable t) {
+
+                                        Toast.makeText(ConfirmarReservaActivity.this,"Erro ao cadastrar",Toast.LENGTH_LONG).show();
+                                        Log.d("problema do agendamento",t.getMessage());
+
+                                    }
+                                });
                             }
 
 
