@@ -2,7 +2,8 @@ package br.senai.sp.agendaja.Tasks;
 
 import android.os.AsyncTask;
 
-import com.google.gson.Gson;
+import org.json.JSONException;
+import org.json.JSONStringer;
 
 import java.io.IOException;
 import java.io.PrintStream;
@@ -25,8 +26,21 @@ public class TaskEditarEndereco extends AsyncTask {
     @Override
     protected Object doInBackground(Object[] objects) {
 
-        Gson gson = new Gson();
-        String enderecoAtualizar = gson.toJson(endereco);
+        JSONStringer jsEndereco = new JSONStringer();
+        try {
+
+            jsEndereco.object();
+            jsEndereco.key("IdEndereco").value(endereco.getIdEndereco());
+            jsEndereco.key("logradouro").value(endereco.getLogradouro());
+            jsEndereco.key("bairro").value(endereco.getBairro());
+            jsEndereco.key("cep").value(endereco.getCep());
+            jsEndereco.key("idCidade").object().key("idCidade").value(endereco.getCodIBGE()).endObject();
+            jsEndereco.endObject();
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
 
         try {
             URL url = new URL("http://"+ MainActivity.IP_SERVER+"/enderecos/"+endereco.getIdEndereco());
@@ -39,7 +53,7 @@ public class TaskEditarEndereco extends AsyncTask {
 
             connection.setDoInput(true);
             PrintStream printStream = new PrintStream(connection.getOutputStream());
-            printStream.print(enderecoAtualizar);
+            printStream.print(jsEndereco);
             connection.connect();
 
             Scanner scanner = new Scanner(connection.getInputStream());

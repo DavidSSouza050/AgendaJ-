@@ -12,7 +12,6 @@ import retrofit2.Call;
 
 public class CadastroFoto {
   private FileService fileService;
-  private  final Boolean[] resposta = new Boolean[1];
 
   public Call<Cliente> CadastrarFoto(String imagePath, int id){
 
@@ -25,7 +24,6 @@ public class CadastroFoto {
     RequestBody requestBody = RequestBody.create(MediaType.parse("multipart/form-data"),file);
     RequestBody idCliente = RequestBody.create(MediaType.parse("text/plain"),String.valueOf(id));
     MultipartBody.Part body = MultipartBody.Part.createFormData("foto",file.getName(),requestBody);
-
 
 
     Call<Cliente> call = fileService.upload(body,idCliente);
