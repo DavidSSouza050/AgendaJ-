@@ -168,7 +168,25 @@ public class ContatoActivity extends AppCompatActivity implements View.OnClickLi
                                             @Override
                                             public void onFailure(Call<Cliente> call, Throwable t) {
                                                 Toast.makeText(ContatoActivity.this,"Erro ao cadastrar foto",Toast.LENGTH_LONG).show();
-                                                Log.d("ERRO CADASTRO FOTO",t.getMessage());
+                                                TaskLoginClienteToken loginClienteToken = new TaskLoginClienteToken(respostaCadastroCliente.getEmail(),respostaCadastroCliente.getSenha(),token);
+                                                loginClienteToken.execute();
+
+                                                try {
+
+                                                    Cliente clienteLogado = (Cliente) loginClienteToken.get();
+                                                    clienteLogado.setIdEndereco(respostaCadastroEndereco);
+                                                    Intent intent = new Intent(ContatoActivity.this,MainActivity.class);
+                                                    intent.putExtra("CLIENTELOGADO",clienteLogado);
+                                                    intent.putExtra("token",token);
+                                                    startActivity(intent);
+                                                    finish();
+                                                    exibirProgress(false);
+
+                                                } catch (ExecutionException e) {
+                                                    e.printStackTrace();
+                                                } catch (InterruptedException e) {
+                                                    e.printStackTrace();
+                                                }
                                             }
                                         });
 

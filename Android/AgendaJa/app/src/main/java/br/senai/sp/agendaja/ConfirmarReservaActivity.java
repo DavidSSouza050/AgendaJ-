@@ -146,7 +146,7 @@ public class ConfirmarReservaActivity extends AppCompatActivity  implements View
                                     @Override
                                     public void onResponse(Call<EmServico> call, Response<EmServico> response) {
                                         if(response.isSuccessful()){
-                                            Intent intentMain = new Intent();
+                                            Intent intentMain = new Intent(ConfirmarReservaActivity.this,MainActivity.class);
                                             intentMain.putExtra("CLIENTELOGADO",MainActivity.CLIENTELOGADO);
                                             intentMain.putExtra("token",MainActivity.TOKEN);
                                             startActivity(intentMain);

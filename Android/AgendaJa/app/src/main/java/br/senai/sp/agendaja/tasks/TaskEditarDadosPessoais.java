@@ -48,7 +48,7 @@ public class TaskEditarDadosPessoais extends AsyncTask {
       jsCliente.key("celular").value(clienteEditarDados.getCelular());
       jsCliente.key("cpf").value(clienteEditarDados.getCpf());
       jsCliente.key("sexo").value(clienteEditarDados.getSexo());
-      jsCliente.key("dataNascimento").value(clienteEditarDados.getDataNascimento().replace("\'",""));
+      jsCliente.key("dataNascimento").value(clienteEditarDados.getDataNascimento());
       jsCliente.key("email").value(clienteEditarDados.getEmail());
       jsCliente.key("senha").value(clienteEditarDados.getSenha());
       jsCliente.endObject();
@@ -87,7 +87,8 @@ public class TaskEditarDadosPessoais extends AsyncTask {
       clienteEditado.setCpf(object.getString("cpf"));
       clienteEditado.setCelular(object.getString("celular"));
       clienteEditado.setEmail(object.getString("email"));
-      clienteEditado.setSexo(object.getString("senha"));
+      clienteEditado.setSenha(object.getString("senha"));
+      clienteEditado.setFoto(object.getString("fotoCliente"));
 
 
     } catch (MalformedURLException e) {

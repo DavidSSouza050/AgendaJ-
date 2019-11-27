@@ -242,4 +242,5 @@ public class PerfilFragment extends Fragment implements View.OnClickListener {
     }
 
   }
+
 }

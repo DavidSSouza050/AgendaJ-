@@ -16,8 +16,9 @@ import br.senai.sp.agendaja.Model.Cliente;
 public class MainActivity extends AppCompatActivity{
 
     private TextView dadosPessoais;
-    public static String  IP_SERVER  = "52.55.177.56:8080";
-    public static String IP_FOTO = "http://52.55.177.56/";
+    public static String  IP_SERVER  = "54.146.225.104:8080";
+    public static String IP_FOTO = "http://54.146.225.104/";
+    public static String IP_SOCKET= "http://agendaja.cf:3355/";
     public static String TOKEN;
     public static Cliente CLIENTELOGADO;
 
