@@ -168,6 +168,9 @@ public class PerfilFragment extends Fragment implements View.OnClickListener {
 
       case R.id.caixa_endereco_perfil:
 
+        Intent intentEditarEndereco = new Intent(getContext(),EditarEnderecoActivity.class);
+        intentEditarEndereco.putExtra("idCliente",MainActivity.CLIENTELOGADO.getIdCliente());
+        startActivity(intentEditarEndereco);
 //        Intent intentEditarEndereco = new Intent(getContext(),EditarEnderecoActivity.class);
 //        startActivity(intentEditarEndereco);
 

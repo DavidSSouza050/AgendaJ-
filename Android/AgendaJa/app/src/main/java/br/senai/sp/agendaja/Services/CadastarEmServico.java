@@ -9,7 +9,7 @@ public class CadastarEmServico {
   private FileServiceEmServico fileService;
 
 
-  public Call<EmServico> postEmServico(int idAgendamento){
+  public Call<EmServico> postEmServico(Integer idAgendamento){
 
     fileService =  RetrofitConfigCadastrarEmServico.getFileService();
 

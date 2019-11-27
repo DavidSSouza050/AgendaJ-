@@ -25,6 +25,8 @@ public class EditarEnderecoActivity extends AppCompatActivity implements View.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_editar_endereco);
 
+        //instanciando as views da activity
+        txtCep = findViewById(R.id.text_cep_editar_endereco);
         TaskGetEnderecoCliente getEnderecoCliente = new TaskGetEnderecoCliente(MainActivity.CLIENTELOGADO.getIdCliente());
         getEnderecoCliente.execute();
 
@@ -47,14 +49,12 @@ public class EditarEnderecoActivity extends AppCompatActivity implements View.On
         txtBairro = findViewById(R.id.text_bairro_editar_endereco);
         txtEstado = findViewById(R.id.text_uf_editar_endereco);
         btnAtualizar = findViewById(R.id.btn_salvar_editar_endereco);
-
         //setando valores
 //      txtCidade.setText(enderecoCliente.getCidade());
 //      txtBairro.setText(enderecoCliente.getBairro());
 //      txtCep.setText(enderecoCliente.getCep());
 //      txtEstado.setText(enderecoCliente.getEstado());
 //      txtLogradouro.setText(enderecoCliente.getLogradouro());
-
 
         //setando os listenners
         btnAtualizar.setOnClickListener(this);

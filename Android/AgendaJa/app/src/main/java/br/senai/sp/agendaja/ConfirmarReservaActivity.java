@@ -130,7 +130,7 @@ public class ConfirmarReservaActivity extends AppCompatActivity  implements View
                 try {
 
                     if(cadastrarAgendamento.get()!=null){
-                        int idAgendamentoRetornado = (int) cadastrarAgendamento.get();
+                        Integer idAgendamentoRetornado = (Integer) cadastrarAgendamento.get();
 
                         TaskCadastrarServicoAgendamento cadastrarServicoAgendamento = new TaskCadastrarServicoAgendamento(servicoEscolhido.getIdServico(),idAgendamentoRetornado);
                         cadastrarServicoAgendamento.execute();
