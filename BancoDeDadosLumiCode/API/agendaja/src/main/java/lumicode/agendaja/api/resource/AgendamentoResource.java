@@ -115,6 +115,7 @@ public class AgendamentoResource {
 			@Validated @RequestBody Agendamento agendamento,
 			HttpServletResponse response){
 		agendamento.setFinalizado(0);
+		agendamento.setStatus('N');
 		Agendamento agendamentoSalvo = agendamentoRepository.save(agendamento);
 	
 		

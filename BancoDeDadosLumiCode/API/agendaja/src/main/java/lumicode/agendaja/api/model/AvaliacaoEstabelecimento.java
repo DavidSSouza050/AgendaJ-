@@ -13,7 +13,7 @@ import lumicode.agendaja.api.model.dto.ClienteDTO;
 import lumicode.agendaja.api.model.dto.EstabelecimentoDTO;
 
 @Entity
-@Table(name = "tbl_avaliacao_estabalecimento")
+@Table(name = "tbl_avaliacao_estabelecimento")
 public class AvaliacaoEstabelecimento {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

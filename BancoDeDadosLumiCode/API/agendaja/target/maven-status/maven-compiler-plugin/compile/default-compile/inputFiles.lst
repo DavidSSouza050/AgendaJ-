@@ -1,4 +1,5 @@
 C:\Users\18175740\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\java\lumicode\agendaja\api\repository\EmServicoRepository.java
+C:\Users\18175740\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\java\lumicode\agendaja\api\model\AvaliacaoEstabelecimento.java
 C:\Users\18175740\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\java\lumicode\agendaja\api\repository\HorarioEstabelecimentoRepository.java
 C:\Users\18175740\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\java\lumicode\agendaja\api\model\dto\ServicoIdDTO.java
 C:\Users\18175740\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\java\lumicode\agendaja\api\model\Microrregiao.java
@@ -14,6 +15,7 @@ C:\Users\18175740\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\ja
 C:\Users\18175740\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\java\lumicode\agendaja\api\repository\EstadoRepository.java
 C:\Users\18175740\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\java\lumicode\agendaja\api\model\Cidade.java
 C:\Users\18175740\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\java\lumicode\agendaja\api\model\dto\AgendamentoIdDTO.java
+C:\Users\18175740\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\java\lumicode\agendaja\api\repository\AvaliacaoClienteRepository.java
 C:\Users\18175740\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\java\lumicode\agendaja\api\repository\view\ServicosFuncionarioVIEWRepository.java
 C:\Users\18175740\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\java\lumicode\agendaja\api\jwtme\security\JwtUserDetailsService.java
 C:\Users\18175740\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\java\lumicode\agendaja\api\resource\SalarioResource.java
@@ -32,11 +34,13 @@ C:\Users\18175740\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\ja
 C:\Users\18175740\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\java\lumicode\agendaja\api\repository\ClienteRepository.java
 C:\Users\18175740\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\java\lumicode\agendaja\api\resource\MicrorregiaoResource.java
 C:\Users\18175740\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\java\lumicode\agendaja\api\repository\AgendamentoRepository.java
+C:\Users\18175740\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\java\lumicode\agendaja\api\resource\AvaliacaoEstabelecimentoResource.java
 C:\Users\18175740\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\java\lumicode\agendaja\api\model\view\TotalComissaoVIEW.java
 C:\Users\18175740\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\java\lumicode\agendaja\api\resource\DiaSemanaResource.java
 C:\Users\18175740\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\java\lumicode\agendaja\api\repository\CidadeRepository.java
 C:\Users\18175740\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\java\lumicode\agendaja\api\resource\ClienteResource.java
 C:\Users\18175740\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\java\lumicode\agendaja\api\model\Endereco.java
+C:\Users\18175740\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\java\lumicode\agendaja\api\model\AvaliacaoCliente.java
 C:\Users\18175740\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\java\lumicode\agendaja\api\resource\FuncionarioServicoResource.java
 C:\Users\18175740\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\java\lumicode\agendaja\api\model\JWTRequest.java
 C:\Users\18175740\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\java\lumicode\agendaja\api\utils\CalculadoDeDuracao.java
@@ -47,6 +51,7 @@ C:\Users\18175740\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\ja
 C:\Users\18175740\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\java\lumicode\agendaja\api\repository\view\TotalComissaoVIEWRepository.java
 C:\Users\18175740\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\java\lumicode\agendaja\api\utils\ConverterDatas.java
 C:\Users\18175740\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\java\lumicode\agendaja\api\resource\AgendamentoResource.java
+C:\Users\18175740\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\java\lumicode\agendaja\api\resource\AvaliacaoClienteResource.java
 C:\Users\18175740\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\java\lumicode\agendaja\api\model\TipoEndereco.java
 C:\Users\18175740\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\java\lumicode\agendaja\api\repository\dto\AgendamentoServicosIdDTORepository.java
 C:\Users\18175740\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\java\lumicode\agendaja\api\model\Assunto.java
@@ -89,6 +94,7 @@ C:\Users\18175740\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\ja
 C:\Users\18175740\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\java\lumicode\agendaja\api\repository\AssuntoRepository.java
 C:\Users\18175740\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\java\lumicode\agendaja\api\resource\FuncionarioEstabelecimentoResource.java
 C:\Users\18175740\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\java\lumicode\agendaja\api\resource\CidadeResource.java
+C:\Users\18175740\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\java\lumicode\agendaja\api\repository\AvaliacaoEstabelecimentoRepository.java
 C:\Users\18175740\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\java\lumicode\agendaja\api\jwtme\security\WebSecurityConfig.java
 C:\Users\18175740\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\java\lumicode\agendaja\api\resource\EstabelecimentoResource.java
 C:\Users\18175740\Desktop\AgendaJ-\BancoDeDadosLumiCode\API\agendaja\src\main\java\lumicode\agendaja\api\model\dto\FuncionarioDTO.java

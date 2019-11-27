@@ -166,7 +166,18 @@ public class ClienteResource {
 			
 			BeanUtils.copyProperties(cliente, clienteAtualizado, "id");
 		
-			clienteRepository.save(cliente);
+			clienteRepository.save(clienteAtualizado);
+			
+			// pegando a idade do cliente 
+			String dataNasc = clienteAtualizado.getDataNascimento();
+			//transformando a data nascimento em date (ela é string)
+			Date nascDate = converterDatas.stringToDatePt(dataNasc);
+			//formatando a data e mandando uma String
+			String dataNascFormatada = converterDatas.dataPt(nascDate);
+			
+//			setantando a idade formatada e trocando o date
+			clienteAtualizado.setDataNascimento(dataNascFormatada);
+			
 			
 			return ResponseEntity.ok(clienteAtualizado);
 			

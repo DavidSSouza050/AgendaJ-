@@ -1,0 +1,24 @@
+package lumicode.agendaja.api.repository;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+import lumicode.agendaja.api.model.AvaliacaoCliente;
+
+public interface AvaliacaoClienteRepository 
+	extends JpaRepository<AvaliacaoCliente, Long>{
+	
+	/*Retorna todas as avaliacoes do cliente*/
+	@Query("SELETC a FROM AvaliacaoCliente as a "
+			+ "INNNER JOIN a.cliente as c"
+			+ "WHERE WHERE c.idCliente = ?1")
+	public List<AvaliacaoCliente> avaliacaoDoCLiente(Long idCliente);
+	
+	
+	
+	
+	
+	
+}
