@@ -107,6 +107,17 @@ public class AgendamentoResource {
 		return servicoPendenteVIEWRepository.pegarServicosRealizadosEstabelecimento(id);
 	}
 	
+	//agendamentos do cliente pendentes
+	@GetMapping("/cliente/{id}/servicoPendente")
+	private List<ServicoPendenteVIEW> servicosPendentesCliente(@PathVariable Long id){
+		return servicoPendenteVIEWRepository.pegerServicosPendentesCliente(id);
+	}
+	//agendamento realizado
+	@GetMapping("/cliente/{id}/servicoRealizados")
+	private List<ServicoPendenteVIEW> servicosRealizadosCliente(@PathVariable Long id){
+		return servicoPendenteVIEWRepository.pegerServicosRealizadosCliente(id);
+	}
+	
 	
 	
 	// cadastrar um agendamento
@@ -132,6 +143,8 @@ public class AgendamentoResource {
 		return ResponseEntity.created(uri).body(agendamentoSalvo);
 	
 	}
+	
+	
 		
 	//atualizando o cliente
 	@PutMapping("/{id}")

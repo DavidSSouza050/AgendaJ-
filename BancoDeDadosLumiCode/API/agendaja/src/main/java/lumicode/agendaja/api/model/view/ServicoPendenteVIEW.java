@@ -7,6 +7,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import lumicode.agendaja.api.model.dto.ClienteDTO;
 import lumicode.agendaja.api.model.dto.EstabelecimentoDTO;
 import lumicode.agendaja.api.model.dto.FuncionarioDTO;
 
@@ -24,6 +25,9 @@ public class ServicoPendenteVIEW {
 	private EstabelecimentoDTO estabelecimento;
 	@Column(name = "preco")
 	private Double preco;
+	@ManyToOne
+	@JoinColumn(name = "cliente")
+	private ClienteDTO cliente;
 	@Column(name = "nome_cliente")
 	private String nomeCliente;
 	@Column(name = "foto_cliente")
@@ -74,6 +78,18 @@ public class ServicoPendenteVIEW {
 
 	public void setPreco(Double preco) {
 		this.preco = preco;
+	}
+	
+	
+
+	
+
+	public ClienteDTO getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(ClienteDTO cliente) {
+		this.cliente = cliente;
 	}
 
 	public String getNomeCliente() {

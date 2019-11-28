@@ -23,8 +23,15 @@ public interface ServicoPendenteVIEWRepository
 	@Query(value = "SELECT * FROM view_servico_pendente WHERE estabelecimento = ?1 AND month(data_hora) = ?2 AND year(data_hora) = ?3 AND day(data_hora) = ?4 AND finalizado = 0", nativeQuery=true)
 	public List<ServicoPendenteVIEW> pegerServicosPendentesEstabelecimentoDia(Long idEstabelecimento, Integer mes, Integer ano, Integer dia);
 	
-	@Query(value = "SELECT * FROM view_servico_pendente WHERE finalizado = 1 AND estabelecimento = ?1 order by data_hora desc", nativeQuery=true)
+	@Query(value = "SELECT * FROM view_servico_pendente WHERE finalizado = 1 AND estabelecimento = ?1 AND cancelado <> 'C' order by data_hora desc", nativeQuery=true)
 	public List<ServicoPendenteVIEW> pegarServicosRealizadosEstabelecimento(Long idEstabelecimento);
+	
+	@Query(value = "SELECT * FROM view_servico_pendente WHERE finalizado = 0 AND cliente = ?1 AND cancelado <> 'C' order by data_hora desc", nativeQuery=true)
+	public List<ServicoPendenteVIEW> pegerServicosPendentesCliente(Long idCliente);
+	
+	@Query(value = "SELECT * FROM view_servico_pendente WHERE finalizado = 1 AND cliente = ?1 AND cancelado <> 'C' order by data_hora desc", nativeQuery=true)
+	public List<ServicoPendenteVIEW> pegerServicosRealizadosCliente(Long idCliente);
+	
 	
 	
 }

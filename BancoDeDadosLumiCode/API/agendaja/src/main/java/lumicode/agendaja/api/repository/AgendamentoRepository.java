@@ -14,7 +14,7 @@ public interface AgendamentoRepository
 	public Agendamento  pegarAgendamento(Long idAgendamento);
 	
 	@Query(value = "SELECT count(*) as total_de_agendamentos from tbl_agendamento where "
-			+ "finalizado = 1 "
+			+ "finalizado = 0 "
 			+ "and status <> 'C' "
 			+ "and month(data_horario_agendado) = ?1 "
 			+ "and year(data_horario_agendado) = ?2 "
