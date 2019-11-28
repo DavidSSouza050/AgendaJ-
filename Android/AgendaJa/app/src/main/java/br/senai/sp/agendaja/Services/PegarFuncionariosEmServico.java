@@ -1,29 +1,33 @@
 package br.senai.sp.agendaja.Services;
 
+import org.json.JSONArray;
+
+import java.util.List;
+
 import br.senai.sp.agendaja.MainActivity;
 import br.senai.sp.agendaja.Model.EmServico;
 import retrofit2.Call;
 
 public class PegarFuncionariosEmServico {
-  private int dia;
-  private int mes;
-  private int ano;
-  private int idAgendamento;
+  private Integer dia;
+  private Integer mes;
+  private Integer ano;
+  private Integer idEstabelecimento;
   private PegarEmServico pegarEmServico;
 
-  public PegarFuncionariosEmServico(int dia, int mes, int ano, int idAgendamento) {
+  public PegarFuncionariosEmServico(Integer dia, Integer mes, Integer ano, Integer idEstabelecimento) {
     this.dia = dia;
     this.mes = mes;
     this.ano = ano;
-    this.idAgendamento = idAgendamento;
+    this.idEstabelecimento = idEstabelecimento;
   }
 
 
-  public Call<EmServico> postPegarFuncionariosEmServico(){
+  public Call<List<EmServico>> postPegarFuncionariosEmServico(){
 
     pegarEmServico = RetrofitConfigPegarEmServico.pegarFuncionariosEmServico();
 
-    Call<EmServico> emServicoCall = pegarEmServico.pegarFuncionariosEmServico(dia,mes,ano,idAgendamento, MainActivity.TOKEN);
+    Call<List<EmServico>> emServicoCall = pegarEmServico.pegarFuncionariosEmServico(dia,mes,ano,idEstabelecimento, MainActivity.TOKEN);
 
     return emServicoCall;
 

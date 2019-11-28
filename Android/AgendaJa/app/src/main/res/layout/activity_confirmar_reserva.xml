@@ -75,7 +75,10 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:textAlignment="center"
+                    android:gravity="center"
+                    >
 
 
                     <TextView
@@ -99,24 +102,22 @@
                         android:text="Funcionario Y"
                         android:textSize="14dp" />
 
-                    <TextView
-                        android:id="@+id/text_preco_do_confirmar_servico"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:layout_alignTop="@+id/text_servico_do_confirmar_servico"
-                        android:layout_marginEnd="34dp"
-                        android:text="R$ 20,00"
-                        android:textSize="24dp" />
+                    <!--<TextView-->
+                        <!--android:id="@+id/text_preco_do_confirmar_servico"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_alignParentEnd="true"-->
+                        <!--android:layout_alignTop="@+id/text_servico_do_confirmar_servico"-->
+                        <!--android:layout_marginEnd="34dp"-->
+                        <!--android:textSize="24dp" />-->
 
-                    <TextView
-                        android:id="@+id/text_tempo_do_confirmar_servico"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignEnd="@+id/text_preco_do_confirmar_servico"
-                        android:layout_alignTop="@+id/text_funcionario_do_confirmar_servico"
-                        android:text="30 min"
-                        android:textSize="14dp" />
+                    <!--<TextView-->
+                        <!--android:id="@+id/text_tempo_do_confirmar_servico"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_alignEnd="@+id/text_preco_do_confirmar_servico"-->
+                        <!--android:layout_alignTop="@+id/text_funcionario_do_confirmar_servico"-->
+                        <!--android:textSize="14dp" />-->
                 </RelativeLayout>
 
 

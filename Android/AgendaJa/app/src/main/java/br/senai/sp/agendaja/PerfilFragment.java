@@ -165,6 +165,7 @@ public class PerfilFragment extends Fragment implements View.OnClickListener {
         intentGalery.setType("image/*");
         intentGalery.setAction(Intent.ACTION_PICK);
         startActivityForResult(intentGalery,GALERY_REQUEST);
+        break;
 
       case R.id.caixa_endereco_perfil:
 

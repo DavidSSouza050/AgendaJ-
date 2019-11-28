@@ -1,4 +1,4 @@
-package br.senai.sp.agendaja.VerificandoHorarios;
+package br.senai.sp.agendaja.Verificacao;
 
 import android.util.Log;
 
@@ -71,8 +71,6 @@ public class VerificandoHorarios {
 
         Log.d("contador", String.valueOf(contador));
 
-        Log.d("horaAberturaFormatada", String.valueOf(horaAberturaFormatada));
-        Log.d("horaFechamentoFormatada", String.valueOf(horaFechamentoFormatada));
 
         for (contFor = horaAberturaFormatada; contFor <= horaFechamentoFormatada; contFor = contFor + contador) {
 
@@ -119,8 +117,6 @@ public class VerificandoHorarios {
           int horarioAberturaReverso = (int) (contFor / 1);
 
           String horaReversa = horarioAberturaReverso + ":" + horasParaMinutos;
-
-          Log.d("hora reversa", horaReversa);
 
           String horaFinal = CalculoHorario.calcularHorarioFinal(horaReversa);
 

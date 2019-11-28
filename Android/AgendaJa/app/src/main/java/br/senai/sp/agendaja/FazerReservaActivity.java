@@ -13,25 +13,34 @@ import android.widget.CalendarView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
-import java.util.SimpleTimeZone;
-import java.util.TimeZone;
 import java.util.concurrent.ExecutionException;
 
 import br.senai.sp.agendaja.Adapters.FuncionarioAdapter;
 import br.senai.sp.agendaja.Adapters.HorarioAdapter;
 import br.senai.sp.agendaja.CalculoHorario.CalculoHorario;
+import br.senai.sp.agendaja.Model.EmServico;
 import br.senai.sp.agendaja.Model.Estabelecimento;
 import br.senai.sp.agendaja.Model.Funcionario;
 import br.senai.sp.agendaja.Model.Horario;
 import br.senai.sp.agendaja.Model.Servico;
+import br.senai.sp.agendaja.Services.PegarFuncionariosEmServico;
 import br.senai.sp.agendaja.Tasks.TaskGetFuncionarios;
-import br.senai.sp.agendaja.VerificandoHorarios.VerificandoHorarios;
+import br.senai.sp.agendaja.Verificacao.VerificandoHorarios;
+import br.senai.sp.agendaja.Verificacao.VerificandoHorariosFuncionarios;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class FazerReservaActivity extends AppCompatActivity implements View.OnClickListener, CalendarView.OnDateChangeListener, FuncionarioAdapter.ClickFuncionario,HorarioAdapter.ClickHorario{
 
@@ -50,6 +59,8 @@ public class FazerReservaActivity extends AppCompatActivity implements View.OnCl
     private String horarioEscolhido;
     private String dataEscolhida;
     private VerificandoHorarios verificandoHorarios;
+    private List<EmServico> emServicoList;
+    private JSONArray arrayServicos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,13 +73,10 @@ public class FazerReservaActivity extends AppCompatActivity implements View.OnCl
         estabelecimento = (Estabelecimento) getObjects.getSerializableExtra("estabelecimento");
         servicoEscolhido = (Servico) getObjects.getSerializableExtra("servicoEscolhido");
 
-      Log.d("horarios", String.valueOf(estabelecimento.getHorarios()));
 
-       verificandoHorarios = new VerificandoHorarios();
+        verificandoHorarios = new VerificandoHorarios();
 
-      horariosDisponiveis  = verificandoHorarios.verificandoHorarios(estabelecimento,horarioDoDia);
-
-        Log.d("horarios disponiveis",String.valueOf(horariosDisponiveis));
+        horariosDisponiveis  = verificandoHorarios.verificandoHorarios(estabelecimento,horarioDoDia);
 
         //instanciando os elementos da view
         calendarioReserva = findViewById(R.id.calendarView);
@@ -78,6 +86,7 @@ public class FazerReservaActivity extends AppCompatActivity implements View.OnCl
 
         LinearLayoutManager layoutHorarios = new LinearLayoutManager(FazerReservaActivity.this,LinearLayout.HORIZONTAL,false);
         recyclerHorarios.setLayoutManager(layoutHorarios);
+
         //setando o adapter de horarios na recycler
         if(estabelecimento.getHorarios()!=null){
 
@@ -97,21 +106,6 @@ public class FazerReservaActivity extends AppCompatActivity implements View.OnCl
 
         //Pegando os funcionarios
 
-        TaskGetFuncionarios funcionarios = new TaskGetFuncionarios(estabelecimento.getIdEstabelecimento());
-        funcionarios.execute();
-
-
-        try {
-            if(funcionarios.get()!=null ){
-                funcionariosList = (List<Funcionario>) funcionarios.get();
-            }
-            setAdapaterFuncionario(funcionariosList,listaDeFuncionarios);
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
 
         //setando os listenners no calendar e no botao;
         btnSalvar.setOnClickListener(this);
@@ -124,6 +118,19 @@ public class FazerReservaActivity extends AppCompatActivity implements View.OnCl
       switch (v.getId()){
         case R.id.btn_salvar_agendamento:
             if(validar()){
+
+
+
+//                Intent intentConfirmarReserva  = new Intent(FazerReservaActivity.this,ConfirmarReservaActivity.class);
+//                intentConfirmarReserva.putExtra("estabelecimentoEscolhido",estabelecimento);
+//                intentConfirmarReserva.putExtra("servicoEscolhido",servicoEscolhido);
+//                intentConfirmarReserva.putExtra("horaEscolhido",horarioEscolhido);
+//                intentConfirmarReserva.putExtra("dataEscolhida",dataEscolhida);
+//                intentConfirmarReserva.putExtra("funcionarioEscolhido",funcionarioEscolhido);
+//                startActivity(intentConfirmarReserva);
+
+
+//              }else{
                 Intent intentConfirmarReserva  = new Intent(FazerReservaActivity.this,ConfirmarReservaActivity.class);
                 intentConfirmarReserva.putExtra("estabelecimentoEscolhido",estabelecimento);
                 intentConfirmarReserva.putExtra("servicoEscolhido",servicoEscolhido);
@@ -131,6 +138,7 @@ public class FazerReservaActivity extends AppCompatActivity implements View.OnCl
                 intentConfirmarReserva.putExtra("dataEscolhida",dataEscolhida);
                 intentConfirmarReserva.putExtra("funcionarioEscolhido",funcionarioEscolhido);
                 startActivity(intentConfirmarReserva);
+              //}
 
             }else{
                 Toast.makeText(FazerReservaActivity.this,"Escolha o horário e o funcionário",Toast.LENGTH_LONG).show();
@@ -186,7 +194,6 @@ public class FazerReservaActivity extends AppCompatActivity implements View.OnCl
     this.horarioEscolhido = horario;
 
     String[] horarioList = horario.split(":");
-    Log.d("horario em array",horarioList[0]);
 
     Double minutos = Double.parseDouble(horarioList[1]);
     int soma = (int) (minutos+servicoEscolhido.getDuracao());
@@ -195,11 +202,131 @@ public class FazerReservaActivity extends AppCompatActivity implements View.OnCl
 
     String horarioFinal = CalculoHorario.calcularHorarioFinal(horarioSomado);
 
-    Log.d("horarioConvertido",horarioFinal);
+    Integer ano = 0;
+    Integer mes = 0;
+    Integer dia = 0;
+
+    if(dataEscolhida==null) {
+      Date d = new Date();
+      d.getTime();
+
+      Calendar c = Calendar.getInstance();
+      c.setTime(d);
+
+       ano = c.get(Calendar.YEAR);
+       mes = c.get(Calendar.MONTH) + 1;
+       dia = c.get(Calendar.DAY_OF_MONTH);
+
+      dataEscolhida = String.valueOf(ano + "-" + mes + "-" + dia);
+
+    }else{
+
+      String[] dataArray = dataEscolhida.split("-");
+      ano = Integer.parseInt(dataArray[0]);
+      mes = Integer.parseInt(dataArray[1]);
+      dia = Integer.parseInt(dataArray[2]);
+    }
+
+    PegarFuncionariosEmServico funcionariosEmServico = new PegarFuncionariosEmServico(dia,mes,ano,estabelecimento.getIdEstabelecimento());
+
+    Call<List<EmServico>> callListEmServico = funcionariosEmServico.postPegarFuncionariosEmServico();
+
+    callListEmServico.enqueue(new Callback<List<EmServico>>() {
+      @Override
+      public void onResponse(Call<List<EmServico>> call, Response<List<EmServico>> response) {
+        if(response.isSuccessful()){
+          Log.d("sucesso","sucesso");
+          emServicoList = response.body();
+        }
+      }
+
+      @Override
+      public void onFailure(Call<List<EmServico>> call, Throwable t) {
+        Log.d("nao foi sucesso","deu erro");
+      }
+    });
+
+
+  //emServicoList = new ArrayList<>();
+
+//  if(arrayServicos!=null){
+//
+//    for(int contador = 0;contador<arrayServicos.length();contador++){
+//      try {
+//        JSONObject object = (JSONObject) arrayServicos.get(contador);
+//        EmServico emServico = new EmServico();
+//        emServico.setAno(object.getString("ano"));
+//        emServico.setMes(object.getString("mes"));
+//        emServico.setDiaMes(object.getString("diaMes"));
+//        emServico.setHoraInicio(object.getString("ocupadoInicio"));
+//        emServico.setHoraFim(object.getString("ocupadoFim"));
+//        emServico.setIdEmServico(object.getInt("idEmServico"));
+//        emServico.setIdEstabelecimento(object.getJSONObject("estabelecimento").getInt("idEstabelecimento"));
+//        emServico.setIdFuncionario(object.getJSONObject("funcionario").getInt("idFuncionario"));
+//
+//        emServicoList.add(emServico);
+//
+//
+//      } catch (JSONException e) {
+//        e.printStackTrace();
+//      }
+//    }
+//
+//  }
 
 
 
+    TaskGetFuncionarios funcionarios = new TaskGetFuncionarios(estabelecimento.getIdEstabelecimento());
+    funcionarios.execute();
 
+
+    try {
+
+      if(funcionarios.get()!=null ){
+        funcionariosList = (List<Funcionario>) funcionarios.get();
+      }
+
+    } catch (ExecutionException e) {
+      e.printStackTrace();
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
+
+    if(emServicoList==null){
+      setAdapaterFuncionario(funcionariosList,listaDeFuncionarios);
+    }else{
+      List<Funcionario> funcionariosDisponiveis = new ArrayList<>();
+      VerificandoHorariosFuncionarios horariosFuncionarios = new VerificandoHorariosFuncionarios();
+
+
+      for(int i=0;i<funcionariosList.size();i++){
+        Funcionario funcionario = funcionariosList.get(i);
+        List<EmServico> servicosFuncionarios= new ArrayList<>();
+
+        for(int cont=0;cont<emServicoList.size();cont++){
+
+          if(emServicoList.get(cont).getIdFuncionario()==funcionario.getIdFuncionario()){
+            servicosFuncionarios.add(emServicoList.get(cont));
+          }
+
+        }
+
+        int verificador = horariosFuncionarios.verificarHorariosFuncionarios(servicosFuncionarios,horario,horarioFinal);
+
+        if(verificador==0){
+          funcionariosDisponiveis.add(funcionario);
+        }
+
+      }
+
+      if(funcionariosDisponiveis!=null){
+        setAdapaterFuncionario(funcionariosDisponiveis,listaDeFuncionarios);
+      }else{
+        Toast.makeText(FazerReservaActivity.this,"Sem funcionarios disponiveis para esse horario",Toast.LENGTH_LONG).show();
+      }
+
+
+    }
 
 
 

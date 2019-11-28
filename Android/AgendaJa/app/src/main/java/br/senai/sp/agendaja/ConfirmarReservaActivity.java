@@ -10,6 +10,10 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.net.URISyntaxException;
 import java.util.concurrent.ExecutionException;
 
 import br.senai.sp.agendaja.CalculoHorario.CalculoHorario;
@@ -20,6 +24,9 @@ import br.senai.sp.agendaja.Model.Servico;
 import br.senai.sp.agendaja.Services.CadastarEmServico;
 import br.senai.sp.agendaja.Tasks.TaskCadastrarAgendamento;
 import br.senai.sp.agendaja.Tasks.TaskCadastrarServicoAgendamento;
+import io.socket.client.IO;
+import io.socket.client.Socket;
+import io.socket.emitter.Emitter;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -146,6 +153,32 @@ public class ConfirmarReservaActivity extends AppCompatActivity  implements View
                                     @Override
                                     public void onResponse(Call<EmServico> call, Response<EmServico> response) {
                                         if(response.isSuccessful()){
+                                            Socket socket = null;
+                                            try {
+                                                socket = IO.socket(MainActivity.IP_SOCKET);
+                                                socket.on(Socket.EVENT_CONNECT, new Emitter.Listener() {
+                                                    @Override
+                                                    public void call(Object... args) {
+
+                                                    }
+                                                });
+
+                                                JSONObject object = new JSONObject(
+                                                     "{token:" + MainActivity.TOKEN + ","
+                                                    +"idCliente:"+MainActivity.CLIENTELOGADO.getIdCliente()+","
+                                                     +"idFuncionario:"+funcionarioEscolhido.getIdFuncionario()+","
+                                                     +"idEstabelecimento:"+estabelecimentoEscolhido.getIdEstabelecimento()+","
+                                                     +"dataHorarioAgendamento:"+horarioEscolhido + "}"
+                                                );
+
+                                                socket.emit("agendamento",object);
+
+                                            } catch (URISyntaxException e) {
+                                                e.printStackTrace();
+                                            } catch (JSONException e) {
+                                                e.printStackTrace();
+                                            }
+
                                             Intent intentMain = new Intent(ConfirmarReservaActivity.this,MainActivity.class);
                                             intentMain.putExtra("CLIENTELOGADO",MainActivity.CLIENTELOGADO);
                                             intentMain.putExtra("token",MainActivity.TOKEN);

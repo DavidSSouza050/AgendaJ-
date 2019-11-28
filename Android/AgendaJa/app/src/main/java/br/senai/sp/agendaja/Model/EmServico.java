@@ -1,14 +1,25 @@
 package br.senai.sp.agendaja.Model;
 
+import com.google.gson.annotations.SerializedName;
+
 public class EmServico {
 
+
+  @SerializedName("idEmServico")
   private int idEmServico;
+  @SerializedName("idEstabelecimento")
   private int idEstabelecimento;
+  @SerializedName("idFuncionario")
   private int idFuncionario;
+  @SerializedName("diaMes")
   private String diaMes;
+  @SerializedName("mes")
   private String mes;
+  @SerializedName("ano")
   private String ano;
+  @SerializedName("ocupadoInicio")
   private String horaInicio;
+  @SerializedName("ocupadoFim")
   private String horaFim;
 
   public int getIdEmServico() {

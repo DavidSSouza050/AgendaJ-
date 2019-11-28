@@ -16,14 +16,10 @@ import retrofit2.http.POST;
 import retrofit2.http.Part;
 
 public interface FileServiceEmServico {
-<<<<<<< HEAD
+
   @FormUrlEncoded
   @POST("emServico")
   Call<EmServico> postEmServico(@Field("idAgendamento") int idAgendamento, @Header("token") String token );
-=======
 
-  @POST("emServico")
-  Call<EmServico> postEmServico(@Part("IdAgendamento") int idAgendamento, @Header("token") String token );
->>>>>>> 9d9fc38688a6b73407930d142b91b261552f9d70
 
 }

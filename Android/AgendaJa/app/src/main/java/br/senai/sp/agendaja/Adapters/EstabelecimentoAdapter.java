@@ -4,6 +4,7 @@ import android.content.Context;
 import androidx.annotation.NonNull;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -78,8 +79,6 @@ public class EstabelecimentoAdapter extends RecyclerView.Adapter<Estabelecimento
 
 
       url = new URL(MainActivity.IP_FOTO + estabelecimento.getFoto());
-
-
 
     Picasso
              .get()
