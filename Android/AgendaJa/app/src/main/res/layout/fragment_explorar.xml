@@ -25,7 +25,7 @@
             android:layout_marginTop="10dp"
             android:background="@drawable/caixa_de_texto_redonda_transparente"
             android:drawableStart="@drawable/ic_action_explorar_branco"
-            android:hint="O que voê esta procurando?"
+            android:hint="O que você esta procurando?"
             android:inputType="text"
             android:maxLines="1"
             android:padding="8dp"

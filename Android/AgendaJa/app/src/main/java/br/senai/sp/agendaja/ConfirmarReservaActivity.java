@@ -146,54 +146,60 @@ public class ConfirmarReservaActivity extends AppCompatActivity  implements View
                         if(cadastrarServicoAgendamento.get()!=null){
                             boolean retornoCadastroServicoAgendamento = (boolean) cadastrarServicoAgendamento.get();
                             if(retornoCadastroServicoAgendamento){
-                                CadastarEmServico cadastarEmServico = new CadastarEmServico();
-                                Call<EmServico> postEmServico = cadastarEmServico.postEmServico(idAgendamentoRetornado);
+//                                CadastarEmServico cadastarEmServico = new CadastarEmServico();
+//                                Call<EmServico> postEmServico = cadastarEmServico.postEmServico(idAgendamentoRetornado);
+//
+//                                postEmServico.enqueue(new Callback<EmServico>() {
+//                                    @Override
+//                                    public void onResponse(Call<EmServico> call, Response<EmServico> response) {
+//                                        if(response.isSuccessful()){
+//                                            Socket socket = null;
+//                                            try {
+//                                                socket = IO.socket(MainActivity.IP_SOCKET);
+//                                                socket.on(Socket.EVENT_CONNECT, new Emitter.Listener() {
+//                                                    @Override
+//                                                    public void call(Object... args) {
+//
+//                                                    }
+//                                                });
+//
+//                                                JSONObject object = new JSONObject(
+//                                                     "{token:" + MainActivity.TOKEN + ","
+//                                                    +"idCliente:"+MainActivity.CLIENTELOGADO.getIdCliente()+","
+//                                                     +"idFuncionario:"+funcionarioEscolhido.getIdFuncionario()+","
+//                                                     +"idEstabelecimento:"+estabelecimentoEscolhido.getIdEstabelecimento()+","
+//                                                     +"dataHorarioAgendamento:"+horarioEscolhido + "}"
+//                                                );
+//
+//                                                socket.emit("agendamento",object);
+//
+//                                            } catch (URISyntaxException e) {
+//                                                e.printStackTrace();
+//                                            } catch (JSONException e) {
+//                                                e.printStackTrace();
+//                                            }
+//
+//                                            Intent intentMain = new Intent(ConfirmarReservaActivity.this,MainActivity.class);
+//                                            intentMain.putExtra("CLIENTELOGADO",MainActivity.CLIENTELOGADO);
+//                                            intentMain.putExtra("token",MainActivity.TOKEN);
+//                                            startActivity(intentMain);
+//                                        }
+//                                    }
+//
+//                                    @Override
+//                                    public void onFailure(Call<EmServico> call, Throwable t) {
+//
+//                                        Toast.makeText(ConfirmarReservaActivity.this,"Erro ao cadastrar",Toast.LENGTH_LONG).show();
+//                                        Log.d("problema do agendamento",t.getMessage());
+//
+//                                    }
+//                                });
 
-                                postEmServico.enqueue(new Callback<EmServico>() {
-                                    @Override
-                                    public void onResponse(Call<EmServico> call, Response<EmServico> response) {
-                                        if(response.isSuccessful()){
-                                            Socket socket = null;
-                                            try {
-                                                socket = IO.socket(MainActivity.IP_SOCKET);
-                                                socket.on(Socket.EVENT_CONNECT, new Emitter.Listener() {
-                                                    @Override
-                                                    public void call(Object... args) {
+                                Intent intentMain = new Intent(ConfirmarReservaActivity.this,MainActivity.class);
+                                intentMain.putExtra("CLIENTELOGADO",MainActivity.CLIENTELOGADO);
+                                intentMain.putExtra("token",MainActivity.TOKEN);
+                                startActivity(intentMain);
 
-                                                    }
-                                                });
-
-                                                JSONObject object = new JSONObject(
-                                                     "{token:" + MainActivity.TOKEN + ","
-                                                    +"idCliente:"+MainActivity.CLIENTELOGADO.getIdCliente()+","
-                                                     +"idFuncionario:"+funcionarioEscolhido.getIdFuncionario()+","
-                                                     +"idEstabelecimento:"+estabelecimentoEscolhido.getIdEstabelecimento()+","
-                                                     +"dataHorarioAgendamento:"+horarioEscolhido + "}"
-                                                );
-
-                                                socket.emit("agendamento",object);
-
-                                            } catch (URISyntaxException e) {
-                                                e.printStackTrace();
-                                            } catch (JSONException e) {
-                                                e.printStackTrace();
-                                            }
-
-                                            Intent intentMain = new Intent(ConfirmarReservaActivity.this,MainActivity.class);
-                                            intentMain.putExtra("CLIENTELOGADO",MainActivity.CLIENTELOGADO);
-                                            intentMain.putExtra("token",MainActivity.TOKEN);
-                                            startActivity(intentMain);
-                                        }
-                                    }
-
-                                    @Override
-                                    public void onFailure(Call<EmServico> call, Throwable t) {
-
-                                        Toast.makeText(ConfirmarReservaActivity.this,"Erro ao cadastrar",Toast.LENGTH_LONG).show();
-                                        Log.d("problema do agendamento",t.getMessage());
-
-                                    }
-                                });
                             }
 
 
