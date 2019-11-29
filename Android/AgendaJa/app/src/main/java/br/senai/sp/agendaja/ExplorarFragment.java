@@ -3,7 +3,6 @@ package br.senai.sp.agendaja;
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -14,6 +13,7 @@ import android.view.ViewGroup;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
+import androidx.annotation.Nullable;
 import br.senai.sp.agendaja.Adapters.EstabelecimentoAdapter;
 import br.senai.sp.agendaja.Model.Estabelecimento;
 import br.senai.sp.agendaja.Tasks.TaskGetListEstabelecimentos;

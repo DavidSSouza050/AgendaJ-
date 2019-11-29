@@ -13,6 +13,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 
 import br.senai.sp.agendaja.MainActivity;
@@ -20,7 +21,7 @@ import br.senai.sp.agendaja.Model.Agendamento;
 
 public class TaskGetAgendamentos extends AsyncTask {
     private int idCliente;
-    private String dados;
+    private String dados = "";
     private List<Agendamento> agendamentoList;
 
     public TaskGetAgendamentos(int idCliente) {
@@ -32,7 +33,7 @@ public class TaskGetAgendamentos extends AsyncTask {
 
         try {
 
-            URL url = new URL("http://" + MainActivity.IP_SERVER + "/agendamentos/cliente/" + idCliente + "/servicoRealizados");
+            URL url = new URL("http://" + MainActivity.IP_SERVER + "/agendamentos/cliente/" + idCliente + "/servicoPendente");
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 
             connection.setRequestMethod("GET");
@@ -52,6 +53,7 @@ public class TaskGetAgendamentos extends AsyncTask {
 
             if(dados!=null){
                 JSONArray array= new JSONArray(dados);
+                agendamentoList = new ArrayList<>();
 
                 for (int i=0;i<array.length();i++){
                     JSONObject object = (JSONObject) array.get(i);
@@ -59,6 +61,17 @@ public class TaskGetAgendamentos extends AsyncTask {
                     agendamento.setIdCliente(object.getJSONObject("cliente").getInt("idCliente"));
                     agendamento.setIdAgendamento(object.getInt("idAgendamento"));
                     agendamento.setNomeEstabelecimento(object.getJSONObject("estabelecimento").getString("nomeEstabelecimento"));
+                    agendamento.setPreco(object.getString("preco"));
+                    agendamento.setNomeServico(object.getString("servico"));
+                    agendamento.setDuracaoServico(object.getString("duracaoServico"));
+                    agendamento.setDataAgendamento(object.getString("dataHora"));
+                    agendamento.setNomeCategoria(object.getString("categoria"));
+                    agendamento.setStatusFinalizado(object.getInt("finalizado"));
+                    agendamento.setStatusCancelado(object.getString("cancelado"));
+                    agendamento.setIdFuncionario(object.getJSONObject("funcionario").getInt("idFuncionario"));
+                    agendamento.setIdEstabelecimento(object.getJSONObject("estabelecimento").getInt("idEstabelecimento"));
+
+                    agendamentoList.add(agendamento);
 
                 }
 
@@ -73,6 +86,10 @@ public class TaskGetAgendamentos extends AsyncTask {
         }
 
 
-        return null;
+        if(agendamentoList!=null){
+            return agendamentoList;
+        }else{
+            return null;
+        }
     }
 }

@@ -1,7 +1,6 @@
 package br.senai.sp.agendaja.Adapters;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +11,7 @@ import android.widget.TextView;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
+import androidx.annotation.NonNull;
 import br.senai.sp.agendaja.MainActivity;
 import br.senai.sp.agendaja.Model.Agendamento;
 import br.senai.sp.agendaja.Model.Endereco;
@@ -57,7 +57,7 @@ public class AgendamentosAdapter  extends RecyclerView.Adapter<AgendamentosAdapt
 
         agendamentoViewHolder.txtNomeServico.setText(agendamento.getNomeServico());
         agendamentoViewHolder.txtNomeEstabelecimento.setText(agendamento.getNomeEstabelecimento());
-        agendamentoViewHolder.txtEnderecoEstabelecimento.setText(endereco.getBairro() + " " + endereco.getCep() + ", " + endereco.getCidade() + "-" + endereco.getEstado());
+        agendamentoViewHolder.txtEnderecoEstabelecimento.setText( endereco.getCep() + ", " + endereco.getCidade() + "-" + endereco.getEstado());
         agendamentoViewHolder.txtDia.setText(data[2]);
         agendamentoViewHolder.txtMes.setText(data[1]);
         agendamentoViewHolder.txtAno.setText(data[0]);

@@ -127,6 +127,8 @@ public class ContatoActivity extends AppCompatActivity implements View.OnClickLi
                                 //EM FASE DE MELHORAS.
                                 //cadastrando a foto do cliente
                                 CadastroFoto cadastroFoto = new CadastroFoto();
+                                if(clienteFinal.getFoto()!=null){
+
                                 final Call<Cliente> verificacao = cadastroFoto.CadastrarFoto(clienteFinal.getFoto(),respostaCadastroCliente.getIdCliente());
 
                                 exibirProgress(true);
@@ -162,7 +164,6 @@ public class ContatoActivity extends AppCompatActivity implements View.OnClickLi
                                                     }
 
                                                 }
-
                                             }
 
                                             @Override
@@ -192,6 +193,29 @@ public class ContatoActivity extends AppCompatActivity implements View.OnClickLi
 
                                     }
                                 },3000);
+
+                                }else{
+                                    Toast.makeText(ContatoActivity.this,"A foto não foi escolhida",Toast.LENGTH_LONG).show();
+                                    TaskLoginClienteToken loginClienteToken = new TaskLoginClienteToken(respostaCadastroCliente.getEmail(),respostaCadastroCliente.getSenha(),token);
+                                    loginClienteToken.execute();
+
+                                    try {
+
+                                        Cliente clienteLogado = (Cliente) loginClienteToken.get();
+                                        clienteLogado.setIdEndereco(respostaCadastroEndereco);
+                                        Intent intent = new Intent(ContatoActivity.this,MainActivity.class);
+                                        intent.putExtra("CLIENTELOGADO",clienteLogado);
+                                        intent.putExtra("token",token);
+                                        startActivity(intent);
+                                        finish();
+                                        exibirProgress(false);
+
+                                    } catch (ExecutionException e) {
+                                        e.printStackTrace();
+                                    } catch (InterruptedException e) {
+                                        e.printStackTrace();
+                                    }
+                                }
 
 
                             }

@@ -48,7 +48,6 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginTop="46dp"
-                android:text="Serviço X"
                 android:textSize="24dp" />
 
             <TextView
@@ -59,7 +58,6 @@
                 android:layout_below="@+id/text_servico_reservas"
                 android:layout_marginTop="4dp"
                 android:maxLength="18"
-                android:text="Nome do estabelecimento"
                 android:textSize="22dp" />
 
             <TextView
@@ -70,7 +68,6 @@
                 android:layout_below="@+id/text_nome_estabelecimento_reservas"
                 android:layout_marginTop="4dp"
                 android:maxLength="30"
-                android:text="Rua Elton Silva, 905 - Centro, Jandira - SP, 06600-025"
                 android:textSize="16dp" />
 
             <Button
@@ -101,7 +98,6 @@
                 android:layout_height="wrap_content"
                 android:layout_above="@+id/text_dia_reservas"
                 android:layout_alignParentStart="true"
-                android:text="Dezembro"
                 android:textAlignment="center"
                 android:textSize="24dp" />
 
@@ -111,7 +107,6 @@
                 android:layout_height="wrap_content"
                 android:layout_above="@+id/text_ano_reservas"
                 android:layout_alignParentStart="true"
-                android:text="25"
                 android:textAlignment="center"
                 android:textSize="24dp" />
 
@@ -121,7 +116,6 @@
                 android:layout_height="wrap_content"
                 android:layout_above="@+id/text_hora_reservas"
                 android:layout_alignParentStart="true"
-                android:text="2019"
                 android:textAlignment="center"
                 android:textSize="24dp" />
 
@@ -132,7 +126,6 @@
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentStart="true"
                 android:layout_marginBottom="38dp"
-                android:text="14:00"
                 android:textAlignment="center"
                 android:textSize="24dp" />
         </RelativeLayout>
