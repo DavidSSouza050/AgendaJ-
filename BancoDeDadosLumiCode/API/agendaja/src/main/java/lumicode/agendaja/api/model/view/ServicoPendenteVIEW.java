@@ -3,13 +3,8 @@ package lumicode.agendaja.api.model.view;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import lumicode.agendaja.api.model.dto.ClienteDTO;
-import lumicode.agendaja.api.model.dto.EstabelecimentoDTO;
-import lumicode.agendaja.api.model.dto.FuncionarioDTO;
 
 @Entity
 @Table(name = "view_servico_pendente")
@@ -17,17 +12,18 @@ public class ServicoPendenteVIEW {
 	@Id
 	@Column(name = "id")
 	private Long idAgendamento;
-	@ManyToOne
-	@JoinColumn(name = "funcionario")
-	private FuncionarioDTO funcionario;
-	@ManyToOne
-	@JoinColumn(name = "estabelecimento")
-	private EstabelecimentoDTO estabelecimento;
+	@Column(name = "id_funcionario")
+	private Integer idFunncionario;
+	@Column(name = "nome_funcionario")
+	private String nomeFuncionario;
+	@Column(name = "id_estabelecimento")
+	private Integer idEstabelecimento;
+	@Column(name = "nome_estabelecimento")
+	private String nomeEstabelecimento;
 	@Column(name = "preco")
 	private Double preco;
-	@ManyToOne
-	@JoinColumn(name = "cliente")
-	private ClienteDTO cliente;
+	@Column(name = "cliente")
+	private Integer cliente;
 	@Column(name = "nome_cliente")
 	private String nomeCliente;
 	@Column(name = "foto_cliente")
@@ -56,20 +52,39 @@ public class ServicoPendenteVIEW {
 		this.idAgendamento = idAgendamento;
 	}
 
-	public FuncionarioDTO getFuncionario() {
-		return funcionario;
+	
+
+	public Integer getIdFunncionario() {
+		return idFunncionario;
 	}
 
-	public void setFuncionario(FuncionarioDTO funcionario) {
-		this.funcionario = funcionario;
+	public void setIdFunncionario(Integer idFunncionario) {
+		this.idFunncionario = idFunncionario;
 	}
 
-	public EstabelecimentoDTO getEstabelecimento() {
-		return estabelecimento;
+	public String getNomeFuncionario() {
+		return nomeFuncionario;
 	}
 
-	public void setEstabelecimento(EstabelecimentoDTO estabelecimento) {
-		this.estabelecimento = estabelecimento;
+	public void setNomeFuncionario(String nomeFuncionario) {
+		this.nomeFuncionario = nomeFuncionario;
+	}
+
+	public Integer getIdEstabelecimento() {
+		return idEstabelecimento;
+	}
+
+	public void setIdEstabelecimento(Integer idEstabelecimento) {
+		this.idEstabelecimento = idEstabelecimento;
+	}
+
+	
+	public String getNomeEstabelecimento() {
+		return nomeEstabelecimento;
+	}
+
+	public void setNomeEstabelecimento(String nomeEstabelecimento) {
+		this.nomeEstabelecimento = nomeEstabelecimento;
 	}
 
 	public Double getPreco() {
@@ -80,15 +95,11 @@ public class ServicoPendenteVIEW {
 		this.preco = preco;
 	}
 	
-	
-
-	
-
-	public ClienteDTO getCliente() {
+	public Integer getCliente() {
 		return cliente;
 	}
 
-	public void setCliente(ClienteDTO cliente) {
+	public void setCliente(Integer cliente) {
 		this.cliente = cliente;
 	}
 

@@ -152,6 +152,14 @@ public class AgendamentoResource {
 			@PathVariable Long id ){
 	
 		Agendamento agendamentoAtualizado = agendamentoRepository.findById(id).get();
+		
+		if(agendamentoAtualizado.getFinalizado() == 1) {
+			return new ResponseEntity<String>("{\"mesage\":\"Agendamento já finalizado\"}", HttpStatus.LOCKED);
+		}
+		
+		if(agendamentoAtualizado.getStatus() == 'C') {
+			return new ResponseEntity<String>("{\"mesage\":\"Agendamento já Cancelado\"}", HttpStatus.LOCKED);
+		}
 
 		BeanUtils.copyProperties(agendamento, agendamentoAtualizado, "id");
 	
@@ -191,7 +199,7 @@ public class AgendamentoResource {
 		
 		agendamentoRepository.save(agendamentoFinalizado);
 		
-		return new ResponseEntity<String>("{\"mesage\":\"Agendamento Finalizado}", HttpStatus.OK);
+		return new ResponseEntity<String>("{\"mesage\":\"Agendamento Finalizado\"}", HttpStatus.OK);
 	}
 	
 	
