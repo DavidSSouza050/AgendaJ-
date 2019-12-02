@@ -240,7 +240,9 @@ public class FazerReservaActivity extends AppCompatActivity implements View.OnCl
         if(response.isSuccessful()){
           Log.d("sucesso","sucesso");
           emServicoList = response.body();
-          Log.d("responseBody", String.valueOf(response.body().get(0).getIdFuncionario()));
+         if(response.body()!=null){
+             Log.d("responseBody", String.valueOf(response.body().get(0).getIdFuncionario()));
+         }
         }else{
             Log.d("foi fracasso",response.errorBody().toString());
         }
@@ -254,6 +256,8 @@ public class FazerReservaActivity extends AppCompatActivity implements View.OnCl
 
     TaskGetFuncionarios funcionarios = new TaskGetFuncionarios(estabelecimento.getIdEstabelecimento());
     funcionarios.execute();
+
+
 
 
     try {
