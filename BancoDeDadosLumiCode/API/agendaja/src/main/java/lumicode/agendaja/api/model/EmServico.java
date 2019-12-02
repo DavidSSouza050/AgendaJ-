@@ -18,12 +18,8 @@ public class EmServico {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idEmServico;
-	@ManyToOne
-	@JoinColumn(name="id_estabelecimento")
-	private EstabelecimentoDTO estabelecimento;
-	@ManyToOne
-	@JoinColumn(name="id_funcionario")
-	private FuncionarioDTO funcionario;
+	private Long idEstabelecimento;
+	private Long idFuncionario;
 	private String diaMes;
 	private String mes;
 	
@@ -39,22 +35,23 @@ public class EmServico {
 		this.idEmServico = idEmServico;
 	}
 
-	public FuncionarioDTO getFuncionario() {
-		return funcionario;
-	}
-
-	public void setFuncionario(FuncionarioDTO funcionario) {
-		this.funcionario = funcionario;
-	}
-
+	
 	
 
-	public EstabelecimentoDTO getEstabelecimento() {
-		return estabelecimento;
+	public Long getIdEstabelecimento() {
+		return idEstabelecimento;
 	}
 
-	public void setEstabelecimento(EstabelecimentoDTO estabelecimento) {
-		this.estabelecimento = estabelecimento;
+	public void setIdEstabelecimento(Long idEstabelecimento) {
+		this.idEstabelecimento = idEstabelecimento;
+	}
+
+	public Long getIdFuncionario() {
+		return idFuncionario;
+	}
+
+	public void setIdFuncionario(Long idFuncionario) {
+		this.idFuncionario = idFuncionario;
 	}
 
 	public String getDiaMes() {

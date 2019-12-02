@@ -37,11 +37,6 @@ public class EmServicoResource {
 	@Autowired
 	private AgendamentoRepository agendamentoRepository;
 	
-	@Autowired 
-	private FuncionarioDTORepository funcionarioDTORepository;
-	
-	@Autowired
-	private EstabelecimentoDTORepository estabelecimentoDTORepository;
 	
 	@GetMapping
 	private List<EmServico> listaDeFuncionariosEmServico(){
@@ -80,9 +75,8 @@ public class EmServicoResource {
 		
 		//colocando o funcionario em servico
 		EmServico emServico = new EmServico();
-		emServico.setFuncionario(funcionarioDTORepository.pegarFuncionario(idFuncionario));
-		emServico.setEstabelecimento(estabelecimentoDTORepository.pegarEstabelecimento(agendamento.getEstabelecimento()
-				.getIdEstabelecimento()));
+		emServico.setIdFuncionario(idFuncionario);
+		emServico.setIdEstabelecimento(agendamento.getEstabelecimento().getIdEstabelecimento());
 		emServico.setDiaMes(diaMes);
 		emServico.setAno(ano);
 		emServico.setMes(mes);

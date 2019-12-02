@@ -56,10 +56,10 @@ public class AgendamentoResource {
 		return agendamentoRepository.findById(id).get();
 	}
 	
-	@GetMapping("/total/estabelecimento/{id}")
+	@GetMapping("/totalDia/estabelecimento/{id}")
 	private String totalAgendamento(@PathVariable Long id) {
 		
-		Integer totalAgendamento = agendamentoRepository.agendamentosPendentesTotal(mes, ano, dia, id);
+		Integer totalAgendamento = servicoPendenteVIEWRepository.agendamentosPendentesTotal(mes, ano, dia, id);
 		
 		return "{\"mesage\":\""+totalAgendamento+"\"}";
 	}
