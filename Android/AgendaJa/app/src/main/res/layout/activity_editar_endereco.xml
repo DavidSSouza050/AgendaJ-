@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".EditarEnderecoActivity"
     android:padding="8dp"
-    android:background="@color/colorBrancoAcinzentadoo">
+    android:background="@drawable/gradiente">
 
 
     <RelativeLayout
@@ -28,7 +28,8 @@
             android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
             android:layout_marginStart="12dp"
-            android:text="ENDEREÇO"
+            android:text="Endereço"
+            android:textColor="@android:color/white"
             android:textSize="28dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -39,9 +40,9 @@
     <LinearLayout
         android:id="@+id/linearLayout_3"
         android:layout_width="match_parent"
-        android:layout_height="3dp"
+        android:layout_height="1dp"
         android:layout_marginTop="1dp"
-        android:background="@color/colorRoxoMeioAzul"
+        android:background="@android:color/white"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -264,10 +265,9 @@
         android:layout_marginBottom="28dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:background="@drawable/botao_redondo_colorido"
+        android:background="@drawable/botao_redondo"
         android:text="SALVAR"
         android:textStyle="bold"
-        android:textColor="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

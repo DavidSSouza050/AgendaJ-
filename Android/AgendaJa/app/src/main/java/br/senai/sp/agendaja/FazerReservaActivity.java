@@ -60,7 +60,7 @@ public class FazerReservaActivity extends AppCompatActivity implements View.OnCl
     private String dataEscolhida;
     private VerificandoHorarios verificandoHorarios;
     private List<EmServico> emServicoList;
-    private JSONArray arrayServicos;
+    private String arrayServicos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -185,7 +185,7 @@ public class FazerReservaActivity extends AppCompatActivity implements View.OnCl
 
   @SuppressLint("ResourceAsColor")
   @Override
-  public void onClickHorario(LinearLayout linearLayout,String horario) {
+  public void onClickHorario(LinearLayout linearLayout, final String horario) {
     if(statusHorario==0){
       linearLayout.setBackgroundColor(R.color.colorLilasClaro);
       statusHorario++;
@@ -203,7 +203,7 @@ public class FazerReservaActivity extends AppCompatActivity implements View.OnCl
 
     String horarioSomado = horarioList[0] + ":" + soma;
 
-    String horarioFinal = CalculoHorario.calcularHorarioFinal(horarioSomado);
+    final String horarioFinal = CalculoHorario.calcularHorarioFinal(horarioSomado);
 
     Integer ano = 0;
     Integer mes = 0;
@@ -240,8 +240,12 @@ public class FazerReservaActivity extends AppCompatActivity implements View.OnCl
         if(response.isSuccessful()){
           Log.d("sucesso","sucesso");
           emServicoList = response.body();
+
+          mostrarFuncionarios(emServicoList,horario,horarioFinal);
+
+          Log.d("responseBody", String.valueOf(response.body()));
          if(response.body()!=null){
-             Log.d("responseBody", String.valueOf(response.body().get(0).getIdFuncionario()));
+           arrayServicos = String.valueOf(response.body());
          }
         }else{
             Log.d("foi fracasso",response.errorBody().toString());
@@ -254,11 +258,12 @@ public class FazerReservaActivity extends AppCompatActivity implements View.OnCl
       }
     });
 
+  }
+
+  private void mostrarFuncionarios(List<EmServico> emServicoList,String horario,String horarioFinal){
+
     TaskGetFuncionarios funcionarios = new TaskGetFuncionarios(estabelecimento.getIdEstabelecimento());
     funcionarios.execute();
-
-
-
 
     try {
 
@@ -307,8 +312,6 @@ public class FazerReservaActivity extends AppCompatActivity implements View.OnCl
 
 
     }
-
-
 
   }
 

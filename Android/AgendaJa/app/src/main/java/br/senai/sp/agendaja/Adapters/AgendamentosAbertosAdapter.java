@@ -1,7 +1,9 @@
 package br.senai.sp.agendaja.Adapters;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +14,7 @@ import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 import androidx.annotation.NonNull;
+import br.senai.sp.agendaja.CalculoHorario.CalculoHorario;
 import br.senai.sp.agendaja.MainActivity;
 import br.senai.sp.agendaja.Model.Agendamento;
 import br.senai.sp.agendaja.Model.Endereco;
@@ -39,16 +42,25 @@ public class AgendamentosAbertosAdapter extends RecyclerView.Adapter<Agendamento
         return agendamentoViewHolder;
     }
 
+    @SuppressLint("LongLogTag")
     @Override
     public void onBindViewHolder(@NonNull AgendamentoViewHolder agendamentoViewHolder,final int i) {
         final Agendamento agendamento = agendamentoList.get(i);
 
+        Log.d("idAgendamentoEstabelecimento", String.valueOf(agendamento.getIdEstabelecimento()));
         TaskGetEnderecoIdEstab getEnderecoIdEstab = new TaskGetEnderecoIdEstab(agendamento.getIdEstabelecimento(), MainActivity.TOKEN);
         getEnderecoIdEstab.execute();
 
         String[] dataHorario  = agendamento.getDataAgendamento().split(" ");
         final String[] data= dataHorario[0].split("-");
         final String horario = dataHorario[1];
+
+        String[] horaEMinuto = horario.split(":");
+
+        String horarioFinal = CalculoHorario.calcularHorarioFinal(horario);
+
+        final String horaFinal = horarioFinal.split(":")[0];
+        final String minutosFinais = horarioFinal.split(":")[1];
 
 
 
@@ -77,7 +89,7 @@ public class AgendamentosAbertosAdapter extends RecyclerView.Adapter<Agendamento
         agendamentoViewHolder.btnFinalizar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                clickAgendamento.onClickAgendamentoFinalizar(agendamento,data[2],data[1],data[0],horario);
+                clickAgendamento.onClickAgendamentoFinalizar(agendamento,data[2],data[1],data[0],horaFinal,minutosFinais);
                 notifyItemRemoved(i);
 
             }
@@ -127,7 +139,7 @@ public class AgendamentosAbertosAdapter extends RecyclerView.Adapter<Agendamento
     public interface ClickAgendamento{
         public void onClickAgendamentoCancelar(Agendamento agendamento);
 
-        public void onClickAgendamentoFinalizar(Agendamento agendamento, String dia, String mes, String ano, String horario);
+        public void onClickAgendamentoFinalizar(Agendamento agendamento, String dia, String mes, String ano, String hora,String minuto);
     }
 
 

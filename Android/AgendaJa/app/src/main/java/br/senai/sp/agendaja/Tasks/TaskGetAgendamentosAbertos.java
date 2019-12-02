@@ -58,9 +58,9 @@ public class TaskGetAgendamentosAbertos extends AsyncTask {
                 for (int i=0;i<array.length();i++){
                     JSONObject object = (JSONObject) array.get(i);
                     Agendamento agendamento = new Agendamento();
-                    agendamento.setIdCliente(object.getJSONObject("cliente").getInt("idCliente"));
+                    agendamento.setIdCliente(object.getInt("cliente"));
                     agendamento.setIdAgendamento(object.getInt("idAgendamento"));
-                    agendamento.setNomeEstabelecimento(object.getJSONObject("estabelecimento").getString("nomeEstabelecimento"));
+                    agendamento.setNomeEstabelecimento(object.getString("nomeEstabelecimento"));
                     agendamento.setPreco(object.getString("preco"));
                     agendamento.setNomeServico(object.getString("servico"));
                     agendamento.setDuracaoServico(object.getString("duracaoServico"));
@@ -68,8 +68,8 @@ public class TaskGetAgendamentosAbertos extends AsyncTask {
                     agendamento.setNomeCategoria(object.getString("categoria"));
                     agendamento.setStatusFinalizado(object.getInt("finalizado"));
                     agendamento.setStatusCancelado(object.getString("cancelado"));
-                    agendamento.setIdFuncionario(object.getJSONObject("funcionario").getInt("idFuncionario"));
-                    agendamento.setIdEstabelecimento(object.getJSONObject("estabelecimento").getInt("idEstabelecimento"));
+                    agendamento.setIdFuncionario(object.getInt("idFunncionario"));
+                    agendamento.setIdEstabelecimento(object.getInt("idEstabelecimento"));
 
                     agendamentoList.add(agendamento);
 

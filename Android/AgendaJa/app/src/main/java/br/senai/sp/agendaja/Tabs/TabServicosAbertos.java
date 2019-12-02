@@ -1,5 +1,6 @@
 package br.senai.sp.agendaja.Tabs;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -8,12 +9,16 @@ import androidx.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
@@ -31,7 +36,7 @@ public class TabServicosAbertos extends Fragment implements AgendamentosAbertosA
   private RecyclerView recyclerView;
   private List<Agendamento> agendamentoListDisponiveis;
   private AlertDialog alertDialog;
-
+  private int idEstabelecimento;
 
   @Nullable
   @Override
@@ -117,8 +122,46 @@ public class TabServicosAbertos extends Fragment implements AgendamentosAbertosA
 
   }
 
+  @SuppressLint("LongLogTag")
   @Override
-  public void onClickAgendamentoFinalizar(final Agendamento agendamento, String dia, String mes, String ano, String horario) {
+  public void onClickAgendamentoFinalizar(final Agendamento agendamento, String dia, String mes, String ano, String hora,String minuto) {
+
+
+    idEstabelecimento = agendamento.getIdEstabelecimento();
+
+    Date date = new Date();
+    Calendar c = new GregorianCalendar();
+    c.setTime(date);
+
+    String diaConfirmar = String.valueOf(c.get(Calendar.DAY_OF_MONTH));
+    String mesConfirmar = String.valueOf((c.get(Calendar.MONTH)+1));
+    String anoConfimar = String.valueOf(c.get(Calendar.YEAR));
+    String horaConfirmar = String.valueOf((c.get(Calendar.HOUR_OF_DAY)-2));
+    String minutosConfirmar = String.valueOf(c.get(Calendar.MINUTE));
+
+
+    if(ano==anoConfimar){
+      if(mes==mesConfirmar){
+        if(dia==diaConfirmar){
+          if(hora==horaConfirmar){
+            if(minuto==minutosConfirmar){
+
+            }
+          }
+        }
+      }
+    }else{
+
+    }
+
+    Log.d("diaConfirmar",diaConfirmar);
+    Log.d("mesConfirmar",mesConfirmar);
+    Log.d("anoConfimrar",anoConfimar);
+    Log.d("horaConfimrar",horaConfirmar);
+    Log.d("minutoConfirmar",minutosConfirmar);
+
+
+
     TaskFinalizarAgendamento finalizarAgendamento = new TaskFinalizarAgendamento(agendamento.getIdAgendamento());
     finalizarAgendamento.execute();
 
@@ -137,10 +180,11 @@ public class TabServicosAbertos extends Fragment implements AgendamentosAbertosA
           builder.setTitle("Avaliações");
           builder.setMessage("deseja avaliar esse estabelecimento?");
           builder.setPositiveButton("Avaliar", new DialogInterface.OnClickListener() {
+            @SuppressLint("LongLogTag")
             @Override
             public void onClick(DialogInterface dialog, int which) {
               Intent intent = new Intent(getContext(), CadastrarAvaliacaoActivity.class);
-              intent.putExtra("idEstabelecimento",agendamento.getIdEstabelecimento());
+              intent.putExtra("idEstabelecimento",idEstabelecimento);
               startActivity(intent);
 
             }
