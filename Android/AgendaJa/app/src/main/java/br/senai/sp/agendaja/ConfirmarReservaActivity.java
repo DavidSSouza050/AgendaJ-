@@ -13,10 +13,12 @@ import android.widget.Toast;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.concurrent.ExecutionException;
 
 import br.senai.sp.agendaja.CalculoHorario.CalculoHorario;
+import br.senai.sp.agendaja.Model.Agendamento;
 import br.senai.sp.agendaja.Model.EmServico;
 import br.senai.sp.agendaja.Model.Estabelecimento;
 import br.senai.sp.agendaja.Model.Funcionario;
@@ -45,6 +47,7 @@ public class ConfirmarReservaActivity extends AppCompatActivity  implements View
     private TextView txtNomeServico;
     private TextView txtNomeFuncionario;
     private Button btnConfirmarReserva;
+    private Agendamento agendamentoRetornado;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -137,69 +140,51 @@ public class ConfirmarReservaActivity extends AppCompatActivity  implements View
                 try {
 
                     if(cadastrarAgendamento.get()!=null){
-                        Integer idAgendamentoRetornado = (Integer) cadastrarAgendamento.get();
+                         agendamentoRetornado = (Agendamento) cadastrarAgendamento.get();
 
-                        TaskCadastrarServicoAgendamento cadastrarServicoAgendamento = new TaskCadastrarServicoAgendamento(servicoEscolhido.getIdServico(),idAgendamentoRetornado);
+                        TaskCadastrarServicoAgendamento cadastrarServicoAgendamento = new TaskCadastrarServicoAgendamento(servicoEscolhido.getIdServico(),agendamentoRetornado.getIdAgendamento());
                         cadastrarServicoAgendamento.execute();
 
 
                         if(cadastrarServicoAgendamento.get()!=null){
-                            boolean retornoCadastroServicoAgendamento = (boolean) cadastrarServicoAgendamento.get();
-                            if(retornoCadastroServicoAgendamento){
-//                                CadastarEmServico cadastarEmServico = new CadastarEmServico();
-//                                Call<EmServico> postEmServico = cadastarEmServico.postEmServico(idAgendamentoRetornado);
-//
-//                                postEmServico.enqueue(new Callback<EmServico>() {
-//                                    @Override
-//                                    public void onResponse(Call<EmServico> call, Response<EmServico> response) {
-//                                        if(response.isSuccessful()){
-//                                            Socket socket = null;
-//                                            try {
-//                                                socket = IO.socket(MainActivity.IP_SOCKET);
-//                                                socket.on(Socket.EVENT_CONNECT, new Emitter.Listener() {
-//                                                    @Override
-//                                                    public void call(Object... args) {
-//
-//                                                    }
-//                                                });
-//
-//                                                JSONObject object = new JSONObject(
-//                                                     "{token:" + MainActivity.TOKEN + ","
-//                                                    +"idCliente:"+MainActivity.CLIENTELOGADO.getIdCliente()+","
-//                                                     +"idFuncionario:"+funcionarioEscolhido.getIdFuncionario()+","
-//                                                     +"idEstabelecimento:"+estabelecimentoEscolhido.getIdEstabelecimento()+","
-//                                                     +"dataHorarioAgendamento:"+horarioEscolhido + "}"
-//                                                );
-//
-//                                                socket.emit("agendamento",object);
-//
-//                                            } catch (URISyntaxException e) {
-//                                                e.printStackTrace();
-//                                            } catch (JSONException e) {
-//                                                e.printStackTrace();
-//                                            }
-//
-//                                            Intent intentMain = new Intent(ConfirmarReservaActivity.this,MainActivity.class);
-//                                            intentMain.putExtra("CLIENTELOGADO",MainActivity.CLIENTELOGADO);
-//                                            intentMain.putExtra("token",MainActivity.TOKEN);
-//                                            startActivity(intentMain);
-//                                        }
-//                                    }
-//
-//                                    @Override
-//                                    public void onFailure(Call<EmServico> call, Throwable t) {
-//
-//                                        Toast.makeText(ConfirmarReservaActivity.this,"Erro ao cadastrar",Toast.LENGTH_LONG).show();
-//                                        Log.d("problema do agendamento",t.getMessage());
-//
-//                                    }
-//                                });
+                             Boolean retornoServicoAgendaemnto= (Boolean) cadastrarServicoAgendamento.get();
+                            if(retornoServicoAgendaemnto){
 
-                                Intent intentMain = new Intent(ConfirmarReservaActivity.this,MainActivity.class);
-                                intentMain.putExtra("CLIENTELOGADO",MainActivity.CLIENTELOGADO);
-                                intentMain.putExtra("token",MainActivity.TOKEN);
-                                startActivity(intentMain);
+                                Integer idAgendamento = agendamentoRetornado.getIdAgendamento();
 
+                                CadastarEmServico cadastarEmServico = new CadastarEmServico();
+                                Call<EmServico> postEmServico = cadastarEmServico.postEmServico(idAgendamento);
+
+                                postEmServico.enqueue(new Callback<EmServico>() {
+                                    @Override
+                                    public void onResponse(Call<EmServico> call, Response<EmServico> response) {
+                                        if(response.isSuccessful()){
+
+                                            Log.d("sucesso em servico","sucesso");
+                                            Intent intentMain = new Intent(ConfirmarReservaActivity.this,MainActivity.class);
+                                            intentMain.putExtra("CLIENTELOGADO",MainActivity.CLIENTELOGADO);
+                                            intentMain.putExtra("token",MainActivity.TOKEN);
+                                            startActivity(intentMain);
+                                        }else{
+                                            Log.d("~fracasso","fracasso");
+                                            Log.d("mensagem fracasso", String.valueOf(response.code()));
+                                            Log.d("mensagem fracasso2", String.valueOf(response.body()));
+                                            try {
+                                                Log.d("mensagem fracasso3", String.valueOf(response.errorBody().string()));
+                                            } catch (IOException e) {
+                                                e.printStackTrace();
+                                            }
+                                        }
+                                    }
+
+                                    @Override
+                                    public void onFailure(Call<EmServico> call, Throwable t) {
+
+                                        Toast.makeText(ConfirmarReservaActivity.this,"Erro ao cadastrar",Toast.LENGTH_LONG).show();
+                                        Log.d("problema do agendamento",t.getMessage());
+
+                                    }
+                                });
                             }
 
 

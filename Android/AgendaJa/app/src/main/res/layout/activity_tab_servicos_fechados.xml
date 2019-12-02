@@ -3,14 +3,15 @@
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
+    android:padding="16dp"
     >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Tab Serviços Fechados"
-        android:textSize="24dp"
-        />
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_servicos_finalizados"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </android.support.v7.widget.RecyclerView>
 
 
 

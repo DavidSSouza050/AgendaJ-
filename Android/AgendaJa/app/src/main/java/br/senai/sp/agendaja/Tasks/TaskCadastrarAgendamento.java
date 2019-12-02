@@ -14,6 +14,7 @@ import java.net.URL;
 import java.util.Scanner;
 
 import br.senai.sp.agendaja.MainActivity;
+import br.senai.sp.agendaja.Model.Agendamento;
 
 public class TaskCadastrarAgendamento extends AsyncTask {
 
@@ -22,7 +23,7 @@ public class TaskCadastrarAgendamento extends AsyncTask {
   private int idFuncionario;
   private String data;
   private String resposta;
-  private int idAgendamento;
+  private Agendamento agendamento;
 
   public TaskCadastrarAgendamento(int idCliente, int idEstabelecimento, int idFuncionario, String data) {
     this.idCliente = idCliente;
@@ -63,7 +64,13 @@ public class TaskCadastrarAgendamento extends AsyncTask {
 
       if(resposta!=null){
         JSONObject object = new JSONObject(resposta);
-        idAgendamento = object.getInt("idAgendamento");
+         agendamento = new Agendamento();
+        agendamento.setIdCliente(object.getJSONObject("cliente").getInt("idCliente"));
+        agendamento.setIdAgendamento(object.getInt("idAgendamento"));
+        agendamento.setDataAgendamento(object.getString("dataHorarioAgendado"));
+        agendamento.setStatusFinalizado(object.getInt("finalizado"));
+        agendamento.setIdFuncionario(object.getJSONObject("funcionario").getInt("idFuncionario"));
+        agendamento.setIdEstabelecimento(object.getJSONObject("estabelecimento").getInt("idEstabelecimento"));
       }
 
     } catch (JSONException e) {
@@ -77,10 +84,10 @@ public class TaskCadastrarAgendamento extends AsyncTask {
 
 
 
-    if(idAgendamento!=0){
-      return idAgendamento;
+    if(agendamento!=null && agendamento.getIdAgendamento()>0){
+      return agendamento;
     }else{
-      return  0;
+      return  null;
     }
   }
 }

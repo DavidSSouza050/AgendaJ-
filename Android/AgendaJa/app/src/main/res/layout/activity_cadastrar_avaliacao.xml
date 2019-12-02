@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CadastrarAvaliacaoActivity"
+    android:padding="16dp"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:orientation="vertical"
+    >
+
+    <EditText
+        android:id="@+id/txt_comentario_avaliacao"
+        android:layout_width="300dp"
+        android:layout_height="80dp"
+        android:hint="Digite seu comentário"
+        />
+
+    <EditText
+        android:id="@+id/txt_nota_avaliacao"
+        android:layout_width="300dp"
+        android:layout_height="80dp"
+        android:hint="Digite sua nota"
+        />
+
+    <Button
+        android:id="@+id/btn_enviar_avaliacao"
+        android:layout_width="300dp"
+        android:layout_height="80dp"
+        android:text="ENVIAR AVALIAÇÃO"
+        />
+
+
+
+
+</LinearLayout>

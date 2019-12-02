@@ -73,18 +73,7 @@
                 android:text="Rua Elton Silva, 905 - Centro, Jandira - SP, 06600-025"
                 android:textSize="16dp" />
 
-            <Button
-                android:id="@+id/btn_cancelar_reservas_finalizadas"
-                style="@style/Animation.AppCompat.Dialog"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginBottom="13dp"
-                android:background="@drawable/botao_redondo_colorido"
-                android:text="Agendar Novamente"
-                android:textColor="@android:color/white"
-                android:textStyle="bold" />
+
         </RelativeLayout>
 
         <RelativeLayout

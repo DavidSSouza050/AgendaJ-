@@ -13,10 +13,6 @@ public class CadastarEmServico {
 
     fileService =  RetrofitConfigCadastrarEmServico.getFileService();
 
-
-    //RequestBody requestBody = RequestBody.create(MediaType.parse("multipart/form-data"), String.valueOf(idAgendamento));
-//    RequestBody idEmServico = RequestBody.create(MediaType.parse("text/plain"),String.valueOf(idAgendamento));
-
     Call<EmServico> postEmServico = fileService.postEmServico(idAgendamento, MainActivity.TOKEN);
 
     return postEmServico;

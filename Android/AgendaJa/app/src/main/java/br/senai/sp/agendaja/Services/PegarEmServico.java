@@ -14,6 +14,6 @@ import retrofit2.http.POST;
 public interface PegarEmServico {
 
   @FormUrlEncoded
-  @POST("ocupados")
+  @POST("emServico/ocupados")
   Call<List<EmServico>> pegarFuncionariosEmServico(@Field("dia_mes") int diaMes, @Field("mes") int mes, @Field("ano") int ano, @Field("idEstabelecimento") int idEstabelecimento, @Header("token") String token );
 }

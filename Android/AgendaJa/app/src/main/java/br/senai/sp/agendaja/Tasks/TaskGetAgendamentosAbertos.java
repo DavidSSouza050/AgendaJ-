@@ -19,12 +19,12 @@ import java.util.List;
 import br.senai.sp.agendaja.MainActivity;
 import br.senai.sp.agendaja.Model.Agendamento;
 
-public class TaskGetAgendamentos extends AsyncTask {
+public class TaskGetAgendamentosAbertos extends AsyncTask {
     private int idCliente;
     private String dados = "";
     private List<Agendamento> agendamentoList;
 
-    public TaskGetAgendamentos(int idCliente) {
+    public TaskGetAgendamentosAbertos(int idCliente) {
         this.idCliente = idCliente;
     }
 

@@ -5,21 +5,21 @@ import com.google.gson.annotations.SerializedName;
 public class EmServico {
 
 
-  @SerializedName("idEmServico")
+ // @SerializedName("idEmServico")
   private int idEmServico;
-  @SerializedName("idEstabelecimento")
+  //@SerializedName("idEstabelecimento")
   private int idEstabelecimento;
-  @SerializedName("idFuncionario")
+  //@SerializedName("idFuncionario")
   private int idFuncionario;
-  @SerializedName("diaMes")
+  //@SerializedName("diaMes")
   private String diaMes;
-  @SerializedName("mes")
+  //@SerializedName("mes")
   private String mes;
-  @SerializedName("ano")
+  //@SerializedName("ano")
   private String ano;
-  @SerializedName("ocupadoInicio")
+  //@SerializedName("ocupadoInicio")
   private String horaInicio;
-  @SerializedName("ocupadoFim")
+  //@SerializedName("ocupadoFim")
   private String horaFim;
 
   public int getIdEmServico() {

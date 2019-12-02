@@ -98,6 +98,9 @@ public class FazerReservaActivity extends AppCompatActivity implements View.OnCl
 
         }
 
+        Date date = new Date();
+        calendarioReserva.setMinDate(date.getTime());
+
         listaDeFuncionarios.setLayoutManager(new LinearLayoutManager(this));
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(FazerReservaActivity.this,LinearLayout.HORIZONTAL,false);
@@ -237,6 +240,9 @@ public class FazerReservaActivity extends AppCompatActivity implements View.OnCl
         if(response.isSuccessful()){
           Log.d("sucesso","sucesso");
           emServicoList = response.body();
+          Log.d("responseBody", String.valueOf(response.body().get(0).getIdFuncionario()));
+        }else{
+            Log.d("foi fracasso",response.errorBody().toString());
         }
       }
 
@@ -245,36 +251,6 @@ public class FazerReservaActivity extends AppCompatActivity implements View.OnCl
         Log.d("nao foi sucesso","deu erro");
       }
     });
-
-
-  //emServicoList = new ArrayList<>();
-
-//  if(arrayServicos!=null){
-//
-//    for(int contador = 0;contador<arrayServicos.length();contador++){
-//      try {
-//        JSONObject object = (JSONObject) arrayServicos.get(contador);
-//        EmServico emServico = new EmServico();
-//        emServico.setAno(object.getString("ano"));
-//        emServico.setMes(object.getString("mes"));
-//        emServico.setDiaMes(object.getString("diaMes"));
-//        emServico.setHoraInicio(object.getString("ocupadoInicio"));
-//        emServico.setHoraFim(object.getString("ocupadoFim"));
-//        emServico.setIdEmServico(object.getInt("idEmServico"));
-//        emServico.setIdEstabelecimento(object.getJSONObject("estabelecimento").getInt("idEstabelecimento"));
-//        emServico.setIdFuncionario(object.getJSONObject("funcionario").getInt("idFuncionario"));
-//
-//        emServicoList.add(emServico);
-//
-//
-//      } catch (JSONException e) {
-//        e.printStackTrace();
-//      }
-//    }
-//
-//  }
-
-
 
     TaskGetFuncionarios funcionarios = new TaskGetFuncionarios(estabelecimento.getIdEstabelecimento());
     funcionarios.execute();

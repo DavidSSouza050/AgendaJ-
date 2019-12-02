@@ -22,6 +22,18 @@
             android:orientation="vertical"
             android:background="@android:color/white">
 
+            <Button
+                android:id="@+id/btn_cancelar_reservas2"
+                style="@style/Animation.AppCompat.Dialog"
+                android:layout_width="107dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="7dp"
+                android:background="@drawable/botao_redondo_colorido"
+                android:text="CANCELAR"
+                android:textColor="@android:color/white"
+                android:textStyle="bold" />
+
             <RelativeLayout
                 android:layout_width="88dp"
                 android:layout_height="20dp"
@@ -73,13 +85,28 @@
             <Button
                 android:id="@+id/btn_cancelar_reservas"
                 style="@style/Animation.AppCompat.Dialog"
-                android:layout_width="150dp"
+                android:layout_width="103dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginBottom="13dp"
+                android:layout_marginBottom="4dp"
                 android:background="@drawable/botao_redondo_colorido"
                 android:text="CANCELAR"
+                android:textColor="@android:color/white"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btn_finalizar_reservas"
+                style="@style/Animation.AppCompat.Dialog"
+                android:layout_width="107dp"
+                android:layout_height="wrap_content"
+                android:layout_alignRight="@+id/btn_cancelar_reservas"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="120dp"
+                android:layout_marginRight="-119dp"
+                android:layout_marginBottom="4dp"
+                android:background="@drawable/botao_redondo_colorido"
+                android:text="FINALIZAR"
                 android:textColor="@android:color/white"
                 android:textStyle="bold" />
         </RelativeLayout>

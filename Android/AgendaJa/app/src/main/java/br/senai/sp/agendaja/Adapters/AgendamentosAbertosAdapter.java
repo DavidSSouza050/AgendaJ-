@@ -18,14 +18,16 @@ import br.senai.sp.agendaja.Model.Endereco;
 import br.senai.sp.agendaja.R;
 import br.senai.sp.agendaja.Tasks.TaskGetEnderecoIdEstab;
 
-public class AgendamentosAdapter  extends RecyclerView.Adapter<AgendamentosAdapter.AgendamentoViewHolder>{
+public class AgendamentosAbertosAdapter extends RecyclerView.Adapter<AgendamentosAbertosAdapter.AgendamentoViewHolder>{
     private Context context;
     private List<Agendamento> agendamentoList;
     private Endereco endereco;
+    private ClickAgendamento clickAgendamento;
 
-    public AgendamentosAdapter(Context context,List<Agendamento> agendamentoList) {
+    public AgendamentosAbertosAdapter(Context context, List<Agendamento> agendamentoList, ClickAgendamento clickAgendamento) {
         this.context = context;
         this.agendamentoList = agendamentoList;
+        this.clickAgendamento = clickAgendamento;
     }
 
     @NonNull
@@ -38,15 +40,15 @@ public class AgendamentosAdapter  extends RecyclerView.Adapter<AgendamentosAdapt
     }
 
     @Override
-    public void onBindViewHolder(@NonNull AgendamentoViewHolder agendamentoViewHolder, int i) {
-        Agendamento agendamento = agendamentoList.get(i);
+    public void onBindViewHolder(@NonNull AgendamentoViewHolder agendamentoViewHolder,final int i) {
+        final Agendamento agendamento = agendamentoList.get(i);
 
         TaskGetEnderecoIdEstab getEnderecoIdEstab = new TaskGetEnderecoIdEstab(agendamento.getIdEstabelecimento(), MainActivity.TOKEN);
         getEnderecoIdEstab.execute();
 
         String[] dataHorario  = agendamento.getDataAgendamento().split(" ");
-        String[] data= dataHorario[0].split("-");
-        String horario = dataHorario[1];
+        final String[] data= dataHorario[0].split("-");
+        final String horario = dataHorario[1];
 
 
 
@@ -62,6 +64,24 @@ public class AgendamentosAdapter  extends RecyclerView.Adapter<AgendamentosAdapt
         agendamentoViewHolder.txtMes.setText(data[1]);
         agendamentoViewHolder.txtAno.setText(data[0]);
         agendamentoViewHolder.txtHora.setText(horario);
+
+        agendamentoViewHolder.btnCancelar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clickAgendamento.onClickAgendamentoCancelar(agendamento);
+                notifyItemRangeChanged(0,getItemCount());
+                notifyItemRemoved(i);
+            }
+        });
+
+        agendamentoViewHolder.btnFinalizar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clickAgendamento.onClickAgendamentoFinalizar(agendamento,data[2],data[1],data[0],horario);
+                notifyItemRemoved(i);
+
+            }
+        });
 
 
     } catch (InterruptedException e1) {
@@ -85,6 +105,7 @@ public class AgendamentosAdapter  extends RecyclerView.Adapter<AgendamentosAdapt
         private TextView txtAno;
         private TextView txtHora;
         private Button btnCancelar;
+        private Button btnFinalizar;
 
 
         public AgendamentoViewHolder(@NonNull View itemView) {
@@ -98,7 +119,16 @@ public class AgendamentosAdapter  extends RecyclerView.Adapter<AgendamentosAdapt
             txtAno = itemView.findViewById(R.id.text_ano_reservas);
             txtHora = itemView.findViewById(R.id.text_hora_reservas);
             btnCancelar = itemView.findViewById(R.id.btn_cancelar_reservas);
+            btnFinalizar = itemView.findViewById(R.id.btn_finalizar_reservas);
 
         }
     }
+
+    public interface ClickAgendamento{
+        public void onClickAgendamentoCancelar(Agendamento agendamento);
+
+        public void onClickAgendamentoFinalizar(Agendamento agendamento, String dia, String mes, String ano, String horario);
+    }
+
+
 }

@@ -6,7 +6,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitConfigPegarEmServico {
   private Retrofit retrofit;
-  public static  final String URL = "http://" + MainActivity.IP_SERVER +"/emServico/";
+  public static  final String URL_OCUPADOS = "http://" + MainActivity.IP_SERVER +"/";
 
   public RetrofitConfigPegarEmServico() {
 
@@ -15,7 +15,7 @@ public class RetrofitConfigPegarEmServico {
 
 
   public static PegarEmServico pegarFuncionariosEmServico(){
-    return RetrofitClient.getClient(URL).create(PegarEmServico.class);
+    return RetrofitClient.getClient(URL_OCUPADOS).create(PegarEmServico.class);
   }
 
 }
