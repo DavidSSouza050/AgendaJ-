@@ -3,6 +3,8 @@ package br.senai.sp.agendaja.Adapters;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import androidx.annotation.NonNull;
+
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -52,7 +54,7 @@ public class HorarioAdapter extends RecyclerView.Adapter<HorarioAdapter.HorarioV
     horarioViewHolder.txtHorario.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
-        clickHorario.onClickHorario(horarioViewHolder.layoutHorario,horario);
+        clickHorario.onClickHorario(horario);
       }
     });
 
@@ -66,7 +68,7 @@ public class HorarioAdapter extends RecyclerView.Adapter<HorarioAdapter.HorarioV
   public class HorarioViewHolder extends RecyclerView.ViewHolder{
 
     private TextView txtHorario;
-    private LinearLayout layoutHorario;
+    private CardView layoutHorario;
 
     public HorarioViewHolder(@NonNull View itemView) {
       super(itemView);
@@ -77,7 +79,7 @@ public class HorarioAdapter extends RecyclerView.Adapter<HorarioAdapter.HorarioV
   }
 
   public interface ClickHorario{
-    public void onClickHorario(LinearLayout linearLayout,String horario);
+    public void onClickHorario(String horario);
   }
 
 }

@@ -25,6 +25,7 @@ import br.senai.sp.agendaja.Model.Endereco;
 import br.senai.sp.agendaja.Model.Estabelecimento;
 import br.senai.sp.agendaja.R;
 import br.senai.sp.agendaja.Tasks.TaskGetEnderecoIdEstab;
+import br.senai.sp.agendaja.Tasks.TaskGetNotaEstabelecimento;
 
 public class EstabelecimentoAdapter extends RecyclerView.Adapter<EstabelecimentoAdapter.EstabelecimentoViewHolder>{
 
@@ -33,6 +34,7 @@ public class EstabelecimentoAdapter extends RecyclerView.Adapter<Estabelecimento
   private String token;
   private Endereco endereco;
   private ClickCardView clickCardView;
+  private int notaEstabelecimento;
 
   public EstabelecimentoAdapter(List<Estabelecimento> estabelecimentosList, Context context, String token,ClickCardView clickCardView) {
     this.estabelecimentosList = estabelecimentosList;
@@ -52,12 +54,15 @@ public class EstabelecimentoAdapter extends RecyclerView.Adapter<Estabelecimento
   }
 
   @Override
-  public void onBindViewHolder(@NonNull EstabelecimentoViewHolder estabelecimentoViewHolder, int i) {
+  public void onBindViewHolder(@NonNull final EstabelecimentoViewHolder estabelecimentoViewHolder, int i) {
 
     final Estabelecimento estabelecimento = estabelecimentosList.get(i);
 
     TaskGetEnderecoIdEstab getEnderecoIdEstab = new TaskGetEnderecoIdEstab(estabelecimento.getIdEstabelecimento(),token);
     getEnderecoIdEstab.execute();
+
+    TaskGetNotaEstabelecimento getNotaEstabelecimento = new TaskGetNotaEstabelecimento(estabelecimento.getIdEstabelecimento());
+    getNotaEstabelecimento.execute();
 
     try {
 
@@ -87,10 +92,27 @@ public class EstabelecimentoAdapter extends RecyclerView.Adapter<Estabelecimento
 
         estabelecimentoViewHolder.enderecoEstabelecimento.setText(estabelecimento.getBairro() + " " + estabelecimento.getCep() + ", " + estabelecimento.getCidade() + "-" + estabelecimento.getEstado());
 
+
+        if(getNotaEstabelecimento!=null){
+          notaEstabelecimento = (int) getNotaEstabelecimento.get();
+
+          estabelecimentoViewHolder.notaEstabelecimento.setRating(notaEstabelecimento);
+
+        }
+
         estabelecimentoViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View v) {
             clickCardView.onClickCard(estabelecimento);
+          }
+        });
+
+        estabelecimentoViewHolder.amei.setOnClickListener(new View.OnClickListener() {
+          @Override
+          public void onClick(View v) {
+
+            clickCardView.onClickAmei(estabelecimentoViewHolder.amei);
+
           }
         });
 
@@ -128,6 +150,8 @@ public class EstabelecimentoAdapter extends RecyclerView.Adapter<Estabelecimento
       nomeEstabelecimento = itemView.findViewById(R.id.txt_nome_estabelecimento_adapter);
       imagemEstabelecimento = itemView.findViewById(R.id.img_estabelecimento_adapter);
       enderecoEstabelecimento = itemView.findViewById(R.id.txt_nome_endereco_adapter);
+      notaEstabelecimento = itemView.findViewById(R.id.rtb_adapter);
+      amei = itemView.findViewById(R.id.img_amei);
 
     }
 
@@ -135,6 +159,9 @@ public class EstabelecimentoAdapter extends RecyclerView.Adapter<Estabelecimento
 
   public interface ClickCardView{
     public void onClickCard(Estabelecimento estabelecimento);
+
+
+    public void onClickAmei(ImageButton imageButton);
   }
 
 }

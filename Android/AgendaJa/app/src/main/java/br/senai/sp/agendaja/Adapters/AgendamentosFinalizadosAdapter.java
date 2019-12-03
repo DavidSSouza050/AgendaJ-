@@ -90,13 +90,13 @@ public class AgendamentosFinalizadosAdapter extends RecyclerView.Adapter<Agendam
         public AgendamentoFinalizadoViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            txtNomeServico = itemView.findViewById(R.id.txet_servico_reservas_finalizadas);
-            txtNomeEstabelecimento = itemView.findViewById(R.id.txet_nome_estabelecimento_reservas_finalizadas);
-            txtEnderecoEstabelecimento = itemView.findViewById(R.id.text_endereco_reservas_finalizadas);
-            txtMes = itemView.findViewById(R.id.text_dia_reservas_finalizadas);
-            txtDia = itemView.findViewById(R.id.text_mes_reservas_finalizadas);
-            txtAno = itemView.findViewById(R.id.text_ano_reservas_finalizadas);
-            txtHorario = itemView.findViewById(R.id.text_hora_reservas_finalizadas);
+            txtNomeServico = itemView.findViewById(R.id.txet_servico_reservas_funcionario);
+            txtNomeEstabelecimento = itemView.findViewById(R.id.txet_nome_estabelecimento_funcionario);
+            txtEnderecoEstabelecimento = itemView.findViewById(R.id.text_endereco_reservas_funcionario);
+            txtMes = itemView.findViewById(R.id.text_dia_reservas_funcionario);
+            txtDia = itemView.findViewById(R.id.text_mes_reservas_funcionario);
+            txtAno = itemView.findViewById(R.id.text_ano_reservas_funcionario);
+            txtHorario = itemView.findViewById(R.id.text_hora_reservas_funcionario);
 
         }
     }

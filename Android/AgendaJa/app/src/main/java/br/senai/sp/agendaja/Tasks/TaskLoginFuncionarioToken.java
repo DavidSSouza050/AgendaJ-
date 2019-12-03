@@ -1,8 +1,6 @@
 package br.senai.sp.agendaja.Tasks;
 
 import android.os.AsyncTask;
-import android.view.View;
-import android.widget.ProgressBar;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -12,42 +10,44 @@ import java.io.IOException;
 import java.io.PrintStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
+import java.net.ProtocolException;
 import java.net.URL;
 import java.util.Scanner;
 
 import br.senai.sp.agendaja.MainActivity;
+import br.senai.sp.agendaja.Model.Cliente;
+import br.senai.sp.agendaja.Model.Funcionario;
 
-public class TaskGetToken extends AsyncTask {
-
+public class TaskLoginFuncionarioToken extends AsyncTask {
   private String email;
   private String senha;
-  private String dados;
   private String token;
-  private ProgressBar progressBar;
+  private String dados = "";
+  private Funcionario funcionario;
 
-  public TaskGetToken(String email, String senha,ProgressBar progressBar) {
+  public TaskLoginFuncionarioToken(String email, String senha, String token) {
     this.email = email;
     this.senha = senha;
-    this.progressBar = progressBar;
+    this.token = token;
   }
 
   @Override
   protected Object doInBackground(Object[] objects) {
 
+    JSONStringer jsLogin = new JSONStringer();
+
     try {
-
-      JSONStringer jsLogin = new JSONStringer();
-
       jsLogin.object();
       jsLogin.key("email").value(email);
-      jsLogin.key("password").value(senha);
+      jsLogin.key("senha").value(senha);
       jsLogin.endObject();
 
-      URL url = new URL("http://"+ MainActivity.IP_SERVER +"/login/cliente");
+      URL url = new URL("http://"+ MainActivity.IP_SERVER +"/funcionarios/login");
       HttpURLConnection connection =(HttpURLConnection) url.openConnection();
 
       connection.setRequestProperty("Content-type","application/json");
       connection.setRequestProperty("Accept","application/json");
+      connection.setRequestProperty("token",token);
       connection.setRequestMethod("POST");
 
       connection.setDoInput(true);
@@ -61,39 +61,32 @@ public class TaskGetToken extends AsyncTask {
       JSONObject object = new JSONObject(dados);
 
       if(dados!=null){
-         token = object.getString("token");
+        funcionario = new Funcionario();
+        funcionario.setIdFuncionario(object.getInt("idFuncionario"));
+        funcionario.setNomeFuncionario(object.getString("nome"));
+        funcionario.setFotoFuncionario(object.getString("foto"));
+        funcionario.setEmailFuncionario(object.getString("email"));
+        funcionario.setSenhaFuncionario(object.getString("senha"));
+
       }else{
-        token = null;
+        funcionario = null;
       }
 
-
-
-
+    } catch (JSONException e) {
+      e.printStackTrace();
+    } catch (ProtocolException e) {
+      e.printStackTrace();
     } catch (MalformedURLException e) {
       e.printStackTrace();
     } catch (IOException e) {
       e.printStackTrace();
-    } catch (JSONException e) {
-      e.printStackTrace();
     }
 
 
-    return token;
-  }
-
-  public void exibirProgress(Boolean resposta){
-    progressBar.setVisibility(resposta ? View.VISIBLE : View.GONE);
-  }
-
-  @Override
-  protected void onPreExecute() {
-    super.onPreExecute();
-    exibirProgress(true);
-  }
-
-  @Override
-  protected void onPostExecute(Object o) {
-    super.onPostExecute(o);
-    exibirProgress(false);
+    if(funcionario!=null){
+      return funcionario;
+    }else{
+      return null;
+    }
   }
 }

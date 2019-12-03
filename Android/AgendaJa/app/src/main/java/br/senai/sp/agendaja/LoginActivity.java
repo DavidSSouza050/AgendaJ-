@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import java.util.concurrent.ExecutionException;
@@ -28,6 +29,7 @@ public class LoginActivity extends AppCompatActivity implements  View.OnClickLis
     private View mProgressView;
     private Button btnCriarConta;
     private Button btnLogar;
+    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +39,8 @@ public class LoginActivity extends AppCompatActivity implements  View.OnClickLis
 
         btnCriarConta = findViewById(R.id.btn_criar_conta_login);
         btnLogar = findViewById(R.id.btn_entrar_login);
+
+        progressBar = findViewById(R.id.login_progress);
 
         btnLogar.setOnClickListener(this);
 
@@ -62,7 +66,7 @@ public class LoginActivity extends AppCompatActivity implements  View.OnClickLis
             case R.id.btn_entrar_login:
 
                 //BUSCANDO O TOKEN
-                TaskGetToken taskGetToken = new TaskGetToken(mEmailView.getText().toString(),mPasswordView.getText().toString());
+                TaskGetToken taskGetToken = new TaskGetToken(mEmailView.getText().toString(),mPasswordView.getText().toString(),progressBar);
                 taskGetToken.execute();
 
                 try {

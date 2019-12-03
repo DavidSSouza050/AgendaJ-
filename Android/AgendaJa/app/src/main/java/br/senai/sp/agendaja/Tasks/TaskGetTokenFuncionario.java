@@ -1,8 +1,6 @@
 package br.senai.sp.agendaja.Tasks;
 
 import android.os.AsyncTask;
-import android.view.View;
-import android.widget.ProgressBar;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -17,23 +15,19 @@ import java.util.Scanner;
 
 import br.senai.sp.agendaja.MainActivity;
 
-public class TaskGetToken extends AsyncTask {
-
+public class TaskGetTokenFuncionario extends AsyncTask {
   private String email;
   private String senha;
-  private String dados;
+  private String dados = "";
   private String token;
-  private ProgressBar progressBar;
 
-  public TaskGetToken(String email, String senha,ProgressBar progressBar) {
+  public TaskGetTokenFuncionario(String email, String senha) {
     this.email = email;
     this.senha = senha;
-    this.progressBar = progressBar;
   }
 
   @Override
   protected Object doInBackground(Object[] objects) {
-
     try {
 
       JSONStringer jsLogin = new JSONStringer();
@@ -43,7 +37,7 @@ public class TaskGetToken extends AsyncTask {
       jsLogin.key("password").value(senha);
       jsLogin.endObject();
 
-      URL url = new URL("http://"+ MainActivity.IP_SERVER +"/login/cliente");
+      URL url = new URL("http://"+ MainActivity.IP_SERVER +"/login/funcionario");
       HttpURLConnection connection =(HttpURLConnection) url.openConnection();
 
       connection.setRequestProperty("Content-type","application/json");
@@ -61,7 +55,7 @@ public class TaskGetToken extends AsyncTask {
       JSONObject object = new JSONObject(dados);
 
       if(dados!=null){
-         token = object.getString("token");
+        token = object.getString("token");
       }else{
         token = null;
       }
@@ -80,20 +74,5 @@ public class TaskGetToken extends AsyncTask {
 
     return token;
   }
-
-  public void exibirProgress(Boolean resposta){
-    progressBar.setVisibility(resposta ? View.VISIBLE : View.GONE);
   }
 
-  @Override
-  protected void onPreExecute() {
-    super.onPreExecute();
-    exibirProgress(true);
-  }
-
-  @Override
-  protected void onPostExecute(Object o) {
-    super.onPostExecute(o);
-    exibirProgress(false);
-  }
-}

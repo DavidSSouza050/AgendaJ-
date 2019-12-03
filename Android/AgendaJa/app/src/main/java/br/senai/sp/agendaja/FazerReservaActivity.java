@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -185,14 +186,7 @@ public class FazerReservaActivity extends AppCompatActivity implements View.OnCl
 
   @SuppressLint("ResourceAsColor")
   @Override
-  public void onClickHorario(LinearLayout linearLayout, final String horario) {
-    if(statusHorario==0){
-      linearLayout.setBackgroundColor(R.color.colorLilasClaro);
-      statusHorario++;
-    }else if(statusHorario==1){
-      linearLayout.setBackgroundColor(R.color.colorBrancoAcinzentadoo);
-      statusHorario--;
-    }
+  public void onClickHorario(final String horario) {
 
     this.horarioEscolhido = horario;
 
@@ -248,13 +242,14 @@ public class FazerReservaActivity extends AppCompatActivity implements View.OnCl
            arrayServicos = String.valueOf(response.body());
          }
         }else{
-            Log.d("foi fracasso",response.errorBody().toString());
+            Log.d("foi fracasso", response.message());
         }
       }
 
       @Override
       public void onFailure(Call<List<EmServico>> call, Throwable t) {
         Log.d("nao foi sucesso","deu erro");
+        Log.d("message",t.getMessage());
       }
     });
 
@@ -269,6 +264,7 @@ public class FazerReservaActivity extends AppCompatActivity implements View.OnCl
 
       if(funcionarios.get()!=null ){
         funcionariosList = (List<Funcionario>) funcionarios.get();
+        Log.d("funcionario",((List<Funcionario>) funcionarios.get()).get(0).getNomeFuncionario());
       }
 
     } catch (ExecutionException e) {

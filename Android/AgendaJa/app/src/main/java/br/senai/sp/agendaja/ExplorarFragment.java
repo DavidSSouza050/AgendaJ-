@@ -9,6 +9,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
+//import me.pagar.model.Transaction;
 
 import java.util.List;
 import java.util.concurrent.ExecutionException;
@@ -66,5 +68,10 @@ public class ExplorarFragment extends Fragment implements EstabelecimentoAdapter
         Intent intentServicosEstabelecimento = new Intent(getActivity(),ServicosDoEstabelecimentoActivity.class);
         intentServicosEstabelecimento.putExtra("estabelecimento",estabelecimento);
         startActivity(intentServicosEstabelecimento);
+    }
+
+    @Override
+    public void onClickAmei(ImageButton imageButton) {
+        imageButton.setBackgroundResource(R.drawable.like);
     }
 }

@@ -112,7 +112,7 @@ public class ContatoActivity extends AppCompatActivity implements View.OnClickLi
 
                                 if(respostaCadastroEnderecoCliente){
 
-                                    TaskGetToken getToken = new TaskGetToken(respostaCadastroCliente.getEmail(),respostaCadastroCliente.getSenha());
+                                    TaskGetToken getToken = new TaskGetToken(respostaCadastroCliente.getEmail(),respostaCadastroCliente.getSenha(),progressCarregando);
                                     getToken.execute();
 
                                     if(getToken.get()!=null){

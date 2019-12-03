@@ -39,14 +39,15 @@
 
         <RatingBar
             android:id="@+id/rtb_adapter"
-            android:layout_width="250dp"
-            android:layout_height="48dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/txt_nome_endereco_adapter"
             android:layout_margin="8dp"
             android:numStars="5"
             android:max="10"/>
 
         <ImageButton
+            android:id="@+id/img_amei"
             android:layout_width="39dp"
             android:layout_height="41dp"
             android:layout_alignBottom="@+id/rtb_adapter"

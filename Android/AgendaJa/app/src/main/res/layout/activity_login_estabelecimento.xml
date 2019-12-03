@@ -51,12 +51,12 @@
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_marginBottom="8dp"
-            android:text="Login Estabelecimento"
+            android:text="Login Funcionário"
             android:textAlignment="center"
             android:textColor="@android:color/white"
             android:textSize="30dp" />
 
-        <AutoCompleteTextView
+        <EditText
             android:id="@+id/txt_email_login_estabelecimento"
             android:layout_width="match_parent"
             android:layout_height="46dp"
