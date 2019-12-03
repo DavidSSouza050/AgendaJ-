@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Built-By: 18175740
+Start-Class: lumicode.agendaja.api.App
+Spring-Boot-Version: 1.2.5.RELEASE
+Created-By: Apache Maven 3.5.3
+Build-Jdk: 1.8.0_144
+Main-Class: org.springframework.boot.loader.JarLauncher
+

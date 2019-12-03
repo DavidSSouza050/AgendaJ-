@@ -32,6 +32,7 @@ import lumicode.agendaja.api.repository.view.ServicosFuncionarioVIEWRepository;
 @RequestMapping("/agendamentos")
 @CrossOrigin(origins = "*")
 public class AgendamentoResource {
+	
 	@Autowired
 	private AgendamentoRepository agendamentoRepository;
 	@Autowired
@@ -44,6 +45,7 @@ public class AgendamentoResource {
 	Integer mes = calendar.get(Calendar.MONTH)+1;
 	Integer ano = calendar.get(Calendar.YEAR);
 	Integer dia = calendar.get(Calendar.DAY_OF_MONTH);
+	
 	
 	@GetMapping
 	private List<Agendamento> getAgendamento(){
@@ -69,14 +71,12 @@ public class AgendamentoResource {
 	//agendamento realizado do funcionario
 	@GetMapping("/funcionario/{id}/servicosRealizados")
 	private List<ServicosFuncionarioVIEW> servicosRealizados(@PathVariable Long id){
-		
 		return servicosFuncionarioVIEWRepository.pegarServicos(mes, ano, id);
 	}
 
 	//agendamento pendente do funcionario mes
 	@GetMapping("/funcionario/{id}/mes/servicosPendente")
 	private List<ServicoPendenteVIEW> servicosPendenteFuncionario(@PathVariable Long id){
-		
 		return servicoPendenteVIEWRepository.pegerServicosPendentesFuncionario(id, mes, ano);
 	}
 	//agendamento do dia
@@ -84,7 +84,6 @@ public class AgendamentoResource {
 	private List<ServicoPendenteVIEW> servicosPendenteFuncionarioDia(@PathVariable Long id){
 		return servicoPendenteVIEWRepository.pegerServicosPendentesFuncionarioDia(id, mes, ano, dia);
 	}
-	
 	
 	//agendamento pendentes do estabelecimento mes
 	@GetMapping("/estabelecimento/{id}/mes/servicosPendente")

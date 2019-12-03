@@ -14,6 +14,8 @@ public class ServicosFuncionarioVIEW {
 	private Long funcionario;
 	@Column(name = "nome_cliente")
 	private String nomeCliente;
+	@Column(name = "foto_cliente")
+	private String fotoCliente;
 	@Column(name = "preco")
 	private Double preco;
 	@Column(name = "servico")
@@ -50,6 +52,14 @@ public class ServicosFuncionarioVIEW {
 
 	public void setNomeCliente(String nomeCliente) {
 		this.nomeCliente = nomeCliente;
+	}
+
+	public String getFotoCliente() {
+		return fotoCliente;
+	}
+
+	public void setFotoCliente(String fotoCliente) {
+		this.fotoCliente = fotoCliente;
 	}
 
 	public Double getPreco() {
