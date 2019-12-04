@@ -13,6 +13,7 @@ import lumicode.agendaja.api.repository.AssuntoRepository;
 
 @RestController
 @RequestMapping("/assuntos")
+@CrossOrigin(origins = "*")
 public class AssuntoResource {
 	@Autowired
 	private AssuntoRepository assuntoRepository;

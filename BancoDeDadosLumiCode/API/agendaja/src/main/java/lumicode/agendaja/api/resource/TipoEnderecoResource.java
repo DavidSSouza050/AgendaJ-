@@ -15,17 +15,16 @@ import lumicode.agendaja.api.repository.TipoEnderecoRepository;
 
 @RestController
 @RequestMapping("/tiposEnderecos")
+@CrossOrigin(origins = "*")
 public class TipoEnderecoResource {
 	@Autowired
 	private TipoEnderecoRepository tipoEnderecoRepository;
 	
-	@CrossOrigin("http://localhost:3000")
 	@GetMapping
 	private List<TipoEndereco> getTipoEndereco(){
 		return tipoEnderecoRepository.findAll();
 	}
 	
-	@CrossOrigin("http://localhost:3000")
 	@GetMapping("/{id}")
 	private TipoEndereco visualizarTipoEndereco(@PathVariable Long id) {
 		return tipoEnderecoRepository.findById(id).get();

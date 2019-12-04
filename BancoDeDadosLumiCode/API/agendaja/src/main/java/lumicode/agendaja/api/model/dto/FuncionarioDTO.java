@@ -14,6 +14,7 @@ public class FuncionarioDTO {
 	private Long idFuncionario;
 	private String nome;
 	private String foto;
+	private String email;
 
 	public Long getIdFuncionario() {
 		return idFuncionario;
@@ -21,6 +22,14 @@ public class FuncionarioDTO {
 
 	public void setIdFuncionario(Long idFuncionario) {
 		this.idFuncionario = idFuncionario;
+	}
+	
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public String getNome() {

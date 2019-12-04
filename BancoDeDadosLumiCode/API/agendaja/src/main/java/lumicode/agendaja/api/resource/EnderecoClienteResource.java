@@ -25,7 +25,7 @@ import lumicode.agendaja.api.repository.EnderecoClienteRepository;
 
 @RestController
 @RequestMapping("/enderecosClientes")
-@CrossOrigin("*")
+@CrossOrigin(origins="*")
 public class EnderecoClienteResource {
 	@Autowired
 	private EnderecoClienteRepository enderecoClienteRepository;

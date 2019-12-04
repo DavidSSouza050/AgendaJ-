@@ -21,8 +21,6 @@ import lumicode.agendaja.api.model.Servico;
 import lumicode.agendaja.api.repository.AgendamentoRepository;
 import lumicode.agendaja.api.repository.AgendamentoServicoRepository;
 import lumicode.agendaja.api.repository.EmServicoRepository;
-import lumicode.agendaja.api.repository.dto.EstabelecimentoDTORepository;
-import lumicode.agendaja.api.repository.dto.FuncionarioDTORepository;
 import lumicode.agendaja.api.utils.CalculadoDeDuracao;
 @RestController
 @RequestMapping("/emServico")

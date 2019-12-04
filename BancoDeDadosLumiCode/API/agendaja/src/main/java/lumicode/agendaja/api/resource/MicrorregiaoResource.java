@@ -14,19 +14,18 @@ import lumicode.agendaja.api.repository.MicrorregiaoRepository;
 
 @RestController
 @RequestMapping("/microrregioes")
+@CrossOrigin(origins = "*")
 public class MicrorregiaoResource {
 	@Autowired
 	private MicrorregiaoRepository microrregiaoRepository;
 	
 	//pegando todas as microrregiões
-	@CrossOrigin("http://localhost:3000")
 	@GetMapping
 	private List<Microrregiao> getMicrorregiao(){
 		return microrregiaoRepository.findAll();
 	}
 	
 	//pegando apenas uma miccrorregião
-	@CrossOrigin("http://localhost:3000")
 	@GetMapping("/{id}")
 	private Microrregiao visualizarMicrorregiao(@PathVariable Long id) {
 		return microrregiaoRepository.findById(id).get();

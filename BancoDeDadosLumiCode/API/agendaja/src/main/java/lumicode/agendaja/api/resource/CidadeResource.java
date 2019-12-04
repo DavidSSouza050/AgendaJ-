@@ -14,6 +14,7 @@ import lumicode.agendaja.api.repository.CidadeRepository;
 
 @RestController
 @RequestMapping("/cidades")
+@CrossOrigin(origins = "*")
 public class CidadeResource {
 
 	@Autowired

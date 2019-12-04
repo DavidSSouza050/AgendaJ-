@@ -27,7 +27,7 @@ import lumicode.agendaja.api.utils.ConverterDatas;
 
 @RestController
 @RequestMapping(value="/clientes")
-@CrossOrigin(origins="http://localhost:3000")
+@CrossOrigin(origins = "*")
 public class ClienteResource {
 
 	@Autowired

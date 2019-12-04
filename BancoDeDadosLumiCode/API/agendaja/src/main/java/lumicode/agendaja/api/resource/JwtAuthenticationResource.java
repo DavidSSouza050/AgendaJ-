@@ -26,7 +26,7 @@ import lumicode.agendaja.api.repository.FuncionarioRepository;
 
 
 @RestController
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "*")
 @SupportedOptions(value = {"eventBusIndex", "verbose"})
 public class JwtAuthenticationResource {
 	@Autowired

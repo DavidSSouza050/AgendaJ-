@@ -20,24 +20,22 @@ import lumicode.agendaja.api.repository.FaleConoscoRepository;
 
 @RestController
 @RequestMapping("/faleConosco")
+@CrossOrigin(origins = "*")
 public class FaleConoscoResource {
 	@Autowired
 	private FaleConoscoRepository faleConoscoRepository;
 
-	@CrossOrigin("http://localhost:3000")
 	@GetMapping
 	private List<FaleConosco> getfaleconosco(){
 		return faleConoscoRepository.findAll();
 	}
 	
-	@CrossOrigin("http://localhost:3000")
 	@GetMapping("/{id}")
 	private FaleConosco visualizarFaleConosco(@PathVariable Long id){
 			return faleConoscoRepository.findById(id).get();
 	}
 	
 	//Cadastrando o comentario dos usuarios
-	@CrossOrigin("http://localhost:3000")
 	@PostMapping
 	private ResponseEntity<String> salvarComentario(@RequestBody FaleConosco faleConosco, HttpServletResponse response){
 		

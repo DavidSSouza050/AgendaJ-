@@ -9,6 +9,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -24,6 +25,7 @@ import lumicode.agendaja.api.repository.FuncionarioEstabelecimentoRepository;
 
 @RestController
 @RequestMapping("/funcionariosEstabelecimentos")
+@CrossOrigin(origins = "*")
 public class FuncionarioEstabelecimentoResource {
 	@Autowired
 	private FuncionarioEstabelecimentoRepository funcionarioEstabelecimentoRepository;

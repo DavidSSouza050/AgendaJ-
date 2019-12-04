@@ -14,6 +14,7 @@ import lumicode.agendaja.api.repository.EstadoRepository;
 
 @RestController
 @RequestMapping("/estados")
+@CrossOrigin(origins = "*")
 public class EstadoResource {
 
 	@Autowired
