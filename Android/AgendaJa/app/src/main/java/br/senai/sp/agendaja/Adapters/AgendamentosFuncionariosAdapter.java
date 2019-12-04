@@ -23,10 +23,12 @@ public class AgendamentosFuncionariosAdapter  extends RecyclerView.Adapter<Agend
   private Context context;
   private List<Agendamento> agendamentoList;
   private Endereco endereco;
+  private String token;
 
-  public AgendamentosFuncionariosAdapter(Context context, List<Agendamento> agendamentoList) {
+  public AgendamentosFuncionariosAdapter(Context context, List<Agendamento> agendamentoList,String token) {
     this.context = context;
     this.agendamentoList = agendamentoList;
+    this.token = token;
   }
 
   @Override
@@ -42,7 +44,7 @@ public class AgendamentosFuncionariosAdapter  extends RecyclerView.Adapter<Agend
     final Agendamento agendamento = agendamentoList.get(i);
 
     Log.d("idAgendamentoEstabelecimento", String.valueOf(agendamento.getIdEstabelecimento()));
-    TaskGetEnderecoIdEstab getEnderecoIdEstab = new TaskGetEnderecoIdEstab(agendamento.getIdEstabelecimento(), MainActivity.TOKEN);
+    TaskGetEnderecoIdEstab getEnderecoIdEstab = new TaskGetEnderecoIdEstab(agendamento.getIdEstabelecimento(), token);
     getEnderecoIdEstab.execute();
 
     String[] dataHorario  = agendamento.getDataAgendamento().split(" ");

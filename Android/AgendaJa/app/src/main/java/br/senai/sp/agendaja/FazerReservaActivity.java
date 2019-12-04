@@ -29,6 +29,7 @@ import java.util.concurrent.ExecutionException;
 
 import br.senai.sp.agendaja.Adapters.FuncionarioAdapter;
 import br.senai.sp.agendaja.Adapters.HorarioAdapter;
+import br.senai.sp.agendaja.Adapters.ListaNulaAdapter;
 import br.senai.sp.agendaja.CalculoHorario.CalculoHorario;
 import br.senai.sp.agendaja.Model.EmServico;
 import br.senai.sp.agendaja.Model.Estabelecimento;
@@ -62,6 +63,10 @@ public class FazerReservaActivity extends AppCompatActivity implements View.OnCl
     private VerificandoHorarios verificandoHorarios;
     private List<EmServico> emServicoList;
     private String arrayServicos;
+    private String[] arrayNuloHorario = {"S","E","M"," ","H","O","R","Á","R","I","O","S"," ","D","I","S","P","O","N","Í","V","E","I","S"};
+    private String[] arrayNuloFuncionario = {"S","E","M"," ","F","U","N","C","I","O","N","A"," R","I","O","S"," ","D","I","S","P","O","N","Í","V","E","I","S"};
+    private List<String> horariosNuloslist;
+    private List<String> funcionariosNuloList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -114,6 +119,20 @@ public class FazerReservaActivity extends AppCompatActivity implements View.OnCl
         //setando os listenners no calendar e no botao;
         btnSalvar.setOnClickListener(this);
         calendarioReserva.setOnDateChangeListener(this);
+
+
+        //setando conteúdo nas listas para tratamento de resultados nulos
+        horariosNuloslist = new ArrayList<>();
+        funcionariosNuloList = new ArrayList<>();
+
+        for(int contH = 0;contH<arrayNuloHorario.length;contH++){
+            horariosNuloslist.add(arrayNuloHorario[contH]);
+        }
+
+
+        for(int contF = 0;contF<arrayNuloFuncionario.length;contF++){
+            funcionariosNuloList.add(arrayNuloFuncionario[contF]);
+        }
     }
 
     @Override
@@ -264,7 +283,8 @@ public class FazerReservaActivity extends AppCompatActivity implements View.OnCl
 
       if(funcionarios.get()!=null ){
         funcionariosList = (List<Funcionario>) funcionarios.get();
-        Log.d("funcionario",((List<Funcionario>) funcionarios.get()).get(0).getNomeFuncionario());
+      }else{
+        Toast.makeText(this,"Sem Funcionarios disponiveis",Toast.LENGTH_LONG).show();
       }
 
     } catch (ExecutionException e) {
@@ -304,6 +324,8 @@ public class FazerReservaActivity extends AppCompatActivity implements View.OnCl
         setAdapaterFuncionario(funcionariosDisponiveis,listaDeFuncionarios);
       }else{
         Toast.makeText(FazerReservaActivity.this,"Sem funcionarios disponiveis para esse horario",Toast.LENGTH_LONG).show();
+          setAdapterValoresNulos(listaDeFuncionarios,funcionariosNuloList);
+
       }
 
 
@@ -320,6 +342,11 @@ public class FazerReservaActivity extends AppCompatActivity implements View.OnCl
       HorarioAdapter horarioAdapter = new HorarioAdapter(FazerReservaActivity.this,horarioList,this);
       recyclerHorarios.setAdapter(horarioAdapter);
 
+  }
+
+  public void setAdapterValoresNulos(RecyclerView recyclerView, List<String> valores){
+      ListaNulaAdapter listaNulaAdapter = new ListaNulaAdapter(FazerReservaActivity.this,valores);
+      recyclerView.setAdapter(listaNulaAdapter);
   }
 
   @Override
@@ -351,6 +378,8 @@ public class FazerReservaActivity extends AppCompatActivity implements View.OnCl
 
           if(horariosDisponiveis==null){
             Toast.makeText(FazerReservaActivity.this,"Sem horários disponíveis para esta data",Toast.LENGTH_LONG).show();
+            setAdapterValoresNulos(recyclerHorarios,horariosNuloslist);
+//              setAdapterValoresNulos(listaDeFuncionarios,funcionariosNuloList);
           }else{
             setAdapterHorarios(recyclerHorarios,horariosDisponiveis);
           }

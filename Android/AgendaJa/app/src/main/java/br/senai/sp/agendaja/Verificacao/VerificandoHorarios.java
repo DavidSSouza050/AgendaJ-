@@ -6,6 +6,8 @@ import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 import br.senai.sp.agendaja.CalculoHorario.CalculoHorario;
@@ -41,6 +43,13 @@ public class VerificandoHorarios {
       }
 
       if (horarioDoDia != null) {
+
+//        Date date = new Date();
+//        Calendar verificar = new GregorianCalendar();
+//        verificar.setTime(date);
+
+
+
         String[] arrayHorarioAbertura = horarioDoDia.getHorarioAbertura().split(":");
         String[] arrayHorarioFechamento = horarioDoDia.getHorarioFechamento().split(":");
 
