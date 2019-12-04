@@ -63,8 +63,8 @@ public class FazerReservaActivity extends AppCompatActivity implements View.OnCl
     private VerificandoHorarios verificandoHorarios;
     private List<EmServico> emServicoList;
     private String arrayServicos;
-    private String[] arrayNuloHorario = {"S","E","M"," ","H","O","R","Á","R","I","O","S"," ","D","I","S","P","O","N","Í","V","E","I","S"};
-    private String[] arrayNuloFuncionario = {"S","E","M"," ","F","U","N","C","I","O","N","A"," R","I","O","S"," ","D","I","S","P","O","N","Í","V","E","I","S"};
+    private String[] arrayNuloHorario = {"SEM HORÁRIOS DISPONIVÉIS"};
+    private String[] arrayNuloFuncionario = {"SEM FUNCIONÁRIOS DISPONIVÉIS"};
     private List<String> horariosNuloslist;
     private List<String> funcionariosNuloList;
 

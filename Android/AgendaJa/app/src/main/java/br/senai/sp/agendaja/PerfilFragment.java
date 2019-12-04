@@ -7,10 +7,12 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.CardView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -39,18 +41,18 @@ import static android.app.Activity.RESULT_OK;
 
 public class PerfilFragment extends Fragment implements View.OnClickListener {
 
-  private RelativeLayout dadosPessoais;
+  private CardView dadosPessoais;
   private CircleImageView imagemCliente;
   private TextView nomeCompletoCliente;
   private TextView telefoneCliente;
   private Cliente clienteEditadoComSucesso;
-  private RelativeLayout relativeSair;
+  private Button relativeSair;
   private int GALERY_REQUEST = 10;
   private String caminhoFoto;
   private Call<Cliente> atualizarFoto;
-  private RelativeLayout editarEndereco;
-  private RelativeLayout editarContato;
-  private RelativeLayout sobreAgendaJa;
+    private CardView editarEndereco;
+  private CardView editarContato;
+  private CardView sobreAgendaJa;
 
   @Nullable
   @Override

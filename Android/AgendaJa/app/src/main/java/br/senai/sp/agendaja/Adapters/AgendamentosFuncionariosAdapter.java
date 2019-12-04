@@ -33,7 +33,7 @@ public class AgendamentosFuncionariosAdapter  extends RecyclerView.Adapter<Agend
 
   @Override
   public AgendamentosFuncionariosViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-    View view = LayoutInflater.from(context).inflate(R.layout.adapter_servicos_funcionarios,viewGroup,false);
+    View view = LayoutInflater.from(context).inflate(R.layout.adapter_recycler_minha_agenda,viewGroup,false);
     AgendamentosFuncionariosViewHolder funcionariosViewHolder = new AgendamentosFuncionariosViewHolder(view);
     return  funcionariosViewHolder;
   }
@@ -44,8 +44,6 @@ public class AgendamentosFuncionariosAdapter  extends RecyclerView.Adapter<Agend
     final Agendamento agendamento = agendamentoList.get(i);
 
     Log.d("idAgendamentoEstabelecimento", String.valueOf(agendamento.getIdEstabelecimento()));
-    TaskGetEnderecoIdEstab getEnderecoIdEstab = new TaskGetEnderecoIdEstab(agendamento.getIdEstabelecimento(), token);
-    getEnderecoIdEstab.execute();
 
     String[] dataHorario  = agendamento.getDataAgendamento().split(" ");
     final String[] data= dataHorario[0].split("-");
@@ -59,23 +57,13 @@ public class AgendamentosFuncionariosAdapter  extends RecyclerView.Adapter<Agend
     final String minutosFinais = horarioFinal.split(":")[1];
 
 
-    try {
-      if(getEnderecoIdEstab.get()!=null){
-        endereco = (Endereco) getEnderecoIdEstab.get();
-      }
-    } catch (ExecutionException e) {
-      e.printStackTrace();
-    } catch (InterruptedException e) {
-      e.printStackTrace();
-    }
-
-    agendamentosFuncionariosViewHolder.txtNomeServico.setText(agendamento.getNomeServico());
-      agendamentosFuncionariosViewHolder.txtNomeEstabelecimento.setText(agendamento.getNomeEstabelecimento());
-      agendamentosFuncionariosViewHolder.txtEnderecoEstabelecimento.setText( endereco.getCep() + ", " + endereco.getCidade() + "-" + endereco.getEstado());
+      agendamentosFuncionariosViewHolder.txtNomeServico.setText(agendamento.getNomeServico());
       agendamentosFuncionariosViewHolder.txtDia.setText(data[2]);
       agendamentosFuncionariosViewHolder.txtMes.setText(data[1]);
       agendamentosFuncionariosViewHolder.txtAno.setText(data[0]);
-      agendamentosFuncionariosViewHolder.txtHorario.setText(horario);
+      agendamentosFuncionariosViewHolder.txtHorario.setText(horario + " - " + horarioFinal);
+      agendamentosFuncionariosViewHolder.txtNomeCliente.setText(agendamento.getNomeCliente());
+      agendamentosFuncionariosViewHolder.txtValor.setText(agendamento.getPreco());
 
 
 
@@ -89,25 +77,25 @@ public class AgendamentosFuncionariosAdapter  extends RecyclerView.Adapter<Agend
   }
 
   public class AgendamentosFuncionariosViewHolder extends RecyclerView.ViewHolder{
-    private TextView txtNomeEstabelecimento;
+    private TextView txtNomeCliente;
     private TextView txtNomeServico;
-    private TextView txtEnderecoEstabelecimento;
     private TextView txtDia;
     private TextView txtMes;
     private TextView txtAno;
     private TextView txtHorario;
+    private TextView txtValor;
 
 
     public AgendamentosFuncionariosViewHolder(View itemView) {
       super(itemView);
 
-      txtNomeEstabelecimento = itemView.findViewById(R.id.txet_nome_estabelecimento_funcionario);
-      txtNomeServico = itemView.findViewById(R.id.txet_servico_reservas_funcionario);
-      txtEnderecoEstabelecimento = itemView.findViewById(R.id.text_endereco_reservas_funcionario);
-      txtMes = itemView.findViewById(R.id.text_dia_reservas_funcionario);
-      txtDia = itemView.findViewById(R.id.text_mes_reservas_funcionario);
+      txtNomeCliente = itemView.findViewById(R.id.text_nome_minha_agenda);
+      txtNomeServico = itemView.findViewById(R.id.txt_qual_servico_minha_agenda);
+      txtDia = itemView.findViewById(R.id.text_dia_reservas_funcionario);
+      txtMes = itemView.findViewById(R.id.text_mes_reservas_funcionario);
       txtAno = itemView.findViewById(R.id.text_ano_reservas_funcionario);
       txtHorario = itemView.findViewById(R.id.text_hora_reservas_funcionario);
+      txtValor = itemView.findViewById(R.id.txt_real_minha_agenda);
 
     }
   }

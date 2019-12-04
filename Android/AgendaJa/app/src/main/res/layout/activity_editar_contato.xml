@@ -71,6 +71,7 @@
             android:background="@drawable/caixa_de_texto_redonda"
             android:hint="Celular"
             android:textSize="20dp"
+            android:paddingLeft="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent" />
@@ -110,6 +111,7 @@
             android:layout_centerVertical="true"
             android:background="@drawable/caixa_de_texto_redonda"
             android:hint="E-mail"
+            android:paddingLeft="8dp"
             android:textSize="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -150,6 +152,7 @@
             android:layout_centerVertical="true"
             android:background="@drawable/caixa_de_texto_redonda"
             android:hint="Senha"
+            android:paddingLeft="8dp"
             android:textSize="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -191,6 +194,7 @@
             android:background="@drawable/caixa_de_texto_redonda"
             android:hint="Confirmar senha"
             android:textSize="20dp"
+            android:paddingLeft="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent" />

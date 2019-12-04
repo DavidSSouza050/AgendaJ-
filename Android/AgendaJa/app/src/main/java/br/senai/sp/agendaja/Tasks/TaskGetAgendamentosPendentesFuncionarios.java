@@ -77,6 +77,7 @@ public class TaskGetAgendamentosPendentesFuncionarios extends AsyncTask {
                     agendamento.setStatusCancelado(object.getString("cancelado"));
                     agendamento.setIdFuncionario(object.getInt("idFunncionario"));
                     agendamento.setIdEstabelecimento(object.getInt("idEstabelecimento"));
+                    agendamento.setNomeCliente(object.getString("nomeCliente"));
 
                     agendamentoList.add(agendamento);
 

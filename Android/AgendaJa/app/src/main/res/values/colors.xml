@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent">#5a1275</color>
     <color name="colorRoxo">#41036a</color>
     <color name="colorAzul">#3739ab</color>
     <color name="colorRoxoMeioAzul">#301170</color>
@@ -11,4 +11,5 @@
     <color name="colorTrasparente">#42000000</color>
     <color name="colorBrancoAcinzentadoo">#f0f0f0</color>
     <color name="colorLilasClaro">#7c71c1</color>
+    <color name="colorRoxo2">#5a1275</color>
 </resources>

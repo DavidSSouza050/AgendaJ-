@@ -72,6 +72,7 @@
             android:layout_centerVertical="true"
             android:background="@drawable/caixa_de_texto_redonda"
             android:hint="CEP"
+            android:paddingLeft="8dp"
             android:textSize="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -113,6 +114,7 @@
             android:layout_centerVertical="true"
             android:background="@drawable/caixa_de_texto_redonda"
             android:hint="Cidade"
+            android:paddingLeft="8dp"
             android:textSize="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -155,6 +157,7 @@
             android:background="@drawable/caixa_de_texto_redonda"
             android:hint="Logradouro"
             android:textSize="20dp"
+            android:paddingLeft="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent" />
@@ -196,6 +199,7 @@
             android:background="@drawable/caixa_de_texto_redonda"
             android:hint="Bairro"
             android:textSize="20dp"
+            android:paddingLeft="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent" />
@@ -239,6 +243,7 @@
             android:textSize="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
+            android:paddingLeft="8dp"
             app:layout_constraintStart_toStartOf="parent" />
 
     </RelativeLayout>
@@ -248,7 +253,7 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginTop="1dp"
-        android:background="@color/colorRoxoMeioAzul"
+        android:background="@android:color/white"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

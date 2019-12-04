@@ -14,9 +14,16 @@ public class Agendamento {
     private int statusFinalizado;
     private String statusCancelado;
     private String dataAgendamento;
+    private String nomeCliente;
 
 
+    public String getNomeCliente() {
+        return nomeCliente;
+    }
 
+    public void setNomeCliente(String nomeCliente) {
+        this.nomeCliente = nomeCliente;
+    }
 
     public String getDataAgendamento() {
         return dataAgendamento;
@@ -129,6 +136,7 @@ public class Agendamento {
                 ", statusFinalizado=" + statusFinalizado +
                 ", statusCancelado='" + statusCancelado + '\'' +
                 ", dataAgendamento='" + dataAgendamento + '\'' +
+                ", nomeCliente='" + nomeCliente + '\'' +
                 '}';
     }
 }

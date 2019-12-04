@@ -12,7 +12,6 @@
         android:id="@+id/img_foto_funcionario"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:background="@drawable/botao_redondo_colorido"
         />
     <TextView
         android:id="@+id/txt_nome_funcionario"

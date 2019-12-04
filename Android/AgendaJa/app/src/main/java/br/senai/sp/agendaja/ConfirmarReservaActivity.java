@@ -80,10 +80,10 @@ public class ConfirmarReservaActivity extends AppCompatActivity  implements View
 
         //instanciando as views da activity
 
-        txtNomeEstabelecimento = findViewById(R.id.textViewNomeEstabelecimentoConfirmar);
-        txtEnderecoEstabelecimento = findViewById(R.id.textViewEnderecoEstabelecimentoConfirma);
-        txtDuracaoServico = findViewById(R.id.txtDuracaoServicoConfirma);
-        txtPrecoServico = findViewById(R.id.txtPrecoServicoConfirma);
+        txtNomeEstabelecimento = findViewById(R.id.txet_nome_estabelecimento_do_confirmar_servico);
+        txtEnderecoEstabelecimento = findViewById(R.id.text_endereco_do_confirmar_servico);
+        txtDuracaoServico = findViewById(R.id.text_tempo_do_confirmar_servico);
+        txtPrecoServico = findViewById(R.id.text_preco_do_confirmar_servico);
         txtNomeFuncionario = findViewById(R.id.text_funcionario_do_confirmar_servico);
         txtNomeServico = findViewById(R.id.text_servico_do_confirmar_servico);
         btnConfirmarReserva = findViewById(R.id.btn_confirmar_reserva);

@@ -7,307 +7,276 @@
     android:layout_height="match_parent"
     android:orientation="horizontal"
     android:id="@+id/relativeLayout"
-    android:padding="8dp"
     android:background="@color/colorBrancoAcinzentadoo">
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/circleImageView2"
-        android:layout_width="33dp"
-        android:layout_height="32dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="72dp"
-        android:background="@drawable/botao_redondo"
-        android:elevation="24dp"
-        android:src="@drawable/ic_action_editar"
-        app:layout_constraintEnd_toStartOf="@+id/relativeLayout"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/img_foto_usuario_perfilFragment"
-        app:layout_constraintTop_toTopOf="parent" />
+    <RelativeLayout
+        android:id="@+id/relativeLayout5"
+        android:layout_width="match_parent"
+        android:layout_height="179dp"
+        android:background="@drawable/gradiente"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/img_foto_usuario_perfilFragment"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/botao_redondo"
-        android:src="@drawable/ic_action_foto_usuario"
-        app:civ_border_width="2dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/circleImageView2"
+            android:layout_width="33dp"
+            android:layout_height="32dp"
+            android:layout_alignBottom="@+id/img_foto_usuario_perfilFragment"
+            android:layout_alignStart="@+id/img_foto_usuario_perfilFragment"
+            android:background="@drawable/botao_redondo"
+            android:elevation="24dp"
+            android:src="@drawable/ic_action_editar"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/img_foto_usuario_perfilFragment"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/text_nome_completo_perfil"
-        android:layout_width="250dp"
-        android:layout_height="36dp"
-        android:layout_marginTop="24dp"
-        android:text="Nome Completo"
-        android:textSize="32dp"
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/img_foto_usuario_perfilFragment"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="19dp"
+            android:background="@drawable/botao_redondo"
+            android:src="@drawable/ic_action_foto_usuario"
+            app:civ_border_width="2dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </RelativeLayout>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/relativeLayout4"
+        android:layout_width="285dp"
+        android:layout_height="65dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="145dp"
+        android:background="@color/colorCinza"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/relativeLayout5"
+        app:cardElevation="6dp">
 
-    <TextView
-        android:id="@+id/text_telefone_perfil"
-        android:layout_width="249dp"
-        android:layout_height="20dp"
-        android:layout_marginTop="8dp"
-        android:text="Telefone"
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/text_nome_completo_perfil"
+                android:layout_width="match_parent"
+                android:textAlignment="center"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:text="Nome Completo"
+                android:textColor="@color/colorRoxo2"
+                android:textSize="32dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/text_telefone_perfil"
+                android:layout_width="match_parent"
+                android:textAlignment="center"
+                android:layout_height="20dp"
+                android:layout_below="@+id/text_nome_completo_perfil"
+                android:layout_centerHorizontal="true"
+                android:text="Telefone"
+                android:textColor="@color/colorRoxo2"
+                android:textSize="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_nome_completo_perfil" />
+
+        </RelativeLayout>
+
+
+
+    </android.support.v7.widget.CardView>
+
+    <RelativeLayout
+        android:id="@+id/relative_container_cards"
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout4"
+        android:gravity="center">
+
+        <RelativeLayout
+            android:id="@+id/relative_caixa_dados_pessoais"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/relative_caixa_endereco"
+            android:layout_toStartOf="@+id/relative_caixa_endereco">
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/caixa_dados_pessoais_perfil"
+                android:layout_width="115dp"
+                android:layout_height="109dp"
+                android:elevation="99dp"
+                app:cardElevation="12dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_action_foto_usuario" />
+
+                    <TextView
+                        android:id="@+id/text_dados_pessoais_perfil"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:text="Dados"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorRoxo2"
+                        android:textSize="18dp" />
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relative_caixa_endereco"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="0dp">
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/caixa_endereco_perfil"
+                android:layout_width="115dp"
+                android:layout_height="109dp"
+                android:elevation="99dp"
+                app:cardElevation="12dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_endereco" />
+
+                    <TextView
+                        android:id="@+id/text_endereco_perfil"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:text="Endereço"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorRoxo2"
+                        android:textSize="18dp" />
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relative_contatos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_alignStart="@+id/relative_caixa_dados_pessoais"
+            android:layout_alignTop="@+id/relative_caixa_sobre">
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/caixa_contato_perfil"
+                android:layout_width="115dp"
+                android:layout_height="109dp"
+                android:elevation="99dp"
+                app:cardElevation="12dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_contato" />
+
+                    <TextView
+                        android:id="@+id/text_contato_perfil"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:text="Contato"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorRoxo2"
+                        android:textSize="18dp" />
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relative_caixa_sobre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignStart="@+id/relative_caixa_endereco"
+            android:layout_marginBottom="0dp">
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/caixa_sobre_a_empresa_perfil"
+                android:layout_width="115dp"
+                android:layout_height="109dp"
+                android:elevation="99dp"
+                app:cardElevation="12dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_sobre" />
+
+                    <TextView
+                        android:id="@+id/text_sobre_a_empresa_perfil"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:text="Sobre"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorRoxo2"
+                        android:textSize="18dp" />
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/caixa_sair_perfil"
+        style="@style/Animation.AppCompat.Dialog"
+        android:layout_width="133dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/botao_meio_redondo_colorido"
+        android:drawableLeft="@drawable/ic_out"
+        android:padding="15dp"
+        android:text="Sair"
+        android:textColor="@android:color/white"
         android:textSize="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_nome_completo_perfil" />
-
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="3dp"
-        android:layout_marginTop="36dp"
-        android:background="@color/colorRoxoMeioAzul"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_telefone_perfil">
+        app:layout_constraintTop_toBottomOf="@+id/relative_container_cards" />
 
-    </LinearLayout>
-
-    <RelativeLayout
-        android:id="@+id/caixa_dados_pessoais_perfil"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:layout_marginTop="2dp"
-        app:layout_constraintEnd_toStartOf="@+id/linearLayout"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/linearLayout"
-        android:elevation="99dp">
-
-        <TextView
-            android:id="@+id/text_dados_pessoais_perfil"
-            android:layout_width="236dp"
-            android:layout_height="36dp"
-            android:layout_alignParentStart="true"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="14dp"
-            android:text="Dados Pessoais"
-            android:textSize="28dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <ImageView
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:layout_marginEnd="15dp"
-            android:background="@drawable/ic_action_ir" />
-
-    </RelativeLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout_2"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="1dp"
-        android:background="@color/colorRoxoMeioAzul"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/caixa_dados_pessoais_perfil">
-
-    </LinearLayout>
-
-    <RelativeLayout
-        android:id="@+id/caixa_endereco_perfil"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:layout_marginTop="2dp"
-        app:layout_constraintEnd_toStartOf="@+id/linearLayout"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/linearLayout_2"
-        android:elevation="99dp">
-
-        <TextView
-            android:id="@+id/text_endereco_perfil"
-            android:layout_width="236dp"
-            android:layout_height="36dp"
-            android:layout_alignParentStart="true"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="14dp"
-            android:text="Endereço"
-            android:textSize="28dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <ImageView
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:layout_marginEnd="15dp"
-            android:background="@drawable/ic_action_ir" />
-
-    </RelativeLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout_3"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="1dp"
-        android:background="@color/colorRoxoMeioAzul"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/caixa_endereco_perfil">
-
-    </LinearLayout>
-
-    <RelativeLayout
-        android:id="@+id/caixa_contato_perfil"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:layout_marginTop="2dp"
-        app:layout_constraintEnd_toStartOf="@+id/linearLayout"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/linearLayout_3"
-        android:elevation="99dp">
-
-        <TextView
-            android:id="@+id/text_contato_perfil"
-            android:layout_width="236dp"
-            android:layout_height="36dp"
-            android:layout_alignParentStart="true"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="14dp"
-            android:text="Contato"
-            android:textSize="28dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <ImageView
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:layout_marginEnd="15dp"
-            android:background="@drawable/ic_action_ir" />
-
-    </RelativeLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout_4"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="1dp"
-        android:background="@color/colorRoxoMeioAzul"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/caixa_contato_perfil">
-
-    </LinearLayout>
-
-    <RelativeLayout
-        android:id="@+id/caixa_sobre_a_empresa_perfil"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:layout_marginTop="2dp"
-        app:layout_constraintEnd_toStartOf="@+id/linearLayout"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/linearLayout_4"
-        android:elevation="99dp">
-
-        <TextView
-            android:id="@+id/text_sobre_a_empresa_perfil"
-            android:layout_width="236dp"
-            android:layout_height="36dp"
-            android:layout_alignParentStart="true"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="14dp"
-            android:text="Sobre a Agenda Já"
-            android:textSize="28dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <ImageView
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:layout_marginEnd="15dp"
-            android:background="@drawable/ic_action_ir" />
-
-    </RelativeLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout_5"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="1dp"
-        android:background="@color/colorRoxoMeioAzul"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/caixa_sobre_a_empresa_perfil">
-
-    </LinearLayout>
-
-    <RelativeLayout
-        android:id="@+id/caixa_sair_perfil"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:layout_marginTop="2dp"
-        app:layout_constraintEnd_toStartOf="@+id/linearLayout"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/linearLayout_5"
-        android:elevation="99dp">
-
-        <TextView
-            android:id="@+id/text_sair_perfil"
-            android:layout_width="236dp"
-            android:layout_height="36dp"
-            android:layout_alignParentStart="true"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="14dp"
-            android:text="Sair"
-            android:textSize="28dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <ImageView
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:layout_marginEnd="15dp"
-            android:background="@drawable/sair" />
-
-    </RelativeLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout_6"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="1dp"
-        android:background="@color/colorRoxoMeioAzul"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/caixa_sair_perfil">
-
-    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

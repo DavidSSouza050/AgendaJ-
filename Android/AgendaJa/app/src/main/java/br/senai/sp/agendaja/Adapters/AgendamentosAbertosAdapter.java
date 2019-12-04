@@ -86,14 +86,6 @@ public class AgendamentosAbertosAdapter extends RecyclerView.Adapter<Agendamento
             }
         });
 
-        agendamentoViewHolder.btnFinalizar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                clickAgendamento.onClickAgendamentoFinalizar(agendamento,data[2],data[1],data[0],horaFinal,minutosFinais);
-                notifyItemRemoved(i);
-
-            }
-        });
 
 
     } catch (InterruptedException e1) {
@@ -117,21 +109,19 @@ public class AgendamentosAbertosAdapter extends RecyclerView.Adapter<Agendamento
         private TextView txtAno;
         private TextView txtHora;
         private Button btnCancelar;
-        private Button btnFinalizar;
 
 
         public AgendamentoViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            txtNomeServico = itemView.findViewById(R.id.text_servico_reservas);
+            txtNomeServico = itemView.findViewById(R.id.txet_servico_reservas);
             txtEnderecoEstabelecimento = itemView.findViewById(R.id.text_endereco_reservas);
-            txtNomeEstabelecimento = itemView.findViewById(R.id.text_nome_estabelecimento_reservas);
+            txtNomeEstabelecimento = itemView.findViewById(R.id.txet_nome_estabelecimento_reservas);
             txtMes = itemView.findViewById(R.id.text_dia_reservas);
             txtDia = itemView.findViewById(R.id.text_mes_reservas);
             txtAno = itemView.findViewById(R.id.text_ano_reservas);
             txtHora = itemView.findViewById(R.id.text_hora_reservas);
             btnCancelar = itemView.findViewById(R.id.btn_cancelar_reservas);
-            btnFinalizar = itemView.findViewById(R.id.btn_finalizar_reservas);
 
         }
     }

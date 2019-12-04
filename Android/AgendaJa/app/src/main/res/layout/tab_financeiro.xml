@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBrancoAcinzentadoo">
+
+    <RelativeLayout
+        android:id="@+id/relative_atendimentos_financeiro"
+        android:layout_width="match_parent"
+        android:layout_height="77dp"
+        android:elevation="99dp"
+        android:padding="10dp"
+        tools:layout_editor_absoluteX="187dp"
+        tools:layout_editor_absoluteY="16dp"
+        android:background="@drawable/borda_sem_cor">
+
+        <TextView
+            android:id="@+id/text_atendimento_financeiro"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="0dp"
+            android:text="Atendimentos do Mês:"
+            android:textSize="28dp" />
+
+        <EditText
+            android:id="@+id/numero_do_mes_financeiro"
+            android:layout_width="35dp"
+            android:layout_height="48dp"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/text_atendimento_financeiro"
+            android:hint="12"
+            android:textSize="20dp" />
+
+        <Button
+            android:id="@+id/btn_ok_financeiro"
+            android:layout_width="40dp"
+            android:layout_height="32dp"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/numero_do_mes_financeiro"
+            android:background="@drawable/botao_quadrado_colorido"
+            android:text="ok"
+            android:textColor="@android:color/white" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relative_total_receber"
+        android:layout_width="match_parent"
+        android:layout_height="77dp"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="93dp"
+        android:background="@drawable/borda_sem_cor">
+
+        <LinearLayout
+            android:id="@+id/linear_icon"
+            android:layout_width="77dp"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:padding="14dp"
+            android:layout_marginLeft="0dp"
+            android:background="@drawable/borda_sem_cor">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_money" />
+
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/caixa_total"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_toEndOf="@+id/linear_icon"
+            android:background="@drawable/borda_sem_cor">
+
+            <TextView
+                android:id="@+id/txt_total_receber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/txt_valor"
+                android:layout_alignStart="@+id/txt_valor"
+                android:text="Total a Receber" />
+
+            <TextView
+                android:id="@+id/txt_valor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginBottom="13dp"
+                android:paddingRight="8dp"
+                android:text="R$ 2.135,00"
+                android:textStyle="bold"
+                android:textColor="@color/colorRoxo2"
+                android:textSize="28dp"
+                android:layout_marginLeft="12dp"/>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relative_servicos_realizados"
+        android:layout_width="match_parent"
+        android:layout_height="53dp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="170dp"
+        android:background="@drawable/borda_sem_cor">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="10dp"
+            android:text="Serviços Realizados"
+            android:textColor="@color/colorRoxo2"
+            android:textAlignment="center"
+            android:textSize="24dp" />
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </ScrollView>
+
+
+</android.support.constraint.ConstraintLayout>
