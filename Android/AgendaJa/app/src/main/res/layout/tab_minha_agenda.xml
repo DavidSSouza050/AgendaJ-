@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBrancoAcinzentadoo">
+
+    <RelativeLayout
+        android:id="@+id/editar_endereco"
+        app:layout_constraintEnd_toStartOf="@+id/linearLayout"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/linearLayout_2"
+        android:layout_width="match_parent"
+        android:layout_height="77dp"
+        android:elevation="99dp"
+        android:padding="10dp"
+        tools:layout_editor_absoluteX="192dp"
+        tools:layout_editor_absoluteY="43dp"
+        android:background="@drawable/borda_sem_cor">
+
+        <TextView
+            android:id="@+id/text_editar_endereco"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:text="Agenda do Dia:"
+            android:textSize="28dp" />
+
+
+        <EditText
+            android:id="@+id/data_minha_agenda"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/text_editar_endereco"
+            android:hint="01/01/2020"
+            android:textSize="20dp" />
+
+        <Button
+            android:id="@+id/btn_ok_minha_agenda"
+            android:layout_width="40dp"
+            android:layout_height="32dp"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/data_minha_agenda"
+            android:text="ok"
+            android:background="@drawable/botao_quadrado_colorido"
+            android:textColor="@android:color/white"/>
+
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editar_endereco">
+
+    </ScrollView>
+
+
+</android.support.constraint.ConstraintLayout>

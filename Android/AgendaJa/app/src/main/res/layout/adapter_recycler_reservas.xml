@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="12dp"
+    android:id="@+id/card_adapter_estabelecimento"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
+    android:layout_marginTop="16dp"
+    android:padding="8dp"
+    app:cardElevation="6dp">
+
+    <RelativeLayout
+        android:id="@+id/relative_hora_minha_agenda"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        >
+
+        <TextView
+            android:id="@+id/text_hora_reservas"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:paddingTop="7dp"
+            android:text="10:00 - 11:00"
+            android:textColor="@color/colorRoxoMeioAzul"
+            android:textAlignment="center"
+            android:textSize="28dp" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout_4"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:background="@color/colorCinza"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent">
+        </LinearLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/caixa_servico_minha_agenda"
+        android:layout_width="match_parent"
+        android:layout_height="291dp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintTop_toBottomOf="@+id/relative_hora_minha_agenda"
+        tools:layout_editor_absoluteX="26dp">
+
+        <LinearLayout
+            android:id="@+id/img_foto_usuario_perfil_minha_agenda"
+            android:layout_width="66dp"
+            android:layout_height="66dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="12dp"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/text_dia_reservas"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="06"
+                    android:textColor="@color/colorRoxoMeioAzul"
+                    android:textAlignment="center"
+                    android:textSize="16dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/text_mes_reservas"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="DEZ"
+                    android:textColor="@color/colorRoxoMeioAzul"
+                    android:textAlignment="center"
+                    android:textSize="16dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/text_ano_reservas"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="2019"
+                    android:textColor="@color/colorRoxoMeioAzul"
+                    android:textAlignment="center"
+                    android:textSize="16dp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/text_funcionario_reserva"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/txet_nome_estabelecimento_reservas"
+            android:layout_below="@+id/txet_nome_estabelecimento_reservas"
+            android:text="Nome funcionario"
+            android:textColor="@color/colorRoxoMeioAzul"
+            android:textSize="24dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txet_nome_estabelecimento_reservas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text_funcionario_do_confirmar_servico"
+            android:layout_marginLeft="10dp"
+            android:layout_toEndOf="@+id/img_foto_usuario_perfil_minha_agenda"
+            android:text="Nome do estabelecimento"
+            android:textSize="14dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="12dp"/>
+
+
+        <TextView
+            android:id="@+id/text_servico_do_confirmar_servico"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/img_foto_usuario_perfil_minha_agenda"
+            android:layout_below="@+id/img_foto_usuario_perfil_minha_agenda"
+            android:layout_marginTop="20dp"
+            android:text="Serviço"
+            android:textSize="12dp" />
+
+        <TextView
+            android:id="@+id/txet_servico_reservas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/img_foto_usuario_perfil_minha_agenda"
+            android:layout_below="@+id/text_servico_do_confirmar_servico"
+            android:text="Corte Social"
+            android:textColor="@color/colorRoxoMeioAzul"
+            android:textSize="18dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txt_valor_minha_agenda"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/text_preco_do_confirmar_servico"
+            android:layout_alignTop="@+id/text_servico_do_confirmar_servico"
+            android:text="Valor"
+            android:textSize="12dp" />
+
+        <TextView
+            android:id="@+id/text_preco_do_confirmar_servico"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/text_servico_do_confirmar_servico"
+            android:layout_marginEnd="12dp"
+            android:text="R$ 25,00"
+            android:textColor="@color/colorRoxoMeioAzul"
+            android:textSize="18dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txt_endereco_minha_agenda"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/img_foto_usuario_perfil_minha_agenda"
+            android:layout_below="@+id/txet_servico_reservas"
+            android:text="Endereço"
+            android:layout_marginTop="12dp"
+            android:textSize="12dp" />
+
+        <TextView
+            android:id="@+id/text_endereco_reservas"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:layout_below="@+id/txt_endereco_minha_agenda"
+            android:padding="8dp"
+            android:textColor="@color/colorRoxoMeioAzul"
+            android:text="Rua Elton Silva, 905 - Centro, Jandira - SP, 06600-025"
+            android:textSize="14dp" />
+
+
+        <Button
+            android:id="@+id/btn_cancelar_reservas"
+            style="@style/Animation.AppCompat.Dialog"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="13dp"
+            android:background="@drawable/botao_redondo_colorido"
+            android:text="CANCELAR"
+            android:textColor="@android:color/white"
+            android:textStyle="bold" />
+
+
+    </RelativeLayout>
+
+
+
+</android.support.v7.widget.CardView>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FazerReservaActivity">
+
+
+    <Button
+        android:id="@+id/btn_salvar_agendamento"
+        style="@style/Animation.AppCompat.Dialog"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="28dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/botao_quadrado_colorido"
+        android:text="SALVAR"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="497dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <CalendarView
+                android:id="@+id/calendarView"
+                android:layout_width="match_parent"
+                android:layout_height="302dp"
+                tools:layout_editor_absoluteX="27dp"
+                tools:layout_editor_absoluteY="0dp">
+
+            </CalendarView>
+
+            <LinearLayout
+                android:id="@+id/linear_horario_disponivel"
+                android:layout_width="match_parent"
+                android:layout_height="73dp"
+                android:padding="3dp"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@+id/calendarView"
+                tools:layout_editor_absoluteX="8dp">
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recycler_horarios"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="4dp"
+                    >
+
+                </android.support.v7.widget.RecyclerView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear_dados_do_servico_escolhido"
+                android:layout_width="match_parent"
+                android:layout_height="110dp"
+                android:orientation="vertical"
+                android:padding="4dp"
+                app:layout_constraintTop_toBottomOf="@+id/linear_horario_disponivel"
+                tools:layout_editor_absoluteX="0dp">
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recycler_funcionarios"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                </android.support.v7.widget.RecyclerView>
+
+
+            </LinearLayout>
+
+        </android.support.constraint.ConstraintLayout>
+
+
+
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>

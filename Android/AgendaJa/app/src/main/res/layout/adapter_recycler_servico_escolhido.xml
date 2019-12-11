@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="74dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/borda">
+
+
+        <TextView
+            android:id="@+id/text_servico_escolhido"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignStart="@+id/text_funcionario_escolhido"
+            android:layout_marginTop="11dp"
+            android:text="Serviço X"
+            android:textColor="@color/colorRoxoMeioAzul"
+            android:textStyle="bold"
+            android:textSize="24dp" />
+
+        <TextView
+            android:id="@+id/text_funcionario_escolhido"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginStart="14dp"
+            android:text="Funcionario Y"
+            android:textColor="@color/colorRoxoMeioAzul"
+            android:textSize="14dp" />
+
+        <TextView
+            android:id="@+id/text_preco_escolhido"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/text_horario_escolhido"
+            android:layout_alignTop="@+id/text_servico_escolhido"
+            android:text="R$ 20,00"
+            android:textStyle="bold"
+            android:textColor="@color/colorRoxoMeioAzul"
+            android:textSize="24dp" />
+
+        <TextView
+            android:id="@+id/text_horario_escolhido"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginBottom="8dp"
+            android:layout_marginRight="34dp"
+            android:text="15:00 - 15:55"
+            android:textColor="@color/colorRoxoMeioAzul"
+            android:textSize="14dp" />
+    </RelativeLayout>
+</android.support.constraint.ConstraintLayout>

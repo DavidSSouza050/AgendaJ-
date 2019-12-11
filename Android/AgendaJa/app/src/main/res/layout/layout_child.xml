@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="73dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <TextView
+            android:id="@+id/text_servico_do_estabelecimento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="13dp"
+            android:text="Corte"
+            android:textColor="@color/colorRoxo2"
+            android:textStyle="bold"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/text_preco_do_servico"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginEnd="117dp"
+            android:textSize="20dp"
+            android:text="R$15,00"
+            android:textStyle="bold"
+            android:textColor="@color/colorRoxo2"
+            android:paddingTop="8dp"/>
+
+        <TextView
+            android:id="@+id/text_tempo_do_servico"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/text_preco_do_servico"
+            android:layout_below="@+id/text_preco_do_servico"
+            android:text="50min"
+            android:textColor="@color/colorRoxo2"
+            android:textSize="12dp" />
+
+        <Button
+            android:id="@+id/button_reservar_do_estabelecimento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="22dp"
+            android:background="@drawable/botao_quadrado_colorido"
+            android:text="Reservar"
+            android:textColor="@android:color/white" />
+    </RelativeLayout>
+
+</LinearLayout>

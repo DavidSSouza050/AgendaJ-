@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AdicionarOutroServicoActivity">
+
+    <RelativeLayout
+        android:id="@+id/relative_adicionar_outro_servico"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/colorRoxoMeioAzul"
+        >
+
+        <EditText
+            android:id="@+id/txt_procura_adicionar_outro_servico"
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/caixa_de_texto_redonda_transparente"
+            android:drawableStart="@drawable/ic_action_explorar_branco"
+            android:hint="Buscar outro serviço?"
+            android:inputType="text"
+            android:maxLines="1"
+            android:textSize="18dp"
+            android:textColor="@android:color/white"
+            android:textColorHint="@android:color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/relative_adicionar_outro_servico">
+
+        <iammert.com.expandablelib.ExpandableLayout
+            android:id="@+id/expandable_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="195dp"
+            android:elevation="99dp"
+            app:childLayout="@layout/layout_child"
+            app:parentLayout="@layout/layout_parent" />
+
+    </ScrollView>
+
+
+
+</RelativeLayout>
