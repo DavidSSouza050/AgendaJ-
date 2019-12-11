@@ -5,7 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -15,29 +15,28 @@ import javax.validation.constraints.Size;
 public class Endereco {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long IdEndereco;
+	private Long idEndereco;
 	@NotNull
 	@Size(min = 5, max = 100, message = "O logradouro deve conter mais de 5 caracteres!")
 	private String logradouro;
 	@NotNull
-	@Size(min = 5, max = 100, message = "O Bairrodeve conter mais de 5 caracteres!")
+	@Size(min = 2 , max = 100, message = "O Bairro deve conter mais de 2 caracteres!")
 	private String bairro;
 	@NotNull
+	@Size(max = 9, message = "Digite o cep corretamente!")
+	private String cep;
 	private String numero;
-	@OneToOne
-	@JoinColumn(name = "id_estabelecimento")
-	private Long idEstabelicimento;
-	@OneToOne
-	@JoinColumn(name = "id_cliente")
-	private Long idCliente;
-
+	@ManyToOne
+	@JoinColumn(name = "id_cidade")
+	private Cidade idCidade;
 	
+
 	public Long getIdEndereco() {
-		return IdEndereco;
+		return idEndereco;
 	}
 
 	public void setIdEndereco(Long idEndereco) {
-		IdEndereco = idEndereco;
+		this.idEndereco = idEndereco;
 	}
 
 	public String getLogradouro() {
@@ -55,6 +54,14 @@ public class Endereco {
 	public void setBairro(String bairro) {
 		this.bairro = bairro;
 	}
+	
+	public String getCep() {
+		return cep;
+	}
+
+	public void setCep(String cep) {
+		this.cep = cep;
+	}
 
 	public String getNumero() {
 		return numero;
@@ -64,21 +71,14 @@ public class Endereco {
 		this.numero = numero;
 	}
 
-	public Long getIdEstabelicimento() {
-		return idEstabelicimento;
+	public Cidade getIdCidade() {
+		return idCidade;
 	}
 
-	public void setIdEstabelicimento(Long idEstabelicimento) {
-		this.idEstabelicimento = idEstabelicimento;
+	public void setIdCidade(Cidade idCidade) {
+		this.idCidade = idCidade;
 	}
 
-	public Long getIdCliente() {
-		return idCliente;
-	}
 
-	public void setIdCliente(Long idCliente) {
-		this.idCliente = idCliente;
-	}
-	
 	
 }

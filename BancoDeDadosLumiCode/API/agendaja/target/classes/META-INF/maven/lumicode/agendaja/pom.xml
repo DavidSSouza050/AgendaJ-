@@ -5,7 +5,7 @@
   <groupId>lumicode</groupId>
   <artifactId>agendaja</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <packaging>jar</packaging>
+  <packaging>jar</packaging> 
 
   <name>agendaja</name>
   <url>http://maven.apache.org</url>
@@ -47,12 +47,58 @@
     	<version>8.0.17</version>
 	</dependency>
 	
+    <dependency>
+	    <groupId>org.springframework.boot</groupId>
+	    <artifactId>spring-boot-starter-security</artifactId>
+	    <version>2.0.0.RELEASE</version>
+	</dependency>
+
+	<dependency>
+	    <groupId>io.jsonwebtoken</groupId>
+	    <artifactId>jjwt</artifactId>
+	    <version>0.9.1</version>
+    </dependency>
     
+    <dependency>
+	    <groupId>io.springfox</groupId>
+	    <artifactId>springfox-swagger2</artifactId>
+	    <version>2.7.0</version>
+    </dependency>
+    
+    <dependency>
+	    <groupId>io.springfox</groupId>
+	    <artifactId>springfox-swagger-ui</artifactId>
+	    <version>2.7.0</version>
+    </dependency>
+    
+  
   </dependencies>
-  
-  
-  
-  
+
+	 <build>
+	  <plugins>
+	    <plugin>
+	      <groupId>org.springframework.boot</groupId>
+	      <artifactId>spring-boot-maven-plugin</artifactId>
+	      <version>1.2.5.RELEASE</version>
+	      <executions>
+	      	<execution>
+	      		<goals>
+	      			<goal>repackage</goal>
+	      		</goals>
+	      	</execution>
+	      </executions>
+	    </plugin>
+	    <!-- <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.6.1</version>
+        <configuration>
+          <source>7</source>
+          <target>7</target>
+        </configuration>
+      </plugin> -->
+	  </plugins>
+	</build>
   
   
   

@@ -1,12 +1,12 @@
 package lumicode.agendaja.api.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
@@ -18,10 +18,10 @@ import org.springframework.lang.NonNull;
 public class Estabelecimento {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY )
-	private Long id_estabelecimento;
+	private Long idEstabelecimento;
 	@NonNull
-	@CNPJ
-	@Size(max = 14, message = "O CNPJ tem que conter 14 caracteres!")
+	@CNPJ 
+	@Size(max = 20, message = "O CNPJ tem que conter 20 caracteres!")
 	private String cnpj;
 	@NonNull
 	@Size(min = 5, max = 150, message = "A Razão social tem que conter no minimo 5 caracteres!")
@@ -29,8 +29,9 @@ public class Estabelecimento {
 	@NonNull
 	@Size(min = 5, max = 100, message = "O nome do estabelecimeto deve conter no minimo 5 caracteres!")
 	private String nomeEstabelecimento;
-	@Size(max = 13, message = "Digite o celular corretamente!")
+	@Size(max = 15, message = "Digite o celular corretamente!")
 	private String celular;
+	private String foto;
 	@NonNull
 	@Size(max = 15, message = "Digite o número telefone corretamente!")
 	private String telefone;
@@ -40,17 +41,17 @@ public class Estabelecimento {
 	@NonNull
 	@Size(min = 8, max = 255, message = "A senha que conter 8 ou mais caracteres!")
 	private String senha;
-	@OneToOne
-	@JoinColumn(name = "id_endereco")
-	private Long idEndereco; 
+	@OneToMany(mappedBy = "estabelecimento")
+	private List<HorarioEstabelecimento> horarioEstabelecimento;
 	
 	
-	public Long getId_estabelecimento() {
-		return id_estabelecimento;
+	
+	public Long getIdEstabelecimento() {
+		return idEstabelecimento;
 	}
 
-	public void setId_estabelecimento(Long id_estabelecimento) {
-		this.id_estabelecimento = id_estabelecimento;
+	public void setIdEstabelecimento(Long idEstabelecimento) {
+		this.idEstabelecimento = idEstabelecimento;
 	}
 
 	public String getCnpj() {
@@ -109,14 +110,27 @@ public class Estabelecimento {
 		this.senha = senha;
 	}
 
-	public Long getIdEndereco() {
-		return idEndereco;
+	public String getFoto() {
+		return foto;
 	}
 
-	public void setIdEndereco(Long idEndereco) {
-		this.idEndereco = idEndereco;
+	public void setFoto(String foto) {
+		this.foto = foto;
 	}
+
+	public List<HorarioEstabelecimento> getHorarioEstabelecimento() {
+		return horarioEstabelecimento;
+	}
+
+	public void setHorarioEstabelecimento(List<HorarioEstabelecimento> horarioEstabelecimento) {
+		this.horarioEstabelecimento = horarioEstabelecimento;
+	}
+
+
+
 	
-	
+
+
+
 
 }

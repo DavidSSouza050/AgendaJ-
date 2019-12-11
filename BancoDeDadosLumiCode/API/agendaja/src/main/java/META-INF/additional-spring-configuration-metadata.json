@@ -1,0 +1,17 @@
+{"properties": [
+  {
+    "name": "contato.disco.raiz",
+    "type": "java.lang.String",
+    "description": "A description for 'contato.disco.raiz'"
+  },
+  {
+    "name": "contato.disco.diretorio-fotos",
+    "type": "java.lang.String",
+    "description": "A description for 'contato.disco.diretorio-fotos'"
+  },
+  {
+    "name": "jwt.secret",
+    "type": "java.lang.String",
+    "description": "A description for 'jwt.secret'"
+  }
+]}

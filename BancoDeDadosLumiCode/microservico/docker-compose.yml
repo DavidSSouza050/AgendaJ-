@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  backend:
+    container_name: microservico-agendamento
+    image: node:10
+    working_dir: /home/node/app
+    environment:
+      PORT: 3355
+    volumes:
+      - ./agendamento_microservico:/home/node/app
+    expose:
+      - "3355"
+    ports:
+      - 3355:3355
+    command: bash -c 'npm install && node ./src/server.js'

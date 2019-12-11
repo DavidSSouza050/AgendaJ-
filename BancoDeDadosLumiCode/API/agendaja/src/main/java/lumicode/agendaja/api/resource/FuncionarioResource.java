@@ -1,0 +1,126 @@
+package lumicode.agendaja.api.resource;
+
+import java.net.URI;
+import java.util.List;
+
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+
+import lumicode.agendaja.api.model.Funcionario;
+import lumicode.agendaja.api.repository.FuncionarioRepository;
+
+@RestController
+@RequestMapping("/funcionarios")
+@CrossOrigin(origins = "*")
+public class FuncionarioResource {
+	
+	@Autowired
+	private FuncionarioRepository funcionarioRepository;
+	
+	@GetMapping
+	private List<Funcionario> getFuncionario(){
+		return funcionarioRepository.findAll();
+	}
+	
+	@GetMapping("/{id}")
+	private Funcionario visualizarFuncionario(@PathVariable Long id) {
+		return funcionarioRepository.findById(id).get();
+	}
+	
+	@PostMapping("/login")
+	private ResponseEntity<?> loginFuncionario(@RequestBody Funcionario funcionario) {
+		
+		Funcionario funcionarioLogado = funcionarioRepository.loginFuncionario(funcionario.getEmail(), funcionario.getSenha());
+		
+		if(funcionarioLogado != null) {
+			return ResponseEntity.ok(funcionarioLogado);
+			
+		}else {
+			return new ResponseEntity<String>("{\"mesage\":\"Email ou senha incorretos\"}", HttpStatus.BAD_REQUEST) ;
+		}
+	
+	}
+	
+	@PostMapping
+	private ResponseEntity<?> cadastrarFuncionario(
+			@Validated @RequestBody Funcionario funcionario,
+			HttpServletResponse response){
+		if(funcionarioRepository.verificarEmail(funcionario.getEmail()) != null) {
+			return  new ResponseEntity<String>("{\"mensage\": \"E-mail Já cadastrado\"}",HttpStatus.BAD_REQUEST);
+		}
+		//setando status
+		funcionario.setStatus(1);
+		
+		Funcionario funcionarioSalvo = funcionarioRepository.save(funcionario);
+		
+		//criando o cliente depois de salvo para retornar o json  
+		URI uri = ServletUriComponentsBuilder
+				  .fromCurrentRequest()
+				  .path("/{id}")
+				  .buildAndExpand(funcionario.getIdFuncionario())
+				  .toUri();
+		//colocando no header o localização do cliente que está na uri
+		response.addHeader("Location", uri.toASCIIString());
+
+		//o cliente cadastrado ira ser retornado no body da resposta
+		return ResponseEntity.created(uri).body(funcionarioSalvo);
+		
+	
+	}
+		
+	//atualizando o cliente
+	@PutMapping("/{id}")
+	private ResponseEntity<?> atualizarFuncinario(@RequestBody Funcionario funcionario,
+			@PathVariable Long id ){
+	
+		Funcionario funcionarioAtualizado = funcionarioRepository.findById(id).get();
+
+
+		
+		BeanUtils.copyProperties(funcionario, funcionarioAtualizado, "id");
+	
+		funcionarioRepository.save(funcionario);
+		
+		return ResponseEntity.ok(funcionarioAtualizado);
+	
+	}
+
+	@PutMapping("/desativar/{id}")
+	private ResponseEntity<?> desativarFuncinario(@PathVariable Long id){
+		
+		Funcionario funcionario = funcionarioRepository.findById(id).get();
+		funcionario.setStatus(0);
+
+		funcionarioRepository.save(funcionario);
+		
+		return ResponseEntity.ok("{\"message\":\"Funcionario desativado\"}");
+		
+	}
+	
+	
+	@PutMapping("/ativar/{id}")
+	private ResponseEntity<?> ativarFuncionario(@PathVariable Long id){
+		Funcionario funcionario = funcionarioRepository.findById(id).get();
+		funcionario.setStatus(1);
+
+		funcionarioRepository.save(funcionario);
+		
+		return ResponseEntity.ok("{\"message\":\"Funcionario ativado\"}");
+		
+	}
+	
+}

@@ -1,19 +1,15 @@
 package lumicode.agendaja.api.model;
 
-import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.br.CPF;
-import org.springframework.format.annotation.DateTimeFormat;
 
 
 @Entity
@@ -30,27 +26,24 @@ public class Cliente {
 	@Size(min = 3, max = 50, message = "O Sobrenome deve conter no Minimo 3 Caracteres!")
 	private String sobrenome;
 	@NotNull
-	@Size(max = 13, message = "Digite o Numero do Celular corretamente!")
+	@Size(max = 15, message = "Digite o Numero do Celular corretamente!")
 	private String celular;
-	@NotNull
 	@CPF
+	@NotNull
 	@Size(max = 14, message = "Digite CPF corretemente!")
 	private String cpf;
 	@NotNull
 	@Size(max = 1, message = "Permitido 1 caracter!")
 	private String sexo;
 	@NotNull
-	private Date dataNacimento;
+	private String dataNascimento;
 	@NotNull
 	@Size(min = 10, max = 50 , message = "O E-mail deve conter no Minimo 10 catacteres!")
 	private String email;
 	@NotNull
 	@Size(min = 8, max = 255, message="a senha deve conter no minimo 8 caracteres")
 	private String senha;
-	@OneToOne
-	@JoinColumn(name = "id_endereco")
-	private Long idEndereco;
-	
+	private String fotoCliente;
 	
 	public Long getIdCliente() {
 		return idCliente;
@@ -100,12 +93,13 @@ public class Cliente {
 		this.sexo = sexo;
 	}
 
-	public Date getDataNacimento() {
-		return dataNacimento;
+	
+	public String getDataNascimento() {
+		return dataNascimento;
 	}
 
-	public void setDataNacimento(Date dataNacimento) {
-		this.dataNacimento = dataNacimento;
+	public void setDataNascimento(String dataNascimento) {
+		this.dataNascimento = dataNascimento;
 	}
 
 	public String getEmail() {
@@ -123,8 +117,17 @@ public class Cliente {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-	
-	
+
+	public String getFotoCliente() {
+		return fotoCliente;
+	}
+
+	public void setFotoCliente(String fotoCliente) {
+		this.fotoCliente = fotoCliente;
+	}
+
+
+
 	
 		
 

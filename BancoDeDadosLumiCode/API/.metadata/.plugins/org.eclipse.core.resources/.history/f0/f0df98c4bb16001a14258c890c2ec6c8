@@ -1,0 +1,205 @@
+package lumicode.agendaja.api.resource;
+
+import java.net.URI;
+import java.util.Calendar;
+import java.util.List;
+
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+
+import lumicode.agendaja.api.model.Agendamento;
+import lumicode.agendaja.api.model.view.ServicoPendenteVIEW;
+import lumicode.agendaja.api.model.view.ServicosFuncionarioVIEW;
+import lumicode.agendaja.api.repository.AgendamentoRepository;
+import lumicode.agendaja.api.repository.view.ServicoPendenteVIEWRepository;
+import lumicode.agendaja.api.repository.view.ServicosFuncionarioVIEWRepository;
+
+@RestController
+@RequestMapping("/agendamentos")
+@CrossOrigin(origins = "*")
+public class AgendamentoResource {
+	
+	@Autowired
+	private AgendamentoRepository agendamentoRepository;
+	@Autowired
+	private ServicosFuncionarioVIEWRepository servicosFuncionarioVIEWRepository;
+	
+	@Autowired
+	private ServicoPendenteVIEWRepository servicoPendenteVIEWRepository;
+	
+	Calendar calendar = Calendar.getInstance();
+	Integer mes = calendar.get(Calendar.MONTH)+1;
+	Integer ano = calendar.get(Calendar.YEAR);
+	Integer dia = calendar.get(Calendar.DAY_OF_MONTH);
+	
+	
+	@GetMapping
+	private List<Agendamento> getAgendamento(){
+		return agendamentoRepository.findAll();
+	}
+	
+	
+	@GetMapping("/{id}")
+	private Agendamento visualizarAgendamento(@PathVariable Long id) {
+		return agendamentoRepository.findById(id).get();
+	}
+	
+	@GetMapping("/totalDia/estabelecimento/{id}")
+	private String totalAgendamento(@PathVariable Long id) {
+		
+		Integer totalAgendamento = servicoPendenteVIEWRepository.agendamentosPendentesTotal(mes, ano, dia, id);
+		
+		return "{\"mesage\":\""+totalAgendamento+"\"}";
+	}
+	
+	// Agendamentos dos funcionario e estabelecimento
+	
+	//agendamento realizado do funcionario
+	@GetMapping("/funcionario/{id}/servicosRealizados")
+	private List<ServicosFuncionarioVIEW> servicosRealizados(@PathVariable Long id){
+		return servicosFuncionarioVIEWRepository.pegarServicos(mes, ano, id);
+	}
+
+	//agendamento pendente do funcionario mes
+	@GetMapping("/funcionario/{id}/mes/servicosPendente")
+	private List<ServicoPendenteVIEW> servicosPendenteFuncionario(@PathVariable Long id){
+		return servicoPendenteVIEWRepository.pegerServicosPendentesFuncionario(id, mes, ano);
+	}
+	//agendamento do dia
+	@GetMapping("/funcionario/{id}/dia/servicosPendente")
+	private List<ServicoPendenteVIEW> servicosPendenteFuncionarioDia(@PathVariable Long id){
+		return servicoPendenteVIEWRepository.pegerServicosPendentesFuncionarioDia(id, mes, ano, dia);
+	}
+	
+	//agendamento pendentes do estabelecimento mes
+	@GetMapping("/estabelecimento/{id}/mes/servicosPendente")
+	private List<ServicoPendenteVIEW> servicosPendenteEstabelecimento(@PathVariable Long id){
+		
+		return servicoPendenteVIEWRepository.pegerServicosPendentesEstabelecimento(id, mes, ano, dia);
+	}
+	
+	//agendamento penentes do estabelecimento dia
+	
+	@GetMapping("/estabelecimento/{id}/dia/servicosPendente")
+	private List<ServicoPendenteVIEW> servicosPendenteEstabelecimentoDia(@PathVariable Long id){
+		
+		return servicoPendenteVIEWRepository.pegerServicosPendentesEstabelecimentoDia(id, mes, ano, dia);
+	}
+	
+	//agendamento realizados pelo estabelecimento
+	@GetMapping("/estabelecimento/{id}/servicosRealizados")
+	private List<ServicoPendenteVIEW> servicosRealizadosEstabelecimento(@PathVariable Long id){
+		return servicoPendenteVIEWRepository.pegarServicosRealizadosEstabelecimento(id);
+	}
+	
+	//agendamentos do cliente pendentes
+	@GetMapping("/cliente/{id}/servicoPendente")
+	private List<ServicoPendenteVIEW> servicosPendentesCliente(@PathVariable Long id){
+		return servicoPendenteVIEWRepository.pegerServicosPendentesCliente(id);
+	}
+	//agendamento realizado
+	@GetMapping("/cliente/{id}/servicoRealizados")
+	private List<ServicoPendenteVIEW> servicosRealizadosCliente(@PathVariable Long id){
+		return servicoPendenteVIEWRepository.pegerServicosRealizadosCliente(id);
+	}
+	
+	
+	
+	// cadastrar um agendamento
+	@PostMapping
+	private ResponseEntity<Agendamento> cadastrarAgendamento(
+			@Validated @RequestBody Agendamento agendamento,
+			HttpServletResponse response){
+		agendamento.setFinalizado(0);
+		agendamento.setStatus('N');
+		Agendamento agendamentoSalvo = agendamentoRepository.save(agendamento);
+	
+		
+		//criando o cliente depois de salvo para retornar o json  
+		URI uri = ServletUriComponentsBuilder
+				  .fromCurrentRequest()
+				  .path("/{id}")
+				  .buildAndExpand(agendamento.getIdAgendamento())
+				  .toUri();
+		//colocando no header o localização do cliente que está na uri
+		response.addHeader("Location", uri.toASCIIString());
+
+		//o cliente cadastrado ira ser retornado no body da resposta
+		return ResponseEntity.created(uri).body(agendamentoSalvo);
+	
+	}
+	
+	
+		
+	//atualizando o cliente
+	@PutMapping("/{id}")
+	private ResponseEntity<?> atualizarAgendamento(@RequestBody Agendamento agendamento,
+			@PathVariable Long id ){
+	
+		Agendamento agendamentoAtualizado = agendamentoRepository.findById(id).get();
+		
+		if(agendamentoAtualizado.getFinalizado() == 1) {
+			return new ResponseEntity<String>("{\"mesage\":\"Agendamento já finalizado\"}", HttpStatus.LOCKED);
+		}
+		
+		if(agendamentoAtualizado.getStatus() == 'C') {
+			return new ResponseEntity<String>("{\"mesage\":\"Agendamento já Cancelado\"}", HttpStatus.LOCKED);
+		}
+
+		BeanUtils.copyProperties(agendamento, agendamentoAtualizado, "id");
+	
+		agendamentoRepository.save(agendamentoAtualizado);
+		
+		return ResponseEntity.ok(agendamentoAtualizado);
+	
+	}
+	
+	@CrossOrigin(origins = "*")
+	@PutMapping("/cancelar/{id}")
+	private ResponseEntity<?> desativarAgedamento(@PathVariable Long id){
+		
+		Agendamento agendamentoCancelado = agendamentoRepository.findById(id).get();
+		
+		if(agendamentoCancelado.getFinalizado() == 1) {
+			return new ResponseEntity<String>("{\"mesage\":\"Agendamento já finalizado\"}", HttpStatus.LOCKED);
+		}
+		
+		agendamentoCancelado.setStatus('C'); 
+		
+		agendamentoRepository.save(agendamentoCancelado);
+		
+		return new ResponseEntity<String>("{\"mesage\":\"Agendamento Cancelado\"}", HttpStatus.OK);
+	}
+	
+	@CrossOrigin(origins = "*")
+	@PutMapping("/finalizar/{id}")
+	private ResponseEntity<?> finalizarAgendamento(@PathVariable Long id){
+		Agendamento agendamentoFinalizado = agendamentoRepository.findById(id).get();
+		
+		if(agendamentoFinalizado.getStatus() == 'C') {
+			return new ResponseEntity<String>("{\"mesage\":\"Agendamento foi Cancelado\"}", HttpStatus.LOCKED);
+		}
+		
+		agendamentoFinalizado.setFinalizado(1);
+		
+		agendamentoRepository.save(agendamentoFinalizado);
+		
+		return new ResponseEntity<String>("{\"mesage\":\"Agendamento Finalizado\"}", HttpStatus.OK);
+	}
+	
+	
+}
