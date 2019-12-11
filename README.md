@@ -1,4 +1,4 @@
-# AgendaJ-
+# AgendaJá
 Projeto de TCC
 
 ## Sistema AgendaJá
