@@ -1,0 +1,1206 @@
+/* @media screen and (min-width:1000px){ */
+    .sumirdagrande{
+        margin-top: 25px;
+        display: none;
+    }
+    .caixa_escura{
+        width: inherit;
+        height: inherit;
+        background-color: rgba(0, 0, 0, 0.555);
+        display: flex;
+    }
+    .conteiner_menu{
+        width: 100%;
+        height: 90px;
+        z-index: 950;
+        position: fixed;
+        background-color: #202174;
+        line-height: 1.2;
+    }
+
+    #img_menu_mobile{
+        display: none;
+    }
+    .texto_landing{
+        line-height: 1.5;
+    }
+    
+    #ul_menu{
+        width: 1200px;
+        height: inherit; 
+        box-sizing: border-box;
+        list-style: none;
+    }
+    
+    #botao_entrar_menu{
+        width: 150px;
+        height: inherit;
+        padding-top: 25px;
+        margin-left: 10px;
+        float: left;
+    }
+    
+    #botao_entrar{
+        width: 150px;
+        height: 50px;
+        border: none;
+        outline: none;
+        box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.589);
+        border-radius: 10px;
+        background-color: #515adb;
+        color: white;
+        font-size: 25px;
+        font-family: 'Segoe UI';
+    }
+    
+    #botao_entrar:hover{
+        transition: 0.2s;
+        background-color: rgb(45, 67, 192);
+    }
+    
+    .item_menu{
+        width: 168px;
+        height: inherit;
+        margin-left: 5px;
+        padding-top: 28px;
+        padding-left: 5px;
+        float: left;
+        color: white;
+        font-size: 25px;
+        font-family: 'Segoe UI';
+    }
+    .item_menu:hover{
+        transition: 0.2s;
+        cursor: pointer;
+        border-bottom: solid 5px rgb(199, 104, 236);
+    }
+    #margin_item{
+        margin-left: 60px !important;
+    }
+    #img_menu{
+        width: 90px;
+        height: 90px;
+        margin-left: 160px;
+        margin-right: 20px;
+        float: left;
+    }
+    #linhar_item{
+        margin-left: 25px;
+    }
+    
+    .container_faixa{
+        width: 100%;
+        min-height: 100px;
+        height: auto;
+        overflow: hidden;   
+    }
+    #espaco_landing{
+        width: 100%;
+        height: 90px;
+    }
+    #caixa_header{
+        width: 100%;
+        min-height: 100px;
+        height: auto;
+        overflow: hidden;
+        background-image: url(../imagens/background1.jpg);
+        
+    }
+    #headerlanding_page{
+        width: 1200px;
+        height: 700px;
+        z-index: 999;
+    }
+    #titulo_header{
+        width: 1000px;
+        height: inherit;
+        margin-left: auto;
+        padding-top: 120px;
+    }
+    #titulo_header{
+        font-family: 'Segoe UI';
+        text-align: center;
+        font-size: 60px;
+        color: white;
+    }
+    
+    #botao_entrar_grande{
+        width: 250px;
+        height: 100px;
+        margin-top: 130px;
+        border: none;
+        outline: none;
+    
+        border-radius: 10px;
+        color: white;
+        background-color: #5171db;
+        box-shadow: 0px 0px 20px black; 
+    }
+    
+    #botao_entrar_grande:hover{
+        transition: 0.2s;
+        transform: scale(1.050);
+        background-color: rgb(45, 67, 192);
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.527); 
+    }
+    
+    #caixa_aplicacao{
+        width: 100%;
+        height: 490px;
+        background-color: #404f9d;
+    }
+    
+    #aplicacao{
+        width: 1200px;
+        height: inherit;
+        box-sizing: border-box;
+    }
+    
+    #imagem_logo_aplicacao{
+        width: 400px;
+        height: 130px;
+        float: left;
+    }
+    
+    #texto_aplicacao{
+        width: 800px;
+        height: inherit;
+       
+        float: left;
+    }
+    
+    #texto_aplicacao h2{
+        font-size: 40px;
+        color: white;
+        margin-left: 50px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        font-family: 'Segoe UI';
+    }
+    
+    #texto_aplicacao p{
+        font-size: 28px;
+        text-align: justify;
+        color: white;
+        margin-left: 50px;
+        margin-right: 20px;
+        font-family: 'Segoe UI';
+        
+    }
+    
+    /*Plataformas*/
+    
+    #container_plataforma{
+        width: 100%;
+        min-height: 1000px;
+        height: auto;
+        overflow: hidden;
+        background-image: url(../imagens/background2.jpg) ;
+        font-family: 'Segoe UI';
+        
+    }
+    #caixa_plataforma{
+        width: 1200px;
+        min-height: 900px;
+        height: auto;
+        overflow: hidden;
+        padding-top: 50px;
+        padding-left: 10px;
+    }
+    #plataforma_mobile{
+        width: 500px;        
+        min-height: 900px;
+        height: auto;
+        overflow: hidden;
+        background-color: #f1f0f0cc;
+        float: left;
+        margin-left: 60px;
+        border-radius: 10px; 
+    } 
+    .fonte_plataforma h2{
+        font-size: 40px;
+        text-align: center;
+        margin-left: 20px;
+        margin-right: 20px;
+        margin-top: 40px;
+        color: #302e2e;
+        font-family: 'Segoe UI';
+    }
+    .fonte_plataforma p{
+        font-size: 23px;
+        text-align: justify;
+        margin-left: 30px;
+        margin-right: 30px;
+        margin-top: 20px;
+        color: #302e2e;
+        font-family: 'Segoe UI';
+    }
+    
+    #imagem_plataforma_mobile{
+        width: 270px;
+        height: 500px;
+        margin-top: 20px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    #plataforma_web{
+        width: 500px;
+        min-height: 900px;
+        height: auto;
+        overflow: hidden;
+        background-color: #f1f0f0cc;
+        float: left;
+        margin-left: 60px;
+        border-radius: 10px;
+    }
+    #imagem_plataforma_web{
+        width: 430px;
+        height: 400px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    /*Funcionalidades*/
+    #conteiner_funcionalidades{
+        width: 100%;
+        height: 500px;
+        background-color: #4E329D;  
+    }
+    
+    #caixa_funcionalidades{
+        width: 1200px;
+        height: inherit;
+    }
+    .funcionalidades{
+        width: 600px;
+        height: inherit;
+        float: left;
+        overflow: auto;
+        line-height: 1.5;
+    
+    }
+        
+    .funcionalidades h2{
+        text-align: center;
+        font-family: 'Segoe UI';
+        color: white;
+        margin-top: 20px;
+    }
+    
+    .funcionalidades ul{
+        text-align: left;        
+        margin-left: 50px;
+        margin-right: 30px;
+        margin-top: 20px;
+        list-style: inside;
+    }
+    
+    .funcionalidades li{
+        margin-top: 10px;
+        font-size: 23px;
+        font-family: 'Segoe UI';
+        color: white;
+    }
+    
+    #video_funcionalidades{
+        width: 600px;
+        height: 400px;
+        margin-top: 55px;
+        margin-left: 0px;
+    }
+
+    /*baixar Aplicação*/
+    #conteiner_baixar_aplicacao{
+        width: 100%;
+        min-height: 500px;
+        height: auto;
+        overflow: hidden;
+        display: flex;
+        background-image: url(../imagens/baixarApp.jpg);
+    }
+
+    #caixa_baixar_aplicacao{
+        width: 1200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    #caixa_baixar_aplicacao p{
+        font-size: 45px;    
+        color: white;
+        font-weight: bold;
+    }
+
+    #caixa_baixar_aplicacao a{
+        width: 300px;
+        font-size: 30px;    
+        color: white;
+        text-align: center;
+        padding: 15px;
+        border: solid 3px white;
+        text-decoration: none;
+        border-radius: 5px;
+        margin-top: 15px;
+    }
+    
+    #caixa_baixar_aplicacao a:hover{
+        transition: 0.2s;
+        color: black;
+        background-color: white;
+        border: solid 3px white;
+    }
+
+
+    
+    /*conteiner_quem_somos*/
+    #conteiner_quem_somos{
+        width: 100%;
+        min-height: 500px;
+        height: auto;
+        overflow: hidden;
+        display: flex;
+        background-color: #edeff5;
+    }
+    
+    #caixa_quem_somos{
+        width: 1200px;
+        line-height: 1.5;
+    }
+    
+    #caixa_texto_quem_somos{
+        width: inherit;
+        height: 280px;   
+        
+    }
+    #caixa_texto_quem_somos h1{
+        text-align: center;
+        font-size: 40px;
+        margin-top: 30px;
+        font-family: 'Segoe UI';
+    }
+    
+    #caixa_texto_quem_somos p{
+        margin-top: 30px;
+        text-align: justify;
+        font-size: 25px;
+        margin-left: 10px;
+        margin-right: 10px;
+        font-family: 'Segoe UI';
+    }
+    
+    #caixa_missao_visao_valores{
+        width: inherit;
+        height: 430px;
+    }
+    
+    .missao_visao_valores{
+        width: 300px;
+        min-height: 200px;
+        height:auto;
+        overflow: hidden;
+        float: left;
+        margin-left: 80px;
+        margin-top: 30px;
+    }
+    .missao_visao_valores_imagem_titulo{
+        width: inherit;
+        height: 80px;
+        border-bottom: solid 8px #281c4a;
+    }
+    
+    .missao_visao_valores_imagem{
+        width: 60px;
+        height: 60px;
+        float: left;
+    }
+    .missao_visao_valores_titulo{
+        width: 200px;
+        height: 80px;
+        float: left;
+        padding-top: 10px;
+    }
+    .missao_visao_valores_titulo h2{
+        color: #281c4a;
+        font-family: 'Segoe UI';
+        text-align: center;
+        font-size: 36px;
+    }
+    
+    .missao_visao_valores_texto{
+        width: inherit;
+        min-height: 200px;
+        height: auto;
+        overflow: hidden;
+        padding-top: 15px;
+        /*font*/
+        color: #281c4a;
+        font-size: 24px;
+        text-align: center;
+        font-family: 'Segoe UI';
+    }
+    
+    /*Fale conosco*/
+    #conteiner_fale_conosco{
+        width: 100%;
+        min-height: 500px;
+        height: auto;
+        overflow: hidden;
+        background-color: #edeff5;
+    }
+    
+    #caixa_fale_conosco{
+        width: 1200px;
+        min-height: 600px;
+        height: auto;
+        overflow: hidden;
+        background-color: #edeff5;
+    }
+    #imagem_fale_conosco{
+        width: inherit;
+        height: 600px;
+        background-image: url(../imagens/background3.jpg);
+        background-repeat: no-repeat;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        background-size: cover;
+        -o-background-size: cover;
+    }
+    
+    #fale_conosco_box{
+        width: inherit;
+        height: 400px;
+        background-color: #ECEBF3;
+    }
+    
+    #fale_conosco_box p{
+        font-size: 35px; 
+        margin-right: 700px;
+        margin-left: 100px;
+        margin-top: 60px;
+        float: left;
+        text-align: justify;
+        color: rgb(37, 47, 82);
+        font-family: 'Segoe UI';
+    }
+    
+    #fale_conosco{
+        width: 500px;
+        height: 760px;
+        float: left;
+        overflow: hidden;
+        margin-left: 675px;
+        margin-top: -715px;
+        background-color: rgb(206, 207, 216);
+        border-radius: 10px;
+        box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.287);
+    }
+    
+    #titulo_fale_conosco{
+        width: inherit;
+        height: 80px;
+        background-color: rgb(82, 55, 156);
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.603);
+        padding-top: 20px;
+        padding-left: 30px;
+        /*font*/
+        font-family: 'Segoe UI';
+        font-size: 30px;
+        color: white;
+    }
+    
+    #form_fale_conosco{
+        width: inherit;
+        min-height: 200px;
+        height: auto;
+        overflow: hidden;
+        padding-left: 30px;
+        padding-top: 25px;
+        z-index: 1;
+        /*font*/
+        font-size: 20px;
+        font-family: 'Segoe UI';
+    }
+    
+    .textArea_fale_conosco{
+        height: 200px !important;
+    }
+    #caixa_botao_fale_conosco{
+        width: inherit;
+        height: 105px;
+        padding-left:  100px;
+        padding-top: 10px;
+    }
+    
+    #botao_fale_conosco{
+        width: 300px;
+        height: 80px;
+        outline: none;
+        border: none;
+        border-radius: 5px;
+        background-image: linear-gradient(rgb(131, 68, 204),rgb(92, 69, 236));
+        font-family: 'Segoe UI';
+        font-size: 30px;
+        color:white;
+        box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.397);
+    }
+    
+    /*footer*/
+    #footer_landing_page{
+        width: 100%;
+        height: 100px;
+        background-color: rgb(15, 13, 28);
+    }
+    
+    #pre_footer{
+        width: 100%;
+        min-height: 200px;
+        height: auto;
+        overflow: hidden;
+        background-color: rgb(33, 29, 54);
+    }
+    
+    #imagem_logo_footer{
+        width: 350px;
+        height: 100px;
+        margin-top: 20px;
+        margin-left: 30px;
+    }
+    
+    .footer{
+        width: 1200px;
+        min-height: 100px;
+        height: auto;
+        overflow: hidden;
+        padding-left: 380px;
+    }
+    .footer p{
+        font-family: 'Segoe UI';
+        color: white;
+        font-size: 20px;
+        margin-left: 130px;
+        margin-top: 15px;
+    }
+
+    .footericon{
+        width: 100%;
+        min-height: 100px;
+        height: auto;
+        overflow: hidden;
+        padding: 0px !important;
+        
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        align-items: center;
+    }
+    
+    .rede_social{
+        width: 60px;
+        height: 60px;
+        margin-top: 20px;
+        margin-left: 50px;
+        float: left;
+    }
+    
+/* } */
+
+@media (max-width: 992px) {
+    
+    .conteiner_menu{
+        width: 100%;
+        height: 90px;
+        z-index: 950;
+        position: fixed;
+        background-color: #202174;
+        line-height: 1.2;
+        color: rgb(6, 6, 185);
+        font-size: 1em;
+    }
+    #espaco_landing{
+        width: 100%;
+        height: 90px;
+    }
+    #ul_menu{
+        width: inherit;
+        height: inherit;    
+        box-sizing: border-box;
+        list-style: none;
+        
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .item_menu{
+        max-width: 150px;    
+        height: 50px;
+        float: left;
+        font-size: 1.2em;
+        padding: 0px;
+        padding-left: 0px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    #linhar_item{
+        margin: 0px;
+    }
+    .sumir{
+        display: none;
+    }
+    #botao_entrar_menu{
+        display: none;
+    }
+
+    #img_menu{
+        display: none;
+    }
+
+    #img_menu_mobile{
+        width: 70px;
+        height: 70px;
+        display: block;
+        float: left;
+        margin: 0px !important;
+    }
+    
+    /*HEADER RESPOSIVO*/
+
+    #caixa_header{
+        width: 100%;
+        min-height: 100px;
+        height: auto;
+        overflow: hidden;
+        background-image: url(../imagens/background1.jpg);
+        background-size: cover;
+    }
+    
+    #headerlanding_page{
+        width: inherit;
+        height: 350px;
+        z-index: 999;
+        display: flex;
+        align-items: center;
+    }
+    
+    #titulo_header{
+        max-width: 280px;
+        height: 250px;
+        margin-left: auto;
+        margin-right: 10px;
+        padding-top: 0px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
+
+    #titulo_header{
+        font-family: 'Segoe UI';
+        text-align: center;
+        font-size: 1.5em;
+
+        color: white;
+    }
+
+    /*Aplicacao reponsivo*/
+
+    #caixa_aplicacao{
+        width: 100%;
+        min-height: 490px;
+        height: auto;
+        background-color: #404f9d;
+        display: flex;
+    }
+    
+    #aplicacao{
+        max-width: 1200px;
+        box-sizing: border-box;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    #imagem_logo_aplicacao{
+        width: 80vw;
+        height: 20vh;
+        /* height: 120px; */
+        text-align: center;
+        margin-top: 100px;
+    }
+    .sumirdagrande{
+        display: block;
+    }
+    #texto_aplicacao{
+        width: 100%;
+        min-height: 100px;
+        height: auto;
+    }
+    
+    .vertical_center{
+        position: initial;
+    }
+    #aplicacao h2{
+        font-size: 40px;
+        color: white;
+        font-family: 'Segoe UI';
+        text-align: center;
+    }
+    
+    #texto_aplicacao p{
+        font-size: 1.5em;
+        text-align: justify;
+        color: white;
+        margin-left: 30px;
+        margin-right: 30px;
+        font-family: 'Segoe UI';
+        
+    }
+
+
+    /* resposivo plataforma */
+
+    #container_plataforma{
+        width: 100%;
+        min-height: 1000px;
+        height: auto;
+        
+        overflow: hidden;
+        background-image: url(../imagens/background2.jpg) ;
+        font-family: 'Segoe UI';
+    }
+    #caixa_plataforma{
+        width: 100%;
+        min-height: 900px;
+        height: auto;
+        overflow: hidden;
+        display: flex;
+        flex-wrap: wrap;
+        padding-left: 0px !important;
+        padding-top: 10px !important;
+        justify-content: center;
+        padding-bottom: 50px;
+    }
+    #plataforma_mobile{
+        max-width: 400px;        
+        min-height: 900px;
+        height: auto;
+        overflow: hidden;
+        margin-top: 20px;
+        margin-left: 0px !important;
+        border-radius: 10px;
+    } 
+    .fonte_plataforma h2{
+        font-size: 40px;
+        text-align: center;
+        color: #302e2e;
+        font-family: 'Segoe UI';
+    }
+    .fonte_plataforma p{
+        font-size: 23px;
+        text-align: justify;
+        margin-left: 30px;
+        margin-right: 30px;
+        margin-top: 20px;
+        color: #302e2e;
+        font-family: 'Segoe UI';
+    }
+    .center{
+        margin: 0px !important;
+    }
+    #imagem_plataforma_mobile{
+        width: 270px;
+        height: 500px;
+        margin-top: 20px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    #plataforma_web{
+        max-width: 400px;
+        min-height: 900px;
+        height: auto;
+        margin-left: 0px !important;
+        overflow: hidden;
+        background-color: #f1f0f0e3;
+        border-radius: 10px;
+        margin-left: 10px;
+        margin-top: 20px;
+    }
+    #imagem_plataforma_web{
+        width: 100%;
+        height: 400px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    /*Responsivo Funcionalidades*/
+    #conteiner_funcionalidades{
+        width: 100%;
+        min-height: 500px;
+        height: auto;
+        display: flex;
+        background-color: #4E329D;  
+    }
+    
+    #caixa_funcionalidades{
+        widows: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+    }
+    .funcionalidades{
+        width: 100%;
+        height: inherit;
+        overflow: auto;
+        line-height: 1.5;
+    
+    }
+        
+    .funcionalidades h2{
+        text-align: center;
+        font-family: 'Segoe UI';
+        color: white;
+        margin-top: 20px;
+    }
+    
+    .funcionalidades ul{
+        text-align: left;        
+        margin-left: 50px;
+        margin-right: 30px;
+        margin-top: 20px;
+        list-style: inside;
+    }
+    
+    .funcionalidades li{
+        margin-top: 10px;
+        font-size: 23px;
+        font-family: 'Segoe UI';
+        color: white;
+    }
+    
+    #video_funcionalidades{
+        width: 100%;
+        height: 400px;
+        margin-top: 55px;
+        margin-left: 0px;
+    }
+
+
+     /*responsivo baixar Aplicação*/
+     #conteiner_baixar_aplicacao{
+        width: 100%;
+        min-height: 400px;
+        height: auto;
+        overflow: hidden;
+        display: flex;
+        background-color: blueviolet !important;
+        background-image: none;
+    }
+
+    #caixa_baixar_aplicacao{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    #caixa_baixar_aplicacao p{
+        font-size: 1.5em;    
+        margin: 5px;
+        color: white;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    #caixa_baixar_aplicacao a{
+        width: 250px;
+        font-size: 23px;    
+        color: white;
+        text-align: center;
+        padding: 15px;
+        border: solid 3px white;
+        text-decoration: none;
+        border-radius: 5px;
+        margin-top: 15px;
+    }
+    
+    #caixa_baixar_aplicacao a:hover{
+        transition: 0.2s;
+        color: black;
+        background-color: white;
+        border: solid 3px white;
+    }
+
+
+    /*responsivo conteiner_quem_somos*/
+    #conteiner_quem_somos{
+        width: 100%;
+        min-height: 500px;
+        height: auto;
+        overflow: hidden;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        background-color: #edeff5;
+    }
+    
+    #caixa_quem_somos{
+        width: 100%;
+        line-height: 1.5;
+    }
+    
+    #caixa_texto_quem_somos{
+        width: inherit;
+        min-height: 280px;   
+        height: auto;
+        overflow: hidden;
+    }
+    #caixa_texto_quem_somos h1{
+        text-align: center;
+        font-size: 2.5em;
+        margin-top: 30px;
+        font-family: 'Segoe UI';
+    }
+    
+    #caixa_texto_quem_somos p{
+        margin-top: 30px;
+        text-align: justify;
+        font-size: 1.2em;
+        margin: 20px;
+        font-family: 'Segoe UI';
+    }
+    
+    #caixa_missao_visao_valores{
+        max-width: 100%;
+        min-height: 430px;
+        height: auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .missao_visao_valores{
+        max-width: 300px;
+        min-height: 200px;
+        height:auto;
+        overflow: hidden;
+        margin-top: 30px;
+        margin-left: 15px !important;
+    }
+    .missao_visao_valores_imagem_titulo{
+        width: inherit;
+        height: 80px;
+        border-bottom: solid 5px #281c4a;
+    }
+    
+    .missao_visao_valores_imagem{
+        width: 60px;
+        height: 60px;
+        float: left;
+    }
+    .missao_visao_valores_titulo{
+        width: 200px;
+        height: 80px;
+        float: left;
+        padding-top: 10px;
+    }
+    .missao_visao_valores_titulo h2{
+        color: #281c4a;
+        font-family: 'Segoe UI';
+        text-align: center;
+        font-size: 2em;
+    }
+    
+    .missao_visao_valores_texto{
+        width: inherit;
+        min-height: 200px;
+        height: auto;
+        overflow: hidden;
+        padding-top: 15px;
+        /*font*/
+        color: #281c4a;
+        font-size: 1.2em;
+        text-align: center;
+        font-family: 'Segoe UI';
+    }
+
+
+
+
+    /* responcivo Fale conosco*/
+    #conteiner_fale_conosco{
+        width: 100%;
+        min-height: 500px;
+        height: auto;
+        overflow: hidden;
+        background-color: #edeff5;
+    }
+
+    #caixa_fale_conosco{
+        width: 100%;
+        min-height: 600px;
+        height: auto;
+        overflow: hidden;
+        background-color: #edeff5;
+    }
+    #imagem_fale_conosco{
+        width: inherit;
+        height: 500px;
+        background-image: url(../imagens/background3.jpg);
+        background-repeat: no-repeat;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        background-size: cover;
+        -o-background-size: cover;
+    }
+
+    #fale_conosco_box{
+        width: inherit;
+        height: 400px;
+        background-color: #ECEBF3;
+        display: flex;
+        justify-content: center;
+    }
+
+    #fale_conosco_box p{
+       display: none;
+    }
+
+    #fale_conosco{
+        width: 380px;
+        height: 760px;
+        float: left;
+        overflow: hidden;
+        margin-top: -400px;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: rgb(206, 207, 216);
+        border-radius: 10px;
+        box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.287);
+    }
+
+    #titulo_fale_conosco{
+        width: inherit;
+        min-height: 80px;
+        height: auto;
+        background-color: rgb(82, 55, 156);
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.603);
+        padding-top: 20px;
+        padding-left: 30px;
+        /*font*/
+        font-family: 'Segoe UI';
+        font-size: 1.4em;
+        color: white;
+    }
+
+    #form_fale_conosco{
+        width: inherit;
+        min-height: 200px;
+        height: auto;
+        overflow: hidden;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-top: 25px;
+        
+        z-index: 1;
+        /*font*/
+        font-size: 20px;
+        font-family: 'Segoe UI';
+    }
+
+    .textArea_fale_conosco{
+        height: 200px !important;
+    }
+    #caixa_botao_fale_conosco{
+        width: inherit;
+        height: 105px;
+        padding-left:  50px;
+        padding-top: 10px;
+    }
+
+    #botao_fale_conosco{
+        width: 300px;
+        height: 80px;
+        outline: none;
+        border: none;
+        border-radius: 5px;
+        background-image: linear-gradient(rgb(131, 68, 204),rgb(92, 69, 236));
+        font-family: 'Segoe UI';
+        font-size: 30px;
+        color:white;
+        box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.397);
+    }
+
+
+    /*footer*/
+    #footer_landing_page{
+        width: 100%;
+        height: 100px;
+        background-color: rgb(15, 13, 28);
+       
+    }
+    
+    #pre_footer{
+        width: 100%;
+        min-height: 200px;
+        height: auto;
+        overflow: hidden;
+        background-color: rgb(33, 29, 54);
+        
+       
+    }
+    
+    #imagem_logo_footer{
+        width: 350px;
+        height: 100px;
+        margin: 0px !important;
+    }
+    
+    .footer{
+        width: 100%;
+        min-height: 100px;
+        height: auto;
+        overflow: hidden;
+        padding: 0px !important;
+        padding-top: 20px !important;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footericon{
+        width: 100%;
+        min-height: 100px;
+        height: auto;
+        overflow: hidden;
+        padding: 0px !important;
+        
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        align-items: center;
+    }
+
+
+    .footer p{
+        font-family: 'Segoe UI';
+        color: white;
+        font-size: 1.2em;
+        margin-left: 50px;
+        margin-top: 15px;
+    }
+    .rede_social{
+        width: 50px;
+        height: 50px;
+        margin-top: 0px !important;
+        margin-right: 0px !important;
+        margin-left: 20px;
+    }
+
+}

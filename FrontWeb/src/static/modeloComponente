@@ -1,0 +1,12 @@
+<div className="body-sistema">
+    <HeaderSistema></HeaderSistema>
+    <div className="align"></div>
+        <div className="container-all d-inline container-fluid bg-light">
+            <MenuLateral></MenuLateral>
+            <div className="container-conteudo float-left">
+                <div className="container shadow rounded box-conteudo bg-white">
+                </div>          
+            </div>
+        </div>
+    </div>    
+</div>

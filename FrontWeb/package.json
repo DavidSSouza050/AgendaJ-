@@ -1,0 +1,44 @@
+{
+  "name": "projeto_",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "axios": "^0.19.0",
+    "bootstrap": "^4.3.1",
+    "cnpj": "^3.0.0",
+    "dateformat": "^3.0.3",
+    "fecha": "^3.0.3",
+    "prop-types": "^15.7.2",
+    "react": "^16.9.0",
+    "react-anchor-link-smooth-scroll": "^1.0.12",
+    "react-bootstrap": "^1.0.0-beta.12",
+    "react-dom": "^16.9.0",
+    "react-input-mask": "^2.0.4",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "3.1.1",
+    "sha1": "^1.1.1",
+    "sha512md": "^1.0.0",
+    "uws": "^100.0.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

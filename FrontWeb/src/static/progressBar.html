@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">,
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.css"/>
+    <title>Document</title>
+</head>
+<style>
+    /*progressbar*/
+    #progressbar {
+        text-align: center;
+        margin-bottom: 30px;
+        overflow: hidden;
+        /*CSS counters to number the steps*/
+        counter-reset: step;
+        font-family: 'Segoe UI';
+    }
+
+    /* Texto da ProgressBar*/
+    #progressbar li {
+        list-style-type: none;
+        text-transform: uppercase;
+        color: rgb(72, 66, 78);
+        font-weight: bold;
+        font-size: 15px;
+        width: 33.33%;
+        float: left;
+        position: relative;
+        letter-spacing: 1px;
+    }
+
+    /*Bolinha ProgressBar*/
+    #progressbar li:before {
+        content: counter(step);
+        counter-increment: step;
+        width: 30px;
+        height: 30px;
+        line-height: 26px;
+        display: block;
+        font-size: 17px;
+        color: #333;
+        background: rgb(189, 189, 189);
+        border-radius: 25px;
+        padding-top: 1px;
+        margin: 0 auto 10px auto;
+
+    }
+
+    /*linha da ProgressBar*/
+    #progressbar li:after {
+        content: '';
+        width: 100%;
+        height: 2px;
+        background: rgb(26, 26, 26);
+        position: absolute;
+        left: -50%;
+        font-size: 80px;
+        top: 15px;
+        z-index: -1; /*put it behind the numbers*/
+    }
+
+    #progressbar li:first-child:after {
+        /*connector not needed before the first step*/
+        content: none;
+    }
+
+    /* Quando o documento foi Ativo*/
+    #progressbar li.active:before, #progressbar li.active:after {
+        transition: transform 5s;
+        background: rgb(117, 71, 202);
+        color: white;
+    }
+
+</style>
+<body>
+        <!-- Passos da ProgressBar -->
+        <ul id="progressbar">
+            <li class="active">Sobre o Funcionario</li>
+            <li class="active">Carga Horária</li>
+            <li class="active">Salário</li>
+        </ul>
+    
+</body>
+</html>

@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="imagens/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="css/reset.css"/>
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
+    <title>Document</title>
+    <style>
+        body{
+            background-color: #e9eaec;
+        }
+
+        header{
+            min-height: 8vh;
+            height: auto;
+            overflow: hidden;
+            width: 100%;
+            background-color: #5a3caa;
+            position: fixed;
+            z-index: 999;
+        }
+        
+        .align{
+            height: 8vh;
+            width: 100%;
+        }
+
+        .imgLogo{
+            height: 7vh;
+            width: auto;
+        }
+
+        .menu-sistema{
+            width: 350px;
+            min-height: 100%;
+            position: fixed;
+            height: auto;
+            background-color: #423a63;
+        }
+
+        #dados-usuario{
+            background-color: #423a63;
+            height: 190px;
+        }
+
+        .title{
+            font-size: 1em;
+        }
+
+        .float-left{
+            float: left;
+        }
+
+        .circulo{
+            width: 80px;
+            height: 80px;
+        }
+
+        .dados{
+            height: 60%;
+        }
+
+        .center-full{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .border-box{
+            box-sizing: border-box;
+        }
+
+        .font-size-dados{
+            font-size: 1em;
+        }
+
+        .img-logout{
+            width: 20px;
+            height: 20px;
+        }
+
+        .container-all{
+            width: 100%;
+            min-height: 100%;
+            height: auto;
+            overflow: auto;
+            padding: 0;
+        }
+        
+        .card-header-size{
+            height: 45px;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            padding-left: 15px;
+            background-color: #462e72;
+        }
+
+        nav{
+            background-color: #2d2646;
+        }
+
+        .card-body-color{
+            background-color: #6c499b;
+        }
+
+        .icone{
+            width: 18px;
+            height: 18px;
+            margin-top: -4px;
+            margin-right: 10px;
+        }
+
+        .seta1{
+            margin-left:180px
+        }
+
+        .seta2{
+            margin-left:156px
+        }
+
+        .container-conteudo{
+            width: 80.9vw;
+            height: 100%;
+            padding-bottom: 100px;
+            position: absolute;
+            margin-left: 350px;
+        }
+
+        .box-conteudo{
+            width: 100%;
+            min-height: 600px;
+            height: auto;
+            overflow: hidden;
+            margin-top: 100px;
+            box-sizing: border-box;
+            padding:50px;
+        }
+
+        #titulo-seja-bem-vindo{
+            height: 125px;
+        }
+
+        #caixa-info{
+            height: 500px;
+        }
+
+        .container-menu{
+            width: 100%;
+        }
+
+        .font-lista{
+            font-size:23px;
+        }
+
+    
+    </style>
+</head>
+<body>
+    <!-- Header do Sistema com o logo  -->
+    <header class="container-fluid shadow">
+        <div class="w-25 h-75 ml-4 pt-2">
+            <figure>
+                <img class="imgLogo img-fluid" src="imagens/versaoFinalLogoAgendaJa.png" alt="logocompleto"/>
+            </figure>
+        </div>
+    </header>
+    <div class="align"></div>
+    <div class="container-all d-inline container-fluid bg-light">
+        <div class="menu-sistema float-left h-100 bg-white">
+            <div class="w-100" id="dados-usuario">
+                <div class="text-white pt-2 pl-4">
+                    <h5> Informações</h5>
+                </div>
+                <div class="w-100 dados">
+                    <div class="h-100 center-full w-25 float-left">
+                        <div class="circulo align-self-center shadow bg-light rounded-circle">
+                            <figure>
+                            </figure>    
+                        </div>
+                    </div>
+                    <div class="h-100 w-75 d-block float-left">
+                        <div class="h-50 w-100 mt-3 pl-3 pt-1 text-white">
+                            <p><strong>Nome:</strong> Salão do Fulano</p>
+                            <p><strong>Agendamentos Pendentes:</strong> 25</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="h-25 d-flex flex-row-reverse w-100">
+                    <div class="w-50 h-50">
+                        <div class="w-25 h-100 pl-3 pb-2 float-left"> 
+                            <figure>
+                                <img class="img-logout" src="icones/logout.png" alt="logout"/>
+                            </figure>
+                        </div>
+                        <div class="w-75 h-100 float-left font-weight-bold text-white"> 
+                            Sair do Sistema 
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <nav class="w-100 h-100">
+                <div class="text-white pt-2 pl-4">
+                    <h5> Menu</h5>
+                </div>
+                <div class="container-menu" id="menu">
+                    <div class="card border-2">
+                        <div class="card-header card-header-size" id="headingOne">
+                        <h5 class="mb-0">
+                            <button class="btn text-white" type="button-link">
+                                <img class="icone" src="icones/home.png" alt="icone-home"/>
+                                Home
+                            </button>
+                        </h5>
+                        </div>
+                    </div>
+                    <div class="accordion" id="accordion">
+                        <div class="card m-0 border-2 text-white shadow-sm">
+                            <div class="card-header card-header-size" id="headingOne">
+                                <h5 class="mb-0">
+                                    <button class="btn text-white" type="button-link">
+                                        <img class="icone" src="icones/servicos.png" alt="icone-servicos"/>
+                                        Serviços
+                                    </button>
+                                </h5>
+                                <span class="seta1">
+                                    <img class="icone" src="icones/seta-para-baixo.png" alt="icone-seta-para-baixo"/>
+                                </span>
+                            </div>
+                            <div id="collapseOne" class="collapse show">
+                                <ul class="card-body-color card-header">
+                                    <li>
+                                        <div class="btn btn-link text-white" type="button-link">
+                                            Cadastro de Serviços
+                                        </div>
+                                    </li>  
+                                    <li>
+                                        <div class="btn btn-link text-white" type="button-link">
+                                            Lista de Serviços
+                                        </div>
+                                    </li>   
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card border-2 text-white shadow-sm">
+                            <div class="card-header card-header-size" id="headingOne">
+                                <h5 class="mb-0">
+                                    <button class="btn text-white" type="button-link">
+                                        <img class="icone" src="icones/funcionario.png" alt="icone-funcionario"/>
+                                        Funcionário
+                                    </button>
+                                </h5>
+                                <span class="seta2">
+                                    <img class="icone" src="icones/seta-para-baixo.png" alt="icone-seta-para-baixo"/>
+                                </span>
+                            </div>
+                            <div id="collapseOne" class="collapse show">
+                                <ul class="card-body-color card-header">
+                                    <li>
+                                        <div class="btn btn-link text-white" type="button-link">
+                                            Cadastro de Funcionário
+                                        </div>
+                                    </li>  
+                                    <li>
+                                        <div class="btn btn-link text-white" type="button-link">
+                                            Lista de Funcionários
+                                        </div>
+                                    </li>   
+                                </ul>
+                            </div>
+                        </div>
+                    </div>    
+                    <div class="card border-2 shadow-sm">
+                        <div class="card-header-size card-header" id="headingOne">
+                            <h5 class="mb-0">
+                                <button class="btn text-white" type="button-link">
+                                    <img class="icone" src="icones/portifolio.png" alt="icone-portifolio"/>
+                                    Portifólio
+                                </button>
+                            </h5>
+                        </div>
+                    </div>
+                    <div class="card border-2 shadow-sm">
+                        <div class="card-header-size card-header" id="headingOne">
+                            <h5 class="mb-0">
+                                <button class="btn text-white" type="button-link">
+                                    <img class="icone" src="icones/dados.png" alt="icone-dados"/>
+                                    Dados do Estabelecimento
+                                </button>
+                            </h5>
+                        </div>
+                    </div>
+                    <div class="card border-2 shadow-sm">
+                        <div class="card-header-size card-header" id="headingOne">
+                            <h5 class="mb-0">
+                                <button class="btn text-white" type="button-link">
+                                    <img class="icone" src="icones/agendamentos.png" alt="icone-agendamentos"/>
+                                    Agendamentos Pendentes
+                                </button>
+                            </h5>
+                        </div>
+                    </div>
+                    <div class="card border-2 shadow-sm">
+                        <div class="card-header-size card-header" id="headingOne">
+                            <h5 class="mb-0">
+                                <button class="btn text-white" type="button-link">
+                                    <img class="icone" src="icones/avaliacoes.png" alt="icone-avaliações"/>
+                                    Avaliações 
+                                </button>
+                            </h5>
+                        </div>
+                    </div>
+                    <div class="card border-2 shadow-sm">
+                        <div class="card-header-size card-header" id="headingOne">
+                            <h5 class="mb-0">
+                                <button class="btn text-white" type="button-link">
+                                    <img class="icone" src="icones/historico.png" alt="icone-historico"/>
+                                    Histórico de Agendamentos 
+                                </button>
+                            </h5>
+                         </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div class="container-conteudo float-left">
+            <div class="container shadow rounded box-conteudo bg-white">
+                <div class="row-12 center-full" id="titulo-seja-bem-vindo">
+                    <div class="col-6 text-center text-dark h-75">
+                        <h1>Seja Bem Vindo ao Sistema AgendaJá!</h1>
+                    </div>
+                </div>
+                <div class="row-12 padding center-full" id="caixa-info">
+                    <div class="row-5 bg-light shadow-sm rounded-sm w-50 h-75 border float-left mr-5">
+                        <div class="col-12 center-full h-25">
+                            <div class="row-5 text-dark text-center w-100 h-100 pt-3">
+                                <h4>Os primeiros passos para começar a gerenciar seus agendamentos são:</h4>
+                            </div>
+                        </div>
+                        <div class="col-12 h-75">
+                            <div class="row-6 pl-3 h-100">
+                                <ul class="lead mt-2">
+                                    <li class="font-lista mt-2">Informar os serviços realizados no seu estabelecimento;</li>
+                                    <li class="font-lista mt-2">Cadastrar sua equipe de funcionários;</li>
+                                    <li class="font-lista mt-2">Realizar o Upload das fotos do portifólio do seu negócio;</li>
+                                    <li class="font-lista mt-2">Agardar os agendamentos;</li>
+                                </ul>   
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row-5 bg-light shadow-sm rounded-sm w-25 h-75 border float-left ml-5">
+                        <div class="col-12 h-25 text-dark text-center pt-1">
+                            <h4>
+                                Link para as principais ferramentas
+                            </h4>
+                        </div>
+                        <div class="col-12 h-75">
+                            <div class="row-6 pl-3 h-100">
+                                <ul class="lead mt-2">
+                                    <li class="font-lista mt-2">Serviços<li>
+                                    <li class="font-lista mt-2">Funcionário</li>
+                                    <li class="font-lista mt-2">Portifólio</li>
+                                    <li class="font-lista mt-2">Estabelecimento</li>
+                                </ul>   
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>      
+        </div>
+    </div>
+</body>
+</html>

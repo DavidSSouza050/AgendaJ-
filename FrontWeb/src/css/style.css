@@ -1,0 +1,691 @@
+
+.back{
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    font-family: 'Segoe UI';
+}
+.body_sem_roll_bar{
+    overflow: hidden;
+}
+
+.img{
+    width: inherit;
+    height: inherit;
+}
+.hr{
+    width: 93%;
+    height: 2px;
+    background-color:rgb(197, 196, 196);
+    margin-top: 15px;
+    margin-bottom: 18px;
+}
+
+.center{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.vertical_center{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%); 
+}
+
+body{
+    height: 100vh;
+    font-family:  Helvetica, 'Sego UI', Arial, sans-serif;   
+}
+
+    
+.sombra_input{
+    box-shadow: rgba(0, 0, 0, 0.219) 0px 0px 5px;
+}
+/*Estilização escolha_cadastro.html */
+.background_escolha_cadastro{
+    background-image: url(../imagens/background_tipo_cadastro.jpg);
+    font-family: 'Segoe UI';
+}
+
+#container_all_tipo_cadastro{
+    width: 100vw;
+    height: 100vh;        
+}
+
+#header_cadastro{
+    width: inherit;
+    height: 70px;
+    background-color: rgb(33, 29, 54);
+    position: fixed;
+    z-index: 999;
+    margin-bottom: 50px;
+}
+#espaco{
+    width: inherit;
+    height: 70px;
+    margin-bottom: 50px;
+}
+
+#icone_logo{
+    width: 65px;
+    height: 65px;
+}
+
+#logo{
+    width: inherit;
+    height: inherit;
+}
+
+#conteudo_tipo_cadastro{
+    width: 70%;
+    height: 650px; 
+}
+
+.caixa_titulo{
+    height: 60px;
+    width: 100%;
+    text-align: center;
+    margin-top: 50px;
+}
+
+#titulo{
+    font-size: 2.3em;
+    font-weight: bold;
+    color: white;
+    text-shadow: rgba(0,0,0,0.5) 0.1em 0.1em 0.2em;
+}
+
+.caixa_cards{
+    width: 100%;
+    height: 100%;
+    /* background-color: #353266; */
+    display: flex;
+    align-items: center;
+    justify-content: center 
+}
+
+.item_card{
+    width: 375px;
+    height: 450px;
+    border-radius: 8px;
+    margin-left: 35px;
+    margin-top: 20px;
+    float: left;
+    box-shadow:  rgba(0,0,0,0.3) 0px 0px 10px;
+    opacity: 0.85;
+}    
+#espaço_card{
+    margin-right:50px; 
+}
+
+.header_card{
+    width: 100%;
+    height: 60px;
+}
+
+.icone_header_card{
+    width: 60px;
+    height: inherit;
+    float: left;
+}
+
+.title_header_card{
+    width: 220px;
+    height: inherit;
+    float: left;
+    padding-left: 10px;
+    margin-top: 5px;
+    /* background-color: #353266; */
+}
+
+.line{
+    border: 0.5px solid #8a8a8a;
+}
+
+.texto_card{
+    text-align: center;
+    padding-top: 10px;
+    font-size: 1.5em;
+}
+
+.formatacao_titulo_card{
+    font-size: 1.50em;
+    font-weight: bold;
+}
+
+.icones{
+    width: 50px;
+    height: 50px;
+    margin-top: 5px;
+}
+
+#icone_esquerdo_footer{
+    width: 70px;
+    height: 70px;
+    margin-top: 5%;
+}
+
+#icone_direito_footer{
+    width: 70px;
+    height: 70px;
+    margin-left: 80%;
+    margin-top: 15%;
+}
+
+.icone_seta{
+    width: 50px;
+    height: 50px;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+#caixa_botao{
+    width: 170px;
+    height: 60px;
+    z-index: 999;
+    position: absolute;
+    margin-top: 20px;
+    margin-right: 50px;
+
+}
+
+#button{
+    width: 100%;
+    height: 60px;
+    background-color: rgba(255, 0, 0, 0);
+    border: 3px solid rgb(92, 69, 239);
+    border-radius: 50px;
+    box-shadow: rgba(0,0,0, 0.5) 0px 0px 0px;
+    outline: none;
+    font-size: 1.3em;
+    text-align: center;
+    font-weight: bold;
+    color:white;
+}
+
+/* Efeitos escolha_cadastro.html */
+#button:hover{
+    background-color: rgb(92, 69, 239);
+    box-shadow:  rgba(0,0,0, 0.6) 1px 1px 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.item_card:hover{
+    box-shadow:  rgba(0,0,0, 0.4) 1px 1px 15px;
+    cursor: pointer;
+    opacity: 1;
+    transition: 0.2s;
+}
+
+
+.item_card:hover>.card-body>.header_card>.title_header_card>.card-title{
+    color: rgb(36, 60, 138);
+    transition: 0.5s;   
+}
+
+.item_card:hover>.card-body>#icone_esquerdo_footer>.icone_seta{
+    transform: scale(1.1);
+    transition: 0.5s;
+}
+
+.item_card:hover>.card-body>#icone_direito_footer>.icone_seta{
+    transform: scale(1.1);
+    transition: 0.5s;
+}
+
+/*Estilização login.html */
+
+.background_login{
+    background-image: url(../imagens/background_login.jpg);
+    font-family: 'Segoe UI';
+}
+
+#container_all_login{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+#container_form_login{
+    width: 450px;
+    height: 660px;
+    background-color:rgba(255,255,255,0.88);
+    box-shadow:  rgba(0, 0, 0, 0.336) 1px 1px 15px;
+    border-radius: 8px;
+    padding-top: 20px;
+}
+
+#container_titulo_form{
+    width: 100%;
+    height: 12%;
+    text-align: center;
+    font-size: 2.8em;    
+}
+
+#container_titulo_form h3{
+    color: #505055; 
+}
+
+#container_logotipo{
+    width: 100%;
+    height: 100px;
+    /* background-color: #38164e; */
+    margin-top: 25px;
+    margin-bottom: 50px;
+}
+
+#logotipo{
+    width: 350px;
+    height: 100px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%); 
+}
+
+#form_login{
+    width: 100%;
+    height: 500px;
+    padding-left: 50px;
+    padding-right: 50px;
+    margin-bottom: 50px;
+}
+
+.label{
+    font-size:1.2em;
+    color: #505055;  
+}
+
+.caixa_de_texto{
+    box-shadow: rgba(0,0,0, 0.5) 0px 0px 2px;
+}
+
+#div_senha span{
+    margin-top: 10px;
+    text-align: right;
+    color: #505055;
+    font-weight: 500; 
+}
+
+#div_senha span:hover{
+    color: #904abe;
+    cursor: pointer;
+    transition: 0.2s;
+}
+    
+.align_button{
+    padding-top: 60px;
+    text-align: right;
+}
+
+#btn_entrar{
+    background-color: #2b2069;
+    /* border-radius: 50px; */
+    box-shadow: rgba(0,0,0, 0.5) 0px 0px 5px;
+    color: white;
+    margin-bottom:10px;
+}
+
+.align_button span{
+    font-weight: bold;
+}
+
+
+.align_button span:hover{
+    color: #904abe;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+/* Estilização cadastro_estabelecimento.html*/
+.body_cadastro{
+    overflow-x: hidden;
+    background-image: linear-gradient(#374197, #61228b);
+    font-family: 'Segoe UI';
+}
+
+#container_all_cadastro{
+    width: 100vw;
+    height: 100vh;  
+    /* overflow: hidden;       */
+}
+
+
+#conteudo_cadastro{
+    width: 1000px;
+    /*div cresendo automaticamente*/
+    min-height: 500px;
+    height: auto;
+    overflow: hidden;
+    /**/
+    background-color: white;
+    margin-bottom: 50px;
+    border-radius: 10px;
+}
+
+#titulo_cadastro{
+    width: 500px;
+    height: 165px;
+    padding-top: 10px;
+    /*font*/
+    font-size: 48px;
+    text-align: center;
+    color: black;   
+    font-weight: bold; 
+}
+
+.card_informacoes_conta{
+    width: inherit;
+    /*crecer automatico*/
+    min-height: 200px;
+    height: auto;
+    overflow: hidden;
+    display: flex;
+}
+
+.informacoes_conta_esquerda{
+    width: 250px;
+    padding-left: 30px;
+}
+.informacoes_conta_esquerda span{
+    font-weight: bold;
+    font-size: 30px;
+}
+.informacoes_conta_esquerda small{
+    font-size: 15px;
+    color: rgb(103, 104, 102);
+    line-height: 10%;
+}
+
+.informacoes_conta_direita{
+    width: 749px;
+    padding-left: 50px;
+    /*font*/
+    font-size: 17px;
+}
+#caixa_botao_cadastro_estabeleciemento{
+    width: inherit;
+    height: 100px;
+    box-sizing: border-box;
+    padding-left: 640px;
+    padding-top: 15px;
+}
+.botao_cadastro{
+    width: 150px;
+    height: 50px;
+    border-radius: 5px;
+    border:none;
+    outline: none;
+    background-color: #304fb4;
+    color: white;
+    font-size: 20px;
+}
+.botao_cadastro:hover{
+    transition: 0.5s;
+    background-color: #193388;
+}
+.botao_cancelar_cadastro{
+    width: 150px;
+    height: 50px;
+    border-radius: 5px;
+    border:none;
+    outline: none;
+    background-color: #304fb400;
+    color: rgb(131, 131, 131);
+    font-size: 20px;
+}
+
+.botao_cancelar_cadastro:hover{
+    transition: 0.1s;
+    color: rgb(197, 0, 0);
+}
+
+
+.card_modal_escolha{
+    width: 220px;
+    height: 300px;
+    float: left;
+    margin-left: 10px;
+    border-radius: 10px;
+}  
+
+.card_modal_escolha h4{
+    color: black;
+    font-size: 25px;
+    text-align: center;
+    margin-top: 50px;
+}  
+
+.card_modal_escolha:hover{
+    cursor: pointer;
+    transition: 0.2s;
+    background-color: #dad8d8;
+}
+
+
+.imagem_modal_escolha{
+    width: 180px;
+    height: 170px;
+    margin-left:auto;
+    margin-right: auto;
+    margin-top: 5px;
+}
+
+.align_cep_button{
+    margin-top:33px;
+}
+
+.visible{
+    visibility: visible;
+}
+
+.container_cadastrado_com_sucesso{
+    height: 47%; 
+    /* margin-top:80px; */
+}
+
+.texto_cadastrado_com_sucesso{
+    font-size:22px;
+}
+
+.error-message-size{
+    font-size:17px;
+    margin-top:12px;
+}
+
+
+/* Dentro do sistema */
+
+.body-sistema{
+    font-family: 'Segoe UI';
+    overflow: auto;
+    background-color: #e9eaec !important;
+}
+
+.header-sistema{
+    min-height: 8vh;
+    height: auto;
+    overflow: hidden;
+    width: 100%;
+    background-color: #5a3caa;
+    position: fixed;
+    z-index: 999;
+    font-family: 'Segoe UI';
+}
+
+.align{
+    height: 8vh;
+    width: 100%;
+}
+
+.img-logo-sistema{
+    height: 10px;
+    width: auto;
+}
+
+.menu-sistema{
+    width: 350px;
+    min-height: 100%;
+    position: fixed;
+    height: auto;
+    background-color: #423a63;
+    z-index: 999;
+    
+}
+
+#dados-usuario{
+    background-color: #423a63;
+    height: 190px;
+}
+
+.title{
+    font-size: 1em;
+}
+
+.float-left{
+    float: left;
+}
+
+.circulo{
+    width: 110px;
+    height: 110px;
+}
+
+.dados{
+    height: 60%;
+}
+
+.center-full{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.border-box{
+    box-sizing: border-box;
+}
+
+.font-size-dados{
+    font-size: 1em;
+}
+
+.img-logout{
+    width: 20px;
+    height: 20px;
+}
+
+.container-all{
+    width: 100%;
+    min-height: 100%;
+    height: auto;
+    overflow: auto;
+    padding: 0;
+   
+}
+
+.card-header-size{
+    height: 45px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    padding-left: 15px;
+}
+
+nav{
+    background-color: #2d2646;
+}
+
+.card-body-color{
+    background-color: #6c499b;
+}
+
+.icone{
+    width: 18px;
+    height: 18px;
+    margin-top: -4px;
+    margin-right: 10px;
+}
+
+.seta1{
+    margin-left:180px
+}
+
+.seta2{
+    margin-left:156px
+}
+
+.container-conteudo{
+    width: 80.9vw;
+    height: 100%;
+    padding-bottom: 100px;
+    position: absolute;
+    margin-left: 350px;
+}
+
+.box-conteudo{
+    width: 100%;
+    min-height: 600px;
+    height: auto;
+    overflow: hidden;
+    margin-top: 100px;
+    box-sizing: border-box;
+    padding:50px;
+}
+
+#titulo-seja-bem-vindo{
+    height: 125px;
+}
+
+#caixa-info{
+    height: 500px;
+}
+
+.container-menu{
+    width: 100%;
+}
+
+.font-lista{
+    font-size:23px;
+}
+
+.girar-seta{
+    transform: rota;
+    transition: transform 1s;
+}
+
+.card-border{
+    width: 285px;
+    border-color: #b6b6b6;
+    font-size:17px;
+}
+
+.img-finalizar{
+    width: 22px;
+    height: 22px;
+}
+
+.card-border{
+    width: 285px !important;
+    border-color: #b6b6b6 !important;
+    font-size:17px !important;
+}
+
+.img-finalizar{
+    width: 17px;
+    height: 17px;
+}
+
+.padding{
+    padding-left: 75px !important;
+}
+
+.caixa{
+    width:35%;
+}
+
+.caixa2{
+    width:65%;
+}
