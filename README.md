@@ -9,9 +9,9 @@ Os clientes desses estabelecimentos e os profissionais.
 
 ## Tecnologias
 
-Foi Utilizado React para criar o front-end, para melhorar a experiencia do usuario.
-Para o Beck-end foi utilizado String Boot (framework JAVA) para facilitar a criação da API.
-Para o android utilizamos java, pois é uma linguagem consolidada no mercado e tem muitas bibliotecas, ajudando na construção da logica.
+Foi Utilizado ReactJS para criar o Front-End, para melhorar a experiência do usuário.
+Para o Back-End foi utilizado SpringBoot (framework JAVA) para facilitar a criação da API.
+Para o Android utilizamos Java, pois é uma linguagem consolidada no mercado e tem muitas bibliotecas, ajudando no desenvolvimento do App.
 
 ## API
 -- Documentção da Api do agendajá
